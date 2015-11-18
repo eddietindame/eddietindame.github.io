@@ -1,0 +1,134 @@
+#top {
+    height: 100vh;
+}
+
+#header {
+    height: 5vh;
+    background-color: white;
+    margin: none;
+    right: 0;
+    max-width: inherit;
+}
+
+.wrapper {
+    //min-width: 700px;
+    max-width: 1000px;
+    display: inline-block;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#home,
+#about,
+#apps,
+#web,
+#art,
+#study,
+#contact {
+    min-height: 300px;
+    width: 100%;
+    margin: 0;
+    padding: 5vh 0;
+    max-width: 100%;
+    position: relative;
+}
+
+#home {
+    background-color: $mainBlue;
+    height: 95vh;
+    min-height: 800px;
+}
+#about {
+    background-color: aquamarine;
+}
+#apps {
+    background-color: azure;
+}
+#web {
+    background-color: coral;
+}
+#art {
+    background-color: #454545;
+}
+#study {
+    background-color: antiquewhite;
+}
+#contact {
+    background-color: #f3f0ff;
+}
+
+.container {
+    width: 100%;
+    background-color: $mainGreen;
+    position: relative;
+}
+
+#homeLogo {
+    width: 70%; 
+    max-width: 600px;
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+#smallLogo {
+    width: 50px;
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+}
+
+
+
+.webLogo {
+    padding: 10px;
+    width: 100px;
+}
+
+.big-text {
+    font-size: 50pt;
+}
+
+#responsive {
+    width: 900px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.galleria {
+    width: 700px;
+    height: 1000px;
+    display: inline-block;
+}
+
+#facebook path {
+    fill: $facebookBlue;
+}
+#instagram path {
+    fill: $instagramTan;
+}
+#twitter path {
+    fill: $twitterBlue;
+}
+#linkedin path {
+    fill: $linkedinBlue;
+}
+
+
+.burgerButton {
+    width: 50px;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    z-index: 100;
+}

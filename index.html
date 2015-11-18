@@ -1,171 +1,125 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en" class="no-js">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation</title>
-    <link rel="stylesheet" href="stylesheets/app.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <link rel="stylesheet" href="stylesheets/app.css">
     <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/snap.svg.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/svgInline.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
   </head>
   <body>
-    <div class="row">
-      <div class="large-12 columns">
-        <h1>Welcome to Foundation</h1>
+    <div id="top">
+      <!--a(id="simple-menu" href="#sidr")img(class="burgerButton" src="res/burger_button.svg" alt="menu button")
+      -->
+      <div id="home" class="row text-center">
+        <!--.container.column.large-12.small-12.text-center--><img id="homeLogo" src="res/logo_home.svg" alt="ed logo text">
       </div>
-    </div>
-    
-    <div class="row">
-      <div class="large-12 columns">
-        <div class="panel">
-          <h3>We&rsquo;re stoked you want to try Foundation! </h3>
-          <p>To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
-          <p>Once you've exhausted the fun in this document, you should check out:</p>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</p>
-            </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://zurb.com/university/code-skills">Foundation Code Skills</a><br />These online courses offer you a chance to better understand how Foundation works and how you can master it to create awesome projects.</p>
-            </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://foundation.zurb.com/forum">Foundation Forum</a><br />Join the Foundation community to ask a question or show off your knowlege.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-4 medium-4 medium-push-2 columns">
-              <p><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
-            </div>
-            <div class="large-4 medium-4 medium-pull-2 columns">
-              <p><a href="https://twitter.com/ZURBfoundation">@zurbfoundation</a><br />Ping us on Twitter if you have questions. When you build something with this we'd love to see it (and send you a totally boss sticker).</p>
-            </div>        
-          </div>
+      <div id="header" class="row text-center"> 
+        <div class="wrapper"><a href="#home" class="smoothScroll"><img id="smallLogo" src="res/logo_small.svg" alt="ed logo small"></a>
+          <div id="mobile-header"><a id="responsive-menu-button" href="#sidr-main">Menu</a></div>
+          <nav id="navigation">
+            <ul>
+              <li><a href="#about" class="smoothScroll">About</a></li>
+              <li><a href="#apps" class="smoothScroll">Apps</a></li>
+              <li><a href="#web" class="smoothScroll">Web</a></li>
+              <li><a href="#art" class="smoothScroll">Art</a></li>
+              <li><a href="#study" class="smoothScroll">Study</a></li>
+              <li><a href="#contact" class="smoothScroll">Contact</a></li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="large-8 medium-8 columns">
-        <h5>Here&rsquo;s your basic grid:</h5>
-        <!-- Grid Example -->
-
-        <div class="row">
-          <div class="large-12 columns">
-            <div class="callout panel">
-              <p><strong>This is a twelve column section in a row.</strong> Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.</p>
-            </div>
+    <div id="about" class="row text-center">
+      <div class="wrapper">
+        <section class="column large-6 small-12">
+          <p class="text-center">
+            Eddie Tindame <br/><br>
+            Providing creative <mark>Digital Media</mark> solutions for your small business and personal projects. <br/><br/>
+            <mark>Branding</mark>, <br/>
+            <mark>Websites</mark>, <br/>
+            <mark>Apps</mark>, <br/>
+            <mark>Illustration</mark>, <br/><br/>
+            Anything you need to help yourself grow. <br/><br/>
+            In my free time you will find me playing guitar and researching the hidden truths of our universe. <br/><br/>
+            While at work, I like to keep productivity at the forefront with technolgies such as Grunt and Yeoman. <br/>
+          </p>
+        </section>
+        <section class="column large-6 small-12">
+          <p class="big-text">
+            "Branding, <br/>
+            Websites, <br/>
+            Apps, <br/>
+            Illustration." <br/>
+          </p>
+        </section>
+      </div>
+    </div>
+    <div id="apps" class="row">
+      <div class="column large-12"></div>
+    </div>
+    <div id="web" class="row text-center">
+      <div class="wrapper">
+        <div class="column large-12 text-center">
+          <figure><img src="res/html5_flat.svg" alt="html5 logo" class="webLogo top pulse"><img src="res/jade_flat.svg" alt="jade logo" class="webLogo bottom">
+            <!--svg(width="200" height="200"): circle(cx="95",cy="95",r="85",transform="rotate(-90, 95, 95)")-->
+            <figcaption class="top">HTML5</figcaption>
+            <figcaption class="bottom">Jade</figcaption>
+          </figure>
+          <figure><img src="res/css3_flat.svg" alt="css3 logo" class="webLogo top pulse"><img src="res/sass_flat.svg" alt="sass logo" class="webLogo bottom">
+            <figcaption class="top">CSS3</figcaption>
+            <figcaption class="bottom">SASS</figcaption>
+          </figure>
+          <figure><img src="res/js_flat.svg" alt="javascript logo" class="webLogo top pulse"><img src="res/jquery_flat.svg" alt="jquery logo" class="webLogo bottom">
+            <figcaption class="top">JavaScript</figcaption>
+            <figcaption class="bottom">jQuery</figcaption>
+          </figure>
+          <figure><img src="res/foundation5_flat.svg" alt="foundation 5 logo" class="webLogo top pulse"><img src="res/grunt_flat.svg" alt="grunt logo" class="webLogo bottom">
+            <figcaption class="top">Foundation 5</figcaption>
+            <figcaption class="bottom">Grunt</figcaption>
+          </figure>
+          <figure><img src="res/php_flat.svg" alt="php logo" class="webLogo top pulse"><img src="res/node_flat.svg" alt="node js logo" class="webLogo bottom">
+            <figcaption class="top">PHP</figcaption>
+            <figcaption class="bottom">Node.JS</figcaption>
+          </figure><br>
+          <div id="responsive"><img src="res/responsive_diagram.svg" alt="responsive web design diagram">
+            <figcaption>Responsive Web Design</figcaption>
           </div>
-        </div>
-        <div class="row">
-          <div class="large-6 medium-6 columns">
-            <div class="callout panel">
-              <p>Six columns</p>
-            </div>
-          </div>
-          <div class="large-6 medium-6 columns">
-            <div class="callout panel">
-              <p>Six columns</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-        </div>
-        
-        <hr />
-                
-        <h5>We bet you&rsquo;ll need a form somewhere:</h5>
-        <form>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-12.columns" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <div class="row collapse">
-                <label>Input Label</label>
-                <div class="small-9 columns">
-                  <input type="text" placeholder="small-9.columns" />
-                </div>
-                <div class="small-3 columns">
-                  <span class="postfix">.com</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Select Box</label>
-              <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-6 medium-6 columns">
-              <label>Choose Your Favorite</label>
-              <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio 1</label>
-              <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio 2</label>
-            </div>
-            <div class="large-6 medium-6 columns">
-              <label>Check these out</label>
-              <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-              <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Textarea Label</label>
-              <textarea placeholder="small-12.columns"></textarea>
-            </div>
-          </div>
-        </form>
-      </div>     
-
-      <div class="large-4 medium-4 columns">
-        <h5>Try one of these buttons:</h5>
-        <p><a href="#" class="small button">Simple Button</a><br/>
-        <a href="#" class="small radius button">Radius Button</a><br/>
-        <a href="#" class="small round button">Round Button</a><br/>            
-        <a href="#" class="medium success button">Success Btn</a><br/>
-        <a href="#" class="medium alert button">Alert Btn</a><br/>
-        <a href="#" class="medium secondary button">Secondary Btn</a></p>           
-        <div class="panel">
-          <h5>So many components, girl!</h5>
-          <p>A whole kitchen sink of goodies comes with Foundation. Check out the docs to see them all, along with details on making them your own.</p>
-          <a href="http://foundation.zurb.com/docs/" class="small button">Go to Foundation Docs</a>          
         </div>
       </div>
     </div>
-
+    <div id="art" class="row">
+      <div class="column large-12 text-center">
+        <div class="fotorama"><img src="res/art/golem.jpg"><img src="res/art/poo.jpg"><img src="res/art/poop.jpg"></div>
+      </div>
+    </div>
+    <div id="study" class="row">
+      <div class="column large-12"></div>
+    </div>
+    <div id="contact" class="row text-center">
+      <div class="wrapper">
+        <div class="column large-12 small-12">
+          <figure><a href="https://www.facebook.com"><img id="facebook" src="res/facebook_flat.svg" alt="facebook logo" class="webLogo">
+              <figcaption>Facebook</figcaption></a></figure>
+          <figure><a href="https://www.instagram.com"><img id="instagram" src="res/instagram_flat.svg" alt="instagram logo" class="webLogo">
+              <figcaption>Instagram</figcaption></a></figure>
+          <figure><a href="https://www.twitter.com"><img id="twitter" src="res/twitter_flat.svg" alt="twitter logo" class="webLogo">
+              <figcaption>Twitter</figcaption></a></figure>
+          <figure><a href="https://www.linkedin.com"><img id="linkedin" src="res/linkedin_flat.svg" alt="Linked in logo" class="webLogo">
+              <figcaption>LinkedIn</figcaption></a></figure><a href="mailto:eddie.tindame@googlemail.com">   
+            <h1>eddie.tindame@googlemail.com</h1></a>
+        </div>
+      </div>
+    </div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/jquery.sidr.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

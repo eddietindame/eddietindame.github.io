@@ -1,0 +1,29 @@
+doctype html
+html(class="no-js" lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title portfolio
+    link(rel="stylesheet" href="stylesheets/app.css")
+    script(src="bower_components/modernizr/modernizr.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+    script(src="js/snap.svg.js")
+    script(src="js/smoothscroll.js")
+    script(src="js/svgInline.js")
+    
+    link(href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet")
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js")
+
+  body
+    include includes/header
+    include includes/about
+    include includes/apps
+    include includes/web
+    include includes/art
+    include includes/study
+    include includes/contact
+    
+    script(src="bower_components/jquery/dist/jquery.min.js")
+    script(src="bower_components/foundation/js/foundation.min.js")
+    script(src="js/jquery.sidr.min.js")
+    script(src="js/app.js")

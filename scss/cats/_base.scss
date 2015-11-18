@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Share Tech Mono';
+}
+
+a {
+    color: black;
+    &:visited {
+        color: black;
+    }
+    &:hover {
+        color: black;
+    }
+    &:active {
+        color: black;
+    }
+} 
+
+h1 {
+    //display: inline-block;
+    font-family: 'Share Tech Mono';
+    text-align: center;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+nav {
+    padding: 18px 0;
+    min-width: 700px;
+    max-width: 1000px;
+    a {
+        padding: 0 5%;
+    }
+}
+
+ul {
+    margin-top: 10px;
+    display: inline;
+}
+
+li {
+    list-style-type: none;
+    padding: 10px 0;
+    display: inline;
+}
+
+figure img {
+    width: $figureSize;
+    height: $figureSize;
+}
+
+mark {
+    background-color: black;
+    color: aquamarine;
+}
+
+figure {
+    position: relative;
+    text-align: center;
+    width: $figureSize;
+    height: 200px;
+    display: inline-block;
+    .webLogo {
+        position: absolute;
+        top: 0;
+        left:  50%;
+        transform: translate(-50%,0);
+        padding: 10px;
+        width: 100px;
+        min-width: 100px;
+    }  
+    figcaption {
+        position: absolute;
+        top: 60%;
+        left:  50%;
+        transform: translate(-50%,-50%);
+        width: 120px;
+    }
+    .top, .bottom {
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -o-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+    }
+    .bottom {
+        opacity: 0;
+    }
+    &:hover .bottom {
+        opacity: 100;
+    }
+    &:hover .top {
+        opacity: 0;
+    }
+}

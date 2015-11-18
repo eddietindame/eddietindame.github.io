@@ -1,0 +1,18 @@
+{
+  "name": "yoProject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eddie Tindame",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compass": "^1.0.2",
+    "grunt-contrib-jade": "^0.14.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-express": "^1.4.1",
+    "grunt-open": "^0.2.3"
+  }
+}
