@@ -8,6 +8,10 @@ $(document).ready(function($) {
       source: '#navigation'
     });
     
+    $('body').on("click",function(e) {
+       $.sidr('close','sidr-main'); 
+    });
+    
     var navOffset = $("#header").offset().top;
     
     function navPos() {

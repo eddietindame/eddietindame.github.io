@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="stylesheets/app.css">
     <script src="bower_components/modernizr/modernizr.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/snap.svg.js"></script>
     <script src="js/smoothscroll.js"></script>
-    <script src="js/svgInline.js"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
   </head>
@@ -23,7 +21,7 @@
       <div id="header" class="row text-center"> 
         <div class="wrapper"><a href="#home" class="smoothScroll"><img id="smallLogo" src="res/logo_small.svg" alt="ed logo small"></a>
           <div id="mobile-header"><a id="responsive-menu-button" href="#sidr-main">Menu</a></div>
-          <nav id="navigation">
+          <nav id="navigation" onclick="">
             <ul>
               <li><a href="#about" class="smoothScroll">About</a></li>
               <li><a href="#apps" class="smoothScroll">Apps</a></li>
@@ -37,7 +35,7 @@
       </div>
     </div>
     <div id="about" class="row text-center">
-      <div class="wrapper">
+      <div class="wrapper flex">
         <section class="column large-6 small-12">
           <p class="text-center">
             Eddie Tindame <br/><br>
@@ -65,32 +63,30 @@
       <div class="column large-12"></div>
     </div>
     <div id="web" class="row text-center">
-      <div class="wrapper">
-        <div class="column large-12 text-center">
-          <figure><img src="res/html5_flat.svg" alt="html5 logo" class="webLogo top pulse"><img src="res/jade_flat.svg" alt="jade logo" class="webLogo bottom">
-            <!--svg(width="200" height="200"): circle(cx="95",cy="95",r="85",transform="rotate(-90, 95, 95)")-->
-            <figcaption class="top">HTML5</figcaption>
-            <figcaption class="bottom">Jade</figcaption>
-          </figure>
-          <figure><img src="res/css3_flat.svg" alt="css3 logo" class="webLogo top pulse"><img src="res/sass_flat.svg" alt="sass logo" class="webLogo bottom">
-            <figcaption class="top">CSS3</figcaption>
-            <figcaption class="bottom">SASS</figcaption>
-          </figure>
-          <figure><img src="res/js_flat.svg" alt="javascript logo" class="webLogo top pulse"><img src="res/jquery_flat.svg" alt="jquery logo" class="webLogo bottom">
-            <figcaption class="top">JavaScript</figcaption>
-            <figcaption class="bottom">jQuery</figcaption>
-          </figure>
-          <figure><img src="res/foundation5_flat.svg" alt="foundation 5 logo" class="webLogo top pulse"><img src="res/grunt_flat.svg" alt="grunt logo" class="webLogo bottom">
-            <figcaption class="top">Foundation 5</figcaption>
-            <figcaption class="bottom">Grunt</figcaption>
-          </figure>
-          <figure><img src="res/php_flat.svg" alt="php logo" class="webLogo top pulse"><img src="res/node_flat.svg" alt="node js logo" class="webLogo bottom">
-            <figcaption class="top">PHP</figcaption>
-            <figcaption class="bottom">Node.JS</figcaption>
-          </figure><br>
-          <div id="responsive"><img src="res/responsive_diagram.svg" alt="responsive web design diagram">
-            <figcaption>Responsive Web Design</figcaption>
-          </div>
+      <!--.wrapper-->
+      <div class="column large-12 text-center wrapper">
+        <figure><img src="res/html5_flat.svg" alt="html5 logo" class="webLogo top pulse"><img src="res/jade_flat.svg" alt="jade logo" class="webLogo bottom">
+          <figcaption class="top">HTML5</figcaption>
+          <figcaption class="bottom">Jade</figcaption>
+        </figure>
+        <figure><img src="res/css3_flat.svg" alt="css3 logo" class="webLogo top pulse"><img src="res/sass_flat.svg" alt="sass logo" class="webLogo bottom">
+          <figcaption class="top">CSS3</figcaption>
+          <figcaption class="bottom">SASS</figcaption>
+        </figure>
+        <figure><img src="res/js_flat.svg" alt="javascript logo" class="webLogo top pulse"><img src="res/jquery_flat.svg" alt="jquery logo" class="webLogo bottom">
+          <figcaption class="top">JavaScript</figcaption>
+          <figcaption class="bottom">jQuery</figcaption>
+        </figure>
+        <figure><img src="res/foundation5_flat.svg" alt="foundation 5 logo" class="webLogo top pulse"><img src="res/grunt_flat.svg" alt="grunt logo" class="webLogo bottom">
+          <figcaption class="top">Foundation 5</figcaption>
+          <figcaption class="bottom">Grunt</figcaption>
+        </figure>
+        <figure><img src="res/php_flat.svg" alt="php logo" class="webLogo top pulse"><img src="res/node_flat.svg" alt="node js logo" class="webLogo bottom">
+          <figcaption class="top">PHP</figcaption>
+          <figcaption class="bottom">Node.JS</figcaption>
+        </figure><br>
+        <div id="responsive"><img src="res/responsive_diagram.svg" alt="responsive web design diagram">
+          <figcaption>Responsive Web Design</figcaption>
         </div>
       </div>
     </div>
