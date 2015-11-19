@@ -99,7 +99,7 @@
       display: block; 
       height: 100%; 
       z-index: 999999;  
-      background: $mainBlue url("res/loading.gif") no-repeat center center; 
+      background: $mainBlue url("../res/loading.gif") no-repeat center center; 
       content: "Loading."; 
       text-align: center; 
       color: white; 

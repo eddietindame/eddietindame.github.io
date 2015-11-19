@@ -72,10 +72,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-postcss');
-	grunt.loadNpmTasks('grunt-openport');
 	grunt.loadNpmTasks('grunt-express');
 	grunt.loadNpmTasks('grunt-open');
-	grunt.registerTask('server', ['openport:watch.options.livereload:35729:40000',
-								  'express','open','watch']);
+	grunt.registerTask('server', ['express','open','watch']);
 	grunt.registerTask('default', ['server']);
 }

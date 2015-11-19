@@ -10577,19 +10577,23 @@ figure:hover .top {
 #study {
   background-color: antiquewhite;
 }
+/* line 68, ../scss/cats/_layout.scss */
+#study .wrapper {
+  padding: 0 20px;
+}
 
-/* line 69, ../scss/cats/_layout.scss */
+/* line 72, ../scss/cats/_layout.scss */
 #contact {
   background-color: #f3f0ff;
 }
 
-/* line 79, ../scss/cats/_layout.scss */
+/* line 82, ../scss/cats/_layout.scss */
 #homeLogo {
   width: 70vmin;
   max-width: 600px;
 }
 
-/* line 92, ../scss/cats/_layout.scss */
+/* line 95, ../scss/cats/_layout.scss */
 #smallLogo {
   width: 50px;
   display: none;
@@ -10598,18 +10602,18 @@ figure:hover .top {
   left: 10px;
 }
 
-/* line 101, ../scss/cats/_layout.scss */
+/* line 104, ../scss/cats/_layout.scss */
 .webLogo {
   padding: 10px;
   width: 100px;
 }
 
-/* line 107, ../scss/cats/_layout.scss */
+/* line 110, ../scss/cats/_layout.scss */
 .big-text {
   font-size: 50pt;
 }
 
-/* line 111, ../scss/cats/_layout.scss */
+/* line 114, ../scss/cats/_layout.scss */
 #responsive {
   width: auto;
   height: auto;
@@ -10617,32 +10621,32 @@ figure:hover .top {
   padding: 0 10px;
 }
 
-/* line 124, ../scss/cats/_layout.scss */
+/* line 127, ../scss/cats/_layout.scss */
 #facebook path {
   fill: #45619D;
 }
 
-/* line 127, ../scss/cats/_layout.scss */
+/* line 130, ../scss/cats/_layout.scss */
 #instagram path {
   fill: #BB9F1B;
 }
 
-/* line 130, ../scss/cats/_layout.scss */
+/* line 133, ../scss/cats/_layout.scss */
 #twitter path {
   fill: #63CCF0;
 }
 
-/* line 133, ../scss/cats/_layout.scss */
+/* line 136, ../scss/cats/_layout.scss */
 #linkedin path {
   fill: #1C86BC;
 }
 
-/* line 137, ../scss/cats/_layout.scss */
+/* line 140, ../scss/cats/_layout.scss */
 #mobile-header {
   margin: 9px 0;
 }
 
-/* line 141, ../scss/cats/_layout.scss */
+/* line 144, ../scss/cats/_layout.scss */
 #portrait {
   width: 300px;
   height: 300px;
@@ -10650,7 +10654,7 @@ figure:hover .top {
   margin-bottom: 10px;
 }
 
-/* line 148, ../scss/cats/_layout.scss */
+/* line 151, ../scss/cats/_layout.scss */
 .flex, .flex-up {
   height: 100%;
   display: flex;
@@ -10658,20 +10662,28 @@ figure:hover .top {
   justify-content: center;
 }
 
-/* line 155, ../scss/cats/_layout.scss */
+/* line 158, ../scss/cats/_layout.scss */
 .flex-up {
   flex-direction: column;
   align-items: center;
 }
 
-/* line 161, ../scss/cats/_layout.scss */
+/* line 164, ../scss/cats/_layout.scss */
 .row {
   overflow: hidden;
 }
 
-/* line 165, ../scss/cats/_layout.scss */
+/* line 168, ../scss/cats/_layout.scss */
 #sidr-main {
   width: 150px;
+}
+
+/* line 172, ../scss/cats/_layout.scss */
+.copy {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 8pt;
+  color: #6c7c89;
 }
 
 /* line 2, ../scss/cats/_module.scss */
@@ -10760,7 +10772,7 @@ figure:hover .top {
   display: block;
   height: 100%;
   z-index: 999999;
-  background: #b2e1ff url("res/loading.gif") no-repeat center center;
+  background: #b2e1ff url("../res/loading.gif") no-repeat center center;
   content: "Loading.";
   text-align: center;
   color: white;
@@ -10876,8 +10888,9 @@ figure:hover .top {
   font-family: 'Share Tech Mono';
   box-shadow: none;
   background-color: white;
+  opacity: 50%;
 }
-/* line 6, ../scss/cats/_theme.scss */
+/* line 7, ../scss/cats/_theme.scss */
 .sidr ul li:hover {
   box-shadow: none;
 }

@@ -17,7 +17,8 @@ $(document).ready(function($) {
 //            $('.flex').css('flex-wrap','wrap');
            $('#burgerbutton').removeClass('open');
 //		   $('#smallLogo').removeClass('hide');
-        }
+        },
+        displace: false
     });
     
     $('#burgerbutton').click(function(){

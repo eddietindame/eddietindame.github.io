@@ -65,6 +65,9 @@
 }
 #study {
     background-color: antiquewhite;
+    .wrapper {
+        padding: 0 20px;
+    }
 }
 #contact {
     background-color: #f3f0ff;
@@ -164,4 +167,11 @@
 
 #sidr-main {
     width: 150px;
+}
+
+.copy {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 8pt;
+    color: #6c7c89;
 }
