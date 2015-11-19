@@ -37,7 +37,7 @@
     min-height: 300px;
     width: 100%;
     margin: 0;
-    padding: 5vh 0;
+    padding: 60px 0;
     max-width: 100%;
     position: relative;
 }
@@ -70,11 +70,11 @@
     background-color: #f3f0ff;
 }
 
-.container {
-    width: 100%;
-    background-color: $mainGreen;
-    position: relative;
-}
+//.container {
+//    width: 100%;
+//    background-color: $mainGreen;
+//    position: relative;
+//}
 
 #homeLogo {
     width: 70vmin;
@@ -115,11 +115,11 @@
     padding:  0 10px;
 }
 
-.galleria {
-    width: 700px;
-    height: 1000px;
-    display: inline-block;
-}
+//.galleria {
+//    width: 700px;
+//    height: 1000px;
+//    display: inline-block;
+//}
 
 #facebook path {
     fill: $facebookBlue;
@@ -160,4 +160,8 @@
 
 .row {
     overflow: hidden;
+}
+
+#sidr-main {
+    width: 150px;
 }

@@ -9,12 +9,14 @@ $(document).ready(function($) {
 //            $('#responsive-menu-button').css('float','right');
 //            $('.flex').css('flex-wrap','nowrap');
 		   $('#burgerbutton').addClass('open');
+//		   $('#smallLogo').addClass('hide');
         },
         onClose: function() {
 //            $('#smallLogo').css('position','absolute');
 //            $('#responsive-menu-button').css('float','none');
 //            $('.flex').css('flex-wrap','wrap');
            $('#burgerbutton').removeClass('open');
+//		   $('#smallLogo').removeClass('hide');
         }
     });
     
@@ -65,36 +67,3 @@ window.addEventListener("load", function() {
     var load_screen = document.getElementById("load_screen");
     document.body.removeAttribute('id');
 });
-
-/*
- function height() {
-        var h = window.innerHeight;
-        var n = document.getElementById('header').innerHeight;
-        document.getElementById('home').style.height = h - n + "px";
-    } 
-
-    window.addEventListener('load',height);
-    
-function height() {
-    var h = window.innerHeight;
-    document.getElementById('home').style.height    = h - 50 + "px";
-    document.getElementById('about').style.height   = h+"px";
-    document.getElementById('apps').style.height    = h+"px";
-    document.getElementById('web').style.height     = h+"px";
-    document.getElementById('art').style.height     = h+"px";
-    document.getElementById('study').style.height   = h+"px";
-    document.getElementById('contact').style.height = h+"px";
-}
-
-window.addEventListener('load',height);
-window.addEventListener('resize',height);
-
-function move() {
-    var Y = window.pageYOffset;
-    var h = window.innerHeight;
-    var s = document.getElementById('');
-    if(Y < h) (s.style.left = "100px");
-    if(Y < (2*h)) (s.style.left = "200px");
-    if(Y < (3*h)) (s.style.left = "300px");
-    if(Y < (4*h)) (s.style.left = "400px"); 
-}*/
