@@ -66,7 +66,7 @@ figure {
     position: relative;
     text-align: center;
     width: $figureSize;
-    height: 160px;
+    height: 130px;
     display: inline-block;
     .webLogo {
         position: absolute;
@@ -75,16 +75,17 @@ figure {
         transform: translate(-50%,0);
         padding: 10px;
         width: 100px;
-        min-width: 100px;
+        //min-width: 100px;
     }  
     figcaption {
         position: absolute;
-        top: 60%;
+        top: 75%;
         left:  50%;
         transform: translate(-50%,-50%);
         width: 120px;
     }
-    .top, .bottom {
+    .top,
+    .bottom {
         -webkit-transition: opacity 1s ease-in-out;
         -moz-transition: opacity 1s ease-in-out;
         -o-transition: opacity 1s ease-in-out;

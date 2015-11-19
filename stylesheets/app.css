@@ -10450,7 +10450,7 @@ figure {
   position: relative;
   text-align: center;
   width: 90px;
-  height: 160px;
+  height: 130px;
   display: inline-block;
 }
 /* line 71, ../scss/cats/_base.scss */
@@ -10461,32 +10461,32 @@ figure .webLogo {
   transform: translate(-50%, 0);
   padding: 10px;
   width: 100px;
-  min-width: 100px;
 }
 /* line 80, ../scss/cats/_base.scss */
 figure figcaption {
   position: absolute;
-  top: 60%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 120px;
 }
 /* line 87, ../scss/cats/_base.scss */
-figure .top, figure .bottom {
+figure .top,
+figure .bottom {
   -webkit-transition: opacity 1s ease-in-out;
   -moz-transition: opacity 1s ease-in-out;
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
 }
-/* line 93, ../scss/cats/_base.scss */
+/* line 94, ../scss/cats/_base.scss */
 figure .bottom {
   opacity: 0;
 }
-/* line 96, ../scss/cats/_base.scss */
+/* line 97, ../scss/cats/_base.scss */
 figure:hover .bottom {
   opacity: 100;
 }
-/* line 99, ../scss/cats/_base.scss */
+/* line 100, ../scss/cats/_base.scss */
 figure:hover .top {
   opacity: 0;
 }
