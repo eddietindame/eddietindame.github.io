@@ -10711,4 +10711,9 @@ figure:hover .top {
   #mobile-header {
     display: block;
   }
+
+  /* line 71, ../scss/cats/_state.scss */
+  nav {
+    display: none;
+  }
 }
