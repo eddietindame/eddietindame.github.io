@@ -3,7 +3,8 @@
 }
 
 #header {
-    height: 5vh;
+    //height: 5vh;
+    height: 60px;
     background-color: white;
     margin: none;
     right: 0;
@@ -43,9 +44,13 @@
 
 #home {
     background-color: $mainBlue;
-    height: 95vh;
+    //height: 95vh;
     min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 #about {
     background-color: aquamarine;
 }
@@ -75,13 +80,13 @@
     width: 70%; 
     max-width: 600px;
     
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+//    position: absolute;
+//    left: 50%;
+//    top: 50%;
+//    transform: translate(-50%, -50%);
+//    -webkit-transform: translate(-50%, -50%);
+//    -o-transform: translate(-50%, -50%);
+//    -ms-transform: translate(-50%, -50%);
 }
 
 #smallLogo {

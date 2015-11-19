@@ -26,7 +26,9 @@ $(document).ready(function($) {
        $.sidr('close','sidr-main'); 
     });
     
-    var navOffset = $("#header").offset().top;
+    //var navOffset = $("#header").offset().top;
+    
+    var navOffset = window.innerHeight - 60;
     
     function navPos() {
         var scrollPos = $(window).scrollTop();
@@ -40,6 +42,12 @@ $(document).ready(function($) {
             //$("#mobile-header").css("position","relative");
         } 
     }
+        
+    function height() {
+        //var h = window.innerHeight - 60;
+        navOffset = window.innerHeight - 60;
+        document.getElementById('home').style.height = `${navOffset}px`;
+    }
     
     function width() {
         var w = window.innerWidth;
@@ -47,6 +55,8 @@ $(document).ready(function($) {
     }
     
     window.addEventListener('resize',width);
+    window.addEventListener('resize',height);
+    window.addEventListener('load',height);
     window.addEventListener('load',navPos);
     window.addEventListener('scroll',navPos);
 });
