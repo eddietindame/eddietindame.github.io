@@ -54,6 +54,10 @@ $(document).ready(function($) {
         $('#header').css("max-width",w);
     }
     
+    window.addEventListener("load", function() {
+        var load_screen = document.getElementById("load_screen");
+        document.body.removeChild(load_screen);
+    });
     window.addEventListener('resize',width);
     window.addEventListener('resize',height);
     window.addEventListener('load',height);

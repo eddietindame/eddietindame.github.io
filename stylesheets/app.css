@@ -10752,6 +10752,24 @@ figure:hover .top {
   left: 50%;
 }
 
+/* line 69, ../scss/cats/_module.scss */
+#load_screen {
+  background: #b2e1ff;
+  opacity: 1;
+  position: fixed;
+  z-index: 100;
+  top: 0px;
+  width: 100vh;
+  height: 100vh;
+}
+/* line 77, ../scss/cats/_module.scss */
+#load_screen #loading {
+  color: #black;
+  width: 120px;
+  height: 24px;
+  margin: 300px auto;
+}
+
 @-webkit-keyframes pulse {
   from {
     -webkit-transform: scale3d(1, 1, 1);
@@ -10828,4 +10846,8 @@ figure:hover .top {
   font-family: 'Share Tech Mono';
   box-shadow: none;
   background-color: white;
+}
+/* line 6, ../scss/cats/_theme.scss */
+.sidr ul li:hover {
+  box-shadow: none;
 }

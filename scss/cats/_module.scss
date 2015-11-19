@@ -64,3 +64,20 @@
         left: 50%;
     }
 }
+
+// Loading screen
+#load_screen{
+	background: $mainBlue;
+	opacity: 1;
+	position: fixed;
+    z-index:100;
+	top: 0px;
+	width: 100vh;
+	height: 100vh;
+    #loading {
+        color: #black;
+        width: 120px;
+        height: 24px;
+        margin: 300px auto;
+    }
+}
