@@ -10761,8 +10761,12 @@ figure:hover .top {
   top: 0px;
   width: 100vh;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-/* line 77, ../scss/cats/_module.scss */
+/* line 83, ../scss/cats/_module.scss */
 #load_screen #loading {
   color: #black;
   width: 120px;
