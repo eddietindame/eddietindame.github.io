@@ -79,11 +79,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    img {
+        margin: 10px auto;
+    }
     
     #loading {
         color: #black;
         width: 120px;
         height: 24px;
-        margin: 300px auto;
+        margin: 10px auto;
     }
 }

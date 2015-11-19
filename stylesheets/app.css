@@ -450,20 +450,20 @@ meta.foundation-mq-small {
 
 /* line 440, ../bower_components/foundation/scss/foundation/components/_global.scss */
 meta.foundation-mq-small-only {
-  font-family: "/only screen and (max-width: 40em)/";
+  font-family: "/only screen and (max-width: 28.125em)/";
   width: 0;
 }
 
 /* line 445, ../bower_components/foundation/scss/foundation/components/_global.scss */
 meta.foundation-mq-medium {
-  font-family: "/only screen and (min-width:40.0625em)/";
-  width: 40.0625em;
+  font-family: "/only screen and (min-width:28.1875em)/";
+  width: 28.1875em;
 }
 
 /* line 450, ../bower_components/foundation/scss/foundation/components/_global.scss */
 meta.foundation-mq-medium-only {
-  font-family: "/only screen and (min-width:40.0625em) and (max-width:48.75em)/";
-  width: 40.0625em;
+  font-family: "/only screen and (min-width:28.1875em) and (max-width:48.75em)/";
+  width: 28.1875em;
 }
 
 /* line 455, ../bower_components/foundation/scss/foundation/components/_global.scss */
@@ -1060,7 +1060,7 @@ select {
     float: left;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 155, ../bower_components/foundation/scss/foundation/components/_grid.scss */
   .medium-push-0 {
     position: relative;
@@ -2431,7 +2431,7 @@ select {
     clear: both;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 62, ../bower_components/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-1 > li {
     list-style: none;
@@ -3125,7 +3125,7 @@ button::-moz-focus-inner {
   padding: 0;
 }
 
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 255, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
   button, .button {
     display: inline-block;
@@ -3338,7 +3338,7 @@ button::-moz-focus-inner {
 .button-group.stack-for-small > li:first-child button, .button-group.stack-for-small > li:first-child .button {
   border-left: 0;
 }
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 28.125em) {
   /* line 171, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
   .button-group.stack-for-small > li {
     display: block;
@@ -3457,7 +3457,7 @@ button::-moz-focus-inner {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 182, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
   .button-group.radius.stack-for-small > * {
     display: inline-block;
@@ -3494,7 +3494,7 @@ button::-moz-focus-inner {
     border-top-right-radius: 3px;
   }
 }
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 28.125em) {
   /* line 182, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
   .button-group.radius.stack-for-small > * {
     display: block;
@@ -3633,7 +3633,7 @@ button::-moz-focus-inner {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 193, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
   .button-group.round.stack-for-small > * {
     display: inline-block;
@@ -3670,7 +3670,7 @@ button::-moz-focus-inner {
     border-top-right-radius: 1000px;
   }
 }
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 28.125em) {
   /* line 193, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
   .button-group.round.stack-for-small > * {
     display: block;
@@ -3869,7 +3869,7 @@ button::-moz-focus-inner {
   display: block;
 }
 
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 156, ../bower_components/foundation/scss/foundation/components/_clearing.scss */
   .clearing-main-prev,
   .clearing-main-next {
@@ -4980,7 +4980,7 @@ label.error {
   margin: auto;
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 103, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.medium-vertical {
     height: 100%;
@@ -5076,7 +5076,7 @@ label.error {
 .icon-bar.two-up.vertical .item, .icon-bar.two-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 248, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.two-up.medium-vertical .item {
     width: auto;
@@ -5096,7 +5096,7 @@ label.error {
 .icon-bar.three-up.vertical .item, .icon-bar.three-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 262, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.three-up.medium-vertical .item {
     width: auto;
@@ -5116,7 +5116,7 @@ label.error {
 .icon-bar.four-up.vertical .item, .icon-bar.four-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 276, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.four-up.medium-vertical .item {
     width: auto;
@@ -5136,7 +5136,7 @@ label.error {
 .icon-bar.five-up.vertical .item, .icon-bar.five-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 290, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.five-up.medium-vertical .item {
     width: auto;
@@ -5156,7 +5156,7 @@ label.error {
 .icon-bar.six-up.vertical .item, .icon-bar.six-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 304, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.six-up.medium-vertical .item {
     width: auto;
@@ -5176,7 +5176,7 @@ label.error {
 .icon-bar.seven-up.vertical .item, .icon-bar.seven-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 318, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.seven-up.medium-vertical .item {
     width: auto;
@@ -5196,7 +5196,7 @@ label.error {
 .icon-bar.eight-up.vertical .item, .icon-bar.eight-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 332, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.eight-up.medium-vertical .item {
     width: auto;
@@ -5217,7 +5217,7 @@ label.error {
 .icon-bar.two-up.vertical .item, .icon-bar.two-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 364, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.two-up.medium-vertical .item {
     width: auto;
@@ -5237,7 +5237,7 @@ label.error {
 .icon-bar.three-up.vertical .item, .icon-bar.three-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 378, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.three-up.medium-vertical .item {
     width: auto;
@@ -5257,7 +5257,7 @@ label.error {
 .icon-bar.four-up.vertical .item, .icon-bar.four-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 392, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.four-up.medium-vertical .item {
     width: auto;
@@ -5277,7 +5277,7 @@ label.error {
 .icon-bar.five-up.vertical .item, .icon-bar.five-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 406, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.five-up.medium-vertical .item {
     width: auto;
@@ -5297,7 +5297,7 @@ label.error {
 .icon-bar.six-up.vertical .item, .icon-bar.six-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 420, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.six-up.medium-vertical .item {
     width: auto;
@@ -5317,7 +5317,7 @@ label.error {
 .icon-bar.seven-up.vertical .item, .icon-bar.seven-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 434, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.seven-up.medium-vertical .item {
     width: auto;
@@ -5337,7 +5337,7 @@ label.error {
 .icon-bar.eight-up.vertical .item, .icon-bar.eight-up.small-vertical .item {
   width: auto;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 448, ../bower_components/foundation/scss/foundation/components/_icon-bar.scss */
   .icon-bar.eight-up.medium-vertical .item {
     width: auto;
@@ -5953,7 +5953,7 @@ kbd {
   display: none;
 }
 
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 354, ../bower_components/foundation/scss/foundation/components/_orbit.scss */
   .touch .orbit-container .orbit-prev,
   .touch .orbit-container .orbit-next {
@@ -5964,7 +5964,7 @@ kbd {
     display: block;
   }
 }
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 28.125em) {
   /* line 365, ../bower_components/foundation/scss/foundation/components/_orbit.scss */
   .orbit-stack-on-small .orbit-slides-container {
     height: auto !important;
@@ -6424,7 +6424,7 @@ ul.pagination li {
   border: solid 1px #666666;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 28.125em) {
   /* line 174, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal {
     min-height: 100vh;
@@ -6442,7 +6442,7 @@ ul.pagination li {
 .reveal-modal > :last-child {
   margin-bottom: 0;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 174, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal {
     left: 0;
@@ -6452,7 +6452,7 @@ ul.pagination li {
     width: 80%;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 174, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal {
     top: 6.25rem;
@@ -6473,7 +6473,7 @@ ul.pagination li {
   padding: 0;
   box-shadow: none;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 188, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.tiny {
     left: 0;
@@ -6483,7 +6483,7 @@ ul.pagination li {
     width: 30%;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 189, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.small {
     left: 0;
@@ -6493,7 +6493,7 @@ ul.pagination li {
     width: 40%;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 190, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.medium {
     left: 0;
@@ -6503,7 +6503,7 @@ ul.pagination li {
     width: 60%;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 191, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.large {
     left: 0;
@@ -6513,7 +6513,7 @@ ul.pagination li {
     width: 70%;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 192, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.xlarge {
     left: 0;
@@ -6533,7 +6533,7 @@ ul.pagination li {
   min-height: 100vh;
   top: 0;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 193, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
   .reveal-modal.full {
     left: 0;
@@ -7141,7 +7141,7 @@ table tr td {
   padding: 0 0.9375rem;
 }
 
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 115, ../bower_components/foundation/scss/foundation/components/_tabs.scss */
   .tabs.vertical {
     float: left;
@@ -7296,8 +7296,8 @@ table tr td {
 }
 /* line 113, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 meta.foundation-mq-topbar {
-  font-family: "/only screen and (min-width:40.0625em)/";
-  width: 40.0625em;
+  font-family: "/only screen and (min-width:28.1875em)/";
+  width: 28.1875em;
 }
 
 /* Wrapped around .top-bar to contain to grid width */
@@ -7377,7 +7377,7 @@ meta.foundation-mq-topbar {
   padding-bottom: 0.4125rem;
   padding-top: 0.4125rem;
 }
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 28.125em) {
   /* line 188, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar .button, .top-bar button {
     position: relative;
@@ -7824,7 +7824,7 @@ meta.foundation-mq-topbar {
   display: block;
 }
 
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 492, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar {
     background: #333333;
@@ -8113,7 +8113,7 @@ meta.foundation-mq-topbar {
   text-align: justify !important;
 }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 28.125em) {
   /* line 165, ../bower_components/foundation/scss/foundation/components/_type.scss */
   .small-only-text-left {
     text-align: left !important;
@@ -8155,7 +8155,7 @@ meta.foundation-mq-topbar {
     text-align: justify !important;
   }
 }
-@media only screen and (min-width: 40.0625em) and (max-width: 48.75em) {
+@media only screen and (min-width: 28.1875em) and (max-width: 48.75em) {
   /* line 165, ../bower_components/foundation/scss/foundation/components/_type.scss */
   .medium-only-text-left {
     text-align: left !important;
@@ -8176,7 +8176,7 @@ meta.foundation-mq-topbar {
     text-align: justify !important;
   }
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 165, ../bower_components/foundation/scss/foundation/components/_type.scss */
   .medium-text-left {
     text-align: left !important;
@@ -8647,7 +8647,7 @@ blockquote p {
   padding: 0 0.0625rem;
 }
 
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 461, ../bower_components/foundation/scss/foundation/components/_type.scss */
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.4;
@@ -9067,7 +9067,7 @@ ul.off-canvas-list li a:active {
   top: 0;
   z-index: 1002;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 296, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
   .move-right .exit-off-canvas:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -9098,7 +9098,7 @@ ul.off-canvas-list li a:active {
   top: 0;
   z-index: 1002;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 296, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
   .move-left .exit-off-canvas:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -9129,7 +9129,7 @@ ul.off-canvas-list li a:active {
   top: 0;
   z-index: 1002;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 296, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
   .move-top .exit-off-canvas:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -9160,7 +9160,7 @@ ul.off-canvas-list li a:active {
   top: 0;
   z-index: 1002;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 296, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
   .move-bottom .exit-off-canvas:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -9193,7 +9193,7 @@ ul.off-canvas-list li a:active {
   top: 0;
   z-index: 1002;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 296, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
   .offcanvas-overlap .exit-off-canvas:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -9225,7 +9225,7 @@ ul.off-canvas-list li a:active {
   top: 0;
   z-index: 1002;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 296, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
   .offcanvas-overlap-left .exit-off-canvas:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -9257,7 +9257,7 @@ ul.off-canvas-list li a:active {
   top: 0;
   z-index: 1002;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 296, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
   .offcanvas-overlap-right .exit-off-canvas:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -9289,7 +9289,7 @@ ul.off-canvas-list li a:active {
   top: 0;
   z-index: 1002;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 296, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
   .offcanvas-overlap-top .exit-off-canvas:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -9321,7 +9321,7 @@ ul.off-canvas-list li a:active {
   top: 0;
   z-index: 1002;
 }
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 296, ../bower_components/foundation/scss/foundation/components/_offcanvas.scss */
   .offcanvas-overlap-bottom .exit-off-canvas:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -9673,7 +9673,7 @@ ul.off-canvas-list li a:active {
   }
 }
 /* medium displays */
-@media only screen and (min-width: 40.0625em) {
+@media only screen and (min-width: 28.1875em) {
   /* line 244, ../bower_components/foundation/scss/foundation/components/_visibility.scss */
   .hide-for-small-only, .show-for-small-up, .hide-for-small, .hide-for-small-down, .show-for-medium-only, .show-for-medium-up, .show-for-medium, .show-for-medium-down, .hide-for-large-only, .hide-for-large-up, .hide-for-large, .show-for-large-down, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xlarge, .show-for-xlarge-down, .hide-for-xxlarge-only, .hide-for-xxlarge-up, .hide-for-xxlarge, .show-for-xxlarge-down {
     display: inherit !important;
@@ -10380,7 +10380,7 @@ th.hide-for-touch {
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 100vw;
   font-family: 'Share Tech Mono';
 }
 
@@ -10516,7 +10516,7 @@ figure:hover .top {
 
 /* line 17, ../scss/cats/_layout.scss */
 .wrapper {
-  max-width: 1000px;
+  max-width: 960px;
   display: inline-block;
   margin: 0 auto;
 }
@@ -10547,7 +10547,7 @@ figure:hover .top {
 /* line 45, ../scss/cats/_layout.scss */
 #home {
   background-color: #b2e1ff;
-  min-height: 800px;
+  min-height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10592,7 +10592,7 @@ figure:hover .top {
 
 /* line 79, ../scss/cats/_layout.scss */
 #homeLogo {
-  width: 70%;
+  width: 70vmin;
   max-width: 600px;
 }
 
@@ -10621,41 +10621,42 @@ figure:hover .top {
   width: auto;
   height: auto;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
-/* line 117, ../scss/cats/_layout.scss */
+/* line 118, ../scss/cats/_layout.scss */
 .galleria {
   width: 700px;
   height: 1000px;
   display: inline-block;
 }
 
-/* line 123, ../scss/cats/_layout.scss */
+/* line 124, ../scss/cats/_layout.scss */
 #facebook path {
   fill: #45619D;
 }
 
-/* line 126, ../scss/cats/_layout.scss */
+/* line 127, ../scss/cats/_layout.scss */
 #instagram path {
   fill: #BB9F1B;
 }
 
-/* line 129, ../scss/cats/_layout.scss */
+/* line 130, ../scss/cats/_layout.scss */
 #twitter path {
   fill: #63CCF0;
 }
 
-/* line 132, ../scss/cats/_layout.scss */
+/* line 133, ../scss/cats/_layout.scss */
 #linkedin path {
   fill: #1C86BC;
 }
 
-/* line 136, ../scss/cats/_layout.scss */
+/* line 137, ../scss/cats/_layout.scss */
 #mobile-header {
   margin: 9px 0;
 }
 
-/* line 140, ../scss/cats/_layout.scss */
+/* line 141, ../scss/cats/_layout.scss */
 #portrait {
   width: 300px;
   height: 300px;
@@ -10663,7 +10664,7 @@ figure:hover .top {
   margin-bottom: 10px;
 }
 
-/* line 147, ../scss/cats/_layout.scss */
+/* line 148, ../scss/cats/_layout.scss */
 .flex, .flex-up {
   height: 100%;
   display: flex;
@@ -10671,10 +10672,15 @@ figure:hover .top {
   justify-content: center;
 }
 
-/* line 154, ../scss/cats/_layout.scss */
+/* line 155, ../scss/cats/_layout.scss */
 .flex-up {
   flex-direction: column;
   align-items: center;
+}
+
+/* line 161, ../scss/cats/_layout.scss */
+.row {
+  overflow: hidden;
 }
 
 /* line 2, ../scss/cats/_module.scss */
@@ -10767,11 +10773,15 @@ figure:hover .top {
   align-items: center;
 }
 /* line 83, ../scss/cats/_module.scss */
+#load_screen img {
+  margin: 10px auto;
+}
+/* line 87, ../scss/cats/_module.scss */
 #load_screen #loading {
   color: #black;
   width: 120px;
   height: 24px;
-  margin: 300px auto;
+  margin: 10px auto;
 }
 
 @-webkit-keyframes pulse {
@@ -10842,6 +10852,28 @@ figure:hover .top {
   /* line 77, ../scss/cats/_state.scss */
   .big-text {
     font-size: 40pt;
+  }
+}
+@media only screen and (max-width: 28.125em) {
+  /* line 83, ../scss/cats/_state.scss */
+  #portrait {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* line 87, ../scss/cats/_state.scss */
+  .big-text {
+    display: none;
+  }
+
+  /* line 90, ../scss/cats/_state.scss */
+  h1 {
+    font-size: 10pt;
+  }
+
+  /* line 93, ../scss/cats/_state.scss */
+  figure {
+    margin: 10px;
   }
 }
 /* line 1, ../scss/cats/_theme.scss */

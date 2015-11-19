@@ -16,7 +16,7 @@
 
 .wrapper {
     //min-width: 700px;
-    max-width: 1000px;
+    max-width: 960px;
     display: inline-block;
     margin: 0 auto;
 }
@@ -45,7 +45,7 @@
 #home {
     background-color: $mainBlue;
     //height: 95vh;
-    min-height: 800px;
+    min-height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,7 +77,7 @@
 }
 
 #homeLogo {
-    width: 70%; 
+    width: 70vmin;
     max-width: 600px;
     
 //    position: absolute;
@@ -112,6 +112,7 @@
     width: auto;
     height: auto;
     margin: 0 auto;
+    padding:  0 10px;
 }
 
 .galleria {
@@ -155,4 +156,8 @@
     @extend .flex;
     flex-direction: column;
     align-items: center;
+}
+
+.row {
+    overflow: hidden;
 }

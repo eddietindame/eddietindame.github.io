@@ -78,3 +78,19 @@
         font-size: 40pt;
     }
 }
+
+@media #{$small-only} {
+    #portrait {
+       width: 200px;
+       height: 200px;
+    }
+    .big-text {
+        display: none;
+    }
+    h1 {
+        font-size: 10pt;
+    }
+    figure {
+        margin: 10px;
+    }
+}
