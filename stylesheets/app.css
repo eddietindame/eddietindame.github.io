@@ -10506,9 +10506,6 @@ figure:hover .top {
   margin: none;
   right: 0;
   max-width: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* line 16, ../scss/cats/_layout.scss */
@@ -10601,58 +10598,63 @@ figure:hover .top {
 /* line 87, ../scss/cats/_layout.scss */
 #smallLogo {
   width: 50px;
-  display: inline-block;
+  display: none;
   position: absolute;
-  top: 3px;
+  margin: 5px 0;
   left: 10px;
 }
 
-/* line 97, ../scss/cats/_layout.scss */
+/* line 96, ../scss/cats/_layout.scss */
 .webLogo {
   padding: 10px;
   width: 100px;
 }
 
-/* line 102, ../scss/cats/_layout.scss */
+/* line 101, ../scss/cats/_layout.scss */
 .big-text {
   font-size: 50pt;
 }
 
-/* line 106, ../scss/cats/_layout.scss */
+/* line 105, ../scss/cats/_layout.scss */
 #responsive {
   width: auto;
   height: auto;
   margin: 0 auto;
 }
 
-/* line 112, ../scss/cats/_layout.scss */
+/* line 111, ../scss/cats/_layout.scss */
 .galleria {
   width: 700px;
   height: 1000px;
   display: inline-block;
 }
 
-/* line 118, ../scss/cats/_layout.scss */
+/* line 117, ../scss/cats/_layout.scss */
 #facebook path {
   fill: #45619D;
 }
 
-/* line 121, ../scss/cats/_layout.scss */
+/* line 120, ../scss/cats/_layout.scss */
 #instagram path {
   fill: #BB9F1B;
 }
 
-/* line 124, ../scss/cats/_layout.scss */
+/* line 123, ../scss/cats/_layout.scss */
 #twitter path {
   fill: #63CCF0;
 }
 
-/* line 127, ../scss/cats/_layout.scss */
+/* line 126, ../scss/cats/_layout.scss */
 #linkedin path {
   fill: #1C86BC;
 }
 
-/* line 131, ../scss/cats/_layout.scss */
+/* line 130, ../scss/cats/_layout.scss */
+#mobile-header {
+  margin: 9px 0;
+}
+
+/* line 134, ../scss/cats/_layout.scss */
 .flex {
   display: flex;
   flex-wrap: wrap;

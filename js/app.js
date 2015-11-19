@@ -7,10 +7,14 @@ $(document).ready(function($) {
         onOpen: function() {
 //            $('#smallLogo').css('position','relative');
 //            $('#responsive-menu-button').css('float','right');
+//            $('.flex').css('flex-wrap','nowrap');
+		   $('#burgerbutton').addClass('open');
         },
         onClose: function() {
 //            $('#smallLogo').css('position','absolute');
 //            $('#responsive-menu-button').css('float','none');
+//            $('.flex').css('flex-wrap','wrap');
+           $('#burgerbutton').removeClass('open');
         }
     });
     
@@ -29,9 +33,11 @@ $(document).ready(function($) {
         if (scrollPos >= navOffset) {
             $("#header").addClass("fixed");
             $("#smallLogo").show("fast");
+            //$("#mobile-header").css("position","absolute");
         } else {
             $("#header").removeClass("fixed");
             $("#smallLogo").hide("fast");
+            //$("#mobile-header").css("position","relative");
         } 
     }
     
