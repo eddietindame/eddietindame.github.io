@@ -10758,30 +10758,24 @@ figure:hover .top {
   left: 50%;
 }
 
-/* line 69, ../scss/cats/_module.scss */
-#load_screen {
-  background: #b2e1ff;
-  opacity: 1;
-  position: fixed;
-  z-index: 100;
-  top: 0px;
-  width: 100vh;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-/* line 83, ../scss/cats/_module.scss */
-#load_screen img {
-  margin: 10px auto;
-}
-/* line 87, ../scss/cats/_module.scss */
-#load_screen #loading {
-  color: #black;
-  width: 120px;
-  height: 24px;
-  margin: 10px auto;
+/* line 95, ../scss/cats/_module.scss */
+#load:before {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+  z-index: 999999;
+  background: #b2e1ff url("res/loading.gif") no-repeat center center;
+  content: "Loading.";
+  text-align: center;
+  color: white;
+  text-shadow: none;
+  line-height: 150px;
+  vertical-align: bottom;
 }
 
 @-webkit-keyframes pulse {
