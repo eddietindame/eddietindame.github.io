@@ -25,7 +25,7 @@ h1 {
     font-family: 'Share Tech Mono';
     text-align: center;
     position: relative;
-    margin: 10px;
+    margin: 20px;
 //    top: 50%;
 //    -ms-transform: translateY(-50%);
 //    -webkit-transform: translateY(-50%);
@@ -33,9 +33,18 @@ h1 {
 }
 
 nav {
-    padding: 28px 0;
+    height: 100%;
+    padding: 0;
     min-width: 700px;
     max-width: 1000px;
+    ul {
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+        height: 100%;
+    }
     a {
         padding: 0 5%;
     }

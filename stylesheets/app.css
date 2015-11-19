@@ -10406,46 +10406,55 @@ h1 {
   font-family: 'Share Tech Mono';
   text-align: center;
   position: relative;
-  margin: 10px;
+  margin: 20px;
 }
 
 /* line 35, ../scss/cats/_base.scss */
 nav {
-  padding: 28px 0;
+  height: 100%;
+  padding: 0;
   min-width: 700px;
   max-width: 1000px;
 }
-/* line 39, ../scss/cats/_base.scss */
+/* line 40, ../scss/cats/_base.scss */
+nav ul {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+/* line 48, ../scss/cats/_base.scss */
 nav a {
   padding: 0 5%;
 }
 
-/* line 44, ../scss/cats/_base.scss */
+/* line 53, ../scss/cats/_base.scss */
 ul {
   margin-top: 10px;
   display: inline;
 }
 
-/* line 49, ../scss/cats/_base.scss */
+/* line 58, ../scss/cats/_base.scss */
 li {
   list-style-type: none;
   padding: 10px 0;
   display: inline;
 }
 
-/* line 55, ../scss/cats/_base.scss */
+/* line 64, ../scss/cats/_base.scss */
 figure img {
   width: 90px;
   height: 90px;
 }
 
-/* line 60, ../scss/cats/_base.scss */
+/* line 69, ../scss/cats/_base.scss */
 mark {
   background-color: black;
   color: aquamarine;
 }
 
-/* line 65, ../scss/cats/_base.scss */
+/* line 74, ../scss/cats/_base.scss */
 figure {
   position: relative;
   text-align: center;
@@ -10453,7 +10462,7 @@ figure {
   height: 130px;
   display: inline-block;
 }
-/* line 71, ../scss/cats/_base.scss */
+/* line 80, ../scss/cats/_base.scss */
 figure .webLogo {
   position: absolute;
   top: 0;
@@ -10462,7 +10471,7 @@ figure .webLogo {
   padding: 10px;
   width: 100px;
 }
-/* line 80, ../scss/cats/_base.scss */
+/* line 89, ../scss/cats/_base.scss */
 figure figcaption {
   position: absolute;
   top: 75%;
@@ -10470,7 +10479,7 @@ figure figcaption {
   transform: translate(-50%, -50%);
   width: 120px;
 }
-/* line 87, ../scss/cats/_base.scss */
+/* line 96, ../scss/cats/_base.scss */
 figure .top,
 figure .bottom {
   -webkit-transition: opacity 1s ease-in-out;
@@ -10478,15 +10487,15 @@ figure .bottom {
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
 }
-/* line 94, ../scss/cats/_base.scss */
+/* line 103, ../scss/cats/_base.scss */
 figure .bottom {
   opacity: 0;
 }
-/* line 97, ../scss/cats/_base.scss */
+/* line 106, ../scss/cats/_base.scss */
 figure:hover .bottom {
   opacity: 100;
 }
-/* line 100, ../scss/cats/_base.scss */
+/* line 109, ../scss/cats/_base.scss */
 figure:hover .top {
   opacity: 0;
 }
@@ -10656,12 +10665,13 @@ figure:hover .top {
 
 /* line 147, ../scss/cats/_layout.scss */
 .flex, .flex-up {
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-/* line 153, ../scss/cats/_layout.scss */
+/* line 154, ../scss/cats/_layout.scss */
 .flex-up {
   flex-direction: column;
   align-items: center;
@@ -10687,10 +10697,10 @@ figure:hover .top {
 #burgerbutton span {
   display: block;
   position: absolute;
-  height: 9px;
+  height: 7px;
   width: 100%;
   background: black;
-  border-radius: 9px;
+  border-radius: 7px;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
