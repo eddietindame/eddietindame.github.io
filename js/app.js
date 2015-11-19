@@ -54,10 +54,6 @@ $(document).ready(function($) {
         $('#header').css("max-width",w);
     }
     
-    window.addEventListener("load", function() {
-        var load_screen = document.getElementById("load_screen");
-        document.body.removeAttribute('id');
-    });
     window.addEventListener('resize',width);
     window.addEventListener('resize',height);
     window.addEventListener('load',height);
@@ -65,7 +61,10 @@ $(document).ready(function($) {
     window.addEventListener('scroll',navPos);
 });
 
-
+window.addEventListener("load", function() {
+    var load_screen = document.getElementById("load_screen");
+    document.body.removeAttribute('id');
+});
 
 /*
  function height() {
