@@ -1,11 +1,17 @@
-// Foundation JavaScript
-// Documentation can be found at: http://foundation.zurb.com/docs
 $(document).foundation();
 
 $(document).ready(function($) {
     $('#responsive-menu-button').sidr({
-      name: 'sidr-main',
-      source: '#navigation'
+        name: 'sidr-main',
+        source: '#navigation',
+        onOpen: function() {
+//            $('#smallLogo').css('position','relative');
+//            $('#responsive-menu-button').css('float','right');
+        },
+        onClose: function() {
+//            $('#smallLogo').css('position','absolute');
+//            $('#responsive-menu-button').css('float','none');
+        }
     });
     
     $('body').on("click",function(e) {

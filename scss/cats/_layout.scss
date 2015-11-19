@@ -17,6 +17,7 @@
     //min-width: 700px;
     max-width: 1000px;
     display: inline-block;
+    margin: 0 auto;
 }
 
 .fixed {
@@ -135,4 +136,5 @@
 .flex {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
