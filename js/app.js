@@ -14,6 +14,10 @@ $(document).ready(function($) {
         }
     });
     
+    $('#burgerbutton').click(function(){
+		$(this).toggleClass('open');
+	});
+    
     $('body').on("click",function(e) {
        $.sidr('close','sidr-main'); 
     });
