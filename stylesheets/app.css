@@ -10568,7 +10568,7 @@ figure:hover .top {
 
 /* line 58, ../scss/cats/_layout.scss */
 #apps {
-  background-color: azure;
+  background-color: #454545;
   min-height: 380px;
 }
 
@@ -10624,26 +10624,6 @@ figure:hover .top {
   height: auto;
   margin: 0 auto;
   padding: 0 10px;
-}
-
-/* line 126, ../scss/cats/_layout.scss */
-#facebook path {
-  fill: #45619D;
-}
-
-/* line 129, ../scss/cats/_layout.scss */
-#instagram path {
-  fill: #BB9F1B;
-}
-
-/* line 132, ../scss/cats/_layout.scss */
-#twitter path {
-  fill: #63CCF0;
-}
-
-/* line 135, ../scss/cats/_layout.scss */
-#linkedin path {
-  fill: #1C86BC;
 }
 
 /* line 139, ../scss/cats/_layout.scss */
