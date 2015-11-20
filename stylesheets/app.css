@@ -10749,7 +10749,7 @@ figure:hover .top {
 }
 
 /* line 95, ../scss/cats/_module.scss */
-#load:before {
+.load:before {
   width: 100%;
   position: absolute;
   top: 0;
@@ -10906,7 +10906,7 @@ figure:hover .top {
     font-size: 37pt;
   }
 }
-/* line 107, ../scss/cats/_state.scss */
+/* line 108, ../scss/cats/_state.scss */
 .no-js:before {
   width: 100%;
   position: absolute;
@@ -10918,13 +10918,18 @@ figure:hover .top {
   height: 100%;
   z-index: 999999;
   background-color: #b2e1ff;
-  content: "This page requires Javascript to run.";
+  font-size: 40pt;
+  content: "Sorry! This page requires Javascript to run. QQ";
   text-align: center;
   color: white;
   text-shadow: none;
   line-height: 150px;
   vertical-align: bottom;
   overflow: hidden;
+}
+/* line 126, ../scss/cats/_state.scss */
+.no-js body {
+  display: none;
 }
 
 /* line 1, ../scss/cats/_theme.scss */

@@ -66,5 +66,5 @@ $(document).ready(function($) {
 
 window.addEventListener("load", function() {
     var load_screen = document.getElementById("load_screen");
-    document.body.removeAttribute('id');
+    document.body.removeAttribute('class');
 });
