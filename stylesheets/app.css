@@ -10788,11 +10788,17 @@ figure:hover .top {
   .window_img {
     width: 90vw;
     height: 310px;
+    background-size: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     margin: 0 auto;
+    padding: 10% 10px 5px 10px;
+  }
+  /* line 142, ../scss/cats/_module.scss */
+  .window_img p {
+    font-size: 10pt;
   }
 }
 
