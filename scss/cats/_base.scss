@@ -20,16 +20,21 @@ a {
     }
 } 
 
-h1 {
+h1,
+h4 {
     //display: inline-block;
     font-family: 'Share Tech Mono';
     text-align: center;
     position: relative;
-    margin: 20px;
+    margin-bottom: 20px;
 //    top: 50%;
 //    -ms-transform: translateY(-50%);
 //    -webkit-transform: translateY(-50%);
 //    transform: translateY(-50%);
+}
+
+h4 {
+    font-size: 30px;
 }
 
 nav {
@@ -77,6 +82,7 @@ figure {
     width: $figureSize;
     height: 130px;
     display: inline-block;
+    margin: 0px 30px;
     .webLogo {
         position: absolute;
         top: 0;

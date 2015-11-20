@@ -87,17 +87,19 @@
     .big-text {
         display: none;
     }
-    h1 {
-        font-size: 12pt;
-    }
     figure {
         margin: 10px;
     }
     #sidr-main {
         width: 100px;
     }
+    .email {
+        font-size: 12pt;
+    }
 }
 
-.hide {
-    display: none;
+@media only screen and (max-width: 940px) {
+    .big-text {
+        font-size: 37pt;
+    }
 }

@@ -10402,21 +10402,27 @@ a:active {
 }
 
 /* line 23, ../scss/cats/_base.scss */
-h1 {
+h1,
+h4 {
   font-family: 'Share Tech Mono';
   text-align: center;
   position: relative;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
-/* line 35, ../scss/cats/_base.scss */
+/* line 36, ../scss/cats/_base.scss */
+h4 {
+  font-size: 30px;
+}
+
+/* line 40, ../scss/cats/_base.scss */
 nav {
   height: 100%;
   padding: 0;
   min-width: 700px;
   max-width: 1000px;
 }
-/* line 40, ../scss/cats/_base.scss */
+/* line 45, ../scss/cats/_base.scss */
 nav ul {
   margin: 0;
   display: flex;
@@ -10424,45 +10430,46 @@ nav ul {
   align-items: center;
   height: 100%;
 }
-/* line 48, ../scss/cats/_base.scss */
+/* line 53, ../scss/cats/_base.scss */
 nav a {
   padding: 0 5%;
 }
 
-/* line 53, ../scss/cats/_base.scss */
+/* line 58, ../scss/cats/_base.scss */
 ul {
   margin-top: 10px;
   display: inline;
 }
 
-/* line 58, ../scss/cats/_base.scss */
+/* line 63, ../scss/cats/_base.scss */
 li {
   list-style-type: none;
   padding: 10px 0;
   display: inline;
 }
 
-/* line 64, ../scss/cats/_base.scss */
+/* line 69, ../scss/cats/_base.scss */
 figure img {
   width: 90px;
   height: 90px;
 }
 
-/* line 69, ../scss/cats/_base.scss */
+/* line 74, ../scss/cats/_base.scss */
 mark {
   background-color: black;
   color: aquamarine;
 }
 
-/* line 74, ../scss/cats/_base.scss */
+/* line 79, ../scss/cats/_base.scss */
 figure {
   position: relative;
   text-align: center;
   width: 90px;
   height: 130px;
   display: inline-block;
+  margin: 0px 30px;
 }
-/* line 80, ../scss/cats/_base.scss */
+/* line 86, ../scss/cats/_base.scss */
 figure .webLogo {
   position: absolute;
   top: 0;
@@ -10471,7 +10478,7 @@ figure .webLogo {
   padding: 10px;
   width: 100px;
 }
-/* line 89, ../scss/cats/_base.scss */
+/* line 95, ../scss/cats/_base.scss */
 figure figcaption {
   position: absolute;
   top: 75%;
@@ -10479,7 +10486,7 @@ figure figcaption {
   transform: translate(-50%, -50%);
   width: 120px;
 }
-/* line 96, ../scss/cats/_base.scss */
+/* line 102, ../scss/cats/_base.scss */
 figure .top,
 figure .bottom {
   -webkit-transition: opacity 1s ease-in-out;
@@ -10487,15 +10494,15 @@ figure .bottom {
   -o-transition: opacity 1s ease-in-out;
   transition: opacity 1s ease-in-out;
 }
-/* line 103, ../scss/cats/_base.scss */
+/* line 109, ../scss/cats/_base.scss */
 figure .bottom {
   opacity: 0;
 }
-/* line 106, ../scss/cats/_base.scss */
+/* line 112, ../scss/cats/_base.scss */
 figure:hover .bottom {
   opacity: 100;
 }
-/* line 109, ../scss/cats/_base.scss */
+/* line 115, ../scss/cats/_base.scss */
 figure:hover .top {
   opacity: 0;
 }
@@ -10519,16 +10526,17 @@ figure:hover .top {
   max-width: 960px;
   display: inline-block;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* line 24, ../scss/cats/_layout.scss */
+/* line 25, ../scss/cats/_layout.scss */
 .fixed {
   position: fixed;
   top: 0;
   right: 0;
 }
 
-/* line 30, ../scss/cats/_layout.scss */
+/* line 31, ../scss/cats/_layout.scss */
 #home,
 #about,
 #apps,
@@ -10544,7 +10552,7 @@ figure:hover .top {
   position: relative;
 }
 
-/* line 45, ../scss/cats/_layout.scss */
+/* line 46, ../scss/cats/_layout.scss */
 #home {
   background-color: #b2e1ff;
   min-height: 250px;
@@ -10553,47 +10561,43 @@ figure:hover .top {
   align-items: center;
 }
 
-/* line 54, ../scss/cats/_layout.scss */
+/* line 55, ../scss/cats/_layout.scss */
 #about {
   background-color: aquamarine;
 }
 
-/* line 57, ../scss/cats/_layout.scss */
+/* line 58, ../scss/cats/_layout.scss */
 #apps {
   background-color: azure;
 }
 
-/* line 60, ../scss/cats/_layout.scss */
+/* line 61, ../scss/cats/_layout.scss */
 #web {
   background-color: coral;
 }
 
-/* line 63, ../scss/cats/_layout.scss */
+/* line 64, ../scss/cats/_layout.scss */
 #art {
   background-color: #454545;
 }
 
-/* line 66, ../scss/cats/_layout.scss */
+/* line 67, ../scss/cats/_layout.scss */
 #study {
   background-color: antiquewhite;
 }
-/* line 68, ../scss/cats/_layout.scss */
-#study .wrapper {
-  padding: 0 20px;
-}
 
-/* line 72, ../scss/cats/_layout.scss */
+/* line 70, ../scss/cats/_layout.scss */
 #contact {
   background-color: #f3f0ff;
 }
 
-/* line 82, ../scss/cats/_layout.scss */
+/* line 80, ../scss/cats/_layout.scss */
 #homeLogo {
   width: 70vmin;
   max-width: 600px;
 }
 
-/* line 95, ../scss/cats/_layout.scss */
+/* line 93, ../scss/cats/_layout.scss */
 #smallLogo {
   width: 50px;
   display: none;
@@ -10602,18 +10606,18 @@ figure:hover .top {
   left: 10px;
 }
 
-/* line 104, ../scss/cats/_layout.scss */
+/* line 102, ../scss/cats/_layout.scss */
 .webLogo {
   padding: 10px;
   width: 100px;
 }
 
-/* line 110, ../scss/cats/_layout.scss */
+/* line 108, ../scss/cats/_layout.scss */
 .big-text {
-  font-size: 50pt;
+  font-size: 45pt;
 }
 
-/* line 114, ../scss/cats/_layout.scss */
+/* line 112, ../scss/cats/_layout.scss */
 #responsive {
   width: auto;
   height: auto;
@@ -10621,40 +10625,40 @@ figure:hover .top {
   padding: 0 10px;
 }
 
-/* line 127, ../scss/cats/_layout.scss */
+/* line 125, ../scss/cats/_layout.scss */
 #facebook path {
   fill: #45619D;
 }
 
-/* line 130, ../scss/cats/_layout.scss */
+/* line 128, ../scss/cats/_layout.scss */
 #instagram path {
   fill: #BB9F1B;
 }
 
-/* line 133, ../scss/cats/_layout.scss */
+/* line 131, ../scss/cats/_layout.scss */
 #twitter path {
   fill: #63CCF0;
 }
 
-/* line 136, ../scss/cats/_layout.scss */
+/* line 134, ../scss/cats/_layout.scss */
 #linkedin path {
   fill: #1C86BC;
 }
 
-/* line 140, ../scss/cats/_layout.scss */
+/* line 138, ../scss/cats/_layout.scss */
 #mobile-header {
   margin: 9px 0;
 }
 
-/* line 144, ../scss/cats/_layout.scss */
+/* line 142, ../scss/cats/_layout.scss */
 #portrait {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-/* line 151, ../scss/cats/_layout.scss */
+/* line 149, ../scss/cats/_layout.scss */
 .flex, .flex-up {
   height: 100%;
   display: flex;
@@ -10662,23 +10666,23 @@ figure:hover .top {
   justify-content: center;
 }
 
-/* line 158, ../scss/cats/_layout.scss */
+/* line 156, ../scss/cats/_layout.scss */
 .flex-up {
   flex-direction: column;
   align-items: center;
 }
 
-/* line 164, ../scss/cats/_layout.scss */
+/* line 162, ../scss/cats/_layout.scss */
 .row {
   overflow: hidden;
 }
 
-/* line 168, ../scss/cats/_layout.scss */
+/* line 166, ../scss/cats/_layout.scss */
 #sidr-main {
   width: 150px;
 }
 
-/* line 172, ../scss/cats/_layout.scss */
+/* line 170, ../scss/cats/_layout.scss */
 .copy {
   text-align: center;
   margin: 0 auto;
@@ -10706,7 +10710,7 @@ figure:hover .top {
 #burgerbutton span {
   display: block;
   position: absolute;
-  height: 7px;
+  height: 5px;
   width: 100%;
   background: black;
   border-radius: 7px;
@@ -10864,25 +10868,26 @@ figure:hover .top {
   }
 
   /* line 90, ../scss/cats/_state.scss */
-  h1 {
-    font-size: 12pt;
-  }
-
-  /* line 93, ../scss/cats/_state.scss */
   figure {
     margin: 10px;
   }
 
-  /* line 96, ../scss/cats/_state.scss */
+  /* line 93, ../scss/cats/_state.scss */
   #sidr-main {
     width: 100px;
   }
-}
-/* line 101, ../scss/cats/_state.scss */
-.hide {
-  display: none;
-}
 
+  /* line 96, ../scss/cats/_state.scss */
+  .email {
+    font-size: 12pt;
+  }
+}
+@media only screen and (max-width: 940px) {
+  /* line 102, ../scss/cats/_state.scss */
+  .big-text {
+    font-size: 37pt;
+  }
+}
 /* line 1, ../scss/cats/_theme.scss */
 .sidr {
   font-family: 'Share Tech Mono';

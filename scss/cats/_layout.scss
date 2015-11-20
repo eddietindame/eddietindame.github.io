@@ -19,6 +19,7 @@
     max-width: 960px;
     display: inline-block;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .fixed {
@@ -65,9 +66,6 @@
 }
 #study {
     background-color: antiquewhite;
-    .wrapper {
-        padding: 0 20px;
-    }
 }
 #contact {
     background-color: #f3f0ff;
@@ -108,7 +106,7 @@
 }
 
 .big-text {
-    font-size: 50pt;
+    font-size: 45pt;
 }
 
 #responsive {
@@ -145,7 +143,7 @@
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .flex {
