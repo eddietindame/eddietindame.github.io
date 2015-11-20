@@ -10766,9 +10766,10 @@ figure:hover .top {
   text-shadow: none;
   line-height: 150px;
   vertical-align: bottom;
+  overflow: hidden;
 }
 
-/* line 111, ../scss/cats/_module.scss */
+/* line 113, ../scss/cats/_module.scss */
 .window_img {
   background-image: url(../../res/window-long.svg);
   background-position: top;
@@ -10784,7 +10785,7 @@ figure:hover .top {
   padding: 50px 10px 5px 10px;
 }
 @media only screen and (max-width: 620px) {
-  /* line 111, ../scss/cats/_module.scss */
+  /* line 113, ../scss/cats/_module.scss */
   .window_img {
     width: 90vw;
     height: 310px;
@@ -10796,7 +10797,7 @@ figure:hover .top {
     margin: 0 auto;
     padding: 10% 10px 5px 10px;
   }
-  /* line 142, ../scss/cats/_module.scss */
+  /* line 144, ../scss/cats/_module.scss */
   .window_img p {
     font-size: 10pt;
   }
@@ -10905,6 +10906,27 @@ figure:hover .top {
     font-size: 37pt;
   }
 }
+/* line 107, ../scss/cats/_state.scss */
+.no-js:before {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+  z-index: 999999;
+  background-color: #b2e1ff;
+  content: "This page requires Javascript to run.";
+  text-align: center;
+  color: white;
+  text-shadow: none;
+  line-height: 150px;
+  vertical-align: bottom;
+  overflow: hidden;
+}
+
 /* line 1, ../scss/cats/_theme.scss */
 .sidr {
   font-family: 'Share Tech Mono';
