@@ -58,6 +58,8 @@
 #apps {
     background-color: #454545;
     min-height: 380px;
+    display: flex;
+    justify-content: center;
 }
 #web {
     background-color: coral;

@@ -10570,35 +10570,37 @@ figure:hover .top {
 #apps {
   background-color: #454545;
   min-height: 380px;
+  display: flex;
+  justify-content: center;
 }
 
-/* line 62, ../scss/cats/_layout.scss */
+/* line 64, ../scss/cats/_layout.scss */
 #web {
   background-color: coral;
 }
 
-/* line 65, ../scss/cats/_layout.scss */
+/* line 67, ../scss/cats/_layout.scss */
 #art {
   background-color: #454545;
 }
 
-/* line 68, ../scss/cats/_layout.scss */
+/* line 70, ../scss/cats/_layout.scss */
 #study {
   background-color: antiquewhite;
 }
 
-/* line 71, ../scss/cats/_layout.scss */
+/* line 73, ../scss/cats/_layout.scss */
 #contact {
   background-color: #f3f0ff;
 }
 
-/* line 81, ../scss/cats/_layout.scss */
+/* line 83, ../scss/cats/_layout.scss */
 #homeLogo {
   width: 70vmin;
   max-width: 600px;
 }
 
-/* line 94, ../scss/cats/_layout.scss */
+/* line 96, ../scss/cats/_layout.scss */
 #smallLogo {
   width: 50px;
   display: none;
@@ -10607,18 +10609,18 @@ figure:hover .top {
   left: 10px;
 }
 
-/* line 103, ../scss/cats/_layout.scss */
+/* line 105, ../scss/cats/_layout.scss */
 .webLogo {
   padding: 10px;
   width: 100px;
 }
 
-/* line 109, ../scss/cats/_layout.scss */
+/* line 111, ../scss/cats/_layout.scss */
 .big-text {
   font-size: 45pt;
 }
 
-/* line 113, ../scss/cats/_layout.scss */
+/* line 115, ../scss/cats/_layout.scss */
 #responsive {
   width: auto;
   height: auto;
@@ -10626,12 +10628,12 @@ figure:hover .top {
   padding: 0 10px;
 }
 
-/* line 139, ../scss/cats/_layout.scss */
+/* line 141, ../scss/cats/_layout.scss */
 #mobile-header {
   margin: 9px 0;
 }
 
-/* line 143, ../scss/cats/_layout.scss */
+/* line 145, ../scss/cats/_layout.scss */
 #portrait {
   width: 300px;
   height: 300px;
@@ -10639,7 +10641,7 @@ figure:hover .top {
   margin-bottom: 20px;
 }
 
-/* line 150, ../scss/cats/_layout.scss */
+/* line 152, ../scss/cats/_layout.scss */
 .flex, .flex-up {
   height: 100%;
   display: flex;
@@ -10647,23 +10649,23 @@ figure:hover .top {
   justify-content: center;
 }
 
-/* line 157, ../scss/cats/_layout.scss */
+/* line 159, ../scss/cats/_layout.scss */
 .flex-up {
   flex-direction: column;
   align-items: center;
 }
 
-/* line 163, ../scss/cats/_layout.scss */
+/* line 165, ../scss/cats/_layout.scss */
 .row {
   overflow: hidden;
 }
 
-/* line 167, ../scss/cats/_layout.scss */
+/* line 169, ../scss/cats/_layout.scss */
 #sidr-main {
   width: 150px;
 }
 
-/* line 171, ../scss/cats/_layout.scss */
+/* line 173, ../scss/cats/_layout.scss */
 .copy {
   text-align: center;
   margin: 0 auto;
@@ -10772,36 +10774,25 @@ figure:hover .top {
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
-  position: absolute;
   width: 600px;
   height: 300px;
+  position: absolute;
   bottom: 0;
-  left: 50%;
-  margin-left: -300px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   padding: 50px 10px 5px 10px;
 }
 @media only screen and (max-width: 620px) {
   /* line 111, ../scss/cats/_module.scss */
   .window_img {
-    position: absolute;
-    width: 500px;
+    width: 90vw;
     height: 310px;
-    bottom: 0;
-    left: 50%;
-    margin-left: -250px;
-    padding: 50px 10px 5px 10px;
-  }
-}
-@media only screen and (max-width: 520px) {
-  /* line 111, ../scss/cats/_module.scss */
-  .window_img {
     position: absolute;
-    width: 380px;
-    height: 310px;
     bottom: 0;
-    left: 50%;
-    margin-left: -190px;
-    padding: 50px 10px 5px 10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
 }
 
