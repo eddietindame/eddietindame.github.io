@@ -106,4 +106,19 @@
       text-shadow: none; 
       line-height: 150px; 
       vertical-align: bottom; 
-}    
+}
+
+.window_img {
+    background-image: url(../../res/window.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 600px;
+    height:  300px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -300px;
+    
+    padding: 50px 10px 5px 10px;
+}
