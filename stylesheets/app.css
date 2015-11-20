@@ -10788,9 +10788,9 @@ figure:hover .top {
 
 /* line 111, ../scss/cats/_module.scss */
 .window_img {
-  background-image: url(../../res/window.svg);
-  background-position: center;
-  background-size: contain;
+  background-image: url(../../res/window-long.svg);
+  background-position: top;
+  background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
   width: 600px;
@@ -10799,6 +10799,30 @@ figure:hover .top {
   left: 50%;
   margin-left: -300px;
   padding: 50px 10px 5px 10px;
+}
+@media only screen and (max-width: 620px) {
+  /* line 111, ../scss/cats/_module.scss */
+  .window_img {
+    position: absolute;
+    width: 500px;
+    height: 310px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -250px;
+    padding: 50px 10px 5px 10px;
+  }
+}
+@media only screen and (max-width: 520px) {
+  /* line 111, ../scss/cats/_module.scss */
+  .window_img {
+    position: absolute;
+    width: 380px;
+    height: 310px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -190px;
+    padding: 50px 10px 5px 10px;
+  }
 }
 
 @-webkit-keyframes pulse {
