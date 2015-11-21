@@ -10768,9 +10768,13 @@ figure:hover .top {
   vertical-align: bottom;
   overflow: hidden;
 }
+/* line 111, ../scss/cats/_module.scss */
+.load * {
+  display: none;
+}
 
-/* line 113, ../scss/cats/_module.scss */
-.window_img {
+/* line 116, ../scss/cats/_module.scss */
+.window-img {
   background-image: url(../../res/window-long.svg);
   background-position: top;
   background-size: cover;
@@ -10785,8 +10789,8 @@ figure:hover .top {
   padding: 50px 10px 5px 10px;
 }
 @media only screen and (max-width: 620px) {
-  /* line 113, ../scss/cats/_module.scss */
-  .window_img {
+  /* line 116, ../scss/cats/_module.scss */
+  .window-img {
     width: 90vw;
     height: 310px;
     background-size: 100%;
@@ -10796,10 +10800,6 @@ figure:hover .top {
     right: 0;
     margin: 0 auto;
     padding: 10% 10px 5px 10px;
-  }
-  /* line 144, ../scss/cats/_module.scss */
-  .window_img p {
-    font-size: 10pt;
   }
 }
 
