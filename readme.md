@@ -21,6 +21,5 @@ Notes
 	* ^^ Normalize confirms JS but scripts don't complete??
 ```
 ## Visit it!
-```
-  * [URL](https://eddietindame.github.io)
-```
+[Here.](https://eddietindame.github.io)
+
