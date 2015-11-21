@@ -29,7 +29,12 @@ $(document).ready(function($) {
        $.sidr('close','sidr-main'); 
     });
     
-    //var navOffset = $("#header").offset().top;
+//  var navOffset = $("#header").offset().top;
+//	var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 100}});
+//	new ScrollMagic.Scene({triggerElement: "#contact"})
+//					.setClassToggle("#portrait", "active") // add class toggle
+//					.addIndicators() // add indicators (requires plugin)
+//					.addTo(controller);
     
     var navOffset = window.innerHeight - 60;
     
