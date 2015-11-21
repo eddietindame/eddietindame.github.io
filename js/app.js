@@ -1,3 +1,8 @@
+window.addEventListener("load", function() {
+    var load_screen = document.getElementById("load_screen");
+    document.body.removeAttribute('class');
+});
+
 $(document).foundation();
 
 $(document).ready(function($) {
@@ -67,9 +72,4 @@ $(document).ready(function($) {
     window.addEventListener('load',height);
     window.addEventListener('load',navPos);
     window.addEventListener('scroll',navPos);
-});
-
-window.addEventListener("load", function() {
-    var load_screen = document.getElementById("load_screen");
-    document.body.removeAttribute('class');
 });
