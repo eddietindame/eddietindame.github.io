@@ -1,27 +1,21 @@
-#top
-    //a(id="simple-menu" href="#sidr")
-        img(class="burgerButton" src="res/burger_button.svg" alt="menu button")
-    #home.row.text-center
-        //.container.column.large-12.small-12.text-center
-        //img(id="homeLogo" src="res/logo_home.svg" alt="ed logo")
+#top.top
+    #home.top__home
         img(id="homeLogo" src="res/ed_logo.svg" alt="ed logo")
-    #header.row.text-center 
-        .wrapper.flex
+    #header.top__header
             a(href="#home" class="smoothScroll")
                 img(id="smallLogo" src="res/logo_small.svg" alt="ed logo small")
-            #mobile-header
-                a(id="responsive-menu-button" href="#sidr-main")
-                    //img(id='burger-button' src='res/burger_button.svg')
-                    #burgerbutton
+            #mobile-header.top__header--mobile
+                a(class="responsive-menu-button" href="#side-menu")
+                    .burgerbutton
                         span
                         span
                         span
                         span
-            nav#navigation(onclick='')
-                ul
-                    li: a(href="#about" class="smoothScroll") About
-                    li: a(href="#apps" class="smoothScroll") Apps
-                    li: a(href="#web" class="smoothScroll") Web
-                    //li: a(href="#art" class="smoothScroll") Art
-                    li: a(href="#study" class="smoothScroll") Study
-                    li: a(href="#contact" class="smoothScroll") Contact
+            nav.top__header__navigation
+                ul.top__header__navigation__list
+                    li: a(href="#about" class="smoothScroll .top__header__navigation__link") About
+                    li: a(href="#apps" class="smoothScroll .top__header__navigation__link") Apps
+                    li: a(href="#web" class="smoothScroll .top__header__navigation__link") Web
+                    //li: a(href="#art" class="smoothScroll .top__header__navigation__link") Art
+                    li: a(href="#study" class="smoothScroll .top__header__navigation__link") Study
+                    li: a(href="#contact" class="smoothScroll .top__header__navigation__link") Contact

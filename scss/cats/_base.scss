@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -14,6 +15,11 @@ a {
     }
     &:hover {
         color: black;
+//        text-decoration: underline;
+    }
+    &:focus {
+        color: black;
+//        text-decoration: underline;
     }
     &:active {
         color: black;
@@ -22,15 +28,10 @@ a {
 
 h1,
 h4 {
-    //display: inline-block;
     font-family: 'Share Tech Mono';
     text-align: center;
     position: relative;
     margin-bottom: 20px;
-//    top: 50%;
-//    -ms-transform: translateY(-50%);
-//    -webkit-transform: translateY(-50%);
-//    transform: translateY(-50%);
 }
 
 h4 {
@@ -115,4 +116,25 @@ figure {
     &:hover .top {
         opacity: 0;
     }
+}
+
+.wrapper {
+    //min-width: 700px;
+    max-width: 960px;
+    //display: inline-block;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.flex {
+    //height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flex-up {
+    @extend .flex;
+    flex-direction: column;
+    align-items: center;
 }

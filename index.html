@@ -15,37 +15,29 @@
   </head>
   <body class="load">
     <!--include includes/loadscreen-->
-    <div id="top">
-      <!--a(id="simple-menu" href="#sidr")img(class="burgerButton" src="res/burger_button.svg" alt="menu button")
-      -->
-      <div id="home" class="row text-center">
-        <!--.container.column.large-12.small-12.text-center-->
-        <!--img(id="homeLogo" src="res/logo_home.svg" alt="ed logo")--><img id="homeLogo" src="res/ed_logo.svg" alt="ed logo">
-      </div>
-      <div id="header" class="row text-center"> 
-        <div class="wrapper flex"><a href="#home" class="smoothScroll"><img id="smallLogo" src="res/logo_small.svg" alt="ed logo small"></a>
-          <div id="mobile-header"><a id="responsive-menu-button" href="#sidr-main">
-              <!--img(id='burger-button' src='res/burger_button.svg')-->
-              <div id="burgerbutton"><span></span><span></span><span></span><span></span></div></a></div>
-          <nav id="navigation" onclick="">
-            <ul>
-              <li><a href="#about" class="smoothScroll">About</a></li>
-              <li><a href="#apps" class="smoothScroll">Apps</a></li>
-              <li><a href="#web" class="smoothScroll">Web</a></li>
-              <!--li: a(href="#art" class="smoothScroll") Art-->
-              <li><a href="#study" class="smoothScroll">Study</a></li>
-              <li><a href="#contact" class="smoothScroll">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
+    <div id="top" class="top">
+      <div id="home" class="top__home"><img id="homeLogo" src="res/ed_logo.svg" alt="ed logo"></div>
+      <div id="header" class="top__header"><a href="#home" class="smoothScroll"><img id="smallLogo" src="res/logo_small.svg" alt="ed logo small"></a>
+        <div id="mobile-header" class="top__header--mobile"><a href="#side-menu" class="responsive-menu-button">
+            <div class="burgerbutton"><span></span><span></span><span></span><span></span></div></a></div>
+        <nav class="top__header__navigation">
+          <ul class="top__header__navigation__list">
+            <li><a href="#about" class="smoothScroll .top__header__navigation__link">About</a></li>
+            <li><a href="#apps" class="smoothScroll .top__header__navigation__link">Apps</a></li>
+            <li><a href="#web" class="smoothScroll .top__header__navigation__link">Web</a></li>
+            <!--li: a(href="#art" class="smoothScroll .top__header__navigation__link") Art-->
+            <li><a href="#study" class="smoothScroll .top__header__navigation__link">Study</a></li>
+            <li><a href="#contact" class="smoothScroll .top__header__navigation__link">Contact</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
-    <div id="about" class="row text-center">
+    <div id="about" class="about">
       <div class="wrapper flex">
-        <section class="column large-6 small-12">
+        <section class="about__section">
           <h4>Eddie Tindame</h4>
-          <p class="text-center">
-            <!--| Eddie Tindame <br/><br>-->Providing creative <mark>Digital Media</mark> solutions for your small business and personal projects. <br/><br/>
+          <p>
+            Providing creative <mark>Digital Media</mark> solutions for your small business and personal projects. <br/><br/>
             <mark>Branding</mark>, <br/>
             <mark>Websites</mark>, <br/>
             <mark>Apps</mark>, <br/>
@@ -55,7 +47,7 @@
             While at work, I like to keep productivity at the forefront with technolgies such as Grunt and Yeoman. <br/>
           </p>
         </section>
-        <section class="column large-6 medium-12 small-12">
+        <section class="about__section">
           <p class="big-text">
             "Branding, <br/>
             Websites, <br/>
@@ -65,10 +57,8 @@
         </section>
       </div>
     </div>
-    <div id="apps" class="row">
-      <!--.column.large-12-->
-      <!--.img(id="window_img" src="res/window.svg")-->
-      <div class="window-img">
+    <div id="apps" class="apps">
+      <div class="apps__window-img">
         <p>$> cd /users/eddietindame/__APPS__</p>
         <p>$> Please find my applications and interactive projects hosted on my GitHub account.</p>
         <p>
@@ -78,49 +68,49 @@
         <p>$> _</p>
       </div>
     </div>
-    <div id="web" class="row text-center">
+    <div id="web" class="web">
       <div class="wrapper">
         <!--h1 Web Skills-->
         <p>I like to use the most cutting edge tools for the job...</p>
-        <div class="flex">
-          <figure><img src="res/html5_flat.svg" alt="html5 logo" class="webLogo top pulse"><img src="res/jade_flat.svg" alt="jade logo" class="webLogo bottom">
-            <figcaption class="top">HTML5</figcaption>
+        <div class="web__graphics">
+          <figure><img src="res/html5_flat.svg" alt="html5 logo" class="webLogo top pulse">
+            <figcaption class="top">HTML5</figcaption><img src="res/jade_flat.svg" alt="jade logo" class="webLogo bottom">
             <figcaption class="bottom">Jade</figcaption>
           </figure>
-          <figure><img src="res/css3_flat.svg" alt="css3 logo" class="webLogo top pulse"><img src="res/sass_flat.svg" alt="sass logo" class="webLogo bottom">
-            <figcaption class="top">CSS3</figcaption>
+          <figure><img src="res/css3_flat.svg" alt="css3 logo" class="webLogo top pulse">
+            <figcaption class="top">CSS3</figcaption><img src="res/sass_flat.svg" alt="sass logo" class="webLogo bottom">
             <figcaption class="bottom">SASS</figcaption>
           </figure>
-          <figure><img src="res/js_flat.svg" alt="javascript logo" class="webLogo top pulse"><img src="res/jquery_flat.svg" alt="jquery logo" class="webLogo bottom">
-            <figcaption class="top">JavaScript</figcaption>
+          <figure><img src="res/js_flat.svg" alt="javascript logo" class="webLogo top pulse">
+            <figcaption class="top">JavaScript</figcaption><img src="res/jquery_flat.svg" alt="jquery logo" class="webLogo bottom">
             <figcaption class="bottom">jQuery</figcaption>
           </figure>
-          <figure><img src="res/foundation5_flat.svg" alt="foundation 5 logo" class="webLogo top pulse"><img src="res/grunt_flat.svg" alt="grunt logo" class="webLogo bottom">
-            <figcaption class="top">Foundation 5</figcaption>
+          <figure><img src="res/foundation5_flat.svg" alt="foundation 5 logo" class="webLogo top pulse">
+            <figcaption class="top">Foundation 5</figcaption><img src="res/grunt_flat.svg" alt="grunt logo" class="webLogo bottom">
             <figcaption class="bottom">Grunt</figcaption>
           </figure>
-          <figure><img src="res/php_flat.svg" alt="php logo" class="webLogo top pulse"><img src="res/node_flat.svg" alt="node js logo" class="webLogo bottom">
-            <figcaption class="top">PHP</figcaption>
+          <figure><img src="res/php_flat.svg" alt="php logo" class="webLogo top pulse">
+            <figcaption class="top">PHP</figcaption><img src="res/node_flat.svg" alt="node js logo" class="webLogo bottom">
             <figcaption class="bottom">Node.JS</figcaption>
-          </figure><br>
+          </figure>
         </div>
-        <div id="responsive"><img src="res/responsive-diagram.svg" alt="responsive web design diagram">
+        <div class="web__diagram"><img src="res/responsive-diagram.svg" alt="responsive web design diagram">
           <figcaption>Responsive Web Design</figcaption>
         </div>
       </div>
     </div>
     <!--include includes/art-->
-    <div id="study" class="row">
-      <div class="wrapper flex text-center">
+    <div id="study" class="study">
+      <div class="study__content">
         <h1>Study</h1>
         <p>I am currently studying BSc Multimedia Technology & Design at the University of Kent, Canterbury. As I am focusing on my studies, I cannot offer any freelance work, but I am looking for work placements as a Junior Web Developer.</p>
         <p>I love the Web! I want nothing more than to expand my knowledge of web technologies and hone my skills into that of a true professional. Help me make that happen by offering me experience! By the end of my studies I will have developed additional skills in UI/UX design and mobile app development.</p>
         <p>Please visit my GitHub page where you will find the repository for this website. There you will find relevant background info and upcoming changes.</p>
       </div>
     </div>
-    <div id="contact" class="row text-center">
+    <div id="contact" class="contact">
       <div class="wrapper">
-        <div class="column large-12 flex">
+        <div class="contact__graphics">
           <figure><a href="https://www.facebook.com/eddie.tindame"><img id="facebook" src="res/facebook_flat.svg" alt="facebook logo" class="webLogo">
               <figcaption>Facebook</figcaption></a></figure>
           <figure><a href="https://www.instagram.com"><img id="instagram" src="res/instagram_flat.svg" alt="instagram logo" class="webLogo">
@@ -132,9 +122,9 @@
           <figure><a href="https://uk.linkedin.com/in/eddietindame"><img id="linkedin" src="res/linkedin_flat.svg" alt="Linked in logo" class="webLogo">
               <figcaption>LinkedIn</figcaption></a></figure>
         </div>
-        <div class="column large-12 flex-up"><img id="portrait" src="res/portrait.jpg"><a href="mailto:eddie.tindame@googlemail.com">
+        <div class="contact__me"><img id="portrait" src="res/portrait.jpg"><a href="mailto:eddie.tindame@googlemail.com">
             <h1 class="email">eddie.tindame@googlemail.com</h1></a>
-          <div class="copy">&copy; 2015 Eddie Tindame</div>
+          <div class="contact__me__copy">&copy; 2015 Eddie Tindame</div>
         </div>
       </div>
     </div>

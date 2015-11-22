@@ -1,5 +1,160 @@
+.top {
+    //height: 100vh;
+    
+    &__home {
+        @extend .row, .text-center;
+        
+        background-color: $mainBlue;
+        min-height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__header {
+        @extend .text-center, .wrapper, .flex;
+        height: 60px;
+        background-color: white;
+        margin: none;
+        right: 0;
+        max-width: inherit;
+        
+        &--mobile {
+            margin: 9px 0;
+        }
+    }
+
+    &__header__navigation {
+        height: 100%;
+        padding: 0;
+        min-width: 700px;
+        max-width: 1000px;
+        &__list {
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            height: 100%;
+        }
+        &__link {
+            padding: 0 5%;
+        }
+    }
+}
+
+.about {
+    @extend .row, .text-center;
+    
+    background-color: aquamarine;
+    
+    &__section {
+        @extend .column, .large-6, .medium-12, .small-12;
+    }
+}
+
+.web {
+    @extend .row, .text-center;
+    
+    background-color: coral;
+    
+    &__graphics {
+        @extend .flex;
+    }
+    
+    &__diagram {
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        padding:  0 10px;
+    }
+}
+
+.apps {
+    @extend .row;
+
+    background-color: #454545;
+    min-height: 380px;
+    display: flex;
+    justify-content: center;
+
+    &__window-img {
+        background-image: url(../../res/window-long.svg);
+        background-position: top;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        width: 600px;
+        height:  300px;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+
+        padding: 50px 10px 5px 10px;
+
+        @media only screen and (max-width: 620px) {
+            width: 90vw;
+            height:  310px;
+
+            background-size: 100%;
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+
+            padding: 10% 10px 5px 10px;
+        }
+    }
+}
+
+.study {
+    @extend .row;
+    
+    background-color: antiquewhite;
+    
+    &__content {
+        @extend .wrapper, .flex, .text-center;
+    }
+}
+
+.contact {
+    @extend .row, .text-center;
+    
+    background-color: #f3f0ff;
+    
+    &__graphics {
+        @extends .column, .large-12, .flex;
+    }
+    
+    &__me {
+        @extends .column, .large-12, .flex-up;
+        
+        &__copy {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 8pt;
+            color: #6c7c89;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 // Animated burger button
-#burgerbutton {
+.burgerbutton {
     width: 60px;
     height: 45px;
     position: relative;
@@ -113,39 +268,3 @@
     }
 }
 
-.window-img {
-    background-image: url(../../res/window-long.svg);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    width: 600px;
-    height:  300px;
-    
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    
-    padding: 50px 10px 5px 10px;
-    
-    @media only screen and (max-width: 620px) {
-        width: 90vw;
-        height:  310px;
-        
-        background-size: 100%;
-        
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        
-        padding: 10% 10px 5px 10px;
-        
-        p {
-         //   font-size: 10pt;
-        }
-    }
-}
