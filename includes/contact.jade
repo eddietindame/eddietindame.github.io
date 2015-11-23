@@ -1,23 +1,24 @@
 #contact.contact
     .wrapper
-        .contact__graphics
-            figure: a(href="https://www.facebook.com/eddie.tindame")
-                img(id="facebook" class="webLogo" src="res/facebook_flat.svg" alt="facebook logo")
+        //p Check me out at...
+        .icon-row
+            figure.icon-row__box: a(href="https://www.facebook.com/eddie.tindame")
+                img(id="facebook" class="icon-row__box__graphic" src="res/facebook_flat.svg" alt="facebook logo")
                 figcaption Facebook
-            figure: a(href="https://www.instagram.com")
-                img(id="instagram" class="webLogo" src="res/instagram_flat.svg" alt="instagram logo")
+            figure.icon-row__box: a(href="https://www.instagram.com")
+                img(id="instagram" class="icon-row__box__graphic" src="res/instagram_flat.svg" alt="instagram logo")
                 figcaption Instagram
-            figure: a(href="https://github.com/eddietindame")
-                img(id="github" class="webLogo" src="res/github_flat.svg" alt="Github in logo")
+            figure.icon-row__box: a(href="https://github.com/eddietindame")
+                img(id="github" class="icon-row__box__graphic" src="res/github_flat.svg" alt="Github in logo")
                 figcaption GitHub
-            figure: a(href="https://www.twitter.com")
-                img(id="twitter" class="webLogo" src="res/twitter_flat.svg" alt="twitter logo")
+            figure.icon-row__box: a(href="https://www.twitter.com")
+                img(id="twitter" class="icon-row__box__graphic" src="res/twitter_flat.svg" alt="twitter logo")
                 figcaption Twitter
-            figure: a(href="https://uk.linkedin.com/in/eddietindame")
-                img(id="linkedin" class="webLogo" src="res/linkedin_flat.svg" alt="Linked in logo")
+            figure.icon-row__box: a(href="https://uk.linkedin.com/in/eddietindame")
+                img(id="linkedin" class="icon-row__box__graphic" src="res/linkedin_flat.svg" alt="Linked in logo")
                 figcaption LinkedIn
         .contact__me
-            img(id='portrait' src='res/portrait.jpg')
+            img(class='portrait' src='res/portrait.jpg')
             a( href="mailto:eddie.tindame@googlemail.com")
                 h1.email eddie.tindame@googlemail.com
             .contact__me__copy &copy; 2015 Eddie Tindame

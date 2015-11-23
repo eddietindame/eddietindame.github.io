@@ -1,21 +1,21 @@
-#top.top
-    #home.top__home
-        img(id="homeLogo" src="res/ed_logo.svg" alt="ed logo")
-    #header.top__header
-            a(href="#home" class="smoothScroll")
-                img(id="smallLogo" src="res/logo_small.svg" alt="ed logo small")
-            #mobile-header.top__header--mobile
-                a(class="responsive-menu-button" href="#side-menu")
-                    .burgerbutton
-                        span
-                        span
-                        span
-                        span
-            nav.top__header__navigation
-                ul.top__header__navigation__list
-                    li: a(href="#about" class="smoothScroll .top__header__navigation__link") About
-                    li: a(href="#apps" class="smoothScroll .top__header__navigation__link") Apps
-                    li: a(href="#web" class="smoothScroll .top__header__navigation__link") Web
-                    //li: a(href="#art" class="smoothScroll .top__header__navigation__link") Art
-                    li: a(href="#study" class="smoothScroll .top__header__navigation__link") Study
-                    li: a(href="#contact" class="smoothScroll .top__header__navigation__link") Contact
+#top
+    #home
+        img(class="logo--home" src="res/logo.svg" alt="ed logo")
+    #header
+        a(class="js-smoothScroll" href="#home")
+            img(class="logo--small" src="res/logo.svg" alt="ed logo small")
+        
+        a(class="js-side-menu-button" href="#side-menu")
+            #header--mobile.burgerbutton
+                span
+                span
+                span
+                span
+        nav
+            ul
+                li: a(href="#about" class="js-smoothScroll .top__header__navigation__link") About
+                li: a(href="#apps" class="js-smoothScroll .top__header__navigation__link") Apps
+                li: a(href="#web" class="js-smoothScroll .top__header__navigation__link") Web
+                //li: a(href="#art" class="js-smoothScroll .top__header__navigation__link") Art
+                li: a(href="#study" class="js-smoothScroll .top__header__navigation__link") Study
+                li: a(href="#contact" class="js-smoothScroll .top__header__navigation__link") Contact

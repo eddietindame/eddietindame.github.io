@@ -1,46 +1,27 @@
-.top {
-    //height: 100vh;
-    
-    &__home {
-        @extend .row, .text-center;
-        
-        background-color: $mainBlue;
-        min-height: 250px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+// *** MAIN CONTENT *** //
 
-    &__header {
-        @extend .text-center, .wrapper, .flex;
-        height: 60px;
-        background-color: white;
-        margin: none;
-        right: 0;
-        max-width: inherit;
-        
-        &--mobile {
-            margin: 9px 0;
-        }
-    }
+#home {
+    @extend .text-center;
 
-    &__header__navigation {
-        height: 100%;
-        padding: 0;
-        min-width: 700px;
-        max-width: 1000px;
-        &__list {
-            margin: 0;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+    background-color: $mainBlue;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-            height: 100%;
-        }
-        &__link {
-            padding: 0 5%;
-        }
-    }
+#header {
+    @extend .text-center, .wrapper, .flex;
+
+    background-color: white;
+    height: 60px;
+    margin: none;
+    right: 0;
+    max-width: inherit;
+}
+
+#header--mobile {
+    margin: 9px 0;
 }
 
 .about {
@@ -58,10 +39,6 @@
     
     background-color: coral;
     
-    &__graphics {
-        @extend .flex;
-    }
-    
     &__diagram {
         width: auto;
         height: auto;
@@ -70,22 +47,45 @@
     }
 }
 
-.apps {
+.icon-row {
+    @extend .flex;
+    
+    &__box {
+        
+    }
+}
+
+#apps {
     @extend .row;
 
     background-color: #454545;
     min-height: 380px;
     display: flex;
     justify-content: center;
+}
 
-    &__window-img {
-        background-image: url(../../res/window-long.svg);
-        background-position: top;
-        background-size: cover;
-        background-repeat: no-repeat;
+.window-img {
+    background-image: url(../../res/window-long.svg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-        width: 600px;
-        height:  300px;
+    width: 600px;
+    height:  300px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    padding: 50px 10px 5px 10px;
+
+    @media only screen and (max-width: 620px) {
+        width: 90vw;
+        height:  310px;
+
+        background-size: 100%;
 
         position: absolute;
         bottom: 0;
@@ -93,22 +93,7 @@
         right: 0;
         margin: 0 auto;
 
-        padding: 50px 10px 5px 10px;
-
-        @media only screen and (max-width: 620px) {
-            width: 90vw;
-            height:  310px;
-
-            background-size: 100%;
-
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-
-            padding: 10% 10px 5px 10px;
-        }
+        padding: 10% 10px 5px 10px;
     }
 }
 
@@ -123,16 +108,12 @@
 }
 
 .contact {
-    @extend .row, .text-center;
+    @extend .row, .text-center, .flex;
     
     background-color: #f3f0ff;
-    
-    &__graphics {
-        @extends .column, .large-12, .flex;
-    }
-    
+
     &__me {
-        @extends .column, .large-12, .flex-up;
+        @extend .column, .large-12, .flex-up;
         
         &__copy {
             text-align: center;
@@ -143,17 +124,8 @@
     }
 }
 
+// *** ANIMATED BURGER BUTTON *** //
 
-
-
-
-
-
-
-
-
-
-// Animated burger button
 .burgerbutton {
     width: 60px;
     height: 45px;
@@ -220,32 +192,8 @@
     }
 }
 
-// Loading screen
-//#load_screen {
-//	background: $mainBlue;
-//	opacity: 1;
-//	position: fixed;
-//    z-index:100;
-//	top: 0px;
-//	width: 100vh;
-//	height: 100vh;
-//    
-//    display: flex;
-//    flex-direction: column;
-//    justify-content: center;
-//    align-items: center;
-//
-//    img {
-//        margin: 10px auto;
-//    }
-//    
-//    #loading {
-//        color: #black;
-//        width: 120px;
-//        height: 24px;
-//        margin: 10px auto;
-//    }
-//}
+// *** LOADING SCREEN *** //
+
 .load {
     &:before  { 
         width: 100%; 
@@ -263,6 +211,7 @@
         vertical-align: bottom;
         overflow: hidden;
     }
+    // PREVENTS SCROLLING //
     & * {
         display: none;
     }

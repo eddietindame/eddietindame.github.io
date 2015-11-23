@@ -1,0 +1,22 @@
+//.sidr {
+//    font-family: 'Share Tech Mono';
+//    box-shadow: none;
+//    background-color: white;
+//    opacity: 50%;
+//    ul li:hover {
+//            box-shadow: none;
+//    }
+//}
+
+// *** OVERRIDE SIDR STYLES *** //
+
+#side-menu {
+    width: 150px;
+        font-family: 'Share Tech Mono';
+    box-shadow: none;
+    background-color: white;
+    opacity: 50%;
+    ul li:hover {
+            box-shadow: none;
+    }
+}

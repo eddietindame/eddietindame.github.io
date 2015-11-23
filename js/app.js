@@ -6,22 +6,14 @@ window.addEventListener("load", function() {
 $(document).foundation();
 
 $(document).ready(function($) {
-    $('.responsive-menu-button').sidr({
+    $('.js-side-menu-button').sidr({
         name: 'side-menu',
-        source: '.top__header__navigation',
+        source: 'nav',
         onOpen: function() {
-//            $('#smallLogo').css('position','relative');
-//            $('.responsive-menu-button').css('float','right');
-//            $('.flex').css('flex-wrap','nowrap');
 		   $('.burgerbutton').addClass('open');
-//		   $('#smallLogo').addClass('hide');
         },
         onClose: function() {
-//            $('#smallLogo').css('position','absolute');
-//            $('.responsive-menu-button').css('float','none');
-//            $('.flex').css('flex-wrap','wrap');
            $('.burgerbutton').removeClass('open');
-//		   $('#smallLogo').removeClass('hide');
         },
         displace: false
     });
@@ -34,48 +26,34 @@ $(document).ready(function($) {
        $.sidr('close','side-menu'); 
     });
     
-//  var navOffset = $("#header").offset().top;
-//	var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 100}});
-//	new ScrollMagic.Scene({triggerElement: "#contact"})
-//					.setClassToggle("#portrait", "active") // add class toggle
-//					.addIndicators() // add indicators (requires plugin)
-//					.addTo(controller);
-    
-    var navOffset = window.innerHeight - 60;
+    var navHeight = 60;
+    var w = window.innerWidth;
+    var navOffset = window.innerHeight - navHeight;
     
     function navPos() {
         var scrollPos = $(window).scrollTop();
         if (scrollPos >= navOffset) {
             $("#header").addClass("fixed");
-            $("#smallLogo").show("fast");
-            //$("#mobile-header").css("position","absolute");
+            $(".logo--small").show("fast");
         } else {
             $("#header").removeClass("fixed");
-            $("#smallLogo").hide("fast");
-            //$("#mobile-header").css("position","relative");
+            $(".logo--small").hide("fast");
         } 
     }
         
     function height() {
-        //var h = window.innerHeight - 60;
-        navOffset = window.innerHeight - 60;
+        navOffset = window.innerHeight - navHeight;
         document.getElementById('home').style.height = `${navOffset}px`;
     }
     
     function width() {
-        var w = window.innerWidth;
+        w = window.innerWidth;
         $('#header').css("max-width",w);
     }
-    
-//    function unfocus() {
-//        $("a").blur();
-//    }
     
     window.addEventListener('resize',width);
     window.addEventListener('resize',height);
     window.addEventListener('load',height);
     window.addEventListener('load',navPos);
     window.addEventListener('scroll',navPos);
-    //window.addEventListener('scroll',unfocus);
-    //window.addEventListener('click',unfocus);
 });

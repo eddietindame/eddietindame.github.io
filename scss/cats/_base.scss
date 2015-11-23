@@ -43,22 +43,18 @@ nav {
     padding: 0;
     min-width: 700px;
     max-width: 1000px;
-    ul {
-        margin: 0;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        
-        height: 100%;
-    }
     a {
         padding: 0 5%;
     }
 }
 
 ul {
-    margin-top: 10px;
-    display: inline;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 100%;
 }
 
 li {
@@ -67,32 +63,32 @@ li {
     display: inline;
 }
 
-figure img {
-    width: $figureSize;
-    height: $figureSize;
-}
-
 mark {
     background-color: black;
     color: aquamarine;
 }
 
 figure {
+    @extend .flex;
+    
     position: relative;
     text-align: center;
     width: $figureSize;
     height: 130px;
-    display: inline-block;
     margin: 0px 30px;
-    .webLogo {
+    
+    .icon-row__box__graphic {
         position: absolute;
         top: 0;
         left:  50%;
         transform: translate(-50%,0);
         padding: 10px;
         width: 100px;
-        //min-width: 100px;
-    }  
+    }
+    img {
+        width:  $figureSize;
+        height: $figureSize;
+    } 
     figcaption {
         position: absolute;
         top: 75%;
@@ -110,24 +106,26 @@ figure {
     .bottom {
         opacity: 0;
     }
-    &:hover .bottom {
-        opacity: 100;
-    }
-    &:hover .top {
-        opacity: 0;
+    &:hover {
+        .bottom {
+            opacity: 100;
+        }
+        .top {
+            opacity: 0;
+        }
     }
 }
 
+
+// *** UTILITY CLASSES *** //
+
 .wrapper {
-    //min-width: 700px;
     max-width: 960px;
-    //display: inline-block;
-    margin: 0 auto;
+    margin:  0 auto;
     padding: 0 20px;
 }
 
 .flex {
-    //height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -137,4 +135,16 @@ figure {
     @extend .flex;
     flex-direction: column;
     align-items: center;
+}
+
+.ts-big {
+    font-size: 45pt;
+}
+
+.row {
+    overflow: hidden;
+}
+
+p {
+    font-size: inherit;
 }

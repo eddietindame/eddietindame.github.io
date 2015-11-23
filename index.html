@@ -15,19 +15,18 @@
   </head>
   <body class="load">
     <!--include includes/loadscreen-->
-    <div id="top" class="top">
-      <div id="home" class="top__home"><img id="homeLogo" src="res/ed_logo.svg" alt="ed logo"></div>
-      <div id="header" class="top__header"><a href="#home" class="smoothScroll"><img id="smallLogo" src="res/logo_small.svg" alt="ed logo small"></a>
-        <div id="mobile-header" class="top__header--mobile"><a href="#side-menu" class="responsive-menu-button">
-            <div class="burgerbutton"><span></span><span></span><span></span><span></span></div></a></div>
-        <nav class="top__header__navigation">
-          <ul class="top__header__navigation__list">
-            <li><a href="#about" class="smoothScroll .top__header__navigation__link">About</a></li>
-            <li><a href="#apps" class="smoothScroll .top__header__navigation__link">Apps</a></li>
-            <li><a href="#web" class="smoothScroll .top__header__navigation__link">Web</a></li>
-            <!--li: a(href="#art" class="smoothScroll .top__header__navigation__link") Art-->
-            <li><a href="#study" class="smoothScroll .top__header__navigation__link">Study</a></li>
-            <li><a href="#contact" class="smoothScroll .top__header__navigation__link">Contact</a></li>
+    <div id="top">
+      <div id="home"><img src="res/logo.svg" alt="ed logo" class="logo--home"></div>
+      <div id="header"><a href="#home" class="js-smoothScroll"><img src="res/logo.svg" alt="ed logo small" class="logo--small"></a><a href="#side-menu" class="js-side-menu-button">
+          <div id="header--mobile" class="burgerbutton"><span></span><span></span><span></span><span></span></div></a>
+        <nav>
+          <ul>
+            <li><a href="#about" class="js-smoothScroll .top__header__navigation__link">About</a></li>
+            <li><a href="#apps" class="js-smoothScroll .top__header__navigation__link">Apps</a></li>
+            <li><a href="#web" class="js-smoothScroll .top__header__navigation__link">Web</a></li>
+            <!--li: a(href="#art" class="js-smoothScroll .top__header__navigation__link") Art-->
+            <li><a href="#study" class="js-smoothScroll .top__header__navigation__link">Study</a></li>
+            <li><a href="#contact" class="js-smoothScroll .top__header__navigation__link">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -48,7 +47,7 @@
           </p>
         </section>
         <section class="about__section">
-          <p class="big-text">
+          <p class="ts-big">
             "Branding, <br/>
             Websites, <br/>
             Apps, <br/>
@@ -57,13 +56,13 @@
         </section>
       </div>
     </div>
-    <div id="apps" class="apps">
-      <div class="apps__window-img">
+    <div id="apps">
+      <div class="window-img">
         <p>$> cd /users/eddietindame/__APPS__</p>
         <p>$> Please find my applications and interactive projects hosted on my GitHub account.</p>
         <p>
            
-          $> [URL]( src="<a href="https://github.com/eddietindame">https://github.com/eddietindame</a>" )
+          $> [URL](src=" <a href="https://github.com/eddietindame">https://github.com/eddietindame</a> ")
         </p>
         <p>$> _</p>
       </div>
@@ -72,25 +71,25 @@
       <div class="wrapper">
         <!--h1 Web Skills-->
         <p>I like to use the most cutting edge tools for the job...</p>
-        <div class="web__graphics">
-          <figure><img src="res/html5_flat.svg" alt="html5 logo" class="webLogo top pulse">
-            <figcaption class="top">HTML5</figcaption><img src="res/jade_flat.svg" alt="jade logo" class="webLogo bottom">
+        <div class="icon-row">
+          <figure class="icon-row__box"><img src="res/html5_flat.svg" alt="html5 logo" class="icon-row__box__graphic top pulse">
+            <figcaption class="top">HTML5</figcaption><img src="res/jade_flat.svg" alt="jade logo" class="icon-row__box__graphic bottom">
             <figcaption class="bottom">Jade</figcaption>
           </figure>
-          <figure><img src="res/css3_flat.svg" alt="css3 logo" class="webLogo top pulse">
-            <figcaption class="top">CSS3</figcaption><img src="res/sass_flat.svg" alt="sass logo" class="webLogo bottom">
+          <figure class="icon-row__box"><img src="res/css3_flat.svg" alt="css3 logo" class="icon-row__box__graphic top pulse">
+            <figcaption class="top">CSS3</figcaption><img src="res/sass_flat.svg" alt="sass logo" class="icon-row__box__graphic bottom">
             <figcaption class="bottom">SASS</figcaption>
           </figure>
-          <figure><img src="res/js_flat.svg" alt="javascript logo" class="webLogo top pulse">
-            <figcaption class="top">JavaScript</figcaption><img src="res/jquery_flat.svg" alt="jquery logo" class="webLogo bottom">
+          <figure class="icon-row__box"><img src="res/js_flat.svg" alt="javascript logo" class="icon-row__box__graphic top pulse">
+            <figcaption class="top">JavaScript</figcaption><img src="res/jquery_flat.svg" alt="jquery logo" class="icon-row__box__graphic bottom">
             <figcaption class="bottom">jQuery</figcaption>
           </figure>
-          <figure><img src="res/foundation5_flat.svg" alt="foundation 5 logo" class="webLogo top pulse">
-            <figcaption class="top">Foundation 5</figcaption><img src="res/grunt_flat.svg" alt="grunt logo" class="webLogo bottom">
+          <figure class="icon-row__box"><img src="res/foundation5_flat.svg" alt="foundation 5 logo" class="icon-row__box__graphic top pulse">
+            <figcaption class="top">Foundation 5</figcaption><img src="res/grunt_flat.svg" alt="grunt logo" class="icon-row__box__graphic bottom">
             <figcaption class="bottom">Grunt</figcaption>
           </figure>
-          <figure><img src="res/php_flat.svg" alt="php logo" class="webLogo top pulse">
-            <figcaption class="top">PHP</figcaption><img src="res/node_flat.svg" alt="node js logo" class="webLogo bottom">
+          <figure class="icon-row__box"><img src="res/php_flat.svg" alt="php logo" class="icon-row__box__graphic top pulse">
+            <figcaption class="top">PHP</figcaption><img src="res/node_flat.svg" alt="node js logo" class="icon-row__box__graphic bottom">
             <figcaption class="bottom">Node.JS</figcaption>
           </figure>
         </div>
@@ -110,19 +109,20 @@
     </div>
     <div id="contact" class="contact">
       <div class="wrapper">
-        <div class="contact__graphics">
-          <figure><a href="https://www.facebook.com/eddie.tindame"><img id="facebook" src="res/facebook_flat.svg" alt="facebook logo" class="webLogo">
+        <!--p Check me out at...-->
+        <div class="icon-row">
+          <figure class="icon-row__box"><a href="https://www.facebook.com/eddie.tindame"><img id="facebook" src="res/facebook_flat.svg" alt="facebook logo" class="icon-row__box__graphic">
               <figcaption>Facebook</figcaption></a></figure>
-          <figure><a href="https://www.instagram.com"><img id="instagram" src="res/instagram_flat.svg" alt="instagram logo" class="webLogo">
+          <figure class="icon-row__box"><a href="https://www.instagram.com"><img id="instagram" src="res/instagram_flat.svg" alt="instagram logo" class="icon-row__box__graphic">
               <figcaption>Instagram</figcaption></a></figure>
-          <figure><a href="https://github.com/eddietindame"><img id="github" src="res/github_flat.svg" alt="Github in logo" class="webLogo">
+          <figure class="icon-row__box"><a href="https://github.com/eddietindame"><img id="github" src="res/github_flat.svg" alt="Github in logo" class="icon-row__box__graphic">
               <figcaption>GitHub</figcaption></a></figure>
-          <figure><a href="https://www.twitter.com"><img id="twitter" src="res/twitter_flat.svg" alt="twitter logo" class="webLogo">
+          <figure class="icon-row__box"><a href="https://www.twitter.com"><img id="twitter" src="res/twitter_flat.svg" alt="twitter logo" class="icon-row__box__graphic">
               <figcaption>Twitter</figcaption></a></figure>
-          <figure><a href="https://uk.linkedin.com/in/eddietindame"><img id="linkedin" src="res/linkedin_flat.svg" alt="Linked in logo" class="webLogo">
+          <figure class="icon-row__box"><a href="https://uk.linkedin.com/in/eddietindame"><img id="linkedin" src="res/linkedin_flat.svg" alt="Linked in logo" class="icon-row__box__graphic">
               <figcaption>LinkedIn</figcaption></a></figure>
         </div>
-        <div class="contact__me"><img id="portrait" src="res/portrait.jpg"><a href="mailto:eddie.tindame@googlemail.com">
+        <div class="contact__me"><img src="res/portrait.jpg" class="portrait"><a href="mailto:eddie.tindame@googlemail.com">
             <h1 class="email">eddie.tindame@googlemail.com</h1></a>
           <div class="contact__me__copy">&copy; 2015 Eddie Tindame</div>
         </div>

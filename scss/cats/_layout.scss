@@ -1,25 +1,7 @@
+// *** PAGE STRUCTURE *** //
+
 #top {
-    //@extend .row, .text-center;
     height: 100vh;
-}
-
-//#header {
-//    //@extend .row, .text-center;
-//    //height: 5vh;
-//    height: 60px;
-//    background-color: white;
-//    margin: none;
-//    right: 0;
-//    max-width: inherit;
-////    display: flex;
-////    justify-content: center;
-////    align-items: center;
-//}
-
-.fixed {
-    position: fixed;
-    top: 0;
-    right: 0;
 }
 
 #home,
@@ -29,56 +11,19 @@
 #art,
 #study,
 #contact {
-    min-height: 300px;
     width: 100%;
     margin: 0;
     padding: 60px 0;
-    max-width: 100%;
+//    max-width: 100%;
     position: relative;
 }
 
-//#home {
-//    background-color: $mainBlue;
-//    min-height: 250px;
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
-//}
-
-//#about {
-//    background-color: aquamarine;
-//}
-#apps {
-    background-color: #454545;
-    min-height: 380px;
-    display: flex;
-    justify-content: center;
-}
-//#web {
-//    background-color: coral;
-//}
-//#art {
-//    background-color: #454545;
-//}
-//#study {
-//    background-color: antiquewhite;
-//}
-//#contact {
-//    background-color: #f3f0ff;
-//}
-
-//.container {
-//    width: 100%;
-//    background-color: $mainGreen;
-//    position: relative;
-//}
-
-#homeLogo {
+.logo--home {
     width: 70vmin;
     max-width: 600px;
 }
 
-#smallLogo {
+.logo--small {
     width: 50px;
     display: none;
     position: absolute;
@@ -86,24 +31,7 @@
     left: 10px;
 }
 
-.webLogo {
-    padding: 10px;
-    width: 100px;
-}
-
-.big-text {
-    font-size: 45pt;
-}
-
-.row {
-    overflow: hidden;
-}
-
-#side-menu {
-    width: 150px;
-}
-
-#portrait {
+.portrait {
     width: 300px;
     height: 300px;
     border-radius: 50%;
