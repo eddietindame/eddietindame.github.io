@@ -1,22 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="logo" x="0" y="0" width="440" height="444" viewBox="0 0 440 444" enable-background="new 0 0 440 444" xml:space="preserve">
 
 	<style>
-        svg * {
-            transition: fill .1s ease-out, opacity .2s ease-out, opacity .2s ease-in;
-        }
-        
-		#circle {
-			<!-- opacity: 0; -->
-		}
-
-		@media all and (max-width: 50px) {
+		@media all and (max-width: 90px) {
 			#sub-text {
 				display: none;
-			}
-		}
-		@media all and (max-width: 350px) {
-			#circle {
-				<!-- opacity: 0; -->
+				-moz-display: none;
 			}
 		}
 	</style>

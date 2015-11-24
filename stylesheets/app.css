@@ -618,64 +618,59 @@ select {
 }
 
 /* line 228, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-.row, .about, .web, #apps, .study, .contact {
+.row {
   margin: 0 auto;
   max-width: 62.5rem;
   width: 100%;
 }
 /* line 239, ../bower_components/foundation/scss/foundation/components/_global.scss */
-.row:before, .about:before, .web:before, #apps:before, .study:before, .contact:before, .row:after, .about:after, .web:after, #apps:after, .study:after, .contact:after {
+.row:before, .row:after {
   content: " ";
   display: table;
 }
 /* line 240, ../bower_components/foundation/scss/foundation/components/_global.scss */
-.row:after, .about:after, .web:after, #apps:after, .study:after, .contact:after {
+.row:after {
   clear: both;
 }
 /* line 232, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-.row.collapse > .column, .collapse.about > .column, .collapse.web > .column, .collapse#apps > .column, .collapse.study > .column, .collapse.contact > .column, .row.collapse > .about__section, .collapse.about > .about__section, .collapse.web > .about__section, .collapse#apps > .about__section, .collapse.study > .about__section, .collapse.contact > .about__section, .row.collapse > .contact__me, .collapse.about > .contact__me, .collapse.web > .contact__me, .collapse#apps > .contact__me, .collapse.study > .contact__me, .collapse.contact > .contact__me,
-.row.collapse > .columns,
-.collapse.about > .columns,
-.collapse.web > .columns,
-.collapse#apps > .columns,
-.collapse.study > .columns,
-.collapse.contact > .columns {
+.row.collapse > .column, .row.collapse > .about__section, .row.collapse > .contact__me,
+.row.collapse > .columns {
   padding-left: 0;
   padding-right: 0;
 }
 /* line 235, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-.row.collapse .row, .collapse.about .row, .collapse.web .row, .collapse#apps .row, .collapse.study .row, .collapse.contact .row, .row.collapse .about, .collapse.about .about, .collapse.web .about, .collapse#apps .about, .collapse.study .about, .collapse.contact .about, .row.collapse .web, .collapse.about .web, .collapse.web .web, .collapse#apps .web, .collapse.study .web, .collapse.contact .web, .row.collapse #apps, .collapse.about #apps, .collapse.web #apps, .collapse#apps #apps, .collapse.study #apps, .collapse.contact #apps, .row.collapse .study, .collapse.about .study, .collapse.web .study, .collapse#apps .study, .collapse.study .study, .collapse.contact .study, .row.collapse .contact, .collapse.about .contact, .collapse.web .contact, .collapse#apps .contact, .collapse.study .contact, .collapse.contact .contact {
+.row.collapse .row {
   margin-left: 0;
   margin-right: 0;
 }
 /* line 238, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-.row .row, .about .row, .web .row, #apps .row, .study .row, .contact .row, .row .about, .about .about, .web .about, #apps .about, .study .about, .contact .about, .row .web, .about .web, .web .web, #apps .web, .study .web, .contact .web, .row #apps, .about #apps, .web #apps, #apps #apps, .study #apps, .contact #apps, .row .study, .about .study, .web .study, #apps .study, .study .study, .contact .study, .row .contact, .about .contact, .web .contact, #apps .contact, .study .contact, .contact .contact {
+.row .row {
   margin: 0 -0.9375rem;
   max-width: none;
   width: auto;
 }
 /* line 239, ../bower_components/foundation/scss/foundation/components/_global.scss */
-.row .row:before, .about .row:before, .web .row:before, #apps .row:before, .study .row:before, .contact .row:before, .row .about:before, .about .about:before, .web .about:before, #apps .about:before, .study .about:before, .contact .about:before, .row .web:before, .about .web:before, .web .web:before, #apps .web:before, .study .web:before, .contact .web:before, .row #apps:before, .about #apps:before, .web #apps:before, #apps #apps:before, .study #apps:before, .contact #apps:before, .row .study:before, .about .study:before, .web .study:before, #apps .study:before, .study .study:before, .contact .study:before, .row .contact:before, .about .contact:before, .web .contact:before, #apps .contact:before, .study .contact:before, .contact .contact:before, .row .row:after, .about .row:after, .web .row:after, #apps .row:after, .study .row:after, .contact .row:after, .row .about:after, .about .about:after, .web .about:after, #apps .about:after, .study .about:after, .contact .about:after, .row .web:after, .about .web:after, .web .web:after, #apps .web:after, .study .web:after, .contact .web:after, .row #apps:after, .about #apps:after, .web #apps:after, #apps #apps:after, .study #apps:after, .contact #apps:after, .row .study:after, .about .study:after, .web .study:after, #apps .study:after, .study .study:after, .contact .study:after, .row .contact:after, .about .contact:after, .web .contact:after, #apps .contact:after, .study .contact:after, .contact .contact:after {
+.row .row:before, .row .row:after {
   content: " ";
   display: table;
 }
 /* line 240, ../bower_components/foundation/scss/foundation/components/_global.scss */
-.row .row:after, .about .row:after, .web .row:after, #apps .row:after, .study .row:after, .contact .row:after, .row .about:after, .about .about:after, .web .about:after, #apps .about:after, .study .about:after, .contact .about:after, .row .web:after, .about .web:after, .web .web:after, #apps .web:after, .study .web:after, .contact .web:after, .row #apps:after, .about #apps:after, .web #apps:after, #apps #apps:after, .study #apps:after, .contact #apps:after, .row .study:after, .about .study:after, .web .study:after, #apps .study:after, .study .study:after, .contact .study:after, .row .contact:after, .about .contact:after, .web .contact:after, #apps .contact:after, .study .contact:after, .contact .contact:after {
+.row .row:after {
   clear: both;
 }
 /* line 239, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-.row .row.collapse, .about .row.collapse, .web .row.collapse, #apps .row.collapse, .study .row.collapse, .contact .row.collapse, .row .collapse.about, .about .collapse.about, .web .collapse.about, #apps .collapse.about, .study .collapse.about, .contact .collapse.about, .row .collapse.web, .about .collapse.web, .web .collapse.web, #apps .collapse.web, .study .collapse.web, .contact .collapse.web, .row .collapse#apps, .about .collapse#apps, .web .collapse#apps, #apps .collapse#apps, .study .collapse#apps, .contact .collapse#apps, .row .collapse.study, .about .collapse.study, .web .collapse.study, #apps .collapse.study, .study .collapse.study, .contact .collapse.study, .row .collapse.contact, .about .collapse.contact, .web .collapse.contact, #apps .collapse.contact, .study .collapse.contact, .contact .collapse.contact {
+.row .row.collapse {
   margin: 0;
   max-width: none;
   width: auto;
 }
 /* line 239, ../bower_components/foundation/scss/foundation/components/_global.scss */
-.row .row.collapse:before, .about .row.collapse:before, .web .row.collapse:before, #apps .row.collapse:before, .study .row.collapse:before, .contact .row.collapse:before, .row .collapse.about:before, .about .collapse.about:before, .web .collapse.about:before, #apps .collapse.about:before, .study .collapse.about:before, .contact .collapse.about:before, .row .collapse.web:before, .about .collapse.web:before, .web .collapse.web:before, #apps .collapse.web:before, .study .collapse.web:before, .contact .collapse.web:before, .row .collapse#apps:before, .about .collapse#apps:before, .web .collapse#apps:before, #apps .collapse#apps:before, .study .collapse#apps:before, .contact .collapse#apps:before, .row .collapse.study:before, .about .collapse.study:before, .web .collapse.study:before, #apps .collapse.study:before, .study .collapse.study:before, .contact .collapse.study:before, .row .collapse.contact:before, .about .collapse.contact:before, .web .collapse.contact:before, #apps .collapse.contact:before, .study .collapse.contact:before, .contact .collapse.contact:before, .row .row.collapse:after, .about .row.collapse:after, .web .row.collapse:after, #apps .row.collapse:after, .study .row.collapse:after, .contact .row.collapse:after, .row .collapse.about:after, .about .collapse.about:after, .web .collapse.about:after, #apps .collapse.about:after, .study .collapse.about:after, .contact .collapse.about:after, .row .collapse.web:after, .about .collapse.web:after, .web .collapse.web:after, #apps .collapse.web:after, .study .collapse.web:after, .contact .collapse.web:after, .row .collapse#apps:after, .about .collapse#apps:after, .web .collapse#apps:after, #apps .collapse#apps:after, .study .collapse#apps:after, .contact .collapse#apps:after, .row .collapse.study:after, .about .collapse.study:after, .web .collapse.study:after, #apps .collapse.study:after, .study .collapse.study:after, .contact .collapse.study:after, .row .collapse.contact:after, .about .collapse.contact:after, .web .collapse.contact:after, #apps .collapse.contact:after, .study .collapse.contact:after, .contact .collapse.contact:after {
+.row .row.collapse:before, .row .row.collapse:after {
   content: " ";
   display: table;
 }
 /* line 240, ../bower_components/foundation/scss/foundation/components/_global.scss */
-.row .row.collapse:after, .about .row.collapse:after, .web .row.collapse:after, #apps .row.collapse:after, .study .row.collapse:after, .contact .row.collapse:after, .row .collapse.about:after, .about .collapse.about:after, .web .collapse.about:after, #apps .collapse.about:after, .study .collapse.about:after, .contact .collapse.about:after, .row .collapse.web:after, .about .collapse.web:after, .web .collapse.web:after, #apps .collapse.web:after, .study .collapse.web:after, .contact .collapse.web:after, .row .collapse#apps:after, .about .collapse#apps:after, .web .collapse#apps:after, #apps .collapse#apps:after, .study .collapse#apps:after, .contact .collapse#apps:after, .row .collapse.study:after, .about .collapse.study:after, .web .collapse.study:after, #apps .collapse.study:after, .study .collapse.study:after, .contact .collapse.study:after, .row .collapse.contact:after, .about .collapse.contact:after, .web .collapse.contact:after, #apps .collapse.contact:after, .study .collapse.contact:after, .contact .collapse.contact:after {
+.row .row.collapse:after {
   clear: both;
 }
 
@@ -1055,29 +1050,19 @@ select {
   }
 
   /* line 212, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .row.small-collapse > .column, .small-collapse.about > .column, .small-collapse.web > .column, .small-collapse#apps > .column, .small-collapse.study > .column, .small-collapse.contact > .column, .row.small-collapse > .about__section, .small-collapse.about > .about__section, .small-collapse.web > .about__section, .small-collapse#apps > .about__section, .small-collapse.study > .about__section, .small-collapse.contact > .about__section, .row.small-collapse > .contact__me, .small-collapse.about > .contact__me, .small-collapse.web > .contact__me, .small-collapse#apps > .contact__me, .small-collapse.study > .contact__me, .small-collapse.contact > .contact__me,
-  .row.small-collapse > .columns,
-  .small-collapse.about > .columns,
-  .small-collapse.web > .columns,
-  .small-collapse#apps > .columns,
-  .small-collapse.study > .columns,
-  .small-collapse.contact > .columns {
+  .row.small-collapse > .column, .row.small-collapse > .about__section, .row.small-collapse > .contact__me,
+  .row.small-collapse > .columns {
     padding-left: 0;
     padding-right: 0;
   }
   /* line 215, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .row.small-collapse .row, .small-collapse.about .row, .small-collapse.web .row, .small-collapse#apps .row, .small-collapse.study .row, .small-collapse.contact .row, .row.small-collapse .about, .small-collapse.about .about, .small-collapse.web .about, .small-collapse#apps .about, .small-collapse.study .about, .small-collapse.contact .about, .row.small-collapse .web, .small-collapse.about .web, .small-collapse.web .web, .small-collapse#apps .web, .small-collapse.study .web, .small-collapse.contact .web, .row.small-collapse #apps, .small-collapse.about #apps, .small-collapse.web #apps, .small-collapse#apps #apps, .small-collapse.study #apps, .small-collapse.contact #apps, .row.small-collapse .study, .small-collapse.about .study, .small-collapse.web .study, .small-collapse#apps .study, .small-collapse.study .study, .small-collapse.contact .study, .row.small-collapse .contact, .small-collapse.about .contact, .small-collapse.web .contact, .small-collapse#apps .contact, .small-collapse.study .contact, .small-collapse.contact .contact {
+  .row.small-collapse .row {
     margin-left: 0;
     margin-right: 0;
   }
   /* line 218, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .row.small-uncollapse > .column, .small-uncollapse.about > .column, .small-uncollapse.web > .column, .small-uncollapse#apps > .column, .small-uncollapse.study > .column, .small-uncollapse.contact > .column, .row.small-uncollapse > .about__section, .small-uncollapse.about > .about__section, .small-uncollapse.web > .about__section, .small-uncollapse#apps > .about__section, .small-uncollapse.study > .about__section, .small-uncollapse.contact > .about__section, .row.small-uncollapse > .contact__me, .small-uncollapse.about > .contact__me, .small-uncollapse.web > .contact__me, .small-uncollapse#apps > .contact__me, .small-uncollapse.study > .contact__me, .small-uncollapse.contact > .contact__me,
-  .row.small-uncollapse > .columns,
-  .small-uncollapse.about > .columns,
-  .small-uncollapse.web > .columns,
-  .small-uncollapse#apps > .columns,
-  .small-uncollapse.study > .columns,
-  .small-uncollapse.contact > .columns {
+  .row.small-uncollapse > .column, .row.small-uncollapse > .about__section, .row.small-uncollapse > .contact__me,
+  .row.small-uncollapse > .columns {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left;
@@ -1425,29 +1410,19 @@ select {
   }
 
   /* line 212, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .row.medium-collapse > .column, .medium-collapse.about > .column, .medium-collapse.web > .column, .medium-collapse#apps > .column, .medium-collapse.study > .column, .medium-collapse.contact > .column, .row.medium-collapse > .about__section, .medium-collapse.about > .about__section, .medium-collapse.web > .about__section, .medium-collapse#apps > .about__section, .medium-collapse.study > .about__section, .medium-collapse.contact > .about__section, .row.medium-collapse > .contact__me, .medium-collapse.about > .contact__me, .medium-collapse.web > .contact__me, .medium-collapse#apps > .contact__me, .medium-collapse.study > .contact__me, .medium-collapse.contact > .contact__me,
-  .row.medium-collapse > .columns,
-  .medium-collapse.about > .columns,
-  .medium-collapse.web > .columns,
-  .medium-collapse#apps > .columns,
-  .medium-collapse.study > .columns,
-  .medium-collapse.contact > .columns {
+  .row.medium-collapse > .column, .row.medium-collapse > .about__section, .row.medium-collapse > .contact__me,
+  .row.medium-collapse > .columns {
     padding-left: 0;
     padding-right: 0;
   }
   /* line 215, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .row.medium-collapse .row, .medium-collapse.about .row, .medium-collapse.web .row, .medium-collapse#apps .row, .medium-collapse.study .row, .medium-collapse.contact .row, .row.medium-collapse .about, .medium-collapse.about .about, .medium-collapse.web .about, .medium-collapse#apps .about, .medium-collapse.study .about, .medium-collapse.contact .about, .row.medium-collapse .web, .medium-collapse.about .web, .medium-collapse.web .web, .medium-collapse#apps .web, .medium-collapse.study .web, .medium-collapse.contact .web, .row.medium-collapse #apps, .medium-collapse.about #apps, .medium-collapse.web #apps, .medium-collapse#apps #apps, .medium-collapse.study #apps, .medium-collapse.contact #apps, .row.medium-collapse .study, .medium-collapse.about .study, .medium-collapse.web .study, .medium-collapse#apps .study, .medium-collapse.study .study, .medium-collapse.contact .study, .row.medium-collapse .contact, .medium-collapse.about .contact, .medium-collapse.web .contact, .medium-collapse#apps .contact, .medium-collapse.study .contact, .medium-collapse.contact .contact {
+  .row.medium-collapse .row {
     margin-left: 0;
     margin-right: 0;
   }
   /* line 218, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .row.medium-uncollapse > .column, .medium-uncollapse.about > .column, .medium-uncollapse.web > .column, .medium-uncollapse#apps > .column, .medium-uncollapse.study > .column, .medium-uncollapse.contact > .column, .row.medium-uncollapse > .about__section, .medium-uncollapse.about > .about__section, .medium-uncollapse.web > .about__section, .medium-uncollapse#apps > .about__section, .medium-uncollapse.study > .about__section, .medium-uncollapse.contact > .about__section, .row.medium-uncollapse > .contact__me, .medium-uncollapse.about > .contact__me, .medium-uncollapse.web > .contact__me, .medium-uncollapse#apps > .contact__me, .medium-uncollapse.study > .contact__me, .medium-uncollapse.contact > .contact__me,
-  .row.medium-uncollapse > .columns,
-  .medium-uncollapse.about > .columns,
-  .medium-uncollapse.web > .columns,
-  .medium-uncollapse#apps > .columns,
-  .medium-uncollapse.study > .columns,
-  .medium-uncollapse.contact > .columns {
+  .row.medium-uncollapse > .column, .row.medium-uncollapse > .about__section, .row.medium-uncollapse > .contact__me,
+  .row.medium-uncollapse > .columns {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left;
@@ -1963,29 +1938,19 @@ select {
   }
 
   /* line 212, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .row.large-collapse > .column, .large-collapse.about > .column, .large-collapse.web > .column, .large-collapse#apps > .column, .large-collapse.study > .column, .large-collapse.contact > .column, .row.large-collapse > .about__section, .large-collapse.about > .about__section, .large-collapse.web > .about__section, .large-collapse#apps > .about__section, .large-collapse.study > .about__section, .large-collapse.contact > .about__section, .row.large-collapse > .contact__me, .large-collapse.about > .contact__me, .large-collapse.web > .contact__me, .large-collapse#apps > .contact__me, .large-collapse.study > .contact__me, .large-collapse.contact > .contact__me,
-  .row.large-collapse > .columns,
-  .large-collapse.about > .columns,
-  .large-collapse.web > .columns,
-  .large-collapse#apps > .columns,
-  .large-collapse.study > .columns,
-  .large-collapse.contact > .columns {
+  .row.large-collapse > .column, .row.large-collapse > .about__section, .row.large-collapse > .contact__me,
+  .row.large-collapse > .columns {
     padding-left: 0;
     padding-right: 0;
   }
   /* line 215, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .row.large-collapse .row, .large-collapse.about .row, .large-collapse.web .row, .large-collapse#apps .row, .large-collapse.study .row, .large-collapse.contact .row, .row.large-collapse .about, .large-collapse.about .about, .large-collapse.web .about, .large-collapse#apps .about, .large-collapse.study .about, .large-collapse.contact .about, .row.large-collapse .web, .large-collapse.about .web, .large-collapse.web .web, .large-collapse#apps .web, .large-collapse.study .web, .large-collapse.contact .web, .row.large-collapse #apps, .large-collapse.about #apps, .large-collapse.web #apps, .large-collapse#apps #apps, .large-collapse.study #apps, .large-collapse.contact #apps, .row.large-collapse .study, .large-collapse.about .study, .large-collapse.web .study, .large-collapse#apps .study, .large-collapse.study .study, .large-collapse.contact .study, .row.large-collapse .contact, .large-collapse.about .contact, .large-collapse.web .contact, .large-collapse#apps .contact, .large-collapse.study .contact, .large-collapse.contact .contact {
+  .row.large-collapse .row {
     margin-left: 0;
     margin-right: 0;
   }
   /* line 218, ../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .row.large-uncollapse > .column, .large-uncollapse.about > .column, .large-uncollapse.web > .column, .large-uncollapse#apps > .column, .large-uncollapse.study > .column, .large-uncollapse.contact > .column, .row.large-uncollapse > .about__section, .large-uncollapse.about > .about__section, .large-uncollapse.web > .about__section, .large-uncollapse#apps > .about__section, .large-uncollapse.study > .about__section, .large-uncollapse.contact > .about__section, .row.large-uncollapse > .contact__me, .large-uncollapse.about > .contact__me, .large-uncollapse.web > .contact__me, .large-uncollapse#apps > .contact__me, .large-uncollapse.study > .contact__me, .large-uncollapse.contact > .contact__me,
-  .row.large-uncollapse > .columns,
-  .large-uncollapse.about > .columns,
-  .large-uncollapse.web > .columns,
-  .large-uncollapse#apps > .columns,
-  .large-uncollapse.study > .columns,
-  .large-uncollapse.contact > .columns {
+  .row.large-uncollapse > .column, .row.large-uncollapse > .about__section, .row.large-uncollapse > .contact__me,
+  .row.large-uncollapse > .columns {
     padding-left: 0.9375rem;
     padding-right: 0.9375rem;
     float: left;
@@ -4467,132 +4432,37 @@ form {
 
 /* Using forms within rows, we need to set some defaults */
 /* line 91, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .row, form .about .row, form .web .row, form #apps .row, form .study .row, form .contact .row, form .row .about, form .about .about, form .web .about, form #apps .about, form .study .about, form .contact .about, form .row .web, form .about .web, form .web .web, form #apps .web, form .study .web, form .contact .web, form .row #apps, form .about #apps, form .web #apps, form #apps #apps, form .study #apps, form .contact #apps, form .row .study, form .about .study, form .web .study, form #apps .study, form .study .study, form .contact .study, form .row .contact, form .about .contact, form .web .contact, form #apps .contact, form .study .contact, form .contact .contact {
+form .row .row {
   margin: 0 -0.5rem;
 }
 /* line 93, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .row .column, form .about .row .column, form .web .row .column, form #apps .row .column, form .study .row .column, form .contact .row .column, form .row .about .column, form .about .about .column, form .web .about .column, form #apps .about .column, form .study .about .column, form .contact .about .column, form .row .web .column, form .about .web .column, form .web .web .column, form #apps .web .column, form .study .web .column, form .contact .web .column, form .row #apps .column, form .about #apps .column, form .web #apps .column, form #apps #apps .column, form .study #apps .column, form .contact #apps .column, form .row .study .column, form .about .study .column, form .web .study .column, form #apps .study .column, form .study .study .column, form .contact .study .column, form .row .contact .column, form .about .contact .column, form .web .contact .column, form #apps .contact .column, form .study .contact .column, form .contact .contact .column, form .row .row .about__section, form .about .row .about__section, form .web .row .about__section, form #apps .row .about__section, form .study .row .about__section, form .contact .row .about__section, form .row .about .about__section, form .about .about .about__section, form .web .about .about__section, form #apps .about .about__section, form .study .about .about__section, form .contact .about .about__section, form .row .web .about__section, form .about .web .about__section, form .web .web .about__section, form #apps .web .about__section, form .study .web .about__section, form .contact .web .about__section, form .row #apps .about__section, form .about #apps .about__section, form .web #apps .about__section, form #apps #apps .about__section, form .study #apps .about__section, form .contact #apps .about__section, form .row .study .about__section, form .about .study .about__section, form .web .study .about__section, form #apps .study .about__section, form .study .study .about__section, form .contact .study .about__section, form .row .contact .about__section, form .about .contact .about__section, form .web .contact .about__section, form #apps .contact .about__section, form .study .contact .about__section, form .contact .contact .about__section, form .row .row .contact__me, form .about .row .contact__me, form .web .row .contact__me, form #apps .row .contact__me, form .study .row .contact__me, form .contact .row .contact__me, form .row .about .contact__me, form .about .about .contact__me, form .web .about .contact__me, form #apps .about .contact__me, form .study .about .contact__me, form .contact .about .contact__me, form .row .web .contact__me, form .about .web .contact__me, form .web .web .contact__me, form #apps .web .contact__me, form .study .web .contact__me, form .contact .web .contact__me, form .row #apps .contact__me, form .about #apps .contact__me, form .web #apps .contact__me, form #apps #apps .contact__me, form .study #apps .contact__me, form .contact #apps .contact__me, form .row .study .contact__me, form .about .study .contact__me, form .web .study .contact__me, form #apps .study .contact__me, form .study .study .contact__me, form .contact .study .contact__me, form .row .contact .contact__me, form .about .contact .contact__me, form .web .contact .contact__me, form #apps .contact .contact__me, form .study .contact .contact__me, form .contact .contact .contact__me,
-form .row .row .columns,
-form .about .row .columns,
-form .web .row .columns,
-form #apps .row .columns,
-form .study .row .columns,
-form .contact .row .columns,
-form .row .about .columns,
-form .about .about .columns,
-form .web .about .columns,
-form #apps .about .columns,
-form .study .about .columns,
-form .contact .about .columns,
-form .row .web .columns,
-form .about .web .columns,
-form .web .web .columns,
-form #apps .web .columns,
-form .study .web .columns,
-form .contact .web .columns,
-form .row #apps .columns,
-form .about #apps .columns,
-form .web #apps .columns,
-form #apps #apps .columns,
-form .study #apps .columns,
-form .contact #apps .columns,
-form .row .study .columns,
-form .about .study .columns,
-form .web .study .columns,
-form #apps .study .columns,
-form .study .study .columns,
-form .contact .study .columns,
-form .row .contact .columns,
-form .about .contact .columns,
-form .web .contact .columns,
-form #apps .contact .columns,
-form .study .contact .columns,
-form .contact .contact .columns {
+form .row .row .column, form .row .row .about__section, form .row .row .contact__me,
+form .row .row .columns {
   padding: 0 0.5rem;
 }
 /* line 97, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .row.collapse, form .about .row.collapse, form .web .row.collapse, form #apps .row.collapse, form .study .row.collapse, form .contact .row.collapse, form .row .collapse.about, form .about .collapse.about, form .web .collapse.about, form #apps .collapse.about, form .study .collapse.about, form .contact .collapse.about, form .row .collapse.web, form .about .collapse.web, form .web .collapse.web, form #apps .collapse.web, form .study .collapse.web, form .contact .collapse.web, form .row .collapse#apps, form .about .collapse#apps, form .web .collapse#apps, form #apps .collapse#apps, form .study .collapse#apps, form .contact .collapse#apps, form .row .collapse.study, form .about .collapse.study, form .web .collapse.study, form #apps .collapse.study, form .study .collapse.study, form .contact .collapse.study, form .row .collapse.contact, form .about .collapse.contact, form .web .collapse.contact, form #apps .collapse.contact, form .study .collapse.contact, form .contact .collapse.contact {
+form .row .row.collapse {
   margin: 0;
 }
 /* line 99, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .row.collapse .column, form .about .row.collapse .column, form .web .row.collapse .column, form #apps .row.collapse .column, form .study .row.collapse .column, form .contact .row.collapse .column, form .row .collapse.about .column, form .about .collapse.about .column, form .web .collapse.about .column, form #apps .collapse.about .column, form .study .collapse.about .column, form .contact .collapse.about .column, form .row .collapse.web .column, form .about .collapse.web .column, form .web .collapse.web .column, form #apps .collapse.web .column, form .study .collapse.web .column, form .contact .collapse.web .column, form .row .collapse#apps .column, form .about .collapse#apps .column, form .web .collapse#apps .column, form #apps .collapse#apps .column, form .study .collapse#apps .column, form .contact .collapse#apps .column, form .row .collapse.study .column, form .about .collapse.study .column, form .web .collapse.study .column, form #apps .collapse.study .column, form .study .collapse.study .column, form .contact .collapse.study .column, form .row .collapse.contact .column, form .about .collapse.contact .column, form .web .collapse.contact .column, form #apps .collapse.contact .column, form .study .collapse.contact .column, form .contact .collapse.contact .column, form .row .row.collapse .about__section, form .about .row.collapse .about__section, form .web .row.collapse .about__section, form #apps .row.collapse .about__section, form .study .row.collapse .about__section, form .contact .row.collapse .about__section, form .row .collapse.about .about__section, form .about .collapse.about .about__section, form .web .collapse.about .about__section, form #apps .collapse.about .about__section, form .study .collapse.about .about__section, form .contact .collapse.about .about__section, form .row .collapse.web .about__section, form .about .collapse.web .about__section, form .web .collapse.web .about__section, form #apps .collapse.web .about__section, form .study .collapse.web .about__section, form .contact .collapse.web .about__section, form .row .collapse#apps .about__section, form .about .collapse#apps .about__section, form .web .collapse#apps .about__section, form #apps .collapse#apps .about__section, form .study .collapse#apps .about__section, form .contact .collapse#apps .about__section, form .row .collapse.study .about__section, form .about .collapse.study .about__section, form .web .collapse.study .about__section, form #apps .collapse.study .about__section, form .study .collapse.study .about__section, form .contact .collapse.study .about__section, form .row .collapse.contact .about__section, form .about .collapse.contact .about__section, form .web .collapse.contact .about__section, form #apps .collapse.contact .about__section, form .study .collapse.contact .about__section, form .contact .collapse.contact .about__section, form .row .row.collapse .contact__me, form .about .row.collapse .contact__me, form .web .row.collapse .contact__me, form #apps .row.collapse .contact__me, form .study .row.collapse .contact__me, form .contact .row.collapse .contact__me, form .row .collapse.about .contact__me, form .about .collapse.about .contact__me, form .web .collapse.about .contact__me, form #apps .collapse.about .contact__me, form .study .collapse.about .contact__me, form .contact .collapse.about .contact__me, form .row .collapse.web .contact__me, form .about .collapse.web .contact__me, form .web .collapse.web .contact__me, form #apps .collapse.web .contact__me, form .study .collapse.web .contact__me, form .contact .collapse.web .contact__me, form .row .collapse#apps .contact__me, form .about .collapse#apps .contact__me, form .web .collapse#apps .contact__me, form #apps .collapse#apps .contact__me, form .study .collapse#apps .contact__me, form .contact .collapse#apps .contact__me, form .row .collapse.study .contact__me, form .about .collapse.study .contact__me, form .web .collapse.study .contact__me, form #apps .collapse.study .contact__me, form .study .collapse.study .contact__me, form .contact .collapse.study .contact__me, form .row .collapse.contact .contact__me, form .about .collapse.contact .contact__me, form .web .collapse.contact .contact__me, form #apps .collapse.contact .contact__me, form .study .collapse.contact .contact__me, form .contact .collapse.contact .contact__me,
-form .row .row.collapse .columns,
-form .about .row.collapse .columns,
-form .web .row.collapse .columns,
-form #apps .row.collapse .columns,
-form .study .row.collapse .columns,
-form .contact .row.collapse .columns,
-form .row .collapse.about .columns,
-form .about .collapse.about .columns,
-form .web .collapse.about .columns,
-form #apps .collapse.about .columns,
-form .study .collapse.about .columns,
-form .contact .collapse.about .columns,
-form .row .collapse.web .columns,
-form .about .collapse.web .columns,
-form .web .collapse.web .columns,
-form #apps .collapse.web .columns,
-form .study .collapse.web .columns,
-form .contact .collapse.web .columns,
-form .row .collapse#apps .columns,
-form .about .collapse#apps .columns,
-form .web .collapse#apps .columns,
-form #apps .collapse#apps .columns,
-form .study .collapse#apps .columns,
-form .contact .collapse#apps .columns,
-form .row .collapse.study .columns,
-form .about .collapse.study .columns,
-form .web .collapse.study .columns,
-form #apps .collapse.study .columns,
-form .study .collapse.study .columns,
-form .contact .collapse.study .columns,
-form .row .collapse.contact .columns,
-form .about .collapse.contact .columns,
-form .web .collapse.contact .columns,
-form #apps .collapse.contact .columns,
-form .study .collapse.contact .columns,
-form .contact .collapse.contact .columns {
+form .row .row.collapse .column, form .row .row.collapse .about__section, form .row .row.collapse .contact__me,
+form .row .row.collapse .columns {
   padding: 0;
 }
 /* line 101, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .row.collapse input, form .about .row.collapse input, form .web .row.collapse input, form #apps .row.collapse input, form .study .row.collapse input, form .contact .row.collapse input, form .row .collapse.about input, form .about .collapse.about input, form .web .collapse.about input, form #apps .collapse.about input, form .study .collapse.about input, form .contact .collapse.about input, form .row .collapse.web input, form .about .collapse.web input, form .web .collapse.web input, form #apps .collapse.web input, form .study .collapse.web input, form .contact .collapse.web input, form .row .collapse#apps input, form .about .collapse#apps input, form .web .collapse#apps input, form #apps .collapse#apps input, form .study .collapse#apps input, form .contact .collapse#apps input, form .row .collapse.study input, form .about .collapse.study input, form .web .collapse.study input, form #apps .collapse.study input, form .study .collapse.study input, form .contact .collapse.study input, form .row .collapse.contact input, form .about .collapse.contact input, form .web .collapse.contact input, form #apps .collapse.contact input, form .study .collapse.contact input, form .contact .collapse.contact input {
+form .row .row.collapse input {
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 /* line 107, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row input.column, form .about input.column, form .web input.column, form #apps input.column, form .study input.column, form .contact input.column, form .row input.about__section, form .about input.about__section, form .web input.about__section, form #apps input.about__section, form .study input.about__section, form .contact input.about__section, form .row input.contact__me, form .about input.contact__me, form .web input.contact__me, form #apps input.contact__me, form .study input.contact__me, form .contact input.contact__me,
+form .row input.column, form .row input.about__section, form .row input.contact__me,
 form .row input.columns,
-form .about input.columns,
-form .web input.columns,
-form #apps input.columns,
-form .study input.columns,
-form .contact input.columns,
 form .row textarea.column,
-form .about textarea.column,
-form .web textarea.column,
-form #apps textarea.column,
-form .study textarea.column,
-form .contact textarea.column,
 form .row textarea.about__section,
-form .about textarea.about__section,
-form .web textarea.about__section,
-form #apps textarea.about__section,
-form .study textarea.about__section,
-form .contact textarea.about__section,
 form .row textarea.contact__me,
-form .about textarea.contact__me,
-form .web textarea.contact__me,
-form #apps textarea.contact__me,
-form .study textarea.contact__me,
-form .contact textarea.contact__me,
-form .row textarea.columns,
-form .about textarea.columns,
-form .web textarea.columns,
-form #apps textarea.columns,
-form .study textarea.columns,
-form .contact textarea.columns {
+form .row textarea.columns {
   padding-left: 0.5rem;
 }
 
@@ -4767,115 +4637,10 @@ input:not([type]).radius, input[type="text"].radius, input[type="password"].radi
 }
 
 /* line 439, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .prefix-radius.row.collapse input, form .about .prefix-radius.row.collapse input, form .web .prefix-radius.row.collapse input, form #apps .prefix-radius.row.collapse input, form .study .prefix-radius.row.collapse input, form .contact .prefix-radius.row.collapse input, form .row .prefix-radius.collapse.about input, form .about .prefix-radius.collapse.about input, form .web .prefix-radius.collapse.about input, form #apps .prefix-radius.collapse.about input, form .study .prefix-radius.collapse.about input, form .contact .prefix-radius.collapse.about input, form .row .prefix-radius.collapse.web input, form .about .prefix-radius.collapse.web input, form .web .prefix-radius.collapse.web input, form #apps .prefix-radius.collapse.web input, form .study .prefix-radius.collapse.web input, form .contact .prefix-radius.collapse.web input, form .row .prefix-radius.collapse#apps input, form .about .prefix-radius.collapse#apps input, form .web .prefix-radius.collapse#apps input, form #apps .prefix-radius.collapse#apps input, form .study .prefix-radius.collapse#apps input, form .contact .prefix-radius.collapse#apps input, form .row .prefix-radius.collapse.study input, form .about .prefix-radius.collapse.study input, form .web .prefix-radius.collapse.study input, form #apps .prefix-radius.collapse.study input, form .study .prefix-radius.collapse.study input, form .contact .prefix-radius.collapse.study input, form .row .prefix-radius.collapse.contact input, form .about .prefix-radius.collapse.contact input, form .web .prefix-radius.collapse.contact input, form #apps .prefix-radius.collapse.contact input, form .study .prefix-radius.collapse.contact input, form .contact .prefix-radius.collapse.contact input,
+form .row .prefix-radius.row.collapse input,
 form .row .prefix-radius.row.collapse textarea,
-form .about .prefix-radius.row.collapse textarea,
-form .web .prefix-radius.row.collapse textarea,
-form #apps .prefix-radius.row.collapse textarea,
-form .study .prefix-radius.row.collapse textarea,
-form .contact .prefix-radius.row.collapse textarea,
-form .row .prefix-radius.collapse.about textarea,
-form .about .prefix-radius.collapse.about textarea,
-form .web .prefix-radius.collapse.about textarea,
-form #apps .prefix-radius.collapse.about textarea,
-form .study .prefix-radius.collapse.about textarea,
-form .contact .prefix-radius.collapse.about textarea,
-form .row .prefix-radius.collapse.web textarea,
-form .about .prefix-radius.collapse.web textarea,
-form .web .prefix-radius.collapse.web textarea,
-form #apps .prefix-radius.collapse.web textarea,
-form .study .prefix-radius.collapse.web textarea,
-form .contact .prefix-radius.collapse.web textarea,
-form .row .prefix-radius.collapse#apps textarea,
-form .about .prefix-radius.collapse#apps textarea,
-form .web .prefix-radius.collapse#apps textarea,
-form #apps .prefix-radius.collapse#apps textarea,
-form .study .prefix-radius.collapse#apps textarea,
-form .contact .prefix-radius.collapse#apps textarea,
-form .row .prefix-radius.collapse.study textarea,
-form .about .prefix-radius.collapse.study textarea,
-form .web .prefix-radius.collapse.study textarea,
-form #apps .prefix-radius.collapse.study textarea,
-form .study .prefix-radius.collapse.study textarea,
-form .contact .prefix-radius.collapse.study textarea,
-form .row .prefix-radius.collapse.contact textarea,
-form .about .prefix-radius.collapse.contact textarea,
-form .web .prefix-radius.collapse.contact textarea,
-form #apps .prefix-radius.collapse.contact textarea,
-form .study .prefix-radius.collapse.contact textarea,
-form .contact .prefix-radius.collapse.contact textarea,
 form .row .prefix-radius.row.collapse select,
-form .about .prefix-radius.row.collapse select,
-form .web .prefix-radius.row.collapse select,
-form #apps .prefix-radius.row.collapse select,
-form .study .prefix-radius.row.collapse select,
-form .contact .prefix-radius.row.collapse select,
-form .row .prefix-radius.collapse.about select,
-form .about .prefix-radius.collapse.about select,
-form .web .prefix-radius.collapse.about select,
-form #apps .prefix-radius.collapse.about select,
-form .study .prefix-radius.collapse.about select,
-form .contact .prefix-radius.collapse.about select,
-form .row .prefix-radius.collapse.web select,
-form .about .prefix-radius.collapse.web select,
-form .web .prefix-radius.collapse.web select,
-form #apps .prefix-radius.collapse.web select,
-form .study .prefix-radius.collapse.web select,
-form .contact .prefix-radius.collapse.web select,
-form .row .prefix-radius.collapse#apps select,
-form .about .prefix-radius.collapse#apps select,
-form .web .prefix-radius.collapse#apps select,
-form #apps .prefix-radius.collapse#apps select,
-form .study .prefix-radius.collapse#apps select,
-form .contact .prefix-radius.collapse#apps select,
-form .row .prefix-radius.collapse.study select,
-form .about .prefix-radius.collapse.study select,
-form .web .prefix-radius.collapse.study select,
-form #apps .prefix-radius.collapse.study select,
-form .study .prefix-radius.collapse.study select,
-form .contact .prefix-radius.collapse.study select,
-form .row .prefix-radius.collapse.contact select,
-form .about .prefix-radius.collapse.contact select,
-form .web .prefix-radius.collapse.contact select,
-form #apps .prefix-radius.collapse.contact select,
-form .study .prefix-radius.collapse.contact select,
-form .contact .prefix-radius.collapse.contact select,
-form .row .prefix-radius.row.collapse button,
-form .about .prefix-radius.row.collapse button,
-form .web .prefix-radius.row.collapse button,
-form #apps .prefix-radius.row.collapse button,
-form .study .prefix-radius.row.collapse button,
-form .contact .prefix-radius.row.collapse button,
-form .row .prefix-radius.collapse.about button,
-form .about .prefix-radius.collapse.about button,
-form .web .prefix-radius.collapse.about button,
-form #apps .prefix-radius.collapse.about button,
-form .study .prefix-radius.collapse.about button,
-form .contact .prefix-radius.collapse.about button,
-form .row .prefix-radius.collapse.web button,
-form .about .prefix-radius.collapse.web button,
-form .web .prefix-radius.collapse.web button,
-form #apps .prefix-radius.collapse.web button,
-form .study .prefix-radius.collapse.web button,
-form .contact .prefix-radius.collapse.web button,
-form .row .prefix-radius.collapse#apps button,
-form .about .prefix-radius.collapse#apps button,
-form .web .prefix-radius.collapse#apps button,
-form #apps .prefix-radius.collapse#apps button,
-form .study .prefix-radius.collapse#apps button,
-form .contact .prefix-radius.collapse#apps button,
-form .row .prefix-radius.collapse.study button,
-form .about .prefix-radius.collapse.study button,
-form .web .prefix-radius.collapse.study button,
-form #apps .prefix-radius.collapse.study button,
-form .study .prefix-radius.collapse.study button,
-form .contact .prefix-radius.collapse.study button,
-form .row .prefix-radius.collapse.contact button,
-form .about .prefix-radius.collapse.contact button,
-form .web .prefix-radius.collapse.contact button,
-form #apps .prefix-radius.collapse.contact button,
-form .study .prefix-radius.collapse.contact button,
-form .contact .prefix-radius.collapse.contact button {
+form .row .prefix-radius.row.collapse button {
   border-radius: 0;
   -webkit-border-bottom-right-radius: 3px;
   -webkit-border-top-right-radius: 3px;
@@ -4883,7 +4648,7 @@ form .contact .prefix-radius.collapse.contact button {
   border-top-right-radius: 3px;
 }
 /* line 443, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .prefix-radius.row.collapse .prefix, form .about .prefix-radius.row.collapse .prefix, form .web .prefix-radius.row.collapse .prefix, form #apps .prefix-radius.row.collapse .prefix, form .study .prefix-radius.row.collapse .prefix, form .contact .prefix-radius.row.collapse .prefix, form .row .prefix-radius.collapse.about .prefix, form .about .prefix-radius.collapse.about .prefix, form .web .prefix-radius.collapse.about .prefix, form #apps .prefix-radius.collapse.about .prefix, form .study .prefix-radius.collapse.about .prefix, form .contact .prefix-radius.collapse.about .prefix, form .row .prefix-radius.collapse.web .prefix, form .about .prefix-radius.collapse.web .prefix, form .web .prefix-radius.collapse.web .prefix, form #apps .prefix-radius.collapse.web .prefix, form .study .prefix-radius.collapse.web .prefix, form .contact .prefix-radius.collapse.web .prefix, form .row .prefix-radius.collapse#apps .prefix, form .about .prefix-radius.collapse#apps .prefix, form .web .prefix-radius.collapse#apps .prefix, form #apps .prefix-radius.collapse#apps .prefix, form .study .prefix-radius.collapse#apps .prefix, form .contact .prefix-radius.collapse#apps .prefix, form .row .prefix-radius.collapse.study .prefix, form .about .prefix-radius.collapse.study .prefix, form .web .prefix-radius.collapse.study .prefix, form #apps .prefix-radius.collapse.study .prefix, form .study .prefix-radius.collapse.study .prefix, form .contact .prefix-radius.collapse.study .prefix, form .row .prefix-radius.collapse.contact .prefix, form .about .prefix-radius.collapse.contact .prefix, form .web .prefix-radius.collapse.contact .prefix, form #apps .prefix-radius.collapse.contact .prefix, form .study .prefix-radius.collapse.contact .prefix, form .contact .prefix-radius.collapse.contact .prefix {
+form .row .prefix-radius.row.collapse .prefix {
   border-radius: 0;
   -webkit-border-bottom-left-radius: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -4891,115 +4656,10 @@ form .row .prefix-radius.row.collapse .prefix, form .about .prefix-radius.row.co
   border-top-left-radius: 3px;
 }
 /* line 446, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .postfix-radius.row.collapse input, form .about .postfix-radius.row.collapse input, form .web .postfix-radius.row.collapse input, form #apps .postfix-radius.row.collapse input, form .study .postfix-radius.row.collapse input, form .contact .postfix-radius.row.collapse input, form .row .postfix-radius.collapse.about input, form .about .postfix-radius.collapse.about input, form .web .postfix-radius.collapse.about input, form #apps .postfix-radius.collapse.about input, form .study .postfix-radius.collapse.about input, form .contact .postfix-radius.collapse.about input, form .row .postfix-radius.collapse.web input, form .about .postfix-radius.collapse.web input, form .web .postfix-radius.collapse.web input, form #apps .postfix-radius.collapse.web input, form .study .postfix-radius.collapse.web input, form .contact .postfix-radius.collapse.web input, form .row .postfix-radius.collapse#apps input, form .about .postfix-radius.collapse#apps input, form .web .postfix-radius.collapse#apps input, form #apps .postfix-radius.collapse#apps input, form .study .postfix-radius.collapse#apps input, form .contact .postfix-radius.collapse#apps input, form .row .postfix-radius.collapse.study input, form .about .postfix-radius.collapse.study input, form .web .postfix-radius.collapse.study input, form #apps .postfix-radius.collapse.study input, form .study .postfix-radius.collapse.study input, form .contact .postfix-radius.collapse.study input, form .row .postfix-radius.collapse.contact input, form .about .postfix-radius.collapse.contact input, form .web .postfix-radius.collapse.contact input, form #apps .postfix-radius.collapse.contact input, form .study .postfix-radius.collapse.contact input, form .contact .postfix-radius.collapse.contact input,
+form .row .postfix-radius.row.collapse input,
 form .row .postfix-radius.row.collapse textarea,
-form .about .postfix-radius.row.collapse textarea,
-form .web .postfix-radius.row.collapse textarea,
-form #apps .postfix-radius.row.collapse textarea,
-form .study .postfix-radius.row.collapse textarea,
-form .contact .postfix-radius.row.collapse textarea,
-form .row .postfix-radius.collapse.about textarea,
-form .about .postfix-radius.collapse.about textarea,
-form .web .postfix-radius.collapse.about textarea,
-form #apps .postfix-radius.collapse.about textarea,
-form .study .postfix-radius.collapse.about textarea,
-form .contact .postfix-radius.collapse.about textarea,
-form .row .postfix-radius.collapse.web textarea,
-form .about .postfix-radius.collapse.web textarea,
-form .web .postfix-radius.collapse.web textarea,
-form #apps .postfix-radius.collapse.web textarea,
-form .study .postfix-radius.collapse.web textarea,
-form .contact .postfix-radius.collapse.web textarea,
-form .row .postfix-radius.collapse#apps textarea,
-form .about .postfix-radius.collapse#apps textarea,
-form .web .postfix-radius.collapse#apps textarea,
-form #apps .postfix-radius.collapse#apps textarea,
-form .study .postfix-radius.collapse#apps textarea,
-form .contact .postfix-radius.collapse#apps textarea,
-form .row .postfix-radius.collapse.study textarea,
-form .about .postfix-radius.collapse.study textarea,
-form .web .postfix-radius.collapse.study textarea,
-form #apps .postfix-radius.collapse.study textarea,
-form .study .postfix-radius.collapse.study textarea,
-form .contact .postfix-radius.collapse.study textarea,
-form .row .postfix-radius.collapse.contact textarea,
-form .about .postfix-radius.collapse.contact textarea,
-form .web .postfix-radius.collapse.contact textarea,
-form #apps .postfix-radius.collapse.contact textarea,
-form .study .postfix-radius.collapse.contact textarea,
-form .contact .postfix-radius.collapse.contact textarea,
 form .row .postfix-radius.row.collapse select,
-form .about .postfix-radius.row.collapse select,
-form .web .postfix-radius.row.collapse select,
-form #apps .postfix-radius.row.collapse select,
-form .study .postfix-radius.row.collapse select,
-form .contact .postfix-radius.row.collapse select,
-form .row .postfix-radius.collapse.about select,
-form .about .postfix-radius.collapse.about select,
-form .web .postfix-radius.collapse.about select,
-form #apps .postfix-radius.collapse.about select,
-form .study .postfix-radius.collapse.about select,
-form .contact .postfix-radius.collapse.about select,
-form .row .postfix-radius.collapse.web select,
-form .about .postfix-radius.collapse.web select,
-form .web .postfix-radius.collapse.web select,
-form #apps .postfix-radius.collapse.web select,
-form .study .postfix-radius.collapse.web select,
-form .contact .postfix-radius.collapse.web select,
-form .row .postfix-radius.collapse#apps select,
-form .about .postfix-radius.collapse#apps select,
-form .web .postfix-radius.collapse#apps select,
-form #apps .postfix-radius.collapse#apps select,
-form .study .postfix-radius.collapse#apps select,
-form .contact .postfix-radius.collapse#apps select,
-form .row .postfix-radius.collapse.study select,
-form .about .postfix-radius.collapse.study select,
-form .web .postfix-radius.collapse.study select,
-form #apps .postfix-radius.collapse.study select,
-form .study .postfix-radius.collapse.study select,
-form .contact .postfix-radius.collapse.study select,
-form .row .postfix-radius.collapse.contact select,
-form .about .postfix-radius.collapse.contact select,
-form .web .postfix-radius.collapse.contact select,
-form #apps .postfix-radius.collapse.contact select,
-form .study .postfix-radius.collapse.contact select,
-form .contact .postfix-radius.collapse.contact select,
-form .row .postfix-radius.row.collapse button,
-form .about .postfix-radius.row.collapse button,
-form .web .postfix-radius.row.collapse button,
-form #apps .postfix-radius.row.collapse button,
-form .study .postfix-radius.row.collapse button,
-form .contact .postfix-radius.row.collapse button,
-form .row .postfix-radius.collapse.about button,
-form .about .postfix-radius.collapse.about button,
-form .web .postfix-radius.collapse.about button,
-form #apps .postfix-radius.collapse.about button,
-form .study .postfix-radius.collapse.about button,
-form .contact .postfix-radius.collapse.about button,
-form .row .postfix-radius.collapse.web button,
-form .about .postfix-radius.collapse.web button,
-form .web .postfix-radius.collapse.web button,
-form #apps .postfix-radius.collapse.web button,
-form .study .postfix-radius.collapse.web button,
-form .contact .postfix-radius.collapse.web button,
-form .row .postfix-radius.collapse#apps button,
-form .about .postfix-radius.collapse#apps button,
-form .web .postfix-radius.collapse#apps button,
-form #apps .postfix-radius.collapse#apps button,
-form .study .postfix-radius.collapse#apps button,
-form .contact .postfix-radius.collapse#apps button,
-form .row .postfix-radius.collapse.study button,
-form .about .postfix-radius.collapse.study button,
-form .web .postfix-radius.collapse.study button,
-form #apps .postfix-radius.collapse.study button,
-form .study .postfix-radius.collapse.study button,
-form .contact .postfix-radius.collapse.study button,
-form .row .postfix-radius.collapse.contact button,
-form .about .postfix-radius.collapse.contact button,
-form .web .postfix-radius.collapse.contact button,
-form #apps .postfix-radius.collapse.contact button,
-form .study .postfix-radius.collapse.contact button,
-form .contact .postfix-radius.collapse.contact button {
+form .row .postfix-radius.row.collapse button {
   border-radius: 0;
   -webkit-border-bottom-left-radius: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -5007,7 +4667,7 @@ form .contact .postfix-radius.collapse.contact button {
   border-top-left-radius: 3px;
 }
 /* line 450, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .postfix-radius.row.collapse .postfix, form .about .postfix-radius.row.collapse .postfix, form .web .postfix-radius.row.collapse .postfix, form #apps .postfix-radius.row.collapse .postfix, form .study .postfix-radius.row.collapse .postfix, form .contact .postfix-radius.row.collapse .postfix, form .row .postfix-radius.collapse.about .postfix, form .about .postfix-radius.collapse.about .postfix, form .web .postfix-radius.collapse.about .postfix, form #apps .postfix-radius.collapse.about .postfix, form .study .postfix-radius.collapse.about .postfix, form .contact .postfix-radius.collapse.about .postfix, form .row .postfix-radius.collapse.web .postfix, form .about .postfix-radius.collapse.web .postfix, form .web .postfix-radius.collapse.web .postfix, form #apps .postfix-radius.collapse.web .postfix, form .study .postfix-radius.collapse.web .postfix, form .contact .postfix-radius.collapse.web .postfix, form .row .postfix-radius.collapse#apps .postfix, form .about .postfix-radius.collapse#apps .postfix, form .web .postfix-radius.collapse#apps .postfix, form #apps .postfix-radius.collapse#apps .postfix, form .study .postfix-radius.collapse#apps .postfix, form .contact .postfix-radius.collapse#apps .postfix, form .row .postfix-radius.collapse.study .postfix, form .about .postfix-radius.collapse.study .postfix, form .web .postfix-radius.collapse.study .postfix, form #apps .postfix-radius.collapse.study .postfix, form .study .postfix-radius.collapse.study .postfix, form .contact .postfix-radius.collapse.study .postfix, form .row .postfix-radius.collapse.contact .postfix, form .about .postfix-radius.collapse.contact .postfix, form .web .postfix-radius.collapse.contact .postfix, form #apps .postfix-radius.collapse.contact .postfix, form .study .postfix-radius.collapse.contact .postfix, form .contact .postfix-radius.collapse.contact .postfix {
+form .row .postfix-radius.row.collapse .postfix {
   border-radius: 0;
   -webkit-border-bottom-right-radius: 3px;
   -webkit-border-top-right-radius: 3px;
@@ -5015,115 +4675,10 @@ form .row .postfix-radius.row.collapse .postfix, form .about .postfix-radius.row
   border-top-right-radius: 3px;
 }
 /* line 453, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .prefix-round.row.collapse input, form .about .prefix-round.row.collapse input, form .web .prefix-round.row.collapse input, form #apps .prefix-round.row.collapse input, form .study .prefix-round.row.collapse input, form .contact .prefix-round.row.collapse input, form .row .prefix-round.collapse.about input, form .about .prefix-round.collapse.about input, form .web .prefix-round.collapse.about input, form #apps .prefix-round.collapse.about input, form .study .prefix-round.collapse.about input, form .contact .prefix-round.collapse.about input, form .row .prefix-round.collapse.web input, form .about .prefix-round.collapse.web input, form .web .prefix-round.collapse.web input, form #apps .prefix-round.collapse.web input, form .study .prefix-round.collapse.web input, form .contact .prefix-round.collapse.web input, form .row .prefix-round.collapse#apps input, form .about .prefix-round.collapse#apps input, form .web .prefix-round.collapse#apps input, form #apps .prefix-round.collapse#apps input, form .study .prefix-round.collapse#apps input, form .contact .prefix-round.collapse#apps input, form .row .prefix-round.collapse.study input, form .about .prefix-round.collapse.study input, form .web .prefix-round.collapse.study input, form #apps .prefix-round.collapse.study input, form .study .prefix-round.collapse.study input, form .contact .prefix-round.collapse.study input, form .row .prefix-round.collapse.contact input, form .about .prefix-round.collapse.contact input, form .web .prefix-round.collapse.contact input, form #apps .prefix-round.collapse.contact input, form .study .prefix-round.collapse.contact input, form .contact .prefix-round.collapse.contact input,
+form .row .prefix-round.row.collapse input,
 form .row .prefix-round.row.collapse textarea,
-form .about .prefix-round.row.collapse textarea,
-form .web .prefix-round.row.collapse textarea,
-form #apps .prefix-round.row.collapse textarea,
-form .study .prefix-round.row.collapse textarea,
-form .contact .prefix-round.row.collapse textarea,
-form .row .prefix-round.collapse.about textarea,
-form .about .prefix-round.collapse.about textarea,
-form .web .prefix-round.collapse.about textarea,
-form #apps .prefix-round.collapse.about textarea,
-form .study .prefix-round.collapse.about textarea,
-form .contact .prefix-round.collapse.about textarea,
-form .row .prefix-round.collapse.web textarea,
-form .about .prefix-round.collapse.web textarea,
-form .web .prefix-round.collapse.web textarea,
-form #apps .prefix-round.collapse.web textarea,
-form .study .prefix-round.collapse.web textarea,
-form .contact .prefix-round.collapse.web textarea,
-form .row .prefix-round.collapse#apps textarea,
-form .about .prefix-round.collapse#apps textarea,
-form .web .prefix-round.collapse#apps textarea,
-form #apps .prefix-round.collapse#apps textarea,
-form .study .prefix-round.collapse#apps textarea,
-form .contact .prefix-round.collapse#apps textarea,
-form .row .prefix-round.collapse.study textarea,
-form .about .prefix-round.collapse.study textarea,
-form .web .prefix-round.collapse.study textarea,
-form #apps .prefix-round.collapse.study textarea,
-form .study .prefix-round.collapse.study textarea,
-form .contact .prefix-round.collapse.study textarea,
-form .row .prefix-round.collapse.contact textarea,
-form .about .prefix-round.collapse.contact textarea,
-form .web .prefix-round.collapse.contact textarea,
-form #apps .prefix-round.collapse.contact textarea,
-form .study .prefix-round.collapse.contact textarea,
-form .contact .prefix-round.collapse.contact textarea,
 form .row .prefix-round.row.collapse select,
-form .about .prefix-round.row.collapse select,
-form .web .prefix-round.row.collapse select,
-form #apps .prefix-round.row.collapse select,
-form .study .prefix-round.row.collapse select,
-form .contact .prefix-round.row.collapse select,
-form .row .prefix-round.collapse.about select,
-form .about .prefix-round.collapse.about select,
-form .web .prefix-round.collapse.about select,
-form #apps .prefix-round.collapse.about select,
-form .study .prefix-round.collapse.about select,
-form .contact .prefix-round.collapse.about select,
-form .row .prefix-round.collapse.web select,
-form .about .prefix-round.collapse.web select,
-form .web .prefix-round.collapse.web select,
-form #apps .prefix-round.collapse.web select,
-form .study .prefix-round.collapse.web select,
-form .contact .prefix-round.collapse.web select,
-form .row .prefix-round.collapse#apps select,
-form .about .prefix-round.collapse#apps select,
-form .web .prefix-round.collapse#apps select,
-form #apps .prefix-round.collapse#apps select,
-form .study .prefix-round.collapse#apps select,
-form .contact .prefix-round.collapse#apps select,
-form .row .prefix-round.collapse.study select,
-form .about .prefix-round.collapse.study select,
-form .web .prefix-round.collapse.study select,
-form #apps .prefix-round.collapse.study select,
-form .study .prefix-round.collapse.study select,
-form .contact .prefix-round.collapse.study select,
-form .row .prefix-round.collapse.contact select,
-form .about .prefix-round.collapse.contact select,
-form .web .prefix-round.collapse.contact select,
-form #apps .prefix-round.collapse.contact select,
-form .study .prefix-round.collapse.contact select,
-form .contact .prefix-round.collapse.contact select,
-form .row .prefix-round.row.collapse button,
-form .about .prefix-round.row.collapse button,
-form .web .prefix-round.row.collapse button,
-form #apps .prefix-round.row.collapse button,
-form .study .prefix-round.row.collapse button,
-form .contact .prefix-round.row.collapse button,
-form .row .prefix-round.collapse.about button,
-form .about .prefix-round.collapse.about button,
-form .web .prefix-round.collapse.about button,
-form #apps .prefix-round.collapse.about button,
-form .study .prefix-round.collapse.about button,
-form .contact .prefix-round.collapse.about button,
-form .row .prefix-round.collapse.web button,
-form .about .prefix-round.collapse.web button,
-form .web .prefix-round.collapse.web button,
-form #apps .prefix-round.collapse.web button,
-form .study .prefix-round.collapse.web button,
-form .contact .prefix-round.collapse.web button,
-form .row .prefix-round.collapse#apps button,
-form .about .prefix-round.collapse#apps button,
-form .web .prefix-round.collapse#apps button,
-form #apps .prefix-round.collapse#apps button,
-form .study .prefix-round.collapse#apps button,
-form .contact .prefix-round.collapse#apps button,
-form .row .prefix-round.collapse.study button,
-form .about .prefix-round.collapse.study button,
-form .web .prefix-round.collapse.study button,
-form #apps .prefix-round.collapse.study button,
-form .study .prefix-round.collapse.study button,
-form .contact .prefix-round.collapse.study button,
-form .row .prefix-round.collapse.contact button,
-form .about .prefix-round.collapse.contact button,
-form .web .prefix-round.collapse.contact button,
-form #apps .prefix-round.collapse.contact button,
-form .study .prefix-round.collapse.contact button,
-form .contact .prefix-round.collapse.contact button {
+form .row .prefix-round.row.collapse button {
   border-radius: 0;
   -webkit-border-bottom-right-radius: 1000px;
   -webkit-border-top-right-radius: 1000px;
@@ -5131,7 +4686,7 @@ form .contact .prefix-round.collapse.contact button {
   border-top-right-radius: 1000px;
 }
 /* line 457, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .prefix-round.row.collapse .prefix, form .about .prefix-round.row.collapse .prefix, form .web .prefix-round.row.collapse .prefix, form #apps .prefix-round.row.collapse .prefix, form .study .prefix-round.row.collapse .prefix, form .contact .prefix-round.row.collapse .prefix, form .row .prefix-round.collapse.about .prefix, form .about .prefix-round.collapse.about .prefix, form .web .prefix-round.collapse.about .prefix, form #apps .prefix-round.collapse.about .prefix, form .study .prefix-round.collapse.about .prefix, form .contact .prefix-round.collapse.about .prefix, form .row .prefix-round.collapse.web .prefix, form .about .prefix-round.collapse.web .prefix, form .web .prefix-round.collapse.web .prefix, form #apps .prefix-round.collapse.web .prefix, form .study .prefix-round.collapse.web .prefix, form .contact .prefix-round.collapse.web .prefix, form .row .prefix-round.collapse#apps .prefix, form .about .prefix-round.collapse#apps .prefix, form .web .prefix-round.collapse#apps .prefix, form #apps .prefix-round.collapse#apps .prefix, form .study .prefix-round.collapse#apps .prefix, form .contact .prefix-round.collapse#apps .prefix, form .row .prefix-round.collapse.study .prefix, form .about .prefix-round.collapse.study .prefix, form .web .prefix-round.collapse.study .prefix, form #apps .prefix-round.collapse.study .prefix, form .study .prefix-round.collapse.study .prefix, form .contact .prefix-round.collapse.study .prefix, form .row .prefix-round.collapse.contact .prefix, form .about .prefix-round.collapse.contact .prefix, form .web .prefix-round.collapse.contact .prefix, form #apps .prefix-round.collapse.contact .prefix, form .study .prefix-round.collapse.contact .prefix, form .contact .prefix-round.collapse.contact .prefix {
+form .row .prefix-round.row.collapse .prefix {
   border-radius: 0;
   -webkit-border-bottom-left-radius: 1000px;
   -webkit-border-top-left-radius: 1000px;
@@ -5139,115 +4694,10 @@ form .row .prefix-round.row.collapse .prefix, form .about .prefix-round.row.coll
   border-top-left-radius: 1000px;
 }
 /* line 460, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .postfix-round.row.collapse input, form .about .postfix-round.row.collapse input, form .web .postfix-round.row.collapse input, form #apps .postfix-round.row.collapse input, form .study .postfix-round.row.collapse input, form .contact .postfix-round.row.collapse input, form .row .postfix-round.collapse.about input, form .about .postfix-round.collapse.about input, form .web .postfix-round.collapse.about input, form #apps .postfix-round.collapse.about input, form .study .postfix-round.collapse.about input, form .contact .postfix-round.collapse.about input, form .row .postfix-round.collapse.web input, form .about .postfix-round.collapse.web input, form .web .postfix-round.collapse.web input, form #apps .postfix-round.collapse.web input, form .study .postfix-round.collapse.web input, form .contact .postfix-round.collapse.web input, form .row .postfix-round.collapse#apps input, form .about .postfix-round.collapse#apps input, form .web .postfix-round.collapse#apps input, form #apps .postfix-round.collapse#apps input, form .study .postfix-round.collapse#apps input, form .contact .postfix-round.collapse#apps input, form .row .postfix-round.collapse.study input, form .about .postfix-round.collapse.study input, form .web .postfix-round.collapse.study input, form #apps .postfix-round.collapse.study input, form .study .postfix-round.collapse.study input, form .contact .postfix-round.collapse.study input, form .row .postfix-round.collapse.contact input, form .about .postfix-round.collapse.contact input, form .web .postfix-round.collapse.contact input, form #apps .postfix-round.collapse.contact input, form .study .postfix-round.collapse.contact input, form .contact .postfix-round.collapse.contact input,
+form .row .postfix-round.row.collapse input,
 form .row .postfix-round.row.collapse textarea,
-form .about .postfix-round.row.collapse textarea,
-form .web .postfix-round.row.collapse textarea,
-form #apps .postfix-round.row.collapse textarea,
-form .study .postfix-round.row.collapse textarea,
-form .contact .postfix-round.row.collapse textarea,
-form .row .postfix-round.collapse.about textarea,
-form .about .postfix-round.collapse.about textarea,
-form .web .postfix-round.collapse.about textarea,
-form #apps .postfix-round.collapse.about textarea,
-form .study .postfix-round.collapse.about textarea,
-form .contact .postfix-round.collapse.about textarea,
-form .row .postfix-round.collapse.web textarea,
-form .about .postfix-round.collapse.web textarea,
-form .web .postfix-round.collapse.web textarea,
-form #apps .postfix-round.collapse.web textarea,
-form .study .postfix-round.collapse.web textarea,
-form .contact .postfix-round.collapse.web textarea,
-form .row .postfix-round.collapse#apps textarea,
-form .about .postfix-round.collapse#apps textarea,
-form .web .postfix-round.collapse#apps textarea,
-form #apps .postfix-round.collapse#apps textarea,
-form .study .postfix-round.collapse#apps textarea,
-form .contact .postfix-round.collapse#apps textarea,
-form .row .postfix-round.collapse.study textarea,
-form .about .postfix-round.collapse.study textarea,
-form .web .postfix-round.collapse.study textarea,
-form #apps .postfix-round.collapse.study textarea,
-form .study .postfix-round.collapse.study textarea,
-form .contact .postfix-round.collapse.study textarea,
-form .row .postfix-round.collapse.contact textarea,
-form .about .postfix-round.collapse.contact textarea,
-form .web .postfix-round.collapse.contact textarea,
-form #apps .postfix-round.collapse.contact textarea,
-form .study .postfix-round.collapse.contact textarea,
-form .contact .postfix-round.collapse.contact textarea,
 form .row .postfix-round.row.collapse select,
-form .about .postfix-round.row.collapse select,
-form .web .postfix-round.row.collapse select,
-form #apps .postfix-round.row.collapse select,
-form .study .postfix-round.row.collapse select,
-form .contact .postfix-round.row.collapse select,
-form .row .postfix-round.collapse.about select,
-form .about .postfix-round.collapse.about select,
-form .web .postfix-round.collapse.about select,
-form #apps .postfix-round.collapse.about select,
-form .study .postfix-round.collapse.about select,
-form .contact .postfix-round.collapse.about select,
-form .row .postfix-round.collapse.web select,
-form .about .postfix-round.collapse.web select,
-form .web .postfix-round.collapse.web select,
-form #apps .postfix-round.collapse.web select,
-form .study .postfix-round.collapse.web select,
-form .contact .postfix-round.collapse.web select,
-form .row .postfix-round.collapse#apps select,
-form .about .postfix-round.collapse#apps select,
-form .web .postfix-round.collapse#apps select,
-form #apps .postfix-round.collapse#apps select,
-form .study .postfix-round.collapse#apps select,
-form .contact .postfix-round.collapse#apps select,
-form .row .postfix-round.collapse.study select,
-form .about .postfix-round.collapse.study select,
-form .web .postfix-round.collapse.study select,
-form #apps .postfix-round.collapse.study select,
-form .study .postfix-round.collapse.study select,
-form .contact .postfix-round.collapse.study select,
-form .row .postfix-round.collapse.contact select,
-form .about .postfix-round.collapse.contact select,
-form .web .postfix-round.collapse.contact select,
-form #apps .postfix-round.collapse.contact select,
-form .study .postfix-round.collapse.contact select,
-form .contact .postfix-round.collapse.contact select,
-form .row .postfix-round.row.collapse button,
-form .about .postfix-round.row.collapse button,
-form .web .postfix-round.row.collapse button,
-form #apps .postfix-round.row.collapse button,
-form .study .postfix-round.row.collapse button,
-form .contact .postfix-round.row.collapse button,
-form .row .postfix-round.collapse.about button,
-form .about .postfix-round.collapse.about button,
-form .web .postfix-round.collapse.about button,
-form #apps .postfix-round.collapse.about button,
-form .study .postfix-round.collapse.about button,
-form .contact .postfix-round.collapse.about button,
-form .row .postfix-round.collapse.web button,
-form .about .postfix-round.collapse.web button,
-form .web .postfix-round.collapse.web button,
-form #apps .postfix-round.collapse.web button,
-form .study .postfix-round.collapse.web button,
-form .contact .postfix-round.collapse.web button,
-form .row .postfix-round.collapse#apps button,
-form .about .postfix-round.collapse#apps button,
-form .web .postfix-round.collapse#apps button,
-form #apps .postfix-round.collapse#apps button,
-form .study .postfix-round.collapse#apps button,
-form .contact .postfix-round.collapse#apps button,
-form .row .postfix-round.collapse.study button,
-form .about .postfix-round.collapse.study button,
-form .web .postfix-round.collapse.study button,
-form #apps .postfix-round.collapse.study button,
-form .study .postfix-round.collapse.study button,
-form .contact .postfix-round.collapse.study button,
-form .row .postfix-round.collapse.contact button,
-form .about .postfix-round.collapse.contact button,
-form .web .postfix-round.collapse.contact button,
-form #apps .postfix-round.collapse.contact button,
-form .study .postfix-round.collapse.contact button,
-form .contact .postfix-round.collapse.contact button {
+form .row .postfix-round.row.collapse button {
   border-radius: 0;
   -webkit-border-bottom-left-radius: 1000px;
   -webkit-border-top-left-radius: 1000px;
@@ -5255,7 +4705,7 @@ form .contact .postfix-round.collapse.contact button {
   border-top-left-radius: 1000px;
 }
 /* line 464, ../bower_components/foundation/scss/foundation/components/_forms.scss */
-form .row .postfix-round.row.collapse .postfix, form .about .postfix-round.row.collapse .postfix, form .web .postfix-round.row.collapse .postfix, form #apps .postfix-round.row.collapse .postfix, form .study .postfix-round.row.collapse .postfix, form .contact .postfix-round.row.collapse .postfix, form .row .postfix-round.collapse.about .postfix, form .about .postfix-round.collapse.about .postfix, form .web .postfix-round.collapse.about .postfix, form #apps .postfix-round.collapse.about .postfix, form .study .postfix-round.collapse.about .postfix, form .contact .postfix-round.collapse.about .postfix, form .row .postfix-round.collapse.web .postfix, form .about .postfix-round.collapse.web .postfix, form .web .postfix-round.collapse.web .postfix, form #apps .postfix-round.collapse.web .postfix, form .study .postfix-round.collapse.web .postfix, form .contact .postfix-round.collapse.web .postfix, form .row .postfix-round.collapse#apps .postfix, form .about .postfix-round.collapse#apps .postfix, form .web .postfix-round.collapse#apps .postfix, form #apps .postfix-round.collapse#apps .postfix, form .study .postfix-round.collapse#apps .postfix, form .contact .postfix-round.collapse#apps .postfix, form .row .postfix-round.collapse.study .postfix, form .about .postfix-round.collapse.study .postfix, form .web .postfix-round.collapse.study .postfix, form #apps .postfix-round.collapse.study .postfix, form .study .postfix-round.collapse.study .postfix, form .contact .postfix-round.collapse.study .postfix, form .row .postfix-round.collapse.contact .postfix, form .about .postfix-round.collapse.contact .postfix, form .web .postfix-round.collapse.contact .postfix, form #apps .postfix-round.collapse.contact .postfix, form .study .postfix-round.collapse.contact .postfix, form .contact .postfix-round.collapse.contact .postfix {
+form .row .postfix-round.row.collapse .postfix {
   border-radius: 0;
   -webkit-border-bottom-right-radius: 1000px;
   -webkit-border-top-right-radius: 1000px;
@@ -7913,7 +7363,7 @@ meta.foundation-mq-topbar {
   margin-bottom: 0;
 }
 /* line 170, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
-.top-bar .row, .top-bar .about, .top-bar .web, .top-bar #apps, .top-bar .study, .top-bar .contact {
+.top-bar .row {
   max-width: none;
 }
 /* line 174, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -8664,7 +8114,7 @@ meta.foundation-mq-topbar {
 }
 
 /* line 160, ../bower_components/foundation/scss/foundation/components/_type.scss */
-.text-center, #home, #header, .about, .web, .study__content, .contact {
+.text-center, .about, .web, .content, .contact {
   text-align: center !important;
 }
 
@@ -11066,14 +10516,14 @@ figure:hover .top {
 }
 
 /* line 122, ../scss/cats/_base.scss */
-.wrapper, #header, .study__content {
+.wrapper, #header, .content {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 /* line 128, ../scss/cats/_base.scss */
-.flex, figure, .flex-up, .contact__me, #header, .icon-row, .study__content, .contact {
+.flex, figure, .flex-up, .contact__me, #header, .icon-row, .content, .contact {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -11091,7 +10541,7 @@ figure:hover .top {
 }
 
 /* line 144, ../scss/cats/_base.scss */
-.row, .about, .web, #apps, .study, .contact {
+.row {
   overflow: hidden;
 }
 
@@ -11221,15 +10671,15 @@ p {
 }
 
 /* line 100, ../scss/cats/_module.scss */
-.study {
+#study {
   background-color: antiquewhite;
 }
 
-/* line 110, ../scss/cats/_module.scss */
+/* line 108, ../scss/cats/_module.scss */
 .contact {
   background-color: #f3f0ff;
 }
-/* line 118, ../scss/cats/_module.scss */
+/* line 116, ../scss/cats/_module.scss */
 .contact__me__copy {
   text-align: center;
   margin: 0 auto;
@@ -11237,7 +10687,7 @@ p {
   color: #6c7c89;
 }
 
-/* line 129, ../scss/cats/_module.scss */
+/* line 127, ../scss/cats/_module.scss */
 .burgerbutton {
   width: 60px;
   height: 45px;
@@ -11253,7 +10703,7 @@ p {
   transition: .5s ease-in-out;
   cursor: pointer;
 }
-/* line 143, ../scss/cats/_module.scss */
+/* line 141, ../scss/cats/_module.scss */
 .burgerbutton span {
   display: block;
   position: absolute;
@@ -11272,47 +10722,47 @@ p {
   -o-transition: .25s ease-in-out;
   transition: .25s ease-in-out;
 }
-/* line 161, ../scss/cats/_module.scss */
+/* line 159, ../scss/cats/_module.scss */
 .burgerbutton span:nth-child(1) {
   top: 0px;
 }
-/* line 164, ../scss/cats/_module.scss */
+/* line 162, ../scss/cats/_module.scss */
 .burgerbutton span:nth-child(2),
 .burgerbutton span:nth-child(3) {
   top: 18px;
 }
-/* line 168, ../scss/cats/_module.scss */
+/* line 166, ../scss/cats/_module.scss */
 .burgerbutton span:nth-child(4) {
   top: 36px;
 }
-/* line 171, ../scss/cats/_module.scss */
+/* line 169, ../scss/cats/_module.scss */
 .burgerbutton.open span:nth-child(1) {
   top: 18px;
   width: 0%;
   left: 50%;
 }
-/* line 176, ../scss/cats/_module.scss */
+/* line 174, ../scss/cats/_module.scss */
 .burgerbutton.open span:nth-child(2) {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-/* line 182, ../scss/cats/_module.scss */
+/* line 180, ../scss/cats/_module.scss */
 .burgerbutton.open span:nth-child(3) {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-/* line 188, ../scss/cats/_module.scss */
+/* line 186, ../scss/cats/_module.scss */
 .burgerbutton.open span:nth-child(4) {
   top: 18px;
   width: 0%;
   left: 50%;
 }
 
-/* line 198, ../scss/cats/_module.scss */
+/* line 196, ../scss/cats/_module.scss */
 .load:before {
   width: 100%;
   position: absolute;
@@ -11332,7 +10782,7 @@ p {
   vertical-align: bottom;
   overflow: hidden;
 }
-/* line 215, ../scss/cats/_module.scss */
+/* line 213, ../scss/cats/_module.scss */
 .load * {
   display: none;
 }
