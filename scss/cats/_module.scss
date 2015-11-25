@@ -24,14 +24,14 @@
     margin: 9px 0;
 }
 
-.about {
+#about {
     @extend .text-center;
     
     background-color: aquamarine;
-    
-    &__section {
-        @extend .column, .large-6, .medium-12, .small-12;
-    }
+}
+
+.about__section {
+    @extend .column, .large-6, .medium-12, .small-12;
 }
 
 .web {

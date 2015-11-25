@@ -8114,7 +8114,7 @@ meta.foundation-mq-topbar {
 }
 
 /* line 160, ../bower_components/foundation/scss/foundation/components/_type.scss */
-.text-center, .about, .web, .content, .contact {
+.text-center, #about, .web, .content, .contact {
   text-align: center !important;
 }
 
@@ -10556,6 +10556,11 @@ p {
 }
 
 /* line 7, ../scss/cats/_layout.scss */
+#home {
+  height: 95vh;
+}
+
+/* line 11, ../scss/cats/_layout.scss */
 #home,
 #about,
 #apps,
@@ -10569,13 +10574,13 @@ p {
   position: relative;
 }
 
-/* line 21, ../scss/cats/_layout.scss */
+/* line 25, ../scss/cats/_layout.scss */
 .logo--home {
   width: 70vmin;
   max-width: 600px;
 }
 
-/* line 26, ../scss/cats/_layout.scss */
+/* line 30, ../scss/cats/_layout.scss */
 .logo--small {
   width: 50px;
   display: none;
@@ -10584,7 +10589,7 @@ p {
   left: 10px;
 }
 
-/* line 34, ../scss/cats/_layout.scss */
+/* line 38, ../scss/cats/_layout.scss */
 .portrait {
   width: 300px;
   height: 300px;
@@ -10616,7 +10621,7 @@ p {
 }
 
 /* line 27, ../scss/cats/_module.scss */
-.about {
+#about {
   background-color: aquamarine;
 }
 
