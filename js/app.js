@@ -48,11 +48,18 @@ $(document).ready(function($) {
         displace: false
     });
     
-    $('.burgerbutton').click(function(){
-		$(this).toggleClass('open');
+    $('body').click(function() {
+        $.sidr('close','side-menu'); 
+    });
+    
+    $('.burgerbutton').click(function() {
+        $(this).toggleClass('open');
 	});
     
-    $('body').on("click",function(e) {
-       $.sidr('close','side-menu'); 
+    $('.window-img').click(function() {
+        if (this.class != "js-ontop") {
+            $(".js-ontop").toggleClass("js-ontop");
+            $(this).toggleClass("js-ontop");
+        }
     });
 });

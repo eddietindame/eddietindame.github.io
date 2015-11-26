@@ -13,7 +13,7 @@
 #header {
     @extend .wrapper, .flex;
 
-    background-color: white;
+    background-color: $headerColour;
     height: 60px;
     margin: none;
     right: 0;
@@ -27,7 +27,7 @@
 #about {
     @extend .text-center;
     
-    background-color: aquamarine;
+    background-color: $aboutColour;
 }
 
 .about__section {
@@ -37,12 +37,12 @@
 .web {
     @extend .text-center;
     
-    background-color: coral;
+    background-color: $webColour;
     
     &__diagram {
-        width: auto;
-        height: auto;
-        margin: 0 auto;
+        width:   auto;
+        height:  auto;
+        margin:  0 auto;
         padding: 0 10px;
     }
 }
@@ -58,28 +58,47 @@
 #apps {
 //    @extend .row;
 
-    background-color: #454545;
+    background-color: $appsColour;
     min-height: 380px;
     display: flex;
     justify-content: center;
 }
 
 .window-img {
+    @include blur(1px); 
+    
     background-image: url(../../res/window-long.svg);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
 
     width: 600px;
-    height:  300px;
+    height: 260px;
 
-    position: absolute;
+    position: absolute;        
     bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
 
     padding: 50px 10px 5px 10px;
+    
+    &--centre {   
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 280px;
+        z-index: 1;
+    }
+    &--left {
+        left:   10%; 
+        @media only screen and (max-width: 920px) {
+            left: 96px;
+        }
+    }
+    &--right {
+        right:  10%;
+        @media only screen and (max-width: 920px) {
+            right: 96px;
+        }
+    }
 
     @media only screen and (max-width: 620px) {
         width: 90vw;
@@ -97,8 +116,14 @@
     }
 }
 
+.js-ontop {
+    @include noblur();
+    z-index: 20;
+    height: 300px;
+}
+
 #study {
-    background-color: antiquewhite;
+    background-color: $studyColour;
 }
 
 .content {
@@ -108,7 +133,7 @@
 .contact {
     @extend .text-center, .flex;
     
-    background-color: #f3f0ff;
+    background-color: $contactColour;
 
     &__me {
         @extend .column, .large-12, .flex-up;

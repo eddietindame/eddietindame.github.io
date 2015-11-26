@@ -1,9 +1,29 @@
-$mainBlue: #b2e1ff;
-$mainGreen: #b2ffb8;
+//$blurRadius: 1px;
+$figureSize: 90px;
 
-$twitterBlue: #63CCF0;
+$mainBlue:       #b2e1ff;
+$headerColour:   white;
+$aboutColour:    aquamarine;
+$appsColour:     #454545;
+$webColour:      coral;
+$studyColour:    antiquewhite;
+$contactColour:  #f3f0ff;
+
+$twitterBlue:  #63CCF0;
 $facebookBlue: #45619D;
 $linkedinBlue: #1C86BC;
 $instagramTan: #BB9F1B;
 
-$figureSize: 90px;
+@mixin blur($radius) {    
+    -webkit-filter: blur($radius);
+    -moz-filter:    blur($radius);
+    -ms-filter:     blur($radius);
+    filter:         blur($radius);
+}
+
+@mixin noblur() {
+    -webkit-filter: none;
+    -moz-filter:    none;
+    -ms-filter:     none;
+    filter:         none;
+}
