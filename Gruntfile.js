@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		postcss: {
 			 options: {
-			      //map: true, // inline sourcemaps
+			      map: true, // inline sourcemaps
 
 			      // or
 			      // map: {
@@ -11,16 +11,16 @@ module.exports = function(grunt) {
 			      //     annotation: 'dist/css/maps/' // ...to the specified directory
 			      // },
 
-			    //   processors: [
-			    //     require('pixrem')(), // add fallbacks for rem units
-			    //     require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
-			    //     require('cssnano')() // minify the result
-			    //   ]
-			    // },
+			      processors: [
+			        // require('pixrem')(), // add fallbacks for rem units
+			        require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+			        // require('cssnano')() // minify the result
+			      ]
+			    },
 			    dist: {
 			      src: 'stylesheets/*.css'
 			    }
-		}},
+		},
 		concat: {
 			dist: {
 				src: ['bower_components/**/*.js', 'node-modules/waypoints/**/*.js', 'js/plugins/*.js'],
