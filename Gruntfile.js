@@ -21,6 +21,12 @@ module.exports = function(grunt) {
 			      src: 'stylesheets/*.css'
 			    }
 		}},
+		concat: {
+			dist: {
+				src: ['bower_components/**/*.js', 'node-modules/waypoints/**/*.js', 'js/plugins/*.js'],
+				dest: 'js/app.js'
+			}
+		},
 		compass: {
 			dist: {
 				options: {
@@ -71,6 +77,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-express');
 	grunt.loadNpmTasks('grunt-open');

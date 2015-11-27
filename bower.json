@@ -4,5 +4,8 @@
   "private": "true",
   "dependencies": {
     "foundation": "zurb/bower-foundation#~5.5.3"
+  },
+  "devDependencies": {
+    "waypoints": "~4.0.0"
   }
 }

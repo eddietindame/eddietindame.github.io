@@ -8,6 +8,14 @@ body {
     font-family: 'Share Tech Mono';
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
 a {
     color: black;
     &:visited {
@@ -126,6 +134,9 @@ figure {
 }
 
 .flex {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
