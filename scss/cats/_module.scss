@@ -52,6 +52,10 @@
     min-height: 380px;
     display: flex;
     justify-content: center;
+    
+    @media only screen and (max-width: $appBreakpoint) {
+//        min-height: 441px;
+    }
 }
 
 .windows {
@@ -87,10 +91,26 @@
         left: 10%;
 //        bottom: 0;
         margin-right: -10%;
+        
+        @media only screen and (max-width: $appBreakpoint) {
+//            height: 380px;
+//            left: 0;
+//            right: 0;
+//            margin: 0 auto;
+            display: none;
+        }
     }
     &--right {
         right: 10%;
         margin-left: -10%;
+        
+        @media only screen and (max-width: $appBreakpoint) {
+//            height: 340px;
+//            left: 0;
+//            right: 0;
+//            margin: 0 auto;
+            display: none;
+        }
     }
     @media only screen and (max-width: 20px) {
         width: 90vw;
@@ -109,6 +129,10 @@
     @include noblur();
     z-index: 20;
     height: 300px;
+    
+    @media only screen and (max-width: $appBreakpoint) {
+        
+    }
 }
 
 #study {

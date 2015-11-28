@@ -21,6 +21,17 @@ module.exports = function(grunt) {
 			      src: 'stylesheets/*.css'
 			    }
 		},
+	    babel: {
+	        options: {
+	            sourceMap: true,
+	            presets: ['babel-preset-es2015']
+	        },
+	        dist: {
+	            files: {
+	                'js/app.js': 'js/**/scripts.js'
+	            }
+	        }
+	    },
 		concat: {
 			dist: {
 				src: ['bower_components/**/*.js', 'node-modules/waypoints/**/*.js', 'js/plugins/*.js'],
@@ -53,8 +64,8 @@ module.exports = function(grunt) {
 		watch: {
 			options: {livereload: true},
 			css: {
-				files: ['**/*.scss','**/*.jade'],
-				tasks: ['compass','jade']
+				files: ['**/*.scss','stylesheets/*.css', '**/*.jade', 'js/**/*.js'],
+				tasks: ['compass','postcss', 'jade', 'babel']
 			}
 		},
 		express:{
@@ -77,6 +88,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-babel');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-express');
