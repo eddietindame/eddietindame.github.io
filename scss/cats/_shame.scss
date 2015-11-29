@@ -1,13 +1,38 @@
+
+// *** UTILITY CLASSES *** //
+
 .u-hide {
     @media only screen and (max-width: $appBreakpoint) {
         display: none;
     }
 }
 
+.wrapper {
+    max-width: 960px;
+    margin:  0 auto;
+    padding: 0 20px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flex-up {
+    @extend .flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ts-big {
+    font-size: 45pt;    
+}
+
 // *** OVERRIDE SIDR STYLES *** //
 
 #side-menu {
-    width: 150px;
+    width: 100px;
         font-family: 'Share Tech Mono';
     box-shadow: none;
     background-color: white;
