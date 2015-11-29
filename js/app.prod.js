@@ -223,19 +223,19 @@ function width() {
     $('#header').css("max-width", w);
 }
 
-function popup() {
-    window.alert('poo');
-}
-
-var waypoint = new Waypoint({
-    element: document.getElementById('contact'),
-    handler: function handler() {
-        popup();
-    },
-    offset: function offset() {
-        return Waypoint.viewportHeight() - this.element.clientHeight;
-    }
-});
+//function popup() {
+//    window.alert('test');
+//}
+//
+//var waypoint = new Waypoint({
+//    element: document.getElementById('contact'),
+//    handler: function() {
+//        popup()
+//    },
+//    offset: function() {
+//        return Waypoint.viewportHeight() - this.element.clientHeight
+//    }
+//});
 
 window.addEventListener('resize', width);
 window.addEventListener('resize', height);

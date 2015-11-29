@@ -43,7 +43,55 @@
 
 .icon-row {
     @extend .flex;
-    &__box {}
+}
+
+.icon-row__box {
+    @extend .flex;
+    
+    position: relative;
+    text-align: center;
+    width: $figureSize;
+    height: 130px;
+    margin: 0px 20px;
+    
+    &__graphic {
+        position: absolute;
+        top: 0;
+        left:  0;
+        right:  0;
+        margin: 0 auto;
+//        transform: translate(-50%,0);
+        padding: 10px;
+        width:  $figureSize;
+        height: $figureSize;
+    }
+    figcaption {
+        position: absolute;
+        top: 75%;
+        left:  0;
+        right:  0;
+        margin: 0 auto;
+//        transform: translate(-50%,-50%);
+        width: 100%;
+    }
+    .top,
+    .bottom {
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -o-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+    }
+    .bottom {
+        opacity: 0;
+    }
+    &:hover {
+        .bottom {
+            opacity: 100;
+        }
+        .top {
+            opacity: 0;
+        }
+    }
 }
 
 #apps {
