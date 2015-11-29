@@ -1,11 +1,12 @@
 {
-  "name": "foundation-compass-app",
-  "version": "0.0.1",
+  "name": "Portfolio",
+  "version": "0.6.9",
   "private": "true",
   "dependencies": {
     "foundation": "zurb/bower-foundation#~5.5.3"
   },
   "devDependencies": {
-    "waypoints": "~4.0.0"
+    "waypoints": "~4.0.0",
+    "modernizer": "~2.8.3"
   }
 }

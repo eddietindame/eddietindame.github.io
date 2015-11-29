@@ -1,7 +1,7 @@
 var navHeight = 60;
 var w = window.innerWidth;
 var navOffset = window.innerHeight - navHeight;
- 
+
 function navPos() {
     var scrollPos = $(window).scrollTop();
     if (scrollPos >= navOffset) {
@@ -12,7 +12,7 @@ function navPos() {
         $(".logo--small").hide("fast");
     } 
 }
-
+  
 function height() {
     navOffset = window.innerHeight - navHeight;
     document.getElementById('home').style.height = `${navOffset}px`;

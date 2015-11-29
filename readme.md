@@ -9,17 +9,16 @@ A work in progress project.
   * SASS, Jade
 
 Plans
-~~* Markup is seriously unsemantic - I plan to remove a bunch of the foundation classes and use Sass mixins to extend existing classes into the displayed elements. Foundation 6 has extra support for this - I'm hoping to upgrade soon.~~
-* Adopted BEM naming convention to clean everything up but page is so small there is nothing to modularize ^^;
+~~* Markup is seriously unsemantic - I plan to remove a bunch of the foundation classes and use Sass to extend existing classes into the displayed elements. Foundation 6 has extra support for this - I'm hoping to upgrade soon.~~
 * Improve cross browser compatibility.
 *  ^ & W3C validity
 * Combine icons into sprite-sheet.
-* Minify JS / CSS.
+* Concatenate all my used JS files / unlink markup from bower-components.
 * Clean up comments etc.
 
 Notes
 ```
-* Javascript not working on mobile devices. I have only tested this on my iPhone 5S and Samsung Galaxy Note 10.1 Tablet.
+* Javascript not working properly on mobile devices older than iPhone 6. My Js and CSS have necessary compatibility fixes applied (babel, auto-prefix).
 * ^^ Normalize confirms JS but scripts don't complete??
 ```
 ## Visit it!

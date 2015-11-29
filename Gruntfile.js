@@ -21,6 +21,13 @@ module.exports = function(grunt) {
 			      src: 'stylesheets/*.css'
 			    }
 		},
+		// uglify: {
+		// 	my_target: {
+		// 	  files: {
+		// 	    'js/app.min.js': ['js/plugins/*.js']
+		// 	  }
+		// 	}
+		// },
 	    babel: {
 	        options: {
 	            sourceMap: true,
@@ -32,12 +39,12 @@ module.exports = function(grunt) {
 	            }
 	        }
 	    },
-		concat: {
-			dist: {
-				src: ['bower_components/**/*.js', 'node-modules/waypoints/**/*.js', 'js/plugins/*.js'],
-				dest: 'js/app.js'
-			}
-		},
+		// concat: {
+		// 	dist: {
+		// 		src: ['bower_components/**/*.js', 'node-modules/waypoints/**/*.js', 'js/plugins/*.js'],
+		// 		dest: 'js/app.js'
+		// 	}
+		// },
 		compass: {
 			dist: {
 				options: {
@@ -88,11 +95,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-jade');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-babel');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-express');
 	grunt.loadNpmTasks('grunt-open');
 	grunt.registerTask('server', ['express','open','watch']);
+	// grunt.registerTask('js', ['uglify','babel']);
 	grunt.registerTask('default', ['server']);
 }
