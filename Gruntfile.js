@@ -69,7 +69,12 @@ module.exports = function(grunt) {
         	}
     	},
 		watch: {
-			options: { livereload: true },
+			// options: { 
+			// 	livereload: {
+			// 		port: 9000,
+			// 		hostname: 'localhost',
+			// 	} 
+			// },
 			dist: {
 				files: ['**/*.jade','**/*.scss','stylesheets/*.css','js/scripts.js'],
 				tasks: ['jade','compass','postcss','js']
@@ -93,7 +98,7 @@ module.exports = function(grunt) {
 					port: 9000,
 					hostname: 'localhost',
 					bases: ['./'],
-					// livereload:true
+					// livereload: true
 				}
 			}
 		},
@@ -113,7 +118,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-express');
 	grunt.loadNpmTasks('grunt-open');
-	grunt.registerTask('server', ['express','open','watch']);
 	grunt.registerTask('js', ['concat','babel','uglify']);
+	grunt.registerTask('server', ['express','open','watch']);
 	grunt.registerTask('default', ['server']);
 }

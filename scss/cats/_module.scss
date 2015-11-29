@@ -112,9 +112,9 @@
             display: none;
         }
     }
-    @media only screen and (max-width: 20px) {
+    @media only screen and (max-width: 620px) {
         width: 90vw;
-//        height: 310px;
+        height: 310px;
         background-size: 100%;
         position: absolute;
         bottom: 0;
@@ -130,9 +130,9 @@
     z-index: 20;
     height: 300px;
     
-    @media only screen and (max-width: $appBreakpoint) {
-        
-    }
+//    @media only screen and (max-width: $appBreakpoint) {
+//        
+//    }
 }
 
 #study {

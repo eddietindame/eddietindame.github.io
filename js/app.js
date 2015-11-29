@@ -39,7 +39,7 @@ jQuery(function($){ $.localScroll({filter:'.js-smoothScroll'}); });
 var navHeight = 60;
 var w = window.innerWidth;
 var navOffset = window.innerHeight - navHeight;
-
+  
 function navPos() {
     var scrollPos = $(window).scrollTop();
     if (scrollPos >= navOffset) {
