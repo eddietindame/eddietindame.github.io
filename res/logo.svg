@@ -3,8 +3,11 @@
 	<style>
 		@media all and (max-width: 90px) {
 			#sub-text {
-				display: none;
+				-webkit-display: none;
 				-moz-display: none;
+				-ms-display: none;
+				-o-display: none;
+				display: none;
 			}
 		}
 	</style>

@@ -98,9 +98,9 @@
     display: flex;
     justify-content: center;
     
-    @media only screen and (max-width: $appBreakpoint) {
+//    @media only screen and (max-width: $appBreakpoint) {
 //        min-height: 441px;
-    }
+//    }
 }
 
 .windows {
@@ -167,6 +167,9 @@
         right: 0;
         margin: 0 auto;
         padding: 10% 10px 5px 10px;
+    }
+    @media only screen and (max-width: 340px) {
+        height: 340px;
     }
 }
 
