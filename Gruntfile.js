@@ -21,13 +21,12 @@ module.exports = function(grunt) {
 			      src: 'stylesheets/*.css'
 			    }
 		},
-		// uglify: {
-		// 	my_target: {
-		// 	  files: {
-		// 	    'js/app.min.js': ['js/plugins/*.js']
-		// 	  }
-		// 	}
-		// },
+		concat: {
+			dist: {
+				src: ['js/plugins/*.js','js/scripts.js'],
+				dest: 'js/app.js'
+			}
+		},
 	    babel: {
 	        options: {
 	            sourceMap: true,
@@ -35,16 +34,17 @@ module.exports = function(grunt) {
 	        },
 	        dist: {
 	            files: {
-	                'js/app.js': 'js/**/scripts.js'
+	                'js/app.prod.js': 'js/app.js'
 	            }
 	        }
 	    },
-		// concat: {
-		// 	dist: {
-		// 		src: ['bower_components/**/*.js', 'node-modules/waypoints/**/*.js', 'js/plugins/*.js'],
-		// 		dest: 'js/app.js'
-		// 	}
-		// },
+		uglify: {
+			dist: {
+			  files: {
+			    'js/app.min.js': ['js/app.prod.js']
+			  }
+			}
+		},
 		compass: {
 			dist: {
 				options: {
@@ -69,19 +69,31 @@ module.exports = function(grunt) {
         	}
     	},
 		watch: {
-			options: {livereload: true},
-			css: {
-				files: ['**/*.scss','stylesheets/*.css', '**/*.jade', 'js/**/*.js'],
-				tasks: ['compass','postcss', 'jade', 'babel']
-			}
+			options: { livereload: true },
+			dist: {
+				files: ['**/*.jade','**/*.scss','stylesheets/*.css','js/scripts.js'],
+				tasks: ['jade','compass','postcss','js']
+			},
+			// jade: {
+			// 	files: ['**/*.jade'],
+			// 	tasks: ['jade']
+			// },
+			// css: {
+			// 	files: ['**/*.scss','stylesheets/*.css'],
+			// 	tasks: ['compass','postcss']
+			// },
+			// js: {
+			// 	files: ['js/**/*.js'],
+			// 	tasks: ['js']
+			// }
 		},
-		express:{
-			all:{
+		express: {
+			all: {
 				options:{
 					port: 9000,
 					hostname: 'localhost',
 					bases: ['./'],
-					livereload:true
+					// livereload:true
 				}
 			}
 		},
@@ -102,6 +114,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-express');
 	grunt.loadNpmTasks('grunt-open');
 	grunt.registerTask('server', ['express','open','watch']);
-	// grunt.registerTask('js', ['uglify','babel']);
+	grunt.registerTask('js', ['concat','babel','uglify']);
 	grunt.registerTask('default', ['server']);
 }

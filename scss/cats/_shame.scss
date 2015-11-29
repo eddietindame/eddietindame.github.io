@@ -1,12 +1,8 @@
-//.sidr {
-//    font-family: 'Share Tech Mono';
-//    box-shadow: none;
-//    background-color: white;
-//    opacity: 50%;
-//    ul li:hover {
-//            box-shadow: none;
-//    }
-//}
+.u-hide {
+    @media only screen and (max-width: $appBreakpoint) {
+        display: none;
+    }
+}
 
 // *** OVERRIDE SIDR STYLES *** //
 
