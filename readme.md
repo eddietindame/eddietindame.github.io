@@ -8,7 +8,7 @@ A work in progress project.
   * Javascript, 
   * SASS, Jade
 
-Plans
+# Plans
 ~~* Markup is seriously unsemantic - I plan to remove a bunch of the foundation classes and use Sass to extend existing classes into the displayed elements. Foundation 6 has extra support for this - I'm hoping to upgrade soon.~~
 * Improve cross browser compatibility.
 *  ^ & W3C validity
