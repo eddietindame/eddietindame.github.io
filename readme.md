@@ -10,6 +10,7 @@ A work in progress project.
   * Vendor prefixers added with autoprefix
 
 # Plans
+* Content to be added continuously
 * Further improve cross browser compatibility (svg not responsive in FireFox??)
 *  ^ & W3C validity
 * Combine icons into sprite-sheet.
