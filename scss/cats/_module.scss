@@ -184,6 +184,14 @@
     }
 }
 
+#design {
+    @extend .flex;
+    background-color: #161616;
+//    min-height: 380px;
+//    display: flex;
+//    justify-content: center;
+}
+
 #study {
     background-color: $studyColour;
 }

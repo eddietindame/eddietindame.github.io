@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>portfolio</title>
     <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
   </head>
   <body>
     <!--include includes/loadscreen-->
@@ -17,7 +20,7 @@
             <li><a href="#about" class="js-smoothScroll .top__header__navigation__link">About</a></li>
             <li><a href="#apps" class="js-smoothScroll .top__header__navigation__link">Apps</a></li>
             <li><a href="#web" class="js-smoothScroll .top__header__navigation__link">Web</a></li>
-            <!--li: a(href="#art" class="js-smoothScroll .top__header__navigation__link") Art-->
+            <li><a href="#design" class="js-smoothScroll .top__header__navigation__link">Design</a></li>
             <li><a href="#study" class="js-smoothScroll .top__header__navigation__link">Study</a></li>
             <li><a href="#contact" class="js-smoothScroll .top__header__navigation__link">Contact</a></li>
           </ul>
@@ -97,7 +100,11 @@
         </div>
       </div>
     </div>
-    <!--include includes/art-->
+    <div id="design">
+      <div class="column large-12 text-center">
+        <div data-loop="true" data-transition="crossfade" data-allowfullscreen="true" data-nav="thumbs" class="fotorama"><img src="res/design/iphone-mockup-1.jpg"><img src="res/design/iphone-mockup-2.jpg"><img src="res/design/mockup-2.jpg"><img src="res/design/mockup-2_1.jpg"><img src="res/design/mockup-3.jpg"><img src="res/design/mockup-3_1.jpg"><img src="res/design/mockup-5.jpg"><img src="res/design/mockup-8.jpg"><img src="res/design/mockup-7.jpg"><img src="res/design/mockup-6.jpg"><img src="res/design/mockup-1.jpg"><img src="res/design/mockup-1_1.jpg"></div>
+      </div>
+    </div>
     <div id="study">
       <div class="content">
         <h1>Study</h1>
@@ -126,7 +133,6 @@
       </div>
     </div>
     <script src="bower_components/modernizr/modernizr.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!--script(src="js/plugins/smoothscroll.js")-->
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <!--script(src="bower_components/waypoints/lib/noframework.waypoints.js")-->
