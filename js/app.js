@@ -58,6 +58,7 @@ function height() {
 
 function width() {
     w = window.innerWidth;
+    $('#header').css("width",w);
     $('#header').css("max-width",w);
 }
 
@@ -75,11 +76,11 @@ function width() {
 //    }
 //});
 
-
+window.addEventListener('load',height);
+window.addEventListener('load',width);
+window.addEventListener('load',navPos);
 window.addEventListener('resize',width);
 window.addEventListener('resize',height);
-window.addEventListener('load',height);
-window.addEventListener('load',navPos);
 
 window.addEventListener("scroll",navPos);window.addEventListener("load", function() {
     var load_screen = document.getElementById("load_screen");
