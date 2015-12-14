@@ -60,7 +60,6 @@
         left:  0;
         right:  0;
         margin: 0 auto;
-//        transform: translate(-50%,0);
         padding: 10px;
         width:  $figureSize;
         height: $figureSize;
@@ -71,15 +70,7 @@
         left:  0;
         right:  0;
         margin: 0 auto;
-//        transform: translate(-50%,-50%);
         width: 100%;
-    }
-    .top,
-    .bottom {
-        transition: opacity 1s ease-in-out;
-    }
-    .bottom {
-        opacity: 0;
     }
     &:hover {
         .bottom {
@@ -91,8 +82,24 @@
     }
 }
 
+.top,
+.bottom {
+    transition: opacity 1s ease-in-out;
+}
+.bottom {
+    opacity: 0;
+    &:hover {
+        opacity: 100;
+    }
+}
+.top {
+    &:hover {
+        opacity: 0;
+    }
+}
+
+
 #apps {
-    //    @extend .row;
     background-color: $appsColour;
     min-height: 380px;
     display: flex;
@@ -187,9 +194,6 @@
 #design {
     @extend .flex;
     background-color: #161616;
-//    min-height: 380px;
-//    display: flex;
-//    justify-content: center;
 }
 
 #study {

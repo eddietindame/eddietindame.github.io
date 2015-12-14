@@ -20,7 +20,7 @@ function height() {
 
 function width() {
     w = window.innerWidth;
-    $('#header').css("width",w);
+//    $('#header').css("width",w);
     $('#header').css("max-width",w);
 }
 
