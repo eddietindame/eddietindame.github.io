@@ -287,30 +287,3 @@
         left: 50%;
     }
 }
-
-// *** LOADING SCREEN *** //
-.load {
-    &:before {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        display: block;
-        height: 100%;
-        z-index: 999999;
-        background: $mainBlue url("../../res/loading.gif") no-repeat center center;
-        content: "Loading.";
-        text-align: center;
-        color: white;
-        text-shadow: none;
-        line-height: 150px;
-        vertical-align: bottom;
-        overflow: hidden;
-    }
-    // PREVENTS SCROLLING //
-    & * {
-        display: none;
-    }
-}
