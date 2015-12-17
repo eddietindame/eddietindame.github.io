@@ -49,9 +49,6 @@ window.addEventListener("scroll",navPos);window.addEventListener("load", functio
     document.body.removeAttribute("class");
 });
 
-
-$(document).foundation();
-
 $(document).ready(function($) {
     $('.js-side-menu-button').sidr({
         name: 'side-menu',

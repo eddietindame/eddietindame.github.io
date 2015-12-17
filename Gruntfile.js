@@ -29,19 +29,19 @@ module.exports = function(grunt) {
 		},
 	    babel: {
 	        options: {
-	            sourceMap: true,
+	            sourceMap: false,
 	            presets: ['babel-preset-es2015']
 	        },
 	        dist: {
 	            files: {
-	                'js/app.prod.js': 'js/app.js'
+	                'js/app.js': 'js/app.js'
 	            }
 	        }
 	    },
 		uglify: {
 			dist: {
 			  files: {
-			    'js/app.min.js': ['js/app.prod.js']
+			    'js/app.min.js': ['js/app.js']
 			  }
 			}
 		},
