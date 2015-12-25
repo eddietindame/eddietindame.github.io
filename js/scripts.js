@@ -24,6 +24,13 @@ function width() {
     $('#header').css("max-width",w);
 }
 
+$(window).scroll(function() {
+   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+       $(".popup").removeClass("hide");
+       $(".popup").addClass("animated bounceInDown");
+   }
+});
+
 //function popup() {
 //    window.alert('test');
 //}

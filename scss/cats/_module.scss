@@ -172,12 +172,11 @@
 }
 
 .design {
-    @extend .flex, .text-center;
+    @extend .flex-up, .text-center;
     background-color: $designColour;
     padding-left: 20px;
     padding-right: 20px;
     color: whitesmoke;
-    flex-direction: column;
     &__heading {
         color: inherit;
         text-align: center;
@@ -210,6 +209,15 @@
             font-size: 8pt;
             color: #6c7c89;
         }
+    }
+}
+.popup {
+//    width: 150px;
+    position: absolute;
+    top: 30%;
+    right: 0;
+    &__graphic {
+        width: 150px;
     }
 }
 
