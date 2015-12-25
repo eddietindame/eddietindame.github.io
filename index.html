@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Portfolio</title>
-    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="stylesheets/app.css"/>
     <script src="bower_components/modernizr/modernizr.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
   </head>
   <body>
     <div id="top">
-      <div id="home"><img src="res/logo.svg" alt="ed logo" class="logo--home"></div>
-      <div id="header"><a href="#home" class="js-smoothScroll"><img src="res/logo.svg" alt="ed logo small" class="logo--small"></a><a href="#side-menu" class="js-side-menu-button">
-          <div id="header--mobile" class="burgerbutton"><span></span><span></span><span></span><span></span></div></a>
+      <div id="home" class="home"><img src="res/logo.svg" alt="ed logo" class="logo--home"/></div>
+      <div id="header" class="header"><a href="#home" class="js-smoothScroll"><img src="res/logo.svg" alt="ed logo small" class="logo--small"/></a><a href="#side-menu" class="js-side-menu-button">
+          <div class="header--mobile burgerbutton"><span></span><span></span><span></span><span></span></div></a>
         <nav>
           <ul>
             <li><a href="#about" class="js-smoothScroll .top__header__navigation__link">About</a></li>
@@ -26,7 +26,7 @@
         </nav>
       </div>
     </div>
-    <div id="about">
+    <div id="about" class="about">
       <div class="wrapper flex">
         <section class="about__section">
           <h4>Eddie Tindame</h4>
@@ -41,12 +41,11 @@
           </p>
         </section>
         <aside class="about__section">
-          <p class="ts-big">"Websites,<br>Apps,<br>Graphics<br>...<br>come to life"</p>
+          <p class="ts-big">"Websites,<br/>Apps,<br/>Graphics<br/>...<br/>come to life"</p>
         </aside>
       </div>
     </div>
-    <div id="apps">
-      <!--.windows-->
+    <div id="apps" class="apps">
       <div class="window-img window-img--centre js-ontop">
         <p>$>&nbsp;cd&nbsp;/users/<wbr>eddietindame/<wbr>__APPS__</p>
         <p>$>&nbsp;Please find my applications and interactive projects hosted on my GitHub account.</p>
@@ -72,57 +71,57 @@
         <p class="heading">I like to use the most cutting edge tools for the job...</p>
         <div class="icon-row">
           <div class="icon-row__box">
-            <figure class="top"><img src="res/html5_flat.svg" alt="html5 logo" class="icon-row__box__graphic pulse">
+            <figure class="top"><img src="res/html5_flat.svg" alt="html5 logo" class="icon-row__box__graphic pulse"/>
               <figcaption>HTML5</figcaption>
             </figure>
-            <figure class="bottom"><img src="res/jade_flat.svg" alt="jade logo" class="icon-row__box__graphic">
+            <figure class="bottom"><img src="res/jade_flat.svg" alt="jade logo" class="icon-row__box__graphic"/>
               <figcaption>Jade</figcaption>
             </figure>
           </div>
           <div class="icon-row__box">
-            <figure class="top"><img src="res/css3_flat.svg" alt="css3 logo" class="icon-row__box__graphic pulse">
+            <figure class="top"><img src="res/css3_flat.svg" alt="css3 logo" class="icon-row__box__graphic pulse"/>
               <figcaption>CSS3</figcaption>
             </figure>
-            <figure class="bottom"><img src="res/sass_flat.svg" alt="sass logo" class="icon-row__box__graphic bottom">
+            <figure class="bottom"><img src="res/sass_flat.svg" alt="sass logo" class="icon-row__box__graphic bottom"/>
               <figcaption>SASS</figcaption>
             </figure>
           </div>
           <div class="icon-row__box">
-            <figure class="top"><img src="res/js_flat.svg" alt="javascript logo" class="icon-row__box__graphic pulse">
+            <figure class="top"><img src="res/js_flat.svg" alt="javascript logo" class="icon-row__box__graphic pulse"/>
               <figcaption>JavaScript</figcaption>
             </figure>
-            <figure class="bottom"><img src="res/jquery_flat.svg" alt="jquery logo" class="icon-row__box__graphic">
+            <figure class="bottom"><img src="res/jquery_flat.svg" alt="jquery logo" class="icon-row__box__graphic"/>
               <figcaption>jQuery</figcaption>
             </figure>
           </div>
           <div class="icon-row__box">
-            <figure class="top"><img src="res/foundation5_flat.svg" alt="foundation 5 logo" class="icon-row__box__graphic pulse">
+            <figure class="top"><img src="res/foundation5_flat.svg" alt="foundation 5 logo" class="icon-row__box__graphic pulse"/>
               <figcaption>Foundation</figcaption>
             </figure>
-            <figure class="bottom"><img src="res/grunt_flat.svg" alt="grunt logo" class="icon-row__box__graphic">
+            <figure class="bottom"><img src="res/grunt_flat.svg" alt="grunt logo" class="icon-row__box__graphic"/>
               <figcaption>Grunt</figcaption>
             </figure>
           </div>
           <div class="icon-row__box">
-            <figure class="top"><img src="res/php_flat.svg" alt="php logo" class="icon-row__box__graphic pulse">
+            <figure class="top"><img src="res/php_flat.svg" alt="php logo" class="icon-row__box__graphic pulse"/>
               <figcaption>PHP</figcaption>
             </figure>
-            <figure class="bottom"><img src="res/rails_flat.svg" alt="rails logo" class="icon-row__box__graphic">
+            <figure class="bottom"><img src="res/rails_flat.svg" alt="rails logo" class="icon-row__box__graphic"/>
               <figcaption>Ruby on Rails</figcaption>
             </figure>
           </div>
         </div>
-        <figure class="diagram"><img src="res/responsive-diagram.svg" alt="responsive web design diagram">
+        <figure class="diagram"><img src="res/responsive-diagram.svg" alt="responsive web design diagram"/>
           <figcaption>Responsive Web Design</figcaption>
         </figure>
       </div>
     </div>
-    <div id="design">
-      <p class="heading">Here is a collection of my UI, Graphic and Web&nbsp;designs</p>
-      <div data-loop="true" data-transition="crossfade" data-allowfullscreen="true" data-nav="thumbs" class="fotorama"><img src="res/design/iphone-mockup-1.jpg" alt="mobile mockup 1"><img src="res/design/iphone-mockup-2.jpg" alt="mobile mockup 2"><img src="res/design/mockup-2.jpg" alt="mockup 1"><img src="res/design/mockup-2_1.jpg" alt="mockup 2"><img src="res/design/mockup-5.jpg" alt="mockup 3"><img src="res/design/mockup-8.1.jpg" alt="mockup 4"><img src="res/design/mockup-9.jpg" alt="mockup 5"><img src="res/design/mockup-7.jpg" alt="mockup 6"><img src="res/design/mockup-11.jpg" alt="mockup 7"><img src="res/design/mockup-3.jpg" alt="mockup 8"><img src="res/design/mockup-3_1.jpg" alt="mockup 9"><img src="res/design/mockup-6.jpg" alt="mockup 10"><img src="res/design/mockup-10.jpg" alt="mockup 11"><img src="res/design/mockup-1.jpg" alt="mockup 12"><img src="res/design/mockup-1_1.jpg" alt="mockup 13"><img src="res/design/deathlake.jpg" alt="death lake design"></div>
+    <div id="design" class="design">
+      <p class="design__heading">Here is a collection of my UI, Graphic and Web&nbsp;designs</p><br/>
+      <div data-loop="true" data-transition="crossfade" data-allowfullscreen="true" data-nav="thumbs" class="fotorama"><img src="res/design/iphone-mockup-1.jpg" alt="mobile mockup 1"/><img src="res/design/iphone-mockup-2.jpg" alt="mobile mockup 2"/><img src="res/design/mockup-2.jpg" alt="mockup 1"/><img src="res/design/mockup-2_1.jpg" alt="mockup 2"/><img src="res/design/mockup-5.jpg" alt="mockup 3"/><img src="res/design/mockup-8.1.jpg" alt="mockup 4"/><img src="res/design/mockup-9.jpg" alt="mockup 5"/><img src="res/design/mockup-7.jpg" alt="mockup 6"/><img src="res/design/mockup-11.jpg" alt="mockup 7"/><img src="res/design/mockup-3.jpg" alt="mockup 8"/><img src="res/design/mockup-3_1.jpg" alt="mockup 9"/><img src="res/design/mockup-6.jpg" alt="mockup 10"/><img src="res/design/mockup-10.jpg" alt="mockup 11"/><img src="res/design/mockup-1.jpg" alt="mockup 12"/><img src="res/design/mockup-1_1.jpg" alt="mockup 13"/></div>
     </div>
-    <div id="study">
-      <div class="content">
+    <div id="study" class="study">
+      <div class="study__content">
         <h1>Study</h1>
         <p>I am currently studying BSc Multimedia Technology &amp; Design at the University of Kent, Canterbury. As I am focusing on my studies, I cannot offer any freelance work, but I am looking for work placements as a Junior Web Developer.</p>
         <p>I love the Web! I want nothing more than to expand my knowledge of web technologies and hone my skills into that of a true professional. Help me make that happen by offering me experience! By the end of my studies I will have developed additional skills in UI/UX design and mobile app development.</p>
@@ -133,27 +132,27 @@
       <div class="wrapper">
         <div class="icon-row">
           <div class="icon-row__box"><a href="https://www.facebook.com/eddie.tindame">
-              <figure><img id="facebook" src="res/facebook_flat.svg" alt="Facebook logo" class="icon-row__box__graphic">
+              <figure><img id="facebook" src="res/facebook_flat.svg" alt="Facebook logo" class="icon-row__box__graphic"/>
                 <figcaption>Facebook</figcaption>
               </figure></a></div>
           <div class="icon-row__box"><a href="https://github.com/eddietindame">
-              <figure><img id="github" src="res/github_flat.svg" alt="Github logo" class="icon-row__box__graphic">
+              <figure><img id="github" src="res/github_flat.svg" alt="Github logo" class="icon-row__box__graphic"/>
                 <figcaption>GitHub</figcaption>
               </figure></a></div>
           <div class="icon-row__box"><a href="https://www.twitter.com/realquaid69">
-              <figure><img id="twitter" src="res/twitter_flat.svg" alt="Twitter logo" class="icon-row__box__graphic">
+              <figure><img id="twitter" src="res/twitter_flat.svg" alt="Twitter logo" class="icon-row__box__graphic"/>
                 <figcaption>Twitter</figcaption>
               </figure></a></div>
           <div class="icon-row__box"><a href="https://www.behance.net/eddietindame">
-              <figure><img id="behance" src="res/behance_flat.svg" alt="Behance logo" class="icon-row__box__graphic">
+              <figure><img id="behance" src="res/behance_flat.svg" alt="Behance logo" class="icon-row__box__graphic"/>
                 <figcaption>Behance</figcaption>
               </figure></a></div>
           <div class="icon-row__box"><a href="https://uk.linkedin.com/in/eddietindame">
-              <figure><img id="linkedin" src="res/linkedin_flat.svg" alt="Linked in logo" class="icon-row__box__graphic">
+              <figure><img id="linkedin" src="res/linkedin_flat.svg" alt="Linked in logo" class="icon-row__box__graphic"/>
                 <figcaption>LinkedIn</figcaption>
               </figure></a></div>
         </div>
-        <div class="contact__me"><img src="res/portrait.jpg" alt="Portrait of Eddie Tindame" class="portrait"><a href="mailto:eddie.tindame@googlemail.com">
+        <div class="contact__me"><img src="res/portrait.jpg" alt="Portrait of Eddie Tindame" class="portrait"/><a href="mailto:eddie.tindame@googlemail.com">
             <h1 class="email">eddie.tindame@googlemail.com</h1></a>
           <div class="contact__me__copy">&copy; 2015 Eddie Tindame</div>
         </div>

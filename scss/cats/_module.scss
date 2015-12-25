@@ -1,6 +1,5 @@
 // *** MAIN CONTENT *** //
-#home {
-    //@extend .text-center;
+.home {
     background-color: $mainBlue;
     min-height: 250px;
     display: flex;
@@ -8,7 +7,7 @@
     align-items: center;
 }
 
-#header {
+.header {
     @extend .wrapper, .flex;
     background-color: $headerColour;
     height: 60px;
@@ -17,17 +16,29 @@
     max-width: inherit;
 }
 
-#header--mobile {
+.header--mobile {
     margin: 9px 0;
 }
 
-#about {
+.about {
     @extend .text-center;
     background-color: $aboutColour;
+    &__section {
+        @extend .column, .large-6, .medium-12, .small-12;
+    }
+    @include triangle($aboutColour);
 }
 
-.about__section {
-    @extend .column, .large-6, .medium-12, .small-12;
+.apps {
+    background-color: $appsColour;
+    min-height: 380px;
+    display: flex;
+    justify-content: center;
+    
+    @media only screen and (max-width: 340px) {
+        min-height: 410px;
+    }
+    @include triangle(white);
 }
 
 .web {
@@ -39,6 +50,7 @@
         margin: 0 auto;
         padding: 0 10px;
     }
+    @include triangle($webColour);
 }
 
 .icon-row {
@@ -98,18 +110,6 @@
     }
 }
 
-
-#apps {
-    background-color: $appsColour;
-    min-height: 380px;
-    display: flex;
-    justify-content: center;
-    
-    @media only screen and (max-width: 340px) {
-        min-height: 410px;
-    }
-}
-
 .windows {
     display: block;
     width: 600px;
@@ -140,16 +140,10 @@
         z-index: 1;
     }
     &--left {
-//        position: relative;
         left: 10%;
-//        bottom: 0;
         margin-right: -10%;
         
         @media only screen and (max-width: $appBreakpoint) {
-//            height: 380px;
-//            left: 0;
-//            right: 0;
-//            margin: 0 auto;
             display: none;
         }
     }
@@ -158,10 +152,6 @@
         margin-left: -10%;
         
         @media only screen and (max-width: $appBreakpoint) {
-//            height: 340px;
-//            left: 0;
-//            right: 0;
-//            margin: 0 auto;
             display: none;
         }
     }
@@ -181,26 +171,32 @@
     }
 }
 
-#design {
-    @extend .flex;
-    background-color: #161616;
+.design {
+    @extend .flex, .text-center;
+    background-color: $designColour;
     padding-left: 20px;
     padding-right: 20px;
     color: whitesmoke;
+    flex-direction: column;
+    &__heading {
+        color: inherit;
+        text-align: center;
+        margin: 10px auto;
+    }
+    @include triangle($designColour);
 }
 
-.heading {
-    color: inherit;
-    text-align: center;
-    margin: 10px auto;
+.fotorama {
+    margin: 0 auto;
+    max-width: 95%; 
 }
 
-#study {
+.study {
     background-color: $studyColour;
-}
-
-.content {
-    @extend .wrapper, .flex, .text-center;
+    &__content {
+        @extend .wrapper, .flex, .text-center;
+    }
+    @include triangle($studyColour);
 }
 
 .contact {
@@ -217,16 +213,12 @@
     }
 }
 
-.fotorama {
-    margin: 0 auto;
-}
-
 // *** ANIMATED BURGER BUTTON *** //
 .burgerbutton {
     width: 60px;
     height: 45px;
     position: relative;
-    margin: auto auto;
+//    margin: auto auto;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
