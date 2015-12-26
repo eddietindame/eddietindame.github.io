@@ -25,7 +25,9 @@
     "grunt-fast-watch": "^0.4.2",
     "grunt-open": "^0.2.3",
     "grunt-postcss": "^0.7.1",
+    "grunt-prettify": "^0.4.0",
     "grunt-svgmin": "^3.1.0",
+    "grunt-svgstore": "^0.5.0",
     "waypoints": "^4.0.0"
   }
 }

@@ -1,6 +1,24 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		svgstore: {
+		    // options: {
+		    //   prefix : 'icon-',
+		    // },
+		    default : {
+		      files: {
+		        'res/icons.svg': ['svg/*.svg'],
+		      },
+		    },
+		},
+		prettify: {
+		    options: {
+    			indent: 4,
+		    },
+		    files: {
+		      'index.html': ['index.html']
+		    }
+		},
 		postcss: {
 			 options: {
 			      map: true, // inline sourcemaps
@@ -77,7 +95,7 @@ module.exports = function(grunt) {
 			// },
 			dist: {
 				files: ['**/*.jade','**/*.scss','stylesheets/*.css','js/scripts.js'],
-				tasks: ['jade','compass','postcss','js']
+				tasks: ['html','css','js']
 			},
 			// jade: {
 			// 	files: ['**/*.jade'],
@@ -118,7 +136,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-express');
 	grunt.loadNpmTasks('grunt-open');
+	grunt.loadNpmTasks('grunt-svgstore');
+	grunt.loadNpmTasks('grunt-prettify');
+	grunt.registerTask('html', ['jade','prettify']);
+	grunt.registerTask('css', ['compass','postcss']);
+	grunt.registerTask('svg', ['svgstore']);
 	grunt.registerTask('js', ['concat','babel','uglify']);
-	grunt.registerTask('server', ['express','open','watch']);
-	grunt.registerTask('default', ['server']);
+	grunt.registerTask('server', ['express','watch']);
+	grunt.registerTask('default', ['express','open','watch']);
 }

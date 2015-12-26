@@ -212,12 +212,25 @@
     }
 }
 .popup {
-//    width: 150px;
-    position: absolute;
-    top: 30%;
-    right: 0;
     &__graphic {
         width: 150px;
+        height: 100px;
+    }
+    &--wide {
+        position: absolute;
+        top: 30%;
+        right: 0;
+        width: 150px;
+        @media only screen and (max-width: 660px) {
+            display: none;
+        }
+    }
+    &--mobile {
+        position: static;
+        width: 150px;
+        @media only screen and (min-width: 660px) {
+            display: none;
+        }
     }
 }
 
