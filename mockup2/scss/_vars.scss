@@ -1,0 +1,28 @@
+$triangleSize: 2rem;
+$figureSize: 5rem;
+$transWhite: rgba(252,252,252,0.5);
+$green: #4d9a80;
+
+@mixin triangle($right, $left) {
+    padding: 1rem 1rem $triangleSize 1rem;
+    &:before {
+        content: ' ';
+        position: absolute;
+        box-sizing: border-box;
+        width: $right;
+        border-left: $triangleSize solid transparent;
+        border-bottom: $triangleSize solid white;
+        bottom: 0;
+        left: $left;
+    }
+    &:after {
+        content: ' ';
+        position: absolute;
+        box-sizing: border-box;
+        width: $left;
+        border-right: $triangleSize solid transparent;
+        border-bottom: $triangleSize solid white;
+        bottom: 0;
+        right: $right;
+    }
+}

@@ -1,0 +1,222 @@
+.brand {
+    height: 5rem;
+    display: flex;
+    flex-grow: 1;
+    align-content: center;
+    &__graphic {
+        width: 3rem;
+        margin: 0 1rem 0 0;
+    }
+    &__text {
+        margin: auto 0;
+    }
+}
+
+.contact {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: flex-end;
+    &__heading {
+        font-size: 0.75rem;
+        margin: 0 0 0.5rem 0;
+    }
+    &__box {
+        padding: 0.5em 0;
+        margin: 0;
+        height: 1rem;
+        display: flex;
+        align-items: center;
+        &__graphic {
+            width: 1rem;
+            height: 1rem;
+            margin: 0 10px 0 0;
+            fill: black;
+            stroke: black;
+        }
+        &__text {
+            font-weight: bold;
+            color: $green;
+        }
+    }
+    &--footer {
+        @extend  .flex--x;
+        background: #c7c7c7;
+    }
+}
+
+.parralax {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+}
+
+.parra-1 {
+    @extend .parralax, .flex;
+    @include triangle(15%,85%);
+    background-color: blue;
+    background-image: url("../res/bg.jpg");
+    background-blend-mode: multiply;
+    color: white;
+    text-align: left;
+    &__content {
+        @extend .container, .flex;
+        font-size: 1.4rem;
+    min-height: 30vh;
+        &__top {
+            align-self: flex-start;
+        }
+        &__bottom {
+            align-self: flex-end;
+            padding-bottom: 0.5rem;
+        }
+    }
+}
+
+.parra-2 {
+    @extend .parralax, .flex;
+    @include triangle(85%,15%);
+    background-color: green;
+    background-image: url("../res/bg.jpg");
+    background-blend-mode: multiply;
+    color: white;
+    &__content {
+        @extend .container;
+        
+    }
+}
+
+.parra-3 {
+    @extend .parralax, .flex;
+    background-color: purple;
+    background-image: url("../res/office.jpg");
+    background-blend-mode: multiply;
+    color: white;
+    min-height: 30vh;
+    padding: 1rem;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.content {
+    @extend .container, .clearfix;
+    font-size: 0.75rem;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &--x {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
+
+.icon-row {
+    @extend .flex--x;
+}
+
+.icon-row__box {
+    @extend .flex;
+    
+    position: relative;
+    text-align: center;
+    width: $figureSize;
+    height: 130px;
+    margin: 0px 20px;
+    
+    &__graphic {
+        position: absolute;
+        top: 0;
+        left:  0;
+        right:  0;
+        margin: 0 auto;
+        padding: 10px;
+        width:  $figureSize;
+        height: $figureSize;
+    }
+    figcaption {
+        position: absolute;
+        top: 75%;
+        left:  0;
+        right:  0;
+        margin: 0 auto;
+        width: 100%;
+    }
+    &:hover {
+        .bottom {
+            opacity: 100;
+        }
+        .top {
+            opacity: 0;
+        }
+    }
+}
+
+.copy {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    background: white;
+}
+
+.footer {
+    &__content {
+        @extend .flex--x;
+        max-width: 900px;
+        font-size: 0.75rem;
+    }
+}
+
+.module {
+    height: 100%;
+    padding: 0.5rem 0 0 0;
+    &__image {
+        width: 100%;
+        background: #c7c7c7 url("../res/bg.jpg") no-repeat center;
+        background-size: cover;
+        background-blend-mode: multiply;
+        position: relative;
+        top: 0;
+        text-align: center;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        &__overlay {
+            width: 20%;
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            fill: rgba(0, 0, 0, 0.69);
+        }
+    }
+    &__text {
+        padding: 0.25rem 0;
+    }
+}
+
+.button {
+    width: 100%;
+    background: $green;
+    padding: 0.5em;
+    border-radius: 1rem;
+    font-weight: bold;
+    color: white;
+}

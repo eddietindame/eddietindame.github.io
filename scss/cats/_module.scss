@@ -53,6 +53,13 @@
     @include triangle($webColour);
 }
 
+.mockups {
+    font-size: 20px;
+    &__link {
+        text-decoration: underline;
+    }
+}
+
 .icon-row {
     @extend .flex;
 }
@@ -201,6 +208,7 @@
 .contact {
     @extend .text-center, .flex;
     background-color: $contactColour;
+    padding-bottom: 10px;
     &__me {
         @extend .column, .large-12, .flex-up;
         &__copy {
@@ -211,6 +219,7 @@
         }
     }
 }
+
 .popup {
     &__graphic {
         width: 160px;
@@ -232,6 +241,12 @@
             display: none;
         }
     }
+}
+
+.backtotop {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 8pt;
 }
 
 // *** ANIMATED BURGER BUTTON *** //

@@ -24,37 +24,13 @@ function width() {
     $('#header').css("max-width",w);
 }
 
-$(window).scroll(function() {
-   if($(window).scrollTop() + $(window).height() == $(document).height()) {
-       $(".popup").removeClass("hide");
-       $(".popup").addClass("animated bounceInDown");
-   }
-});
-
-//function popup() {
-//    window.alert('test');
-//}
-//
-//var waypoint = new Waypoint({
-//    element: document.getElementById('contact'),
-//    handler: function() {
-//        popup()
-//    },
-//    offset: function() {
-//        return Waypoint.viewportHeight() - this.element.clientHeight
-//    }
-//});
 
 window.addEventListener('load',height);
 window.addEventListener('load',width);
 window.addEventListener('load',navPos);
 window.addEventListener('resize',width);
 window.addEventListener('resize',height);
-
-window.addEventListener("scroll",navPos);window.addEventListener("load", function() {
-    var load_screen = document.getElementById("load_screen");
-    document.body.removeAttribute("class");
-});
+window.addEventListener("scroll",navPos);
 
 $(document).ready(function($) {
     $('.js-side-menu-button').sidr({
@@ -81,6 +57,13 @@ $(document).ready(function($) {
         if (this.class != "js-ontop") {
             $(".js-ontop").toggleClass("js-ontop");
             $(this).toggleClass("js-ontop");
+        }
+    });
+    
+    $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+            $(".popup").removeClass("hide");
+            $(".popup").addClass("animated bounceInDown");
         }
     });
 });

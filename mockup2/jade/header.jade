@@ -1,0 +1,18 @@
+header
+    .brand
+        img(class="brand__graphic", src="res/fleur.svg", alt="TLC logo")
+        h1.brand__text TLC&nbsp;Solutions
+    .contact
+        p.contact__heading Contact Our Customer Support
+        .contact__box
+            //img(class="contact__box__graphic", src="res/email.svg", alt="Email graphic")
+            svg.contact__box__graphic
+                title Email Graphic
+                use(xlink:href="res/contact.svg#email")
+            p.contact__box__text: a(href="mailto:ask@tlc.com") ask@tlc.com
+        .contact__box
+            //img(class="contact__box__graphic", src="res/phone.svg", alt="Phone graphic")
+            svg.contact__box__graphic
+                title Phone Graphic
+                use(xlink:href="res/contact.svg#phone")
+            p.contact__box__text (+1)7588-690-906

@@ -1,24 +1,23 @@
 // *** PAGE STRUCTURE *** //
 
-#top {
+.top {
     height: 100vh;
 }
 
-#home {
+.home {
     height: 95vh;
 }
 
-#home,
-#about,
-#apps,
-#web,
-#design,
-#study,
-#contact {
+.home,
+.about,
+.apps,
+.web,
+.design,
+.study,
+.contact {
     width: 100%;
     margin: auto;
     padding: 60px 0;
-//    max-width: 100%;
     position: relative;
 }
 
@@ -45,4 +44,3 @@
 .diagram {
     padding: 20px 0 0 0;
 }
-

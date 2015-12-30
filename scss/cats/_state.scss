@@ -14,7 +14,6 @@
         font-size: 20pt;
     }
     .ts-big {
-//        font-size: 40pt;
         display: none;
     }
 }
@@ -24,9 +23,6 @@
        width: 200px;
        height: 200px;
     }
-//    .ts-big {
-//        display: none;
-//    }
     figure {
         margin: 10px;
     }
@@ -77,49 +73,49 @@
 
 @-webkit-keyframes pulse {
   from { 
-//    -webkit-transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 
   50% {
-//    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
     transform: scale3d(1.1, 1.1, 1.1);
   }
 
   to {
-//    -webkit-transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
 }
 
 @keyframes pulse {
   from {
-//    -webkit-transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     left: 0;
   }
 
   50% {
-//    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
     transform: scale3d(1.1, 1.1, 1.1);
     left: 0;
   }
 
   to {
-//    -webkit-transform: scale3d(1, 1, 1);
+    -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
     left: 0;
   }
 }
 
 .pulse {
-//  -webkit-animation-duration: 2s;
+  -webkit-animation-duration: 2s;
   animation-duration: 2s;
-//  -webkit-animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
     
-//  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-//  -webkit-animation-name: pulse;
+  -webkit-animation-name: pulse;
   animation-name: pulse;
 }
