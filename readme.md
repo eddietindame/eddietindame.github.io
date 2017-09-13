@@ -16,7 +16,7 @@ Get your local copy up and running with:
 npm i
 npm i -g grunt grunt-cli
 gem install compass
-grunt
+gulp
 ```
 
 # Plans
