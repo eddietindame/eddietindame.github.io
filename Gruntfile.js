@@ -87,11 +87,11 @@ module.exports = function(grunt) {
         	}
     	},
 		watch: {
-			// options: { 
+			// options: {
 			// 	livereload: {
 			// 		port: 9000,
 			// 		hostname: 'localhost',
-			// 	} 
+			// 	}
 			// },
 			dist: {
 				files: ['**/*.jade','**/*.scss','stylesheets/*.css','js/scripts.js'],

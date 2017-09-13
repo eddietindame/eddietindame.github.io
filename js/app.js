@@ -1,6 +1,6 @@
 "use strict";
 
-function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*! Sidr - v1.2.1 - 2013-11-06
  * https://github.com/artberri/sidr
@@ -57,15 +57,15 @@ function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.const
     }, e.fn.sidr = function (t) {
         var i = e.extend({ name: "sidr", speed: 200, side: "left", source: null, renaming: !0, body: "body", displace: !0, onOpen: function onOpen() {}, onClose: function onClose() {} }, t),
             s = i.name,
-            a = e("#" + s);if ((0 === a.length && (a = e("<div />").attr("id", s).appendTo(e("body"))), a.addClass("sidr").addClass(i.side).data({ speed: i.speed, side: i.side, body: i.body, displace: i.displace, onOpen: i.onOpen, onClose: i.onClose }), "function" == typeof i.source)) {
+            a = e("#" + s);if (0 === a.length && (a = e("<div />").attr("id", s).appendTo(e("body"))), a.addClass("sidr").addClass(i.side).data({ speed: i.speed, side: i.side, body: i.body, displace: i.displace, onOpen: i.onOpen, onClose: i.onClose }), "function" == typeof i.source) {
             var r = i.source(s);n.loadContent(a, r);
         } else if ("string" == typeof i.source && n.isUrl(i.source)) e.get(i.source, function (e) {
             n.loadContent(a, e);
         });else if ("string" == typeof i.source) {
             var d = "",
-                l = i.source.split(",");if ((e.each(l, function (t, i) {
+                l = i.source.split(",");if (e.each(l, function (t, i) {
                 d += '<div class="sidr-inner">' + e(i).html() + "</div>";
-            }), i.renaming)) {
+            }), i.renaming) {
                 var c = e("<div />").html(d);c.find("*").each(function (t, i) {
                     var o = e(i);n.addPrefix(o);
                 }), d = c.html();

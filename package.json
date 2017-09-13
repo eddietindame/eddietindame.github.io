@@ -1,14 +1,10 @@
 {
-  "name": "Portfolio",
+  "name": "EddieTindamePortfolio",
   "version": "0.6.9",
-  "description": "",
-  "main": "index.js",
+  "description": "Eddie Tindame's personal portfolio.",
   "repository": {
     "type": "git",
     "url": "https://github.com/eddietindame/eddietindame.github.io.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Eddie Tindame",
   "devDependencies": {
@@ -24,6 +20,7 @@
     "grunt-express": "^1.4.1",
     "grunt-fast-watch": "^0.4.2",
     "grunt-open": "^0.2.3",
+    "grunt-parallel": "^0.5.1",
     "grunt-postcss": "^0.7.1",
     "grunt-prettify": "^0.4.0",
     "grunt-svgmin": "^3.1.0",

@@ -6,11 +6,15 @@
     }
 }
 
+.u-red {
+  color: red;
+}
+
 .js-ontop {
     @include noblur();
     z-index: 20;
     height: 300px;
-    
+
     @media only screen and (max-width: 340px) {
         height: 340px;
     }
@@ -35,17 +39,18 @@
 }
 
 .ts-big {
-    font-size: 45pt;    
+    font-size: 45pt;
 }
 
 // *** OVERRIDE SIDR STYLES *** //
 
 #side-menu {
     width: 100px;
-        font-family: 'Share Tech Mono';
+    font-family: 'Share Tech Mono';
     box-shadow: none;
     background-color: white;
     opacity: 50%;
+
     ul li:hover {
             box-shadow: none;
     }
