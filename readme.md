@@ -1,6 +1,6 @@
 # Eddie Tindame's Portfolio
 A work in progress project.
-* XHTML5, CSS3
+* HTML5, CSS3
 * Javascript, jQuery
 * SASS and Jade are awesome :-)
 * Responsive
@@ -29,4 +29,4 @@ grunt
 * Remove unused code
 
 ## Visit it!
-[Here.](https://eddietindame.github.io)
+[Here](https://eddietindame.github.io).
