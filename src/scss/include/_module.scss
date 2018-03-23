@@ -1,0 +1,397 @@
+// *** MAIN CONTENT *** //
+.home {
+    background-color: $mainBlue;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    @extend .wrapper, .flex;
+    background-color: $headerColour;
+    min-height: 60px;
+    margin: none;
+    right: 0;
+    max-width: inherit;
+
+    @include media-breakpoint-up(md) {
+        height: 60px;
+    }
+}
+
+.header--mobile {
+    margin: 10px 0;
+    height: 60px;
+}
+
+.about {
+    @extend .text-center;
+
+    background-color: $aboutColour;
+
+    &__section {
+        @extend .col-lg-6, .col-md-12, .col-sm-12;
+    }
+
+    @include triangle($aboutColour);
+}
+
+.apps {
+    background-color: $appsColour;
+    min-height: 380px;
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (max-width: 340px) {
+        min-height: 410px;
+    }
+
+    @include triangle(white);
+}
+
+.windows {
+    display: flex;
+    flex: 1;
+}
+
+.web {
+    @extend .text-center;
+
+    background-color: $webColour;
+
+    &__diagram {
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+
+    @include triangle($webColour);
+}
+
+.mockups {
+    font-size: 20px;
+
+    &__link {
+        text-decoration: underline;
+    }
+}
+
+.icon-row {
+    @extend .flex;
+}
+
+.icon-row__box {
+    @extend .flex;
+
+    position: relative;
+    text-align: center;
+    width: $figureSize;
+    height: 130px;
+    margin: 0px 20px;
+
+    &__graphic {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        padding: 10px;
+        width:  $figureSize;
+        height: $figureSize;
+    }
+    figcaption {
+        position: absolute;
+        top: 75%;
+        left:  0;
+        right:  0;
+        margin: 0 auto;
+        width: 100%;
+    }
+    &.hover:hover {
+        .bottom {
+            opacity: 100;
+        }
+        .top {
+            opacity: 0;
+        }
+    }
+}
+
+.top,
+.bottom {
+    transition: opacity 1s ease-in-out;
+}
+.bottom {
+    opacity: 0;
+    // &:hover {
+    //     opacity: 100;
+    // }
+}
+// .top {
+//     &:hover {
+//         opacity: 0;
+//     }
+// }
+
+// .windows {
+//     display: block;
+//     width: 600px;
+//     max-width: 600px;
+//     height: inherit;
+//     margin: 0 auto;
+// }
+
+.window-img {
+    @include blur(1px);
+
+    background-image: url('../img/window-long.svg');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    width: 600px;
+    height: 260px;
+    position: absolute;
+    bottom: 0;
+    padding: 50px 10px 5px 10px;
+
+    a {
+      text-decoration: underline;
+    }
+
+    &--centre {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 280px;
+        z-index: 1;
+    }
+    &--left {
+        left: 10%;
+        margin-right: -10%;
+
+        @media only screen and (max-width: $appBreakpoint) {
+            display: none;
+        }
+    }
+    &--right {
+        right: 10%;
+        margin-left: -10%;
+
+        @media only screen and (max-width: $appBreakpoint) {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 620px) {
+        width: 90vw;
+        height: 310px;
+        background-size: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        padding: 10% 10px 5px 10px;
+    }
+    @media only screen and (max-width: 340px) {
+        height: 340px;
+    }
+}
+
+.design {
+    @extend .flex-up, .text-center;
+
+    background-color: $designColour;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: whitesmoke;
+
+    &__heading {
+        color: inherit;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    @include triangle($designColour);
+}
+
+.fotorama {
+    margin: 0 auto;
+    max-width: 95%;
+}
+
+.study {
+    background-color: $studyColour;
+
+    &__content {
+        @extend .wrapper, .flex, .text-center;
+    }
+
+    @include triangle($studyColour);
+}
+
+.contact {
+    @extend .text-center, .flex;
+    background-color: $contactColour;
+    padding-bottom: 10px;
+
+    &__me {
+        @extend .col-lg-12;
+        &__copy {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 8pt;
+            color: #6c7c89;
+        }
+    }
+}
+
+.popup {
+    &__graphic {
+        width: 160px;
+        height: 80px;
+    }
+
+    &--wide {
+        position: absolute;
+        top: 25%;
+        right: 0;
+        width: 150px;
+        // @media only screen and (max-width: 779px) {
+        //     display: none;
+        // }
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+    }
+
+    &--mobile {
+        display: block;
+        position: static;
+        width: 150px;
+        margin: 0 auto;
+        // @media only screen and (min-width: 780px) {
+        //     display: none;
+        // }
+        @include media-breakpoint-up(md) {
+            display: none;
+        }
+    }
+}
+
+.backtotop {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 8pt;
+}
+
+// *** ANIMATED BURGER BUTTON *** //
+.burgerbutton {
+    width: 60px;
+    height: 45px;
+    position: relative;
+//    margin: auto auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+
+    cursor: pointer;
+    span {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background: black;
+        border-radius: 7px;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+    span:nth-child(1) {
+        top: 0px;
+    }
+    span:nth-child(2),
+    span:nth-child(3) {
+        top: 18px;
+    }
+    span:nth-child(4) {
+        top: 36px;
+    }
+    &.open span:nth-child(1) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+    &.open span:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    &.open span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    &.open span:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+    }
+}
+
+.highlight-panel {
+  background: darkslategrey;
+  color: wheat;
+  font-size: 1.5em;
+  padding: 5px;
+
+  a {
+    color: white;
+  }
+}
+
+.logo {
+    width: 600px;
+    height: 600px;
+    padding: 75px 100px 60px 60px;
+    border: 10px solid black;
+    border-radius: 50%;
+    font-size: 205px;
+    line-height: 1.1;
+
+    &__ed {
+        float: left;
+    }
+
+    &__br {
+        float: right;
+    }
+
+    &__3 {
+        font-size: 35px;
+
+        span {
+            text-align: right;
+        }
+    }
+
+    span {
+        display: block;
+    }
+}

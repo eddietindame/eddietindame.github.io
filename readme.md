@@ -1,32 +1,23 @@
 # Eddie Tindame's Portfolio
 A work in progress project.
 * HTML5, CSS3
-* Javascript, jQuery
-* SASS and Jade are awesome :-)
+* Javascript, jQuery, React
+* SASS and Pug are awesome :-)
 * Responsive
-* Concat/uglified Js
-* Vendor prefixers added with autoprefix
+* Autoprefix is life
 
 # Installation
 You'll need Node and Ruby installed.
-Dependencies are handled via NPM, compile with Grunt.
-You'll also need Compass for the sass to compile.
+Dependencies are handled via NPM, compile with Gulp.
 Get your local copy up and running with:
 ```
+npm i -g gulp-cli
 npm i
-npm i -g grunt grunt-cli
-gem install compass
-grunt
+gulp
 ```
 
 # Plans
-* Migrate to Gulp and streamline build process!
-* Content to be added continuously
-* Fix Internet Explorer issues
-* Combine icons into sprite-sheet
-* Unlink markup from bower-components
-* Clean up comments etc
-* Remove unused code
+* Remove jQuery dependency and move to vanilla JS where possible (in-progress)
 
 ## Visit it!
 [Here](https://eddietindame.github.io).
