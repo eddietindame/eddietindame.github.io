@@ -19,9 +19,9 @@ const paths = {
     JS:   './src/js/index.js'
   },
   DIST: {
-    CSS:  './dist/css/',
+    CSS:  './css/',
     HTML: './',
-    JS:   './dist/js/'
+    JS:   './js/'
   }
 }
 
@@ -89,7 +89,7 @@ const html = () => {
 
 gulp.task('assets', () => {
   return gulp.src('./src/img/**/*')
-    .pipe(gulp.dest('./dist/img'))
+    .pipe(gulp.dest('./img'))
 })
 
 gulp.task('watch', () => {
