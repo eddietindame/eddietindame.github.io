@@ -20,7 +20,7 @@ const paths = {
   },
   DIST: {
     CSS:  './dist/css/',
-    HTML: './dist/',
+    HTML: './',
     JS:   './dist/js/'
   }
 }
