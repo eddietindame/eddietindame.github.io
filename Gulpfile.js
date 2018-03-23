@@ -8,9 +8,9 @@ const webserver = require('gulp-webserver')
 const rename = require('gulp-rename')
 const sass = require('gulp-ruby-sass')
 const autoprefixer = require('gulp-autoprefixer')
-const sourcemaps = require('gulp-sourcemaps')
 const opn = require('opn')
 const pug = require('gulp-pug')
+const uglify = require('gulp-uglify')
 
 const paths = {
   SRC: {
@@ -60,11 +60,7 @@ const js = () => {
   return b.bundle()
     .pipe(source(paths.SRC.JS))
     .pipe(buffer())
-    .pipe(sourcemaps.init({
-      loadmaps: true
-    }))
-      .on('error', gutil.log)
-    .pipe(sourcemaps.write('./'))
+    .pipe(uglify())
     .pipe(rename('app.js'))
     .pipe(gulp.dest(paths.DIST.JS))
 }
