@@ -45,7 +45,7 @@ gulp.task('openbrowser', () => {
       + server.HOST
       + ':'
       + server.PORT
-      + '/dist/index.html',
+      + '/index.html',
       {app: ['google chrome']})
 })
 
