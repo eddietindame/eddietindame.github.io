@@ -87,17 +87,12 @@ const html = () => {
     .pipe(gulp.dest(paths.DIST.HTML))
 }
 
-gulp.task('assets', () => {
-  return gulp.src('./src/img/**/*')
-    .pipe(gulp.dest('./img'))
-})
-
 gulp.task('watch', () => {
   gulp.watch(['src/template/**/*.pug'], html)
   gulp.watch('src/scss/**/*.scss', css)
   gulp.watch(['src/js/**/*.js'], js)
 })
 
-gulp.task('dist', gulp.series(js, css, html, 'assets'))
+gulp.task('dist', gulp.series(js, css, html))
 gulp.task('server', gulp.parallel('watch', 'webserver'))
 gulp.task('default', gulp.parallel('dist', 'server', 'openbrowser'))
