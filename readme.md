@@ -2,7 +2,7 @@
 A work in progress project.
 * HTML5, CSS3
 * Javascript, jQuery, React
-* SASS and Pug are awesome :-)
+* Sass and Pug are awesome :-)
 * Responsive
 * Autoprefix is life
 
@@ -17,7 +17,7 @@ gulp
 ```
 
 # Plans
-* Remove jQuery dependency and move to vanilla JS where possible (in-progress)
+* Remove jQuery dependency and move to vanilla JS where possible
 
 ## Visit it!
 [Here](https://eddietindame.github.io).

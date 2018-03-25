@@ -5,12 +5,11 @@ $appBreakpoint: 880px;
 $mainBlue:       #b2e1ff;
 $headerColour:   white;
 $aboutColour:    aquamarine;
-$appsColour:     #454545;
-$webColour:      coral;
+$projectsColour:     #454545;
+$skillsColour:      coral;
 $designColour:   #161616;
-$studyColour:    antiquewhite;
+$availabilityColour:    antiquewhite;
 $contactColour:  #f3f0ff;
-
 
 $twitterBlue:  #63CCF0;
 $facebookBlue: #45619D;
@@ -18,6 +17,7 @@ $linkedinBlue: #1C86BC;
 $instagramTan: #BB9F1B;
 
 @mixin triangle($colour) {
+
     &:after {
         content: ' ';
         position: absolute;
@@ -26,7 +26,8 @@ $instagramTan: #BB9F1B;
         border-left: $triangleSize solid transparent;
         border-top: $triangleSize solid $colour;
         z-index: 30;
-    }    
+    }
+
     &:before {
         content: ' ';
         position: absolute;
@@ -38,7 +39,7 @@ $instagramTan: #BB9F1B;
     }
 }
 
-@mixin blur($radius) {    
+@mixin blur($radius) {
     -webkit-filter: blur($radius);
     -moz-filter:    blur($radius);
     -ms-filter:     blur($radius);

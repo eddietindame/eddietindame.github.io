@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { slick } from 'slick-carousel'
 import Windows from './components/Windows'
 
 const navHeight = 60
@@ -9,6 +8,7 @@ let navOffset = window.innerHeight - navHeight
 
 function navPos() {
     let scrollPos = $(window).scrollTop()
+
     if (scrollPos >= navOffset) {
         $('#header').addClass('u-fixed')
         $('.logo--small').show('slow')
@@ -59,8 +59,7 @@ $(document).ready(function($) {
         }
     })
 
-    // $('.js-slick').slick()
-
+    // AUTO SCROLL
     // Select all links with hashes
     $('a[href*="#"]')
         // Remove links that don't actually link to anything
@@ -78,22 +77,22 @@ $(document).ready(function($) {
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']')
             // Does a scroll target exist?
             if (target.length) {
-            // Only prevent default if animation is actually gonna happen
-            event.preventDefault()
-            $('html, body').animate({
-                scrollTop: target.offset().top
-            }, 1000, function() {
-                // Callback after animation
-                // Must change focus!
-                let $target = $(target)
-                $target.focus()
-                if ($target.is(":focus")) { // Checking if the target was focused
-                return false
-                } else {
-                $target.attr('tabindex','-1') // Adding tabindex for elements not focusable
-                $target.focus() // Set focus again
-                }
-            })
+                // Only prevent default if animation is actually gonna happen
+                event.preventDefault()
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000, function() {
+                    // Callback after animation
+                    // Must change focus!
+                    let $target = $(target)
+                    $target.focus()
+                    if ($target.is(":focus")) { // Checking if the target was focused
+                        return false
+                    } else {
+                        $target.attr('tabindex','-1') // Adding tabindex for elements not focusable
+                        $target.focus() // Set focus again
+                    }
+                })
             }
         }
     })
@@ -101,5 +100,5 @@ $(document).ready(function($) {
 
 ReactDOM.render(
     <Windows />,
-    document.getElementById('apps')
+    document.getElementById('projects')
 )

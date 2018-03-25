@@ -7219,7 +7219,7 @@ button.bg-dark:focus {
 .text-right {
   text-align: right !important; }
 
-.text-center, .about, .web, .design, .study__content, .contact {
+.text-center, .about, .skills, .design, .availability__content, .contact {
   text-align: center !important; }
 
 @media (min-width: 576px) {
@@ -10091,16 +10091,11 @@ body {
 
 a {
   color: black; }
-  a:visited {
+  a:visited, a:active {
     color: black; }
-  a:hover {
+  a:hover, a:focus {
     color: black;
     text-decoration: underline; }
-  a:focus {
-    color: black;
-    text-decoration: underline; }
-  a:active {
-    color: black; }
 
 h1,
 h4 {
@@ -10175,10 +10170,10 @@ img {
 
 .home,
 .about,
-.apps,
-.web,
+.projects,
+.skills,
 .design,
-.study,
+.availability,
 .contact {
   width: 100%;
   margin: auto;
@@ -10227,10 +10222,11 @@ img {
   @media (min-width: 768px) {
     .header {
       height: 60px; } }
-
-.header--mobile {
-  margin: 10px 0;
-  height: 60px; }
+  .header--mobile {
+    display: none;
+    z-index: 20;
+    margin: 10px 0;
+    height: 60px; }
 
 .about {
   background-color: aquamarine; }
@@ -10251,7 +10247,7 @@ img {
     border-top: 30px solid aquamarine;
     z-index: 30; }
 
-.apps {
+.projects {
   background-color: #454545;
   min-height: 380px;
   display: -webkit-box;
@@ -10261,9 +10257,9 @@ img {
   -ms-flex-pack: center;
   justify-content: center; }
   @media only screen and (max-width: 340px) {
-    .apps {
+    .projects {
       min-height: 410px; } }
-  .apps:after {
+  .projects:after {
     content: ' ';
     position: absolute;
     top: 100%;
@@ -10271,7 +10267,7 @@ img {
     border-left: 30px solid transparent;
     border-top: 30px solid white;
     z-index: 30; }
-  .apps:before {
+  .projects:before {
     content: ' ';
     position: absolute;
     top: 100%;
@@ -10288,14 +10284,14 @@ img {
   -ms-flex: 1;
   flex: 1; }
 
-.web {
+.skills {
   background-color: coral; }
-  .web__diagram {
+  .skills__diagram {
     width: auto;
     height: auto;
     margin: 0 auto;
     padding: 0 10px; }
-  .web:after {
+  .skills:after {
     content: ' ';
     position: absolute;
     top: 100%;
@@ -10303,7 +10299,7 @@ img {
     border-left: 30px solid transparent;
     border-top: 30px solid coral;
     z-index: 30; }
-  .web:before {
+  .skills:before {
     content: ' ';
     position: absolute;
     top: 100%;
@@ -10431,9 +10427,9 @@ img {
   margin: 0 auto;
   max-width: 95%; }
 
-.study {
+.availability {
   background-color: antiquewhite; }
-  .study:after {
+  .availability:after {
     content: ' ';
     position: absolute;
     top: 100%;
@@ -10441,7 +10437,7 @@ img {
     border-left: 30px solid transparent;
     border-top: 30px solid antiquewhite;
     z-index: 30; }
-  .study:before {
+  .availability:before {
     content: ' ';
     position: absolute;
     top: 100%;
@@ -10555,10 +10551,6 @@ img {
   .logo span {
     display: block; }
 
-.header--mobile {
-  display: none;
-  z-index: 20; }
-
 @media (max-width: 767.98px) {
   .header--mobile {
     display: block; }
@@ -10651,12 +10643,12 @@ img {
     .js-ontop {
       height: 340px; } }
 
-.wrapper, .header, .study__content {
+.wrapper, .header, .availability__content {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px; }
 
-.flex, .header, .icon-row, .icon-row__box, .study__content, .contact, .flex-up, .design {
+.flex, .header, .icon-row, .icon-row__box, .availability__content, .contact, .flex-up, .design {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

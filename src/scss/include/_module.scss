@@ -1,4 +1,3 @@
-// *** MAIN CONTENT *** //
 .home {
     background-color: $mainBlue;
     min-height: 250px;
@@ -9,6 +8,7 @@
 
 .header {
     @extend .wrapper, .flex;
+
     background-color: $headerColour;
     min-height: 60px;
     margin: none;
@@ -18,11 +18,13 @@
     @include media-breakpoint-up(md) {
         height: 60px;
     }
-}
 
-.header--mobile {
-    margin: 10px 0;
-    height: 60px;
+    &--mobile {
+        display: none;
+        z-index: 20;
+        margin: 10px 0;
+        height: 60px;
+    }
 }
 
 .about {
@@ -37,8 +39,8 @@
     @include triangle($aboutColour);
 }
 
-.apps {
-    background-color: $appsColour;
+.projects {
+    background-color: $projectsColour;
     min-height: 380px;
     display: flex;
     justify-content: center;
@@ -55,10 +57,10 @@
     flex: 1;
 }
 
-.web {
+.skills {
     @extend .text-center;
 
-    background-color: $webColour;
+    background-color: $skillsColour;
 
     &__diagram {
         width: auto;
@@ -67,7 +69,7 @@
         padding: 0 10px;
     }
 
-    @include triangle($webColour);
+    @include triangle($skillsColour);
 }
 
 .mockups {
@@ -101,6 +103,7 @@
         width:  $figureSize;
         height: $figureSize;
     }
+
     figcaption {
         position: absolute;
         top: 75%;
@@ -109,10 +112,13 @@
         margin: 0 auto;
         width: 100%;
     }
+
     &.hover:hover {
+
         .bottom {
             opacity: 100;
         }
+    
         .top {
             opacity: 0;
         }
@@ -222,14 +228,14 @@
     max-width: 95%;
 }
 
-.study {
-    background-color: $studyColour;
+.availability {
+    background-color: $availabilityColour;
 
     &__content {
         @extend .wrapper, .flex, .text-center;
     }
 
-    @include triangle($studyColour);
+    @include triangle($availabilityColour);
 }
 
 .contact {
@@ -259,9 +265,6 @@
         top: 25%;
         right: 0;
         width: 150px;
-        // @media only screen and (max-width: 779px) {
-        //     display: none;
-        // }
         @include media-breakpoint-down(sm) {
             display: none;
         }
@@ -272,9 +275,6 @@
         position: static;
         width: 150px;
         margin: 0 auto;
-        // @media only screen and (min-width: 780px) {
-        //     display: none;
-        // }
         @include media-breakpoint-up(md) {
             display: none;
         }
@@ -292,7 +292,6 @@
     width: 60px;
     height: 45px;
     position: relative;
-//    margin: auto auto;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
