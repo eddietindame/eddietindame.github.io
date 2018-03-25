@@ -19,6 +19,12 @@
     position: relative;
 }
 
+.wrapper {
+    max-width: 960px;
+    margin:  0 auto;
+    padding: 0 20px;
+}
+
 .logo--home {
     width: 70vmin;
     max-width: 600px;
@@ -41,4 +47,17 @@
 
 .diagram {
     padding: 20px 0 0 0;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flex-up {
+    @extend .flex;
+
+    flex-direction: column;
+    align-items: center;
 }

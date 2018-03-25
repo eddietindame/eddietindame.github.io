@@ -54,7 +54,7 @@ $(document).ready(function($) {
 
     $(window).scroll(function() {
         if($(window).scrollTop() + $(window).height() == $(document).height()) {
-            $('.popup').removeClass('hide')
+            $('.popup').removeClass('u-hidden')
             $('.popup').addClass('animated bounceInDown')
         }
     })

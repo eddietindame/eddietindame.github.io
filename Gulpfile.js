@@ -66,7 +66,10 @@ const js = () => {
 }
 
 const css = () =>
-  sass(paths.SRC.SCSS)
+  sass(
+    paths.SRC.SCSS,
+    { style: 'compressed' }
+  )
     .on('error', sass.logError)
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],

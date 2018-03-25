@@ -1,5 +1,9 @@
 // *** UTILITY CLASSES *** //
 
+.u-hidden {
+    display: none;
+}
+
 .u-hide {
     @media only screen and (max-width: $appBreakpoint) {
         display: none;
@@ -20,6 +24,7 @@
 
 .js-ontop {
     @include noblur();
+
     z-index: 20;
     height: 300px;
 
@@ -28,38 +33,6 @@
     }
 }
 
-.wrapper {
-    max-width: 960px;
-    margin:  0 auto;
-    padding: 0 20px;
-}
-
-.flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.flex-up {
-    @extend .flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .ts-big {
     font-size: 45pt;
-}
-
-// *** OVERRIDE SIDR STYLES *** //
-
-#side-menu {
-    width: 100px;
-    font-family: 'Share Tech Mono';
-    box-shadow: none;
-    background-color: white;
-    opacity: 50%;
-
-    ul li:hover {
-            box-shadow: none;
-    }
 }
