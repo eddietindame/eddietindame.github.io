@@ -27,7 +27,7 @@ export default class Windows extends Component {
           }}
         >
           <p>
-            $&gt;&nbsp;cd&nbsp;/users/<wbr />>eddietindame/<wbr />__PROJECTS__/<wbr />PokéSpeedTier
+            $&gt;&nbsp;cd&nbsp;/users/<wbr />>eddietindame/<wbr />__PROJECTS__/<wbr />Stinger
           </p>
           <p>
             $&gt;&nbsp;I am creating a cross-platform mobile app using React
@@ -54,26 +54,32 @@ export default class Windows extends Component {
           }}
         >
           <p>
-            $&gt;&nbsp;cd&nbsp;/users/<wbr />eddietindame/<wbr />__PROJECTS__
+            $&gt;&nbsp;cd&nbsp;/users/<wbr />eddietindame/<wbr />__LIL-LINK-69__
           </p>
           <p>
-            $&gt;&nbsp;Please find my applications and interactive projects
-            hosted on my{" "}
-            <a href="https://github.com/eddietindame" target="_blank">
-              GitHub
-            </a>&nbsp;account.
-          </p>
-          <p className="u-hide">
-            $&gt;&nbsp;Click the windows{" "}
-            <span className="u-red">beside this one </span>for my latest
-            projects.
+            $&gt;&nbsp;A simple url shortener powered by the{" "}
+            <a href="http://mern.io" target="_blank">
+              MERN
+            </a>&nbsp;stack.
           </p>
           <p>
             $&gt;&nbsp;[URL](src="<wbr />
-            <a href="https://github.com/eddietindame" target="_blank">
-              https://github.com/eddietindame
+            <a href="https://lil-link-69.herokuapp.com" target="_blank">
+              https://lil-link-69.herokuapp.com
             </a>
             <wbr />")
+          </p>
+          <p>
+            $&gt;&nbsp;[URL](src="<wbr />
+            <a href="https://github.com/eddietindame/lil-link-69" target="_blank">
+              https://github.com/eddietindame/lil-link-69
+            </a>
+            <wbr />")
+          </p>
+          <p className="u-hide">
+            $&gt;&nbsp;Click the windows{" "}
+            <span className="u-red">beside this one </span>for my other latest
+            projects.
           </p>
           <p>$&gt;&nbsp;_</p>
         </Window>
