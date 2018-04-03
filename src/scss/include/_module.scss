@@ -146,7 +146,6 @@
     position: absolute;
     bottom: 0;
     padding: 50px 10px 5px 10px;
-    overflow: scroll;
 
     a {
       text-decoration: underline;
@@ -185,6 +184,9 @@
         right: 0;
         margin: 0 auto;
         padding: 10% 10px 5px 10px;
+    }
+    @media only screen and (max-width: 420px) {
+        overflow: scroll;
     }
     @media only screen and (max-width: 340px) {
         height: 340px;
