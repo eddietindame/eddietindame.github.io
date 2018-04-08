@@ -131,23 +131,7 @@
 }
 .bottom {
     opacity: 0;
-    // &:hover {
-    //     opacity: 100;
-    // }
 }
-// .top {
-//     &:hover {
-//         opacity: 0;
-//     }
-// }
-
-// .windows {
-//     display: block;
-//     width: 600px;
-//     max-width: 600px;
-//     height: inherit;
-//     margin: 0 auto;
-// }
 
 .window-img {
     @include blur(1px);
@@ -200,6 +184,9 @@
         right: 0;
         margin: 0 auto;
         padding: 10% 10px 5px 10px;
+    }
+    @media only screen and (max-width: 420px) {
+        overflow: scroll;
     }
     @media only screen and (max-width: 340px) {
         height: 340px;
