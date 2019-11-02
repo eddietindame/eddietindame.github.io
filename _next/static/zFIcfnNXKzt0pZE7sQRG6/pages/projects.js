@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{D85t:function(n,t,e){(window.__NEXT_P=window.__NEXT_P||[]).push(["/projects",function(){var n=e("RHEb");return{page:n.default||n}}])},RHEb:function(n,t,e){"use strict";e.r(t);var u=e("q1tI"),o=e.n(u),r=e("nOHt"),w=e.n(r),a=o.a.createElement;w.a.push("/work");t.default=function(){return a("div",null)}}},[["D85t",1,0]]]);

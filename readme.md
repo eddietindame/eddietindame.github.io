@@ -1,23 +1,3 @@
-# Eddie Tindame's Portfolio
-A work in progress project.
-* HTML5, CSS3
-* Javascript, jQuery, React
-* Sass and Pug are awesome :-)
-* Responsive
-* Autoprefix is life
+# eddietindame.github.io
 
-# Installation
-You'll need Node and Ruby installed.
-Dependencies are handled via NPM, compile with Gulp.
-Get your local copy up and running with:
-```
-npm i -g gulp-cli
-npm i
-gulp
-```
-
-# Plans
-* Remove jQuery dependency and move to vanilla JS where possible
-
-## Visit it!
-[Here](https://eddietindame.github.io).
+Source: [https://github.com/eddietindame/eddietindame.github.io_source](https://github.com/eddietindame/eddietindame.github.io_source)
