@@ -45,15 +45,7 @@ var About = function About() {
       lineNumber: 9
     },
     __self: this
-  }, "I am a full-stack / creative developer currently working out of ", __jsx("a", {
-    className: "link",
-    href: "#",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: this
-  }, "Firepit Technology"), " in the heart of Warner Music Group, London.", __jsx("br", {
+  }, "I am a full-stack / creative developer currently working out of Firepit Technology in the heart of Warner Music Group, London.", __jsx("br", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9

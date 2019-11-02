@@ -51,12 +51,14 @@ var Nav = function Nav() {
     var _e$target = e.target,
         pathname = _e$target.pathname,
         dataset = _e$target.dataset;
-    var ref = pathname !== '/work' ? navItems[_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(dataset.index[0])].ref.current : null;
+    var isWork = pathname === '/work';
+    var ref = !isWork ? navItems[_babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(dataset.index[0])].ref.current : null;
     e.preventDefault();
     router.push(pathname).then(function () {
-      if (ref) setTimeout(function () {
+      setTimeout(function () {
         // timeout because page transition takes 300ms
-        ref.simulateClick();
+        if (isWork) window.scrollTo(0, 0);
+        if (ref) ref.simulateClick();
       }, 309);
     });
   };
@@ -69,14 +71,14 @@ var Nav = function Nav() {
     className: "nav",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 48
     },
     __self: this
   }, __jsx("ul", {
     className: "nav__items",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 49
     },
     __self: this
   }, navItems.map(function (item, i) {
@@ -85,7 +87,7 @@ var Nav = function Nav() {
       className: "nav__items__item",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 52
       },
       __self: this
     }, item.hash ? router.pathname === '/work' ? __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(react_scrollchor__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -94,7 +96,7 @@ var Nav = function Nav() {
       disableHistory: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 60
       },
       __self: this
     }), __jsx("a", {
@@ -105,7 +107,7 @@ var Nav = function Nav() {
       "data-index": i,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64
+        lineNumber: 65
       },
       __self: this
     }, item.label)) : __jsx(react_scrollchor__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -114,7 +116,7 @@ var Nav = function Nav() {
       disableHistory: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 73
       },
       __self: this
     }, item.label) : router.pathname === '/work' ? __jsx(react_scrollchor__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -123,7 +125,7 @@ var Nav = function Nav() {
       disableHistory: true,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 78
+        lineNumber: 79
       },
       __self: this
     }, item.label) : __jsx("a", {
@@ -131,9 +133,10 @@ var Nav = function Nav() {
       className: "nav__items__link",
       onClick: _onClickAnchor,
       onMouseEnter: _onHoverAnchor,
+      "data-index": i,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 83
+        lineNumber: 84
       },
       __self: this
     }, item.label));

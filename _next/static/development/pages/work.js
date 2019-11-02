@@ -85,17 +85,21 @@ var Image = function Image(_ref) {
   var className = _ref.className,
       animation = _ref.animation,
       image = _ref.image,
-      alt = _ref.alt;
+      alt = _ref.alt,
+      onTouchStart = _ref.onTouchStart,
+      onTouchEnd = _ref.onTouchEnd;
 
   var _animation = animation ? Object(react_spring__WEBPACK_IMPORTED_MODULE_2__["useSpring"])(animation) : undefined;
 
   var Element = animation ? react_spring__WEBPACK_IMPORTED_MODULE_2__["animated"].div : 'div';
   return __jsx(Element, {
     className: (className ? className + ' ' : '') + 'image',
+    onTouchStart: onTouchStart,
+    onTouchEnd: onTouchEnd,
     style: _animation,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 19
     },
     __self: this
   }, __jsx(react_image__WEBPACK_IMPORTED_MODULE_3___default.a, {
@@ -106,20 +110,20 @@ var Image = function Image(_ref) {
       className: "image__inner",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 30
       },
       __self: this
     }, __jsx("div", {
       className: "image__loader loader",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 31
       },
       __self: this
     })),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 25
     },
     __self: this
   }));
@@ -129,7 +133,9 @@ Image.propTypes = {
   className: prop_types__WEBPACK_IMPORTED_MODULE_1__["string"],
   animation: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
   image: prop_types__WEBPACK_IMPORTED_MODULE_1__["string"].isRequired,
-  alt: prop_types__WEBPACK_IMPORTED_MODULE_1__["string"].isRequired
+  alt: prop_types__WEBPACK_IMPORTED_MODULE_1__["string"].isRequired,
+  onTouchStart: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
+  onTouchEnd: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (Image);
 
@@ -191,6 +197,11 @@ var Project = function Project(_ref) {
       isReversed = _ref.isReversed,
       animation = _ref.animation,
       className = _ref.className;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      isPressed = _useState[0],
+      setIsPressed = _useState[1];
+
   var enterAnimation = {
     opacity: 1,
     transform: 'translate(0px, 0px)',
@@ -211,32 +222,32 @@ var Project = function Project(_ref) {
     Object(react_lazyload__WEBPACK_IMPORTED_MODULE_2__["forceCheck"])();
   }, []);
   return __jsx(Element, {
-    className: (className ? className + ' ' : '') + 'project' + (isReversed ? ' project--reversed' : ''),
+    className: (className ? className + ' ' : '') + 'project' + (isReversed ? ' project--reversed' : '') + (isPressed ? ' project--pressed' : ''),
     style: animation,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 36
     },
     __self: this
   }, __jsx("div", {
     className: "project__inner",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 44
     },
     __self: this
   }, __jsx("h2", {
     className: 'project__title' + (isLongWord(name, 11) ? ' project__title--smaller' : ''),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 45
     },
     __self: this
   }, __jsx("span", {
     className: "project__highlight",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 46
     },
     __self: this
   }, href ? __jsx("a", {
@@ -246,21 +257,21 @@ var Project = function Project(_ref) {
     className: "project__link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 49
     },
     __self: this
   }, name) : name)), __jsx("p", {
     className: "project__description",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 59
     },
     __self: this
   }, __jsx("span", {
     className: "project__highlight",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 60
     },
     __self: this
   }, description)), video ? __jsx(react_lazyload__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -269,16 +280,22 @@ var Project = function Project(_ref) {
     once: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 64
     },
     __self: this
   }, __jsx(_Video__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: "project__thumbnail project__thumbnail--video",
     animation: enterAnimation,
     video: video,
+    onTouchStart: function onTouchStart() {
+      setIsPressed(true);
+    },
+    onTouchEnd: function onTouchEnd() {
+      setIsPressed(false);
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 69
     },
     __self: this
   })) : __jsx(react_lazyload__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -287,7 +304,7 @@ var Project = function Project(_ref) {
     once: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70
+      lineNumber: 77
     },
     __self: this
   }, __jsx(_Image__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -295,16 +312,22 @@ var Project = function Project(_ref) {
     animation: enterAnimation,
     image: thumbnail,
     alt: name,
+    onTouchStart: function onTouchStart() {
+      setIsPressed(true);
+    },
+    onTouchEnd: function onTouchEnd() {
+      setIsPressed(false);
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 82
     },
     __self: this
   })), __jsx("ul", {
     className: "project__tags",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 92
     },
     __self: this
   }, tags.sort().map(function (tag, i) {
@@ -313,7 +336,7 @@ var Project = function Project(_ref) {
       className: "project__tags__tag",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86
+        lineNumber: 95
       },
       __self: this
     }, tag);
@@ -323,28 +346,28 @@ var Project = function Project(_ref) {
       className: "project__credit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95
+        lineNumber: 104
       },
       __self: this
     }, __jsx("span", {
       className: "project__highlight",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 99
+        lineNumber: 108
       },
       __self: this
     }, __jsx("span", {
       className: "project__credit__label",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100
+        lineNumber: 109
       },
       __self: this
     }, credit.label, ":"), " ", __jsx("strong", {
       className: "project__credit__value",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100
+        lineNumber: 109
       },
       __self: this
     }, credit.value)));
@@ -502,7 +525,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 var Video = function Video(_ref) {
   var className = _ref.className,
       animation = _ref.animation,
-      video = _ref.video;
+      video = _ref.video,
+      onTouchStart = _ref.onTouchStart,
+      onTouchEnd = _ref.onTouchEnd;
   var videoRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
@@ -526,10 +551,12 @@ var Video = function Video(_ref) {
   }, []);
   return __jsx(Element, {
     className: (className ? className + ' ' : '') + 'video',
+    onTouchStart: onTouchStart,
+    onTouchEnd: onTouchEnd,
     style: _animation,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 26
     },
     __self: this
   }, __jsx("video", {
@@ -546,40 +573,35 @@ var Video = function Video(_ref) {
     loop: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 32
     },
     __self: this
-  }, video.mp4 && __jsx("source", {
-    src: video.mp4,
-    type: "video/mp4",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 40
-    },
-    __self: this
-  }), video.webm && __jsx("source", {
-    src: video.webm,
-    type: "video/webm",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43
-    },
-    __self: this
-  }), "Your browser does not support the video tag."), !isVideoLoaded && __jsx("div", {
+  }, video.sources.map(function (source, i) {
+    return __jsx("source", {
+      key: i,
+      src: "/static/video/".concat(video.name, ".").concat(source),
+      type: "video/".concat(source),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      },
+      __self: this
+    });
+  }), "Your browser does not support the video tag. \uD83D\uDE22"), !isVideoLoaded && __jsx("div", {
     className: "video__overlay",
     style: {
       opacity: isVideoLoaded ? 0 : 1
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 56
     },
     __self: this
   }, __jsx("div", {
     className: "video__overlay__loader loader",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 60
     },
     __self: this
   })));
@@ -588,7 +610,9 @@ var Video = function Video(_ref) {
 Video.propTypes = {
   className: prop_types__WEBPACK_IMPORTED_MODULE_1__["string"],
   animation: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"],
-  video: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"].isRequired
+  video: prop_types__WEBPACK_IMPORTED_MODULE_1__["object"].isRequired,
+  onTouchStart: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"],
+  onTouchEnd: prop_types__WEBPACK_IMPORTED_MODULE_1__["func"]
 };
 /* harmony default export */ __webpack_exports__["default"] = (Video);
 
@@ -8055,7 +8079,8 @@ var Work = function Work() {
     name: 'Joy Division - Unknown Pleasures - Reimagined',
     thumbnail: __webpack_require__(/*! ../assets/images/jd-upr-thumbnail.jpg */ "./assets/images/jd-upr-thumbnail.jpg"),
     video: {
-      webm: '/static/video/jd_upr_video.webm'
+      name: 'jd_upr_video',
+      sources: ['mp4', 'webm']
     },
     description: 'A microsite showcasing reimagined music videos created for the 40th aniversary of the seminal album "Unknown Pleasures".',
     tags: ['React', 'YouTube'],
@@ -8092,7 +8117,8 @@ var Work = function Work() {
     name: 'Disturbed - Evolution',
     thumbnail: 'https://placehold.it/250x400',
     video: {
-      mp4: '/static/video/d_e_tg_video.mp4'
+      name: 'd_e_tg_video',
+      sources: ['mp4']
     },
     description: 'A Facebook camera effect that turns the user into Disturbed\'s mascot: "The Guy".',
     tags: ['Augmented Reality', 'Spark AR', 'Facebook', 'Javascript'],
@@ -8130,7 +8156,8 @@ var Work = function Work() {
     name: 'Spotify Listening Party',
     thumbnail: 'https://placehold.it/250x400',
     video: {
-      webm: '/static/video/slp_video.webm'
+      name: 'slp_video',
+      sources: ['webm', 'mp4']
     },
     description: 'A real-time synchronised listening / chat room experience where fans can connect with artists. Designed as a one-time fan activation, a countdown is set for a certain time and date and then the party begins! Chat can be moderated and includes an admin panel.',
     tags: ['React', 'Spotify', 'NodeJS', 'Websockets'],
@@ -8148,8 +8175,8 @@ var Work = function Work() {
     name: '#dualita',
     thumbnail: 'https://placehold.it/250x400',
     video: {
-      mp4: '/static/video/dl_ss_video.mp4',
-      webm: '/static/video/dl_ss_video.webm'
+      name: 'dl_ss_video',
+      sources: ['webm', 'mp4']
     },
     description: 'A Facebook camera effect / Snapchat lens that lets you sport Alita\'s war paint from the film Alita: Battle Angel. The main soundtrack "Swan Song" by Dua Lipa plays as you frown and apply the paint.',
     tags: ['Augmented Reality', 'Spark AR', 'Facebook', 'Javascript', 'Snapchat', 'Snap Studio'],
@@ -8183,13 +8210,13 @@ var Work = function Work() {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 202
+      lineNumber: 205
     },
     __self: this
   }, __jsx("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 203
+      lineNumber: 206
     },
     __self: this
   }, "Eddie Tindame | Work")), __jsx("div", {
@@ -8197,21 +8224,21 @@ var Work = function Work() {
     className: "work",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 205
+      lineNumber: 208
     },
     __self: this
   }, __jsx("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 209
+      lineNumber: 212
     },
     __self: this
   }, __jsx(_components_ProjectGallery__WEBPACK_IMPORTED_MODULE_2__["default"], {
     projects: projects,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 210
+      lineNumber: 213
     },
     __self: this
   }))));
