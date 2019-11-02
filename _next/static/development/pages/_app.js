@@ -174,8 +174,8 @@ var c = {
   DESC: 'I am a full-stack / creative developer currently working out of Firepit Technology in the heart of Warner Music Group, London. I take freelance gigs if they\'re cool enough!',
   GA_TRACKING_ID: 'UA-151353051-1'
 };
-c.HOST = c.DEV ? "http://localhost:".concat(c.PORT) : 'https://eddietindamegithubionext.firepit1.now.sh'; // : 'https://eddietindame.github.io'
-
+c.HOST = c.DEV ? "http://localhost:".concat(c.PORT) // : 'https://eddietindamegithubionext.firepit1.now.sh'
+: 'https://eddietindame.github.io';
 c.FAVICON = "".concat(c.HOST, "/static/favicon.ico");
 c.OG_IMAGE = "".concat(c.HOST, "/static/img/og.png");
 module.exports = c;

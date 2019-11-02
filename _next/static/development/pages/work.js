@@ -275,8 +275,7 @@ var Project = function Project(_ref) {
   }, __jsx(_Video__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: "project__thumbnail project__thumbnail--video",
     animation: enterAnimation,
-    video: video // onMount={_onMountThumbnail}
-    ,
+    video: video,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 64
@@ -288,25 +287,24 @@ var Project = function Project(_ref) {
     once: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 70
     },
     __self: this
   }, __jsx(_Image__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: "project__thumbnail",
     animation: enterAnimation,
     image: thumbnail,
-    alt: name // onMount={_onMountThumbnail}
-    ,
+    alt: name,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 75
     },
     __self: this
   })), __jsx("ul", {
     className: "project__tags",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 83
     },
     __self: this
   }, tags.sort().map(function (tag, i) {
@@ -315,7 +313,7 @@ var Project = function Project(_ref) {
       className: "project__tags__tag",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88
+        lineNumber: 86
       },
       __self: this
     }, tag);
@@ -325,28 +323,28 @@ var Project = function Project(_ref) {
       className: "project__credit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 97
+        lineNumber: 95
       },
       __self: this
     }, __jsx("span", {
       className: "project__highlight",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 101
+        lineNumber: 99
       },
       __self: this
     }, __jsx("span", {
       className: "project__credit__label",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102
+        lineNumber: 100
       },
       __self: this
     }, credit.label, ":"), " ", __jsx("strong", {
       className: "project__credit__value",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102
+        lineNumber: 100
       },
       __self: this
     }, credit.value)));
@@ -520,8 +518,7 @@ var Video = function Video(_ref) {
   };
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    var videoElement = videoRef.current; // onMount && onMount()
-
+    var videoElement = videoRef.current;
     videoElement.addEventListener('canplay', _onVideoLoaded);
     return function () {
       videoElement.removeEventListener('canplay', _onVideoLoaded);
@@ -532,7 +529,7 @@ var Video = function Video(_ref) {
     style: _animation,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 24
     },
     __self: this
   }, __jsx("video", {
@@ -549,7 +546,7 @@ var Video = function Video(_ref) {
     loop: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 28
     },
     __self: this
   }, video.mp4 && __jsx("source", {
@@ -557,7 +554,7 @@ var Video = function Video(_ref) {
     type: "video/mp4",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 40
     },
     __self: this
   }), video.webm && __jsx("source", {
@@ -565,7 +562,7 @@ var Video = function Video(_ref) {
     type: "video/webm",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 43
     },
     __self: this
   }), "Your browser does not support the video tag."), !isVideoLoaded && __jsx("div", {
@@ -575,14 +572,14 @@ var Video = function Video(_ref) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 49
     },
     __self: this
   }, __jsx("div", {
     className: "video__overlay__loader loader",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 53
     },
     __self: this
   })));

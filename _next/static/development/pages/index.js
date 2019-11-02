@@ -288,8 +288,8 @@ var c = {
   DESC: 'I am a full-stack / creative developer currently working out of Firepit Technology in the heart of Warner Music Group, London. I take freelance gigs if they\'re cool enough!',
   GA_TRACKING_ID: 'UA-151353051-1'
 };
-c.HOST = c.DEV ? "http://localhost:".concat(c.PORT) : 'https://eddietindamegithubionext.firepit1.now.sh'; // : 'https://eddietindame.github.io'
-
+c.HOST = c.DEV ? "http://localhost:".concat(c.PORT) // : 'https://eddietindamegithubionext.firepit1.now.sh'
+: 'https://eddietindame.github.io';
 c.FAVICON = "".concat(c.HOST, "/static/favicon.ico");
 c.OG_IMAGE = "".concat(c.HOST, "/static/img/og.png");
 module.exports = c;
@@ -3909,23 +3909,7 @@ var Index = function Index() {
   }))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Index); // import React from 'react'
-// import Page from '~components/Page'
-// import Landing from '~components/Landing'
-// import About from '~components/About'
-// import Contact from '~components/Contact'
-// import '~scss/index.scss'
-// const Index = () =>
-//     <>
-//         <Page>
-//             <div className="container-fluid">
-//                 <Landing />
-//                 <About />
-//                 <Contact />
-//             </div>
-//         </Page>
-//     </>
-// export default Index
+/* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
 
