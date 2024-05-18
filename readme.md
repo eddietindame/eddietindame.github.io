@@ -1,3 +1,8 @@
-# eddietindame.github.io
+# Eddie Tindame's Portfolio Site
 
-Source: [https://github.com/eddietindame/eddietindame.github.io_source](https://github.com/eddietindame/eddietindame.github.io_source)
+```bash
+yarn
+yarn dev
+```
+
+Check `package.json` for more scripts.
