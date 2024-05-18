@@ -1,0 +1,13 @@
+#__next {
+    height: 100%;
+    width: 100%;
+}
+
+.work {
+    padding: 15px 0 60px 0;
+    overflow-x: hidden;
+
+    @include media-breakpoint-up(sm) {
+        padding: 60px;
+    }
+}

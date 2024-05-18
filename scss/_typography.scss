@@ -1,0 +1,11 @@
+.t-highlight {
+    $padding: 5px;
+    display: inline;
+    position: relative;
+    left: $padding;
+    padding: $padding $padding $padding 0;
+    color: $black;
+    background-color: $white;
+    box-shadow: $padding 0 0 $white,
+                $padding*-1 0 0 $white;
+}

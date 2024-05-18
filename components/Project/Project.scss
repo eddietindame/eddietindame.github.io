@@ -1,0 +1,140 @@
+.project {
+    $self: &;
+    $mb: 1rem;
+
+    position: relative;
+    max-width: 720px;
+    min-height: 400px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @include media-breakpoint-up(sm) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    * {
+        opacity: 1;
+        transition: opacity 300ms ease-in-out;
+    }
+
+    &--reversed, &:nth-child(even) {
+
+        #{$self}__inner {
+            margin-left: 0;
+            margin-right: 20%;
+        }
+        
+        #{$self}__thumbnail {
+            left: unset;
+            right: 0;
+        }
+    }
+
+    &--pressed {
+
+        #{$self}__title,
+        #{$self}__description,
+        #{$self}__tags,
+        #{$self}__credit { opacity: 0.3; }
+    }
+
+    &__inner {
+        height: 100%;
+        margin-left: 20%;
+        margin-top: 60px;
+
+        @include media-breakpoint-up(md) {
+            margin-top: 0;
+        }
+    }
+
+    &__title {
+        margin-bottom: $mb;
+        font-size: 2rem;
+        font-weight: 900;
+
+        &--smaller {
+            font-size: 1.5rem;
+
+            @include media-breakpoint-up(sm) {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    &__thumbnail, .lazyload-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        max-width: 250px;
+        height: 400px;
+
+        @include media-breakpoint-up(sm) {
+            max-width: initial;
+        }
+
+        &--video {
+            height: auto;
+
+            @include media-breakpoint-up(sm) {
+                height: 400px;
+            }
+        }
+
+        img, video { pointer-events: none; }
+    }
+
+    &__description {
+        margin-bottom: $mb;
+    }
+
+    &__tags {
+        margin-bottom: calc(#{$mb} - 5px);
+
+        &__tag {
+            display: inline-block;
+            margin: 0 5px 5px 0;
+            padding: 0.2em 0.5em;
+            border-radius: 2px;
+            color: $white;
+            background-color: $black;
+
+            &:last-child {
+                margin: 0 0 5px 0;
+            }
+        }
+    }
+
+    &__link {
+
+        &:hover, &:active, &:focus {
+            border-bottom: solid 4px $black;
+            text-decoration: none;
+        }
+
+        &:after {
+            content: '';
+            display: inline-block;
+            width: 0.6em;
+            height: 0.6em;
+            margin-left: 0.2em;
+            background-image: url('/static/img/link.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+
+    &__credit {
+        color: $grey;
+
+        // &__label {}
+
+        &__value {
+            font-weight: bold;
+        }
+    }
+}

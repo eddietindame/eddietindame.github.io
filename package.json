@@ -1,0 +1,59 @@
+{
+  "name": "eddietindame.github.io",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "export": "rm -rf  out; rm -rf .next; next build && next export && touch ./out/.nojekyll",
+    "export:serve": "next build && yarn export && cd out && npx serve -p 8080; cd ..",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prod": "next build && next start -p 3001",
+    "refresh": "rm -rf node_modules && rm yarn.lock && yarn",
+    "refresh:hard": "rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn",
+    "start": "next start",
+    "test": "NODE_ENV=test jest"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "next": "9.0.5",
+    "next-ga": "^2.3.4",
+    "next-nprogress": "^1.4.0",
+    "next-page-transitions": "^1.0.0-beta.2",
+    "prop-types": "^15.7.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-image": "^2.2.1",
+    "react-lazyload": "^2.6.2",
+    "react-scrollchor": "^6.0.0",
+    "react-spring": "^8.0.27"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/eslint-parser": "^7.24.5",
+    "@zeit/next-sass": "^1.0.1",
+    "autoprefixer": "^9.6.1",
+    "babel-plugin-root-import": "^6.4.1",
+    "cssnano": "^4.1.10",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "file-loader": "^4.2.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "jest": "^24.9.0",
+    "next-compose-plugins": "^2.2.0",
+    "next-optimized-images": "^2.5.3",
+    "node-sass": "^4.12.0",
+    "node-sass-utils": "^1.1.2",
+    "postcss": "^7.0.17",
+    "postcss-loader": "^3.0.0",
+    "prettier": "1.19.0",
+    "url-loader": "^2.1.0"
+  },
+  "resolutions": {
+    "styled-jsx": "3.0.0"
+  }
+}
