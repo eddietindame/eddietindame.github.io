@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { array, bool, object, string } from 'prop-types'
 import LazyLoad, { forceCheck } from 'react-lazyload'
 import { animated } from 'react-spring'
-import Image from '~components/Image'
-import Video from '~components/Video'
+
+import { Project as ProjectType } from 'types/shared'
+import Image from 'components/Image'
+import Video from 'components/Video'
 import './Project.scss'
+
+type ProjectProps = ProjectType & {
+  isReversed?: boolean
+  animation?: object
+  className?: string
+}
 
 const Project = ({
   name,
@@ -17,7 +24,7 @@ const Project = ({
   isReversed,
   animation,
   className
-}) => {
+}: ProjectProps) => {
   const [isPressed, setIsPressed] = useState(false)
   const enterAnimation = {
     opacity: 1,
@@ -110,19 +117,6 @@ const Project = ({
       </div>
     </Element>
   )
-}
-
-Project.propTypes = {
-  name: string.isRequired,
-  thumbnail: string.isRequired,
-  video: object,
-  description: string.isRequired,
-  tags: array.isRequired,
-  href: string,
-  credits: array,
-  isReversed: bool,
-  animation: object,
-  className: string
 }
 
 export default Project

@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
-import { number, string } from 'prop-types'
 import { animated, useSpring } from 'react-spring'
 import './Heart.scss'
 
-const Heart = ({ size, colour, accent }) => {
+type HeartProps = {
+  size: number
+  colour?: string
+  accent?: string
+}
+
+const Heart = ({ size, colour, accent }: HeartProps) => {
   const [isActive, setIsActive] = useState(false)
   const spring = useSpring({ right: isActive ? '45px' : '-300px', from: { right: '-300px' } })
   const _onClickHeart = e => {
@@ -40,12 +45,6 @@ const Heart = ({ size, colour, accent }) => {
       </animated.div>
     </div>
   )
-}
-
-Heart.propTypes = {
-  size: number.isRequired,
-  colour: string,
-  accent: string
 }
 
 export default Heart

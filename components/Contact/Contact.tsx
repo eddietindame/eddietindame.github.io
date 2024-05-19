@@ -26,7 +26,7 @@ const Contact = () => {
     <section id="contact" className="contact">
       <div className="contact__inner container">
         <img
-          src={require('~assets/images/portrait.jpg')}
+          src={require('assets/images/portrait.jpg')}
           alt="Eddie Tindame"
           className="contact__portrait"
         />

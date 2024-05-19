@@ -1,12 +1,22 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { string, object, func } from 'prop-types'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated, AnimatedValue, ForwardedProps } from 'react-spring'
+
+import { Video as VideoType } from 'types/shared'
 import './Video.scss'
 
-const Video = ({ className, animation, video, onTouchStart, onTouchEnd }) => {
-  const videoRef = useRef()
+type VideoProps = {
+  video: VideoType
+  className?: string
+  animation?: AnimatedValue<ForwardedProps<object>>
+  onTouchStart?: React.TouchEventHandler<HTMLDivElement>
+  onTouchEnd?: React.TouchEventHandler<HTMLDivElement>
+}
+
+const Video = ({ className, animation, video, onTouchStart, onTouchEnd }: VideoProps) => {
+  const videoRef = useRef<HTMLVideoElement>()
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
   const springAnimation = useSpring(animation)
+
   const _animation = animation ? springAnimation : undefined
   const Element = animation ? animated.div : 'div'
   const _onVideoLoaded = () => {
@@ -51,14 +61,6 @@ const Video = ({ className, animation, video, onTouchStart, onTouchEnd }) => {
       )}
     </Element>
   )
-}
-
-Video.propTypes = {
-  className: string,
-  animation: object,
-  video: object.isRequired,
-  onTouchStart: func,
-  onTouchEnd: func
 }
 
 export default Video

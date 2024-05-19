@@ -1,10 +1,18 @@
 import React from 'react'
-import { string, object, func } from 'prop-types'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated, AnimatedValue, ForwardedProps } from 'react-spring'
 import Img from 'react-image'
 import './Image.scss'
 
-const Image = ({ className, animation, image, alt, onTouchStart, onTouchEnd }) => {
+type ImageProps = {
+  image: string
+  alt: string
+  className?: string
+  animation?: AnimatedValue<ForwardedProps<object>>
+  onTouchStart: React.TouchEventHandler<HTMLDivElement>
+  onTouchEnd: React.TouchEventHandler<HTMLDivElement>
+}
+
+const Image = ({ className, animation, image, alt, onTouchStart, onTouchEnd }: ImageProps) => {
   const springAnimation = useSpring(animation)
   const _animation = animation ? springAnimation : undefined
   const Element = animation ? animated.div : 'div'
@@ -28,15 +36,6 @@ const Image = ({ className, animation, image, alt, onTouchStart, onTouchEnd }) =
       />
     </Element>
   )
-}
-
-Image.propTypes = {
-  className: string,
-  animation: object,
-  image: string.isRequired,
-  alt: string.isRequired,
-  onTouchStart: func,
-  onTouchEnd: func
 }
 
 export default Image
