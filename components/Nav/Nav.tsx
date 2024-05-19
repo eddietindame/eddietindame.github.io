@@ -27,19 +27,22 @@ const Nav = () => {
       ref: useRef()
     }
   ]
+
   const _onClickAnchor = e => {
     const { pathname, dataset } = e.target
     const isWork = pathname === '/work'
-    const ref = !isWork ? navItems[parseInt(dataset.index[0])].ref.current : null
+    const ref = isWork ? null : navItems[parseInt(dataset.index[0])].ref.current
     e.preventDefault()
     router.push(pathname).then(() => {
+      // timeout because page transition takes 300ms
       setTimeout(() => {
-        // timeout because page transition takes 300ms
         if (isWork) window.scrollTo(0, 0)
+        // @ts-expect-error - ref type is incorrect
         if (ref) ref.simulateClick()
       }, 309)
     })
   }
+
   const _onHoverAnchor = () => {
     router.prefetch('/')
   }

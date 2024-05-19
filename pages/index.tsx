@@ -1,10 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
-import Landing from '~components/Landing'
-import About from '~components/About'
-import Contact from '~components/Contact'
-import { HOST } from '~config'
-import '~scss/index.scss'
+
+import Landing from 'components/Landing'
+import About from 'components/About'
+import Contact from 'components/Contact'
+import { HOST } from 'config'
+import 'scss/index.scss'
 
 const Index = () => (
   <>

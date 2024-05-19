@@ -1,13 +1,15 @@
 import React from 'react'
 import Head from 'next/head'
-import ProjectGallery from '~components/ProjectGallery'
-import '~scss/index.scss'
+
+import { Project } from 'types/shared'
+import ProjectGallery from 'components/ProjectGallery'
+import 'scss/index.scss'
 
 const Work = () => {
-  const projects = [
+  const projects: Project[] = [
     {
       name: 'Spotify Listening Party',
-      thumbnail: require('~assets/images/slp-thumbnail.jpg'),
+      thumbnail: require('assets/images/slp-thumbnail.jpg'),
       video: {
         name: 'slp_video',
         sources: ['webm', 'mp4']
@@ -33,7 +35,7 @@ const Work = () => {
     },
     {
       name: 'James Blunt - Once Upon A Valentine',
-      thumbnail: require('~assets/images/jb_v_thumbnail.jpg'),
+      thumbnail: require('assets/images/jb_v_thumbnail.jpg'),
       video: {
         name: 'jb_v_video',
         sources: ['mp4', 'webm']
@@ -58,7 +60,7 @@ const Work = () => {
     },
     {
       name: 'David Bowie - Space Oddity 2019 Mix Map',
-      thumbnail: require('~assets/images/db-so-2mm.jpg'),
+      thumbnail: require('assets/images/db-so-2mm.jpg'),
       description:
         'Fans are able to plot a photo of their Space Oddity 2019 Mix vinyls on the map and receive a free merch item. Includes a separate administration panel for approving entries.',
       tags: ['React', 'NodeJS', 'Geolocation', 'Sendgrid', 'MapboxGL', 'AWSS3', 'MongoDB'],
@@ -80,7 +82,7 @@ const Work = () => {
     },
     {
       name: 'Busby Marou - The Great Divide',
-      thumbnail: require('~assets/images/bm-tgd-thumbnail.jpg'),
+      thumbnail: require('assets/images/bm-tgd-thumbnail.jpg'),
       description:
         'A follow-to-win contest which allowed the chance to meet the band. Exclusive video content could be unlocked after a streaming threshold had been met in each Australian region. Stars would appear in real-time as users streamed!',
       tags: ['React', 'Spotify', 'Apple Music', 'NodeJS', 'MongoDB', 'Websockets', 'YouTube'],
@@ -106,7 +108,7 @@ const Work = () => {
     },
     {
       name: 'Joy Division - Unknown Pleasures - Reimagined',
-      thumbnail: require('~assets/images/jd-upr-thumbnail.jpg'),
+      thumbnail: require('assets/images/jd-upr-thumbnail.jpg'),
       video: {
         name: 'jd_upr_video',
         sources: ['mp4', 'webm']
@@ -132,7 +134,7 @@ const Work = () => {
     },
     {
       name: 'Marina - Orange Trees',
-      thumbnail: require('~assets/images/m-ot-thumbnail.jpg'),
+      thumbnail: require('assets/images/m-ot-thumbnail.jpg'),
       description:
         'A fan activation which allowed the chance to unlock exclusive video content after a pre-save threshold had been met in each continent of the globe. Trees would grow in real-time as more people streamed!',
       tags: ['React', 'Spotify', 'Apple Music', 'Deezer', 'NodeJS', 'MongoDB', 'Websockets'],
@@ -187,7 +189,7 @@ const Work = () => {
     },
     {
       name: '#WarnerSquad',
-      thumbnail: require('~assets/images/ws-thumbnail.jpg'),
+      thumbnail: require('assets/images/ws-thumbnail.jpg'),
       description:
         'A rewards hub for fans of Warner Artists. This site offers Italian / English localisation and uses WordPress as a headless CMS for promotions. Fully implemented JWT-based authentication.',
       tags: ['React', 'NodeJS', 'MongoDB', 'i18n', 'WordPress', 'Sendgrid', 'JWT'],
@@ -241,7 +243,7 @@ const Work = () => {
     },
     {
       name: '#LMHR',
-      thumbnail: require('~assets/images/lmhr-thumbnail.jpg'),
+      thumbnail: require('assets/images/lmhr-thumbnail.jpg'),
       description:
         'A pro bono project for the charity "Love Music Hate Racism". Visitors can anonymously upload their personal stories of how racism has affected them in the past.',
       tags: ['React', 'WordPress', 'PHP', 'jQuery'],

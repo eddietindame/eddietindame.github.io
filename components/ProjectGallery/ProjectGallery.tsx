@@ -1,10 +1,14 @@
 import React from 'react'
 import { array } from 'prop-types'
 import { useTrail } from 'react-spring'
-import Project from '~components/Project'
+
+import { Project as ProjectType } from 'types/shared'
+import Project from 'components/Project'
 import './ProjectGallery.scss'
 
-const ProjectGallery = ({ projects }) => {
+type ProjectGalleryProps = { projects: ProjectType[] }
+
+const ProjectGallery = ({ projects }: ProjectGalleryProps) => {
   const trail = useTrail(projects.length, {
     opacity: 1,
     transform: 'translate(0px, 0px)',

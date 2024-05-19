@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import Router from 'next/router'
 import Head from 'next/head'
-import { HOST } from '~config'
+
+import { HOST } from 'config'
 
 const Projects = () => {
   useEffect(() => {
