@@ -18,7 +18,7 @@ const Contact = () => {
     },
     {
       label: 'c.v.',
-      href: `/static/eddie_tindame_cv_2020.pdf`
+      href: `/static/eddie_tindame_cv_2024.pdf?v=1`
     }
   ]
 

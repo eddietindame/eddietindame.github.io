@@ -1,91 +1,95 @@
 .heart {
-    $self: &;
-    $padding: 0.6em;
-    $paddingMd: 1em;
-    $radius: 25px;
-    position: fixed;
+  $self: &;
+  $padding: 0.6em;
+  $paddingMd: 1em;
+  $radius: 25px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: $padding $padding 0 0;
+  appearance: none;
+  background: none;
+  border: none;
+  transform: rotate(90deg);
+  z-index: 2;
+
+  @include media-breakpoint-up(sm) {
+    padding: $paddingMd $paddingMd 0 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    padding: 0 $paddingMd $paddingMd 0;
+    transform: none;
+  }
+
+  &--active {
+    #{$self}__svg {
+      &__path {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__bg {
+    position: absolute;
     bottom: 0;
     right: 0;
-    padding: $padding $padding 0 0;
-    appearance: none;
-    background: none;
-    border: none;
-    transform: rotate(90deg);
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to left, $white calc(100% - (#{$radius} / 2)), transparent);
+
+    &:after {
+      content: ' ';
+      display: block;
+      float: right;
+      width: calc(100% - (#{$radius} / 2));
+      height: 100%;
+      background: $white;
+    }
+  }
+
+  &__message {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    padding: $padding 0 0;
+    white-space: nowrap;
+    text-transform: lowercase;
 
     @include media-breakpoint-up(sm) {
-        padding: $paddingMd $paddingMd 0 0;
+      padding: $paddingMd 0 0;
     }
 
     @include media-breakpoint-up(md) {
-        padding: 0 $paddingMd $paddingMd 0;
-        transform: none;
+      padding: 0;
+    }
+  }
+
+  &__svg {
+    position: relative;
+    z-index: 1;
+    transform: rotate(-90deg);
+
+    @include media-breakpoint-up(md) {
+      transform: none;
     }
 
-    &--active {
+    &__path {
+      cursor: pointer;
+      opacity: 0.1;
+      transition: all 300ms ease-in-out;
 
-        #{$self}__svg {
+      &:hover,
+      &:active,
+      &:focus {
+        opacity: 1;
 
-            &__path { opacity: 1; }
+        & + #{$self}__svg {
+          &__path {
+            opacity: 1;
+          }
         }
+      }
     }
-
-    &__bg {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(to left, $white calc(100% - (#{$radius} / 2)), transparent);
-
-        &:after {
-            content: ' ';
-            display: block;
-            float: right;
-            width: calc(100% - (#{$radius} / 2));
-            height: 100%;
-            background: $white;
-        }
-    }
-
-    &__message {
-        position: absolute;
-        top: 0;
-        z-index: -1;
-        padding: $padding 0 0;
-        white-space: nowrap;
-        text-transform: lowercase;
-
-        @include media-breakpoint-up(sm) {
-            padding: $paddingMd 0 0;
-        }
-
-        @include media-breakpoint-up(md) {
-            padding: 0;
-        }
-    }
-
-    &__svg {
-        position: relative;
-        z-index: 1;
-        transform: rotate(-90deg);
-
-        @include media-breakpoint-up(md) {
-            transform: none;
-        }
-
-        &__path {
-            cursor: pointer;
-            opacity: 0.1;
-            transition: all 300ms ease-in-out;
-
-            &:hover, &:active, &:focus {
-                opacity: 1;
-
-                & + #{$self}__svg {
-
-                    &__path { opacity: 1; }
-                }
-            }
-        }
-    }
+  }
 }

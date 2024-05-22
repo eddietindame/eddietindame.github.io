@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prod": "next build && next start -p 3001",
-    "refresh": "rm -rf node_modules && rm yarn.lock && yarn",
+    "refresh": "rm -rf node_modules && yarn install --frozen-lockfile",
     "refresh:hard": "rm -rf node_modules && rm yarn.lock && yarn cache clean && yarn",
     "start": "next start",
     "test": "NODE_ENV=test jest"
