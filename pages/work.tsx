@@ -15,8 +15,8 @@ const Work = () => {
         sources: ['webm', 'mp4']
       },
       description:
-        'A real-time synchronised listening / chat room experience where fans can connect with artists. This is a platform where commissioners are able to schedule parties when they need to via a CMS. Chat includes profanity filtering and moderation which is accessed via a separate admin panel.',
-      tags: ['React', 'Redux', 'Spotify', 'NodeJS'],
+        'A real-time, synchronised listening & chat room experience where fans can connect with artists and each other. A platform where commissioners are able to schedule parties on demand via a CMS. Chat includes profanity filtering and moderation which is accessed via a separate admin panel.',
+      tags: ['React', 'Redux', 'Spotify', 'NodeJS', 'Websockets'],
       href: 'https://listeningparty.io/balcony',
       credits: [
         {
