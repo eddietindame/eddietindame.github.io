@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import { useRouter } from 'next/router'
 import Scrollchor from 'react-scrollchor'
+
+import Heart from 'components/Heart'
 import './Nav.scss'
 
 const Nav = () => {
@@ -48,48 +50,51 @@ const Nav = () => {
   }
 
   return (
-    <nav className="nav">
-      <ul className="nav__items">
-        {navItems.map((item, i) => (
-          <li key={i} className="nav__items__item">
-            {item.hash ? (
-              router.pathname === '/' ? (
-                <Scrollchor to={item.hash} className="nav__items__link" disableHistory={true}>
+    <div className="nav">
+      <nav className="nav__inner">
+        <ul className="nav__items">
+          {navItems.map((item, i) => (
+            <li key={i} className="nav__items__item">
+              {item.hash ? (
+                router.pathname === '/' ? (
+                  <Scrollchor to={item.hash} className="nav__items__link" disableHistory={true}>
+                    {item.label}
+                  </Scrollchor>
+                ) : (
+                  <>
+                    <Scrollchor ref={item.ref} to={item.hash} disableHistory={true} />
+                    <a
+                      href={'/' + item.hash}
+                      className="nav__items__link"
+                      onClick={_onClickAnchor}
+                      onMouseEnter={_onHoverAnchor}
+                      data-index={i}
+                    >
+                      {item.label}
+                    </a>
+                  </>
+                )
+              ) : router.pathname === '/work' ? (
+                <Scrollchor to="#work" className="nav__items__link" disableHistory={true}>
                   {item.label}
                 </Scrollchor>
               ) : (
-                <>
-                  <Scrollchor ref={item.ref} to={item.hash} disableHistory={true} />
-                  <a
-                    href={'/' + item.hash}
-                    className="nav__items__link"
-                    onClick={_onClickAnchor}
-                    onMouseEnter={_onHoverAnchor}
-                    data-index={i}
-                  >
-                    {item.label}
-                  </a>
-                </>
-              )
-            ) : router.pathname === '/work' ? (
-              <Scrollchor to="#work" className="nav__items__link" disableHistory={true}>
-                {item.label}
-              </Scrollchor>
-            ) : (
-              <a
-                href={item.href}
-                className="nav__items__link"
-                onClick={_onClickAnchor}
-                onMouseEnter={_onHoverAnchor}
-                data-index={i}
-              >
-                {item.label}
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
+                <a
+                  href={item.href}
+                  className="nav__items__link"
+                  onClick={_onClickAnchor}
+                  onMouseEnter={_onHoverAnchor}
+                  data-index={i}
+                >
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <Heart size={25} colour="#C03A2B" />
+    </div>
   )
 }
 

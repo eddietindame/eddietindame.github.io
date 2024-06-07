@@ -1,28 +1,44 @@
 .about {
-    position: relative;
-    z-index: 1;
-    padding: 1em 0;
+  position: relative;
+  z-index: 1;
+  padding: 1em 0;
+
+  @include media-breakpoint-up(sm) {
+    padding: 1em;
+  }
+
+  &__content {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: right;
+    line-height: 1;
 
     @include media-breakpoint-up(sm) {
-        padding: 1em;
+      font-size: 5rem;
     }
 
-    &__content {
+    @include media-breakpoint-up(md) {
+      font-size: 7rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 10rem;
+    }
+
+    &--smaller {
+      font-size: 2rem;
+
+      @include media-breakpoint-up(sm) {
         font-size: 3rem;
-        font-weight: bold;
-        text-align: right;
-        line-height: 1;
+      }
 
-        @include media-breakpoint-up(sm) {
-            font-size: 5rem;
-        }
+      @include media-breakpoint-up(md) {
+        font-size: 5rem;
+      }
 
-        @include media-breakpoint-up(md) {
-            font-size: 7rem;
-        }
-
-        @include media-breakpoint-up(lg) {
-            font-size: 10rem;
-        }
+      @include media-breakpoint-up(lg) {
+        font-size: 7rem;
+      }
     }
+  }
 }

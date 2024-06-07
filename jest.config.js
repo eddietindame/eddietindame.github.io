@@ -8,6 +8,7 @@ module.exports = {
   testURL: 'http://localhost',
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
-    '\\.(gif|ttf|eot|svg)$': '<rootDir>/__mocks__/fileMock.js'
+    '\\.(gif|ttf|eot|svg|jpg)$': '<rootDir>/__mocks__/fileMock.js',
+    '^components/(.+)$': '<rootDir>/components/$1'
   }
 }

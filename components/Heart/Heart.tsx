@@ -10,7 +10,7 @@ type HeartProps = {
 
 const Heart = ({ size, colour, accent }: HeartProps) => {
   const [isActive, setIsActive] = useState(false)
-  const spring = useSpring({ right: isActive ? '45px' : '-300px', from: { right: '-300px' } })
+  const spring = useSpring({ right: isActive ? '47px' : '-300px', from: { right: '-300px' } })
   const _onClickHeart = e => {
     e.preventDefault()
     setIsActive(!isActive)
@@ -39,9 +39,11 @@ const Heart = ({ size, colour, accent }: HeartProps) => {
       </svg>
       <div className="heart__bg" />
       <animated.div className="heart__message" style={spring}>
-        <span className="t-highlight">
-          Design & build: <strong>Eddie Tindame</strong>
-        </span>
+        <div className="heart__message__inner">
+          <span className="t-highlight">
+            Design & build: <strong>Eddie Tindame</strong>
+          </span>
+        </div>
       </animated.div>
     </div>
   )

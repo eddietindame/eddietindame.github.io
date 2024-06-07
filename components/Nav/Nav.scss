@@ -1,31 +1,36 @@
 .nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    // height: $headerHeight;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+
+  &__inner {
     background-color: $white;
+  }
 
-    &__items {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        margin: 0 0.6em;
+  &__items {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0 0.6em;
 
-        @include media-breakpoint-up(sm) {
-            margin: 0 1em;
-        }
-
-        &__item {
-            padding: 0.6em 0.6em;
-
-            @include media-breakpoint-up(sm) {
-                padding: 1em;
-            }
-        }
-    
-        &__link {
-            font-weight: 600;
-        }
+    @include media-breakpoint-up(sm) {
+      margin: 0 1em;
     }
+
+    &__item {
+      padding: 0.6em 0.6em;
+
+      @include media-breakpoint-up(sm) {
+        padding: 1em;
+      }
+    }
+
+    &__link {
+      font-weight: 600;
+    }
+  }
 }
