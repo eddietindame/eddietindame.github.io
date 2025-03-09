@@ -2,8 +2,9 @@ import React, { useRef } from 'react'
 import { useRouter } from 'next/router'
 import Scrollchor from 'react-scrollchor'
 
+import { TRANSITION_DURATION } from 'config'
 import Heart from 'components/Heart'
-import './Nav.scss'
+import S from './Nav.module.scss'
 
 const Nav = () => {
   const router = useRouter()
@@ -11,23 +12,23 @@ const Nav = () => {
     {
       label: 'Home',
       hash: '#home',
-      ref: useRef()
+      ref: useRef(null),
     },
     {
       label: 'About',
       hash: '#about',
-      ref: useRef()
+      ref: useRef(null),
     },
     {
       label: 'Projects',
       href: '/work',
-      ref: useRef()
+      ref: useRef(null),
     },
     {
       label: 'Contact',
       hash: '#contact',
-      ref: useRef()
-    }
+      ref: useRef(null),
+    },
   ]
 
   const _onClickAnchor = e => {
@@ -35,13 +36,12 @@ const Nav = () => {
     const isWork = pathname === '/work'
     const ref = isWork ? null : navItems[parseInt(dataset.index[0])].ref.current
     e.preventDefault()
-    router.push(pathname).then(() => {
-      // timeout because page transition takes 300ms
+    router.push(pathname, null, { scroll: false }).then(() => {
+      // timeout because page transition takes time
       setTimeout(() => {
         if (isWork) window.scrollTo(0, 0)
-        // @ts-expect-error - ref type is incorrect
         if (ref) ref.simulateClick()
-      }, 309)
+      }, TRANSITION_DURATION + 5)
     })
   }
 
@@ -50,14 +50,18 @@ const Nav = () => {
   }
 
   return (
-    <div className="nav">
-      <nav className="nav__inner">
-        <ul className="nav__items">
+    <div className={S['nav']}>
+      <nav className={S['nav__inner']}>
+        <ul className={S['nav__items']}>
           {navItems.map((item, i) => (
-            <li key={i} className="nav__items__item">
+            <li key={i} className={S['nav__items__item']}>
               {item.hash ? (
                 router.pathname === '/' ? (
-                  <Scrollchor to={item.hash} className="nav__items__link" disableHistory={true}>
+                  <Scrollchor
+                    to={item.hash}
+                    className={S['nav__items__link']}
+                    disableHistory={true}
+                  >
                     {item.label}
                   </Scrollchor>
                 ) : (
@@ -65,7 +69,7 @@ const Nav = () => {
                     <Scrollchor ref={item.ref} to={item.hash} disableHistory={true} />
                     <a
                       href={'/' + item.hash}
-                      className="nav__items__link"
+                      className={S['nav__items__link']}
                       onClick={_onClickAnchor}
                       onMouseEnter={_onHoverAnchor}
                       data-index={i}
@@ -75,13 +79,13 @@ const Nav = () => {
                   </>
                 )
               ) : router.pathname === '/work' ? (
-                <Scrollchor to="#work" className="nav__items__link" disableHistory={true}>
+                <Scrollchor to="#work" className={S['nav__items__link']} disableHistory={true}>
                   {item.label}
                 </Scrollchor>
               ) : (
                 <a
                   href={item.href}
-                  className="nav__items__link"
+                  className={S['nav__items__link']}
                   onClick={_onClickAnchor}
                   onMouseEnter={_onHoverAnchor}
                   data-index={i}

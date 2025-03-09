@@ -3,7 +3,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   plugins: ['react', '@typescript-eslint'],
   parser: '@typescript-eslint/parser',
@@ -11,7 +11,7 @@ module.exports = {
   root: true,
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
 }
