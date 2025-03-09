@@ -7,6 +7,7 @@ import '@madeinhaus/nextjs-page-transition/dist/index.css'
 import { GA_TRACKING_ID, TRANSITION_DURATION } from 'config'
 import Nav from 'components/Nav'
 import 'scss/index.scss'
+import 'css/index.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const key = useAsPathWithoutHash()

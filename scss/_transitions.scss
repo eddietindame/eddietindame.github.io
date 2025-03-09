@@ -1,20 +1,41 @@
+.fade-children-in {
+  > * {
+    opacity: 0;
+    animation: fadeIn 300ms ease-in-out forwards;
+  }
+
+  @for $i from 0 through 50 {
+    :nth-child(#{$i + 1}) {
+      animation-delay: calc(300ms + (50ms * $i));
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .page-transition {
+  &-enter {
+    opacity: 0;
+  }
 
-    &-enter {
-        opacity: 0;
-    }
+  &-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
 
-    &-enter-active {
-        opacity: 1;
-        transition: opacity 300ms;
-    }
-    
-    &-exit {
-        opacity: 1;
-    }
-    
-    &-exit-active {
-        opacity: 0;
-        transition: opacity 300ms;
-    }
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
 }

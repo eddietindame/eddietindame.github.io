@@ -6,7 +6,7 @@ import S from './Contact.module.scss'
 const Contact = () => {
   const contactItems = [
     {
-      label: 'eddie.tindame@googlemail.com',
+      label: 'eddie.tindame@gmail.com',
       href: 'mailto:eddie.tindame@googlemail.com',
       isEmail: true,
     },
@@ -20,7 +20,7 @@ const Contact = () => {
     },
     {
       label: 'c.v.',
-      href: '/static/eddie_tindame_cv_2024.pdf?v=2',
+      href: '/static/eddietindame_cv_2025.docx',
     },
   ]
 
