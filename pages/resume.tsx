@@ -3,6 +3,7 @@ import ResumeMD from 'markdown/resume.md'
 import Link from 'next/link'
 
 import { Arrow } from 'components/Arrow'
+import { Head } from 'next/document'
 
 type MDXProps = PropsWithChildren & { href?: string }
 
@@ -37,13 +38,18 @@ const overrideComponents = {
 }
 
 const Resume = () => (
-  <div className="container py-8 sm:py-16">
-    <div className="mx-auto mb-16 max-w-xl px-4 sm:px-0">
-      <div className="fade-children-in flex flex-col gap-2 font-serif text-xl">
-        <ResumeMD className="font-serif" components={overrideComponents} />
+  <>
+    <Head>
+      <title>Eddie Tindame | Resume</title>
+    </Head>
+    <div className="container py-8 sm:py-16">
+      <div className="mx-auto mb-16 max-w-xl px-4 sm:px-0">
+        <div className="fade-children-in flex flex-col gap-2 font-serif text-xl">
+          <ResumeMD className="font-serif" components={overrideComponents} />
+        </div>
       </div>
     </div>
-  </div>
+  </>
 )
 
 export default Resume
