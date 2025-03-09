@@ -21,7 +21,7 @@ Projects.getInitialProps = async ({ res }) => {
   if (res) {
     if (typeof res.writeHead === 'function') {
       res.writeHead(302, {
-        Location: '/work'
+        Location: '/work',
       })
       res.end()
     }

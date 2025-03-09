@@ -1,12 +1,13 @@
 import React from 'react'
-import './About.scss'
+
+import S from './About.module.scss'
 
 const About = () => (
-  <section id="about" className="about">
-    <p className="about__content u-margin-bottom-em">
+  <section id="about" className={S['about']}>
+    <p className={[S['about__content'], 'u-margin-bottom-em'].join(' ')}>
       I am a software engineer currently open to work.
     </p>
-    <p className="about__content about__content--smaller">
+    <p className={[S['about__content'], S['about__content--smaller']].join(' ')}>
       Most recently, I worked at Indeed where I helped people get jobs.
     </p>
   </section>

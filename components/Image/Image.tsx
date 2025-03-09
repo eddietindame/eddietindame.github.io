@@ -1,13 +1,14 @@
 import React from 'react'
-import { useSpring, animated, AnimatedValue, ForwardedProps } from 'react-spring'
-import Img from 'react-image'
-import './Image.scss'
+import { useSpring, animated, Animatable, ForwardProps } from 'react-spring'
+import { Img } from 'react-image'
+
+import S from './Image.module.scss'
 
 type ImageProps = {
   image: string
   alt: string
   className?: string
-  animation?: AnimatedValue<ForwardedProps<object>>
+  animation?: Animatable<ForwardProps<object>>
   onTouchStart: React.TouchEventHandler<HTMLDivElement>
   onTouchEnd: React.TouchEventHandler<HTMLDivElement>
 }
@@ -19,18 +20,19 @@ const Image = ({ className, animation, image, alt, onTouchStart, onTouchEnd }: I
 
   return (
     <Element
-      className={(className ? className + ' ' : '') + 'image'}
+      className={(className ? className + ' ' : '') + S['image']}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
+      // @ts-expect-error - weird react-spring types
       style={_animation}
     >
       <Img
         src={image}
         alt={alt}
-        className="image__inner"
+        className={S['image__inner']}
         loader={
-          <div className="image__inner">
-            <div className="image__loader loader" />
+          <div className={S['image__inner']}>
+            <div className={[S['image__loader'], 'loader'].join(' ')} />
           </div>
         }
       />
@@ -39,3 +41,5 @@ const Image = ({ className, animation, image, alt, onTouchStart, onTouchEnd }: I
 }
 
 export default Image
+
+// TODO: try next/Image

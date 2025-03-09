@@ -1,26 +1,23 @@
 import React from 'react'
-import App from 'next/app'
-import Router from 'next/router'
-import withGA from 'next-ga'
-import NProgress from 'next-nprogress/component'
-import { PageTransition } from 'next-page-transitions'
+import type { AppProps } from 'next/app'
+import { GoogleAnalytics } from '@next/third-parties/google'
+import PageTransition, { useAsPathWithoutHash } from '@madeinhaus/nextjs-page-transition'
+import '@madeinhaus/nextjs-page-transition/dist/index.css'
 
+import { GA_TRACKING_ID, TRANSITION_DURATION } from 'config'
 import Nav from 'components/Nav'
-import { GA_TRACKING_ID } from 'config'
+import 'scss/index.scss'
 
-class MyApp extends App {
-  render() {
-    const { Component, pageProps } = this.props
-    return (
-      <>
-        <NProgress color="#000000" spinner={false} />
-        <Nav />
-        <PageTransition timeout={300} classNames="page-transition" skipInitialTransition>
-          <Component {...pageProps} key={typeof window === 'undefined' ? '' : Router.route} />
-        </PageTransition>
-      </>
-    )
-  }
+export default function MyApp({ Component, pageProps }: AppProps) {
+  const key = useAsPathWithoutHash()
+
+  return (
+    <>
+      <Nav />
+      <PageTransition inPhaseDuration={TRANSITION_DURATION} outPhaseDuration={TRANSITION_DURATION}>
+        <Component {...pageProps} key={key} />
+      </PageTransition>
+      <GoogleAnalytics gaId={GA_TRACKING_ID} />
+    </>
+  )
 }
-
-export default withGA(GA_TRACKING_ID, Router)(MyApp)

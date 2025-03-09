@@ -1,10 +1,11 @@
 import React from 'react'
-import './Landing.scss'
+
+import S from './Landing.module.scss'
 
 const Landing = () => (
-  <section id="home" className="landing">
-    <div className="landing__inner">
-      <h1 className="landing__heading">
+  <section id="home" className={S['landing']}>
+    <div className={S['landing__inner']}>
+      <h1 className={S['landing__heading']}>
         eddie
         <br />
         tindame

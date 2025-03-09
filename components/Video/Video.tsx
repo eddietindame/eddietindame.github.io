@@ -1,19 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { useSpring, animated, AnimatedValue, ForwardedProps } from 'react-spring'
+import { useSpring, animated, Animatable, ForwardProps } from 'react-spring'
 
 import { Video as VideoType } from 'types/shared'
-import './Video.scss'
+import S from './Video.module.scss'
 
 type VideoProps = {
   video: VideoType
   className?: string
-  animation?: AnimatedValue<ForwardedProps<object>>
+  animation?: Animatable<ForwardProps<object>>
   onTouchStart?: React.TouchEventHandler<HTMLDivElement>
   onTouchEnd?: React.TouchEventHandler<HTMLDivElement>
 }
 
 const Video = ({ className, animation, video, onTouchStart, onTouchEnd }: VideoProps) => {
-  const videoRef = useRef<HTMLVideoElement>()
+  const videoRef = useRef<HTMLVideoElement>(null)
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
   const springAnimation = useSpring(animation)
 
@@ -33,17 +33,16 @@ const Video = ({ className, animation, video, onTouchStart, onTouchEnd }: VideoP
 
   return (
     <Element
-      className={(className ? className + ' ' : '') + 'video'}
+      className={(className ? className + ' ' : '') + S['video']}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
+      // @ts-expect-error - weird react-spring types
       style={_animation}
     >
       <video
-        className="video__element"
+        className={S['video__element']}
         style={{ opacity: isVideoLoaded ? 1 : 0 }}
         ref={videoRef}
-        // width="250"
-        // height="400"
         playsInline
         autoPlay
         muted
@@ -55,8 +54,8 @@ const Video = ({ className, animation, video, onTouchStart, onTouchEnd }: VideoP
         Your browser does not support the video tag. 😢
       </video>
       {!isVideoLoaded && (
-        <div className="video__overlay" style={{ opacity: isVideoLoaded ? 0 : 1 }}>
-          <div className="video__overlay__loader loader" />
+        <div className={S['video__overlay']} style={{ opacity: isVideoLoaded ? 0 : 1 }}>
+          <div className={[S['video__overlay__loader'], 'loader'].join(' ')} />
         </div>
       )}
     </Element>

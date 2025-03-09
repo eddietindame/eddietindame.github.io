@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useEffect, useState } from 'react'
 import LazyLoad, { forceCheck } from 'react-lazyload'
-import { animated } from 'react-spring'
+import { animated, Animatable, ForwardProps } from 'react-spring'
 
 import { Project as ProjectType } from 'types/shared'
 import Image from 'components/Image'
 import Video from 'components/Video'
-import './Project.scss'
+import S from './Project.module.scss'
 
 type ProjectProps = ProjectType & {
   isReversed?: boolean
@@ -23,7 +24,7 @@ const Project = ({
   credits,
   isReversed,
   animation,
-  className
+  className,
 }: ProjectProps) => {
   const [isPressed, setIsPressed] = useState(false)
   const enterAnimation = {
@@ -31,9 +32,9 @@ const Project = ({
     transform: 'translate(0px, 0px)',
     from: {
       opacity: 0,
-      transform: 'translate(10000px, 0px)'
-    }
-  }
+      transform: 'translate(10000px, 0px)',
+    },
+  } as Animatable<ForwardProps<object>>
   const Element = animation ? animated.div : 'div'
   const isLongWord = (words, threshold) =>
     words.split(' ').reduce((acc, cur) => (acc ? acc : cur.length > threshold), false)
@@ -44,19 +45,29 @@ const Project = ({
 
   return (
     <Element
-      className={
-        (className ? className + ' ' : '') +
-        'project' +
-        (isReversed ? ' project--reversed' : '') +
-        (isPressed ? ' project--pressed' : '')
-      }
+      className={[
+        className ? className + ' ' : '',
+        S['project'],
+        isReversed ? S['project--reversed'] : '',
+        isPressed ? S['project--pressed'] : '',
+      ].join(' ')}
       style={animation}
     >
-      <div className="project__inner">
-        <h2 className={'project__title' + (isLongWord(name, 11) ? ' project__title--smaller' : '')}>
+      <div className={S['project__inner']}>
+        <h2
+          className={[
+            S['project__title'],
+            isLongWord(name, 11) ? S['project__title--smaller'] : '',
+          ].join(' ')}
+        >
           <span className="t-highlight">
             {href ? (
-              <a href={href} target="__blank" rel="noopener noreferrer" className="project__link">
+              <a
+                href={href}
+                target="__blank"
+                rel="noopener noreferrer"
+                className={S['project__link']}
+              >
                 {name}
               </a>
             ) : (
@@ -64,13 +75,13 @@ const Project = ({
             )}
           </span>
         </h2>
-        <p className="project__description">
+        <p className={S['project__description']}>
           <span className="t-highlight">{description}</span>
         </p>
         {video ? (
-          <LazyLoad height={400} offset={100} once>
+          <LazyLoad className={S['project__thumbnail']} height={400} offset={100} once>
             <Video
-              className="project__thumbnail project__thumbnail--video"
+              className={S['project__thumbnail__video']}
               animation={enterAnimation}
               video={video}
               onTouchStart={() => {
@@ -82,9 +93,8 @@ const Project = ({
             />
           </LazyLoad>
         ) : (
-          <LazyLoad height={400} offset={100} once>
+          <LazyLoad className={S['project__thumbnail']} height={400} offset={100} once>
             <Image
-              className="project__thumbnail"
               animation={enterAnimation}
               image={thumbnail}
               alt={name}
@@ -97,9 +107,9 @@ const Project = ({
             />
           </LazyLoad>
         )}
-        <ul className="project__tags">
+        <ul className={S['project__tags']}>
           {tags.sort().map((tag, i) => (
-            <li key={i} className="project__tags__tag">
+            <li key={i} className={S['project__tags__tag']}>
               {tag}
             </li>
           ))}
@@ -107,10 +117,10 @@ const Project = ({
         {credits &&
           credits.length &&
           credits.map((credit, i) => (
-            <div key={i} className="project__credit">
+            <div key={i} className={S['project__credit']}>
               <span className="t-highlight">
-                <span className="project__credit__label">{credit.label}:</span>{' '}
-                <strong className="project__credit__value">{credit.value}</strong>
+                <span className={S['project__credit__label']}>{credit.label}:</span>{' '}
+                <strong className={S['project__credit__value']}>{credit.value}</strong>
               </span>
             </div>
           ))}
