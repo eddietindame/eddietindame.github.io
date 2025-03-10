@@ -8,7 +8,7 @@ Coming from the wonderful world of React, I’ve found that one is forced into a
 
 Take this list of RSS feeds, for example.
 
-![Screenshot](/static/img/blog/htmx_vS_spa_1.png)
+![Screenshot](/static/img/blog/htmx_vs_spa_1.png)
 
 When a user clicks the `Add` button, a request is made to the required endpoint which adds the feed to the user’s followed feeds and then returns the entire view, feeds list and input included.
 
