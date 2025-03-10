@@ -8,6 +8,7 @@ import { GA_TRACKING_ID, TRANSITION_DURATION } from 'config'
 import Nav from 'components/Nav'
 import 'scss/index.scss'
 import 'css/index.css'
+import 'css/docco.min.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const key = useAsPathWithoutHash()
@@ -15,7 +16,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Nav />
-      <PageTransition inPhaseDuration={TRANSITION_DURATION} outPhaseDuration={TRANSITION_DURATION}>
+      <PageTransition
+        inPhaseDuration={TRANSITION_DURATION}
+        outPhaseDuration={TRANSITION_DURATION}
+        className="min-h-full"
+      >
         <Component {...pageProps} key={key} />
       </PageTransition>
       <GoogleAnalytics gaId={GA_TRACKING_ID} />

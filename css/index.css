@@ -5,6 +5,14 @@
     'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji';
   --font-serif: Baskerville, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  --radius-sm: calc(var(--bs-border-radius) - 4px);
+  --radius-md: calc(var(--bs-border-radius) - 2px);
+  --radius-lg: var(--bs-border-radius);
+}
+
+:root {
+  --bs-border-radius: 0.5rem;
 }
 
 /* TODO: Migrate all component styles to tailwind */
