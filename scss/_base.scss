@@ -50,3 +50,10 @@ hr {
     width: 10%;
   }
 }
+
+pre > code.hljs {
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 0 !important;
+  padding: 1.5rem !important;
+}

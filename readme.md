@@ -1,8 +1,8 @@
 # Eddie Tindame's Portfolio Site
 
 ```bash
-yarn
-yarn dev
+npm i
+npm run dev
 ```
 
 Check `package.json` for more scripts.

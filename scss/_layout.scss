@@ -11,3 +11,10 @@
     padding: 60px;
   }
 }
+
+.blog-post {
+  p:not(:has(+ ul)),
+  ul {
+    margin-bottom: 1rem;
+  }
+}

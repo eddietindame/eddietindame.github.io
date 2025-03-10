@@ -39,6 +39,10 @@ const Nav = () => {
       href: '/work',
     },
     {
+      label: 'Blog',
+      href: '/blog',
+    },
+    {
       label: 'Contact',
       href: '/',
       hash: '#contact',
