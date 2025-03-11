@@ -16,8 +16,12 @@ export const BlogPostItem = ({ slug, title, description, date }: BlogPostItemPro
     <Link href={'/blog/' + slug}>
       <h2 className="inline">{title}</h2>
       <br />
-      <div className="inline-block">{description}</div>
-      <br />
+      {!!description && (
+        <>
+          <div className="inline-block">{description}</div>
+          <br />
+        </>
+      )}
       <div className="mb-3 inline-block border-b pb-3">{date}</div>
     </Link>
   </div>
