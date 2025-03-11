@@ -1,3 +1,9 @@
+export type TinaProps<T> = {
+  data: T
+  query: string
+  variables: { relativePath: string }
+}
+
 export type Project = {
   name: string
   thumbnail: string

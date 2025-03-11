@@ -1,20 +1,9 @@
-import path from 'path'
-import fs from 'fs'
 import { getBaseSlug, modifyRomanSlug } from 'lib/roman'
 
-const blogPostsDirectory = path.join(process.cwd(), '/markdown/posts')
-
-const blogPostFilenames = fs.readdirSync(blogPostsDirectory)
-
-const blogPostPaths = blogPostFilenames.map(filename => ({
-  params: { slug: filename.replace(/\.md$/, '') },
-}))
-
-export const getSeriesMap = () => {
+export const getSeriesMap = (slugs: string[]) => {
   const seriesMap = {} as Record<string, string[]>
 
-  for (const filename of blogPostFilenames) {
-    const slug = filename.replace('.md', '')
+  for (const slug of slugs) {
     const basename = getBaseSlug(slug)
     if (seriesMap[basename]) {
       seriesMap[basename].push(slug)
@@ -25,8 +14,8 @@ export const getSeriesMap = () => {
   return seriesMap
 }
 
-export const getAdjacentSeriesPosts = (slug: string) => {
-  const seriesMap = getSeriesMap()
+export const getAdjacentSeriesPosts = (slug: string, slugs: string[]) => {
+  const seriesMap = getSeriesMap(slugs)
   const basename = getBaseSlug(slug)
 
   if (seriesMap[basename]?.length > 1) {
@@ -41,9 +30,3 @@ export const getAdjacentSeriesPosts = (slug: string) => {
       next: null,
     }
 }
-
-export const getBlogPaths = () => ({
-  postsDirectory: blogPostsDirectory,
-  filenames: blogPostFilenames,
-  paths: blogPostPaths,
-})

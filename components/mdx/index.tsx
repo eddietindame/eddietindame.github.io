@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { Arrow } from 'components/Arrow'
 
-export type MDXProps = PropsWithChildren & { href?: string; src?: string; alt?: string }
+export type MDXProps = PropsWithChildren & { url?: string; src?: string; alt?: string }
 
 const H1 = ({ children }: MDXProps) => (
   <h1 className="text-lowercase font-sans text-3xl font-bold">{children}</h1>
@@ -15,9 +15,9 @@ const H2 = ({ children }: MDXProps) => (
 
 const H3 = ({ children }: MDXProps) => <h3 className="text-3xl">{children}</h3>
 
-export const A = ({ children, href }: MDXProps) => (
+export const A = ({ children, url }: MDXProps) => (
   <span className="block">
-    <Link href={href} className="inline-flex items-center gap-2" scroll={false}>
+    <Link href={url} className="inline-flex items-center gap-2" scroll={false}>
       {children} <Arrow className="inline rotate-90" />
     </Link>
   </span>

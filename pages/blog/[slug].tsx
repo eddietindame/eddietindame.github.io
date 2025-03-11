@@ -1,88 +1,87 @@
 import React from 'react'
 import Head from 'next/head'
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
-import remarkGfm from 'remark-gfm'
-import rehypeHighlight from 'rehype-highlight'
-import path from 'path'
-import fs from 'fs'
+import { useTina } from 'tinacms/dist/react'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
-import { BlogPostMetaData } from 'components/BlogPostItem'
+import client from 'tina/__generated__/client'
+import { PostQuery } from 'tina/__generated__/types'
 import { A, overrideComponents } from 'components/mdx'
 import { Layout } from 'components/Layout'
-import { getAdjacentSeriesPosts, getBlogPaths } from 'lib/blog'
+import { getAdjacentSeriesPosts } from 'lib/blog'
 import { formatDate } from 'lib/utils'
+import { TinaProps } from 'types/shared'
 import { HOST } from 'config'
 
-type BlogPostProps = {
+type BlogPostProps = TinaProps<PostQuery> & {
   slug: string
-  markdown: string
-  metadata: BlogPostMetaData
-  scope: Record<string, unknown>
   prev: string | null
   next: string | null
 }
 
-const BlogPost = ({ slug, markdown, metadata, scope, prev, next }: BlogPostProps) => (
-  <>
-    <Head>
-      <link rel="canonical" href={`${HOST}/blog/${slug}`} />
-      <title>Eddie Tindame | Blog | {metadata.title}</title>
-    </Head>
-    <Layout className="blog-post">
-      <h1 className="text-2xl sm:text-3xl">{metadata.title}</h1>
-      <div>{metadata.description}</div>
-      <div>{formatDate(metadata.date)}</div>
-      <hr className="my-4" />
-      <MDXRemote
-        compiledSource={markdown}
-        frontmatter={metadata}
-        scope={scope}
-        components={overrideComponents}
-      />
-      {prev && (
-        <em>
-          <A href={'/blog/' + prev}>This post is a continuation of a series...</A>
-        </em>
-      )}
-      {next && (
-        <em>
-          <A href={'/blog/' + next}>This series is continued here...</A>
-        </em>
-      )}
-      <hr className="my-4" />
-    </Layout>
-  </>
-)
+const BlogPost = ({ slug, prev, next, ...props }: BlogPostProps) => {
+  const {
+    data: { post },
+  } = useTina(props)
 
-export async function getStaticPaths() {
-  const { paths } = getBlogPaths()
-  return { paths, fallback: false }
+  return (
+    <>
+      <Head>
+        <link rel="canonical" href={`${HOST}/blog/${slug}`} />
+        <title>Eddie Tindame | Blog | {post.title}</title>
+      </Head>
+      <Layout className="blog-post">
+        <h1 className="text-2xl sm:text-3xl">{post.title}</h1>
+        <div>{post.description}</div>
+        <div>{formatDate(post.date)}</div>
+        <hr className="my-4" />
+        <TinaMarkdown components={overrideComponents} content={post.body} />
+        {prev && (
+          <em>
+            <A url={'/blog/' + prev}>This post is a continuation of a series...</A>
+          </em>
+        )}
+        {next && (
+          <em>
+            <A url={'/blog/' + next}>This series is continued here...</A>
+          </em>
+        )}
+        <hr className="my-4" />
+      </Layout>
+    </>
+  )
+}
+
+export const getStaticPaths = async () => {
+  const postsListData = await client.queries.postConnection()
+
+  return {
+    paths: postsListData.data.postConnection.edges.map(post => ({
+      params: { slug: post.node._sys.filename },
+    })),
+    fallback: false,
+  }
 }
 
 export async function getStaticProps({ params }): Promise<{ props: BlogPostProps }> {
-  const { prev, next } = getAdjacentSeriesPosts(params.slug)
-  const { postsDirectory } = getBlogPaths()
-  const filePath = path.join(postsDirectory, `${params.slug}.md`)
-  const fileContents = fs.readFileSync(filePath, 'utf8')
-  const { compiledSource, frontmatter, scope } = await serialize<
-    Record<string, unknown>,
-    BlogPostMetaData
-  >(fileContents, {
-    parseFrontmatter: true,
-    mdxOptions: {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [rehypeHighlight],
-      format: 'md',
-    },
-  })
+  const postsListData = await client.queries.postConnection()
+  const slugs = postsListData.data.postConnection.edges.map(post => post.node._sys.filename)
+  const { prev, next } = getAdjacentSeriesPosts(params.slug, slugs)
+  let data = {} as PostQuery
+  let query = ''
+  let variables = { relativePath: `${params.slug}.md` }
+  try {
+    const res = await client.queries.post(variables)
+    query = res.query
+    data = res.data
+    variables = res.variables
+  } catch {}
 
   return {
     props: {
       slug: params.slug,
-      markdown: compiledSource,
-      metadata: frontmatter,
-      scope,
+      variables,
+      data,
+      query,
       prev,
       next,
     },

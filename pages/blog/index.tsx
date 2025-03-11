@@ -1,13 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
-import { serialize } from 'next-mdx-remote/serialize'
-import path from 'path'
-import fs from 'fs'
 
-import { HOST } from 'config'
-import { getBlogPaths } from 'lib/blog'
+import client from 'tina/__generated__/client'
 import { Layout } from 'components/Layout'
-import { BlogPostItem, BlogPostItemProps, BlogPostMetaData } from 'components/BlogPostItem'
+import { BlogPostItem, BlogPostItemProps } from 'components/BlogPostItem'
+import { HOST } from 'config'
 
 type BlogProps = {
   posts: BlogPostItemProps[]
@@ -29,25 +26,13 @@ const Blog = ({ posts }: BlogProps) => (
 )
 
 export async function getStaticProps(): Promise<{ props: BlogProps }> {
-  const { filenames, postsDirectory } = getBlogPaths()
-  const posts = (
-    await Promise.all(
-      filenames.map(async filepath => {
-        const fileContents = fs.readFileSync(path.join(postsDirectory, filepath), 'utf8')
-        const { frontmatter } = await serialize<Record<string, unknown>, BlogPostMetaData>(
-          fileContents,
-          { parseFrontmatter: true },
-        )
-
-        return {
-          slug: filepath.replace(/\.md$/, ''),
-          title: frontmatter.title,
-          description: frontmatter.description,
-          date: frontmatter.date,
-        }
-      }),
-    )
-  ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const postsListData = await client.queries.postConnection()
+  const posts = postsListData.data.postConnection.edges.map(post => ({
+    slug: post.node._sys.filename,
+    title: post.node.title,
+    description: post.node.description,
+    date: post.node.date,
+  }))
 
   return {
     props: {
