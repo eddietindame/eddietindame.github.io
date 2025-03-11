@@ -67,8 +67,8 @@ _August 2016 – September 2017_
 - **APIs:** REST, GraphQL
 - **Testing:** Jest, Cypress, Testing Library, Storybook, Chromatic
 - **DevOps / SRE**: CI / CD, AWS, Vercel, Heroku, Docker, Terraform, DataDog
-- **Misc:** Git, Augmented Reality
-- **Software:** Figma / XD / Sketch, Photoshop, Illustrator, Unity, Office365 / GSuite, Slack, Notion, Mac, Windows, Linux
+- **Misc:** Git, Agile, Jira, Augmented Reality
+- **Software:** Visual Studio Code, Confluence, Notion, Figma / XD / Sketch, Photoshop, Illustrator, Unity, Office365 / GSuite, Slack, Mac, Windows, Linux
 
 ---
 

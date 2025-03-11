@@ -17,7 +17,7 @@ class MyDocument extends Document {
           <meta name="referrer" content="always" />
           <meta
             name="keywords"
-            content="eddie tindame eddietindame web dev webdev full stack fullstack developer design freelance london uk united kingdom unitedkingdom england eu europe react js reactjs javascript wordpress php html css seo mongodb database sql browser responsive"
+            content="eddie tindame eddietindame software engineer web dev webdev full stack fullstack developer design freelance contract london uk united kingdom unitedkingdom england eu europe react js reactjs javascript next nextjs next.js wordpress php go html css seo mongodb database sql browser responsive blog resume cv"
           />
           <meta name="description" content={DESC} />
           <meta property="og:type" content="website" />
