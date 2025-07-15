@@ -16,6 +16,13 @@ type NavItem = {
 }
 
 const Nav = () => {
+  const router = useRouter()
+
+  // Hide nav on MTG tool page
+  if (router.pathname === '/mtg-tool') {
+    return null
+  }
+
   const navItems: NavItem[] = [
     {
       label: 'Home',
