@@ -129,6 +129,96 @@ describe('MTGTool', () => {
     })
   })
 
+  test('discard button moves cards from hand to graveyard', async () => {
+    // First draw a card to have something in hand
+    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
+    await user.click(drawButton)
+
+    expect(screen.getByLabelText('Hand size: 1 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 0 cards')).toBeInTheDocument()
+
+    // Now discard it
+    const discardButton = screen.getByRole('button', {
+      name: 'Discard a card from hand to graveyard',
+    })
+    await user.click(discardButton)
+
+    expect(screen.getByLabelText('Hand size: 0 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 1 cards')).toBeInTheDocument()
+  })
+
+  test('discard button is disabled when hand is empty', async () => {
+    const discardButton = screen.getByRole('button', {
+      name: 'Discard a card from hand to graveyard',
+    })
+
+    // Should be disabled when hand is empty
+    expect(discardButton).toBeDisabled()
+
+    // Draw a card
+    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
+    await user.click(drawButton)
+
+    // Should be enabled now
+    expect(discardButton).not.toBeDisabled()
+
+    // Discard the card
+    await user.click(discardButton)
+
+    // Should be disabled again
+    expect(discardButton).toBeDisabled()
+  })
+
+  test('cannot discard more cards than in hand', async () => {
+    // Draw 2 cards
+    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
+    await user.click(drawButton)
+    await user.click(drawButton)
+
+    expect(screen.getByLabelText('Hand size: 2 cards')).toBeInTheDocument()
+
+    // Discard 3 times (should only discard 2)
+    const discardButton = screen.getByRole('button', {
+      name: 'Discard a card from hand to graveyard',
+    })
+    await user.click(discardButton)
+    await user.click(discardButton)
+    await user.click(discardButton) // This should do nothing
+
+    expect(screen.getByLabelText('Hand size: 0 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 2 cards')).toBeInTheDocument()
+  })
+
+  test('maintains total card count with draw and discard actions', async () => {
+    // Draw 3 cards
+    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
+    await user.click(drawButton)
+    await user.click(drawButton)
+    await user.click(drawButton)
+
+    // Discard 1 card
+    const discardButton = screen.getByRole('button', {
+      name: 'Discard a card from hand to graveyard',
+    })
+    await user.click(discardButton)
+
+    // Get current values
+    const deckElement = screen.getByLabelText('Deck total: 96 cards')
+    const handElement = screen.getByLabelText('Hand size: 2 cards')
+    const graveyardElement = screen.getByLabelText('Graveyard total: 1 cards')
+    const exileElement = screen.getByLabelText('Exile total: 0 cards')
+
+    // Parse values
+    const deckValue = parseInt(deckElement.getAttribute('aria-label')?.match(/\d+/)?.[0] || '0')
+    const handValue = parseInt(handElement.getAttribute('aria-label')?.match(/\d+/)?.[0] || '0')
+    const graveyardValue = parseInt(
+      graveyardElement.getAttribute('aria-label')?.match(/\d+/)?.[0] || '0',
+    )
+    const exileValue = parseInt(exileElement.getAttribute('aria-label')?.match(/\d+/)?.[0] || '0')
+
+    expect(deckValue + handValue + graveyardValue + exileValue).toBe(99)
+  })
+
   test('displays positive tooltip when increasing values', async () => {
     const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
 

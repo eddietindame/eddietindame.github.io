@@ -150,6 +150,26 @@ export const useGameState = () => {
     setExileFromHand(!exileFromHand)
   }
 
+  const discardToGraveyard = (count: number = 1) => {
+    const currentHandSize =
+      initialDeckState.deck.total -
+      deckState.deck.total -
+      deckState.graveyard.total -
+      deckState.exile.total
+
+    // Can't discard more cards than we have in hand
+    if (currentHandSize < count) return
+
+    // Increase graveyard by the discard count
+    setDeckState(prev => ({
+      ...prev,
+      graveyard: {
+        ...prev.graveyard,
+        total: prev.graveyard.total + count,
+      },
+    }))
+  }
+
   const handSize =
     initialDeckState.deck.total -
     deckState.deck.total -
@@ -163,5 +183,6 @@ export const useGameState = () => {
     updateZone,
     resetGame,
     toggleExileMode,
+    discardToGraveyard,
   }
 }
