@@ -10,6 +10,8 @@ interface GraveyardPermanentsProps {
   getNegativeDifference: (key: string) => number
   hasPositiveDifference: (key: string) => boolean
   hasNegativeDifference: (key: string) => boolean
+  isPositiveFading: (key: string) => boolean
+  isNegativeFading: (key: string) => boolean
 }
 
 export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
@@ -19,6 +21,8 @@ export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
   getNegativeDifference,
   hasPositiveDifference,
   hasNegativeDifference,
+  isPositiveFading,
+  isNegativeFading,
 }) => (
   <div className="grid grid-cols-1">
     <div
@@ -41,6 +45,8 @@ export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
               negativeDifference={getNegativeDifference('graveyard-permanents')}
               hasPositive={hasPositiveDifference('graveyard-permanents')}
               hasNegative={hasNegativeDifference('graveyard-permanents')}
+              isPositiveFading={isPositiveFading('graveyard-permanents')}
+              isNegativeFading={isNegativeFading('graveyard-permanents')}
             />
           </span>
         </div>

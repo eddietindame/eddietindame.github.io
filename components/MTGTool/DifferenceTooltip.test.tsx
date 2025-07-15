@@ -11,6 +11,8 @@ describe('DifferenceTooltip', () => {
         negativeDifference={0}
         hasPositive={true}
         hasNegative={false}
+        isPositiveFading={false}
+        isNegativeFading={false}
       />,
     )
 
@@ -25,6 +27,8 @@ describe('DifferenceTooltip', () => {
         negativeDifference={3}
         hasPositive={false}
         hasNegative={true}
+        isPositiveFading={false}
+        isNegativeFading={false}
       />,
     )
 
@@ -39,6 +43,8 @@ describe('DifferenceTooltip', () => {
         negativeDifference={2}
         hasPositive={true}
         hasNegative={true}
+        isPositiveFading={false}
+        isNegativeFading={false}
       />,
     )
 
@@ -55,6 +61,8 @@ describe('DifferenceTooltip', () => {
         negativeDifference={0}
         hasPositive={false}
         hasNegative={false}
+        isPositiveFading={false}
+        isNegativeFading={false}
       />,
     )
 
@@ -68,6 +76,8 @@ describe('DifferenceTooltip', () => {
         negativeDifference={0}
         hasPositive={false}
         hasNegative={false}
+        isPositiveFading={false}
+        isNegativeFading={false}
       />,
     )
 
@@ -81,6 +91,8 @@ describe('DifferenceTooltip', () => {
         negativeDifference={3}
         hasPositive={false}
         hasNegative={false}
+        isPositiveFading={false}
+        isNegativeFading={false}
       />,
     )
 
@@ -94,38 +106,93 @@ describe('DifferenceTooltip', () => {
         negativeDifference={0}
         hasPositive={true}
         hasNegative={true}
+        isPositiveFading={false}
+        isNegativeFading={false}
       />,
     )
 
-    expect(screen.queryByText('+0')).not.toBeInTheDocument()
-    expect(screen.queryByText('-0')).not.toBeInTheDocument()
+    expect(screen.queryByText(/[+-]/)).not.toBeInTheDocument()
   })
 
   test('positive tooltip has correct positioning classes', () => {
     render(
       <DifferenceTooltip
-        positiveDifference={1}
+        positiveDifference={3}
         negativeDifference={0}
         hasPositive={true}
         hasNegative={false}
+        isPositiveFading={false}
+        isNegativeFading={false}
       />,
     )
 
-    const positiveTooltip = screen.getByText('+1')
-    expect(positiveTooltip).toHaveClass('absolute', 'left-full', 'top-0', 'ml-1')
+    const tooltip = screen.getByText('+3')
+    expect(tooltip).toHaveClass('left-full', 'ml-1')
   })
 
   test('negative tooltip has correct positioning classes', () => {
     render(
       <DifferenceTooltip
         positiveDifference={0}
-        negativeDifference={1}
+        negativeDifference={2}
         hasPositive={false}
         hasNegative={true}
+        isPositiveFading={false}
+        isNegativeFading={false}
       />,
     )
 
-    const negativeTooltip = screen.getByText('-1')
-    expect(negativeTooltip).toHaveClass('absolute', 'right-full', 'top-0', 'mr-1')
+    const tooltip = screen.getByText('-2')
+    expect(tooltip).toHaveClass('right-full', 'mr-1')
+  })
+
+  test('applies fade-out class when isPositiveFading is true', () => {
+    render(
+      <DifferenceTooltip
+        positiveDifference={5}
+        negativeDifference={0}
+        hasPositive={true}
+        hasNegative={false}
+        isPositiveFading={true}
+        isNegativeFading={false}
+      />,
+    )
+
+    const tooltip = screen.getByText('+5')
+    expect(tooltip).toHaveClass('opacity-0')
+  })
+
+  test('applies fade-out class when isNegativeFading is true', () => {
+    render(
+      <DifferenceTooltip
+        positiveDifference={0}
+        negativeDifference={3}
+        hasPositive={false}
+        hasNegative={true}
+        isPositiveFading={false}
+        isNegativeFading={true}
+      />,
+    )
+
+    const tooltip = screen.getByText('-3')
+    expect(tooltip).toHaveClass('opacity-0')
+  })
+
+  test('does not apply fade-out class when not fading', () => {
+    render(
+      <DifferenceTooltip
+        positiveDifference={5}
+        negativeDifference={3}
+        hasPositive={true}
+        hasNegative={true}
+        isPositiveFading={false}
+        isNegativeFading={false}
+      />,
+    )
+
+    const positiveTooltip = screen.getByText('+5')
+    const negativeTooltip = screen.getByText('-3')
+    expect(positiveTooltip).toHaveClass('opacity-100')
+    expect(negativeTooltip).toHaveClass('opacity-100')
   })
 })
