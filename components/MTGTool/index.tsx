@@ -51,26 +51,21 @@ export const MTGTool: React.FC = () => {
   }
 
   const handleGraveyardPermanentsUpdate = (prev: DeckState, value: number) => {
-    const currentGraveyardTotal = prev.graveyard.total
+    const currentTotal = prev.graveyard.total
+    const newTotal = Math.max(currentTotal, value)
+    const totalDifference = newTotal - currentTotal
 
-    if (value > currentGraveyardTotal) {
-      // Need to increase graveyard total - take cards from deck
-      const additionalCards = value - currentGraveyardTotal
-      const newDeckTotal = prev.deck.total - additionalCards
-
-      if (newDeckTotal < 0) return prev
-
-      return {
-        ...prev,
-        deck: { ...prev.deck, total: newDeckTotal },
-        graveyard: { ...prev.graveyard, total: value, permanents: value },
-      }
-    }
-
-    // Just update permanents
     return {
       ...prev,
-      graveyard: { ...prev.graveyard, permanents: value },
+      deck: {
+        ...prev.deck,
+        total: prev.deck.total - totalDifference,
+      },
+      graveyard: {
+        ...prev.graveyard,
+        total: newTotal,
+        permanents: value,
+      },
     }
   }
 
@@ -78,28 +73,29 @@ export const MTGTool: React.FC = () => {
     const currentValue = prev[zone].total
     const difference = value - currentValue
 
-    switch (zone) {
-      case 'graveyard':
-        return handleGraveyardTotalUpdate(prev, value, difference)
-      case 'deck':
-        return handleDeckTotalUpdate(prev, value, difference)
-      case 'exile':
-        return handleExileTotalUpdate(prev, value, difference)
-      default:
-        return prev
+    if (zone === 'graveyard') {
+      return handleGraveyardTotalUpdate(prev, value, difference)
+    } else if (zone === 'deck') {
+      return handleDeckTotalUpdate(prev, value, difference)
+    } else if (zone === 'exile') {
+      return handleExileTotalUpdate(prev, value, difference)
     }
+
+    return prev
   }
 
   const handleGraveyardTotalUpdate = (prev: DeckState, value: number, difference: number) => {
-    const newDeckTotal = prev.deck.total - difference
-    if (newDeckTotal < 0) return prev
-
-    const newPermanents = Math.min(prev.graveyard.permanents || 0, value)
-
     return {
       ...prev,
-      deck: { ...prev.deck, total: newDeckTotal },
-      graveyard: { ...prev.graveyard, total: value, permanents: newPermanents },
+      deck: {
+        ...prev.deck,
+        total: prev.deck.total - difference,
+      },
+      graveyard: {
+        ...prev.graveyard,
+        total: value,
+        permanents: Math.min(prev.graveyard.permanents || 0, value),
+      },
     }
   }
 
@@ -118,16 +114,19 @@ export const MTGTool: React.FC = () => {
   }
 
   const handleExileTotalUpdate = (prev: DeckState, value: number, difference: number) => {
-    if (difference <= 0) {
-      // Removing from exile - return to graveyard
+    if (difference < 0) {
+      // Removing from exile - goes to graveyard
       return {
         ...prev,
-        graveyard: { ...prev.graveyard, total: prev.graveyard.total - difference },
+        graveyard: {
+          ...prev.graveyard,
+          total: prev.graveyard.total - difference,
+        },
         exile: { ...prev.exile, total: value },
       }
     }
 
-    // Adding to exile - depends on mode
+    // Adding to exile - check mode
     if (exileFromHand) {
       return handleExileFromHand(prev, value, difference)
     } else {
@@ -149,12 +148,13 @@ export const MTGTool: React.FC = () => {
   const handleExileFromGraveyard = (prev: DeckState, value: number, difference: number) => {
     if (prev.graveyard.total < difference) return prev
 
-    const newGraveyardTotal = prev.graveyard.total - difference
-    const newPermanents = Math.min(prev.graveyard.permanents || 0, newGraveyardTotal)
-
     return {
       ...prev,
-      graveyard: { ...prev.graveyard, total: newGraveyardTotal, permanents: newPermanents },
+      graveyard: {
+        ...prev.graveyard,
+        total: prev.graveyard.total - difference,
+        permanents: Math.max(0, (prev.graveyard.permanents || 0) - difference),
+      },
       exile: { ...prev.exile, total: value },
     }
   }
@@ -163,8 +163,14 @@ export const MTGTool: React.FC = () => {
     setDeckState(initialDeckState)
   }
 
+  const handSize =
+    initialDeckState.deck.total -
+    deckState.deck.total -
+    deckState.graveyard.total -
+    deckState.exile.total
+
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col" role="application" aria-label="MTG Card Counter Tool">
       {/* Zone Cards - Vertical Stack */}
       <div className="flex flex-1 flex-col">
         <ZoneCard
@@ -172,16 +178,14 @@ export const MTGTool: React.FC = () => {
           zone={deckState.deck}
           onUpdate={(field, value) => updateZone('deck', field, value)}
           className="flex-1 bg-slate-50"
+          ariaLabel="Deck zone"
         />
 
         {/* Hand Size Display */}
-        <div className="bg-gray-200 p-2 text-center text-white">
+        <div className="bg-gray-200 p-2 text-center text-white" role="status" aria-live="polite">
           <div className="text-sm font-medium">Hand</div>
-          <div className="text-lg font-bold">
-            {initialDeckState.deck.total -
-              deckState.deck.total -
-              deckState.graveyard.total -
-              deckState.exile.total}
+          <div className="text-lg font-bold" aria-label={`Hand size: ${handSize} cards`}>
+            {handSize}
           </div>
         </div>
 
@@ -190,14 +194,26 @@ export const MTGTool: React.FC = () => {
           zone={deckState.graveyard}
           onUpdate={(field, value) => updateZone('graveyard', field, value)}
           className="flex-1 bg-green-500"
+          ariaLabel="Graveyard zone"
         />
 
         {/* Zone Details */}
         <div className="grid grid-cols-1">
-          <div className="relative flex flex-col p-3">
-            <h3 className="mb-2 text-center text-sm font-bold">Graveyard Permanents</h3>
+          <div
+            className="relative flex flex-col p-3"
+            role="group"
+            aria-labelledby="graveyard-permanents-title"
+          >
+            <h3 id="graveyard-permanents-title" className="mb-2 text-center text-sm font-bold">
+              Graveyard Permanents
+            </h3>
             <div className="flex flex-1 flex-col justify-center text-center">
-              <div className="text-2xl font-bold">{deckState.graveyard.permanents || 0}</div>
+              <div
+                className="text-2xl font-bold"
+                aria-label={`Graveyard permanents: ${deckState.graveyard.permanents || 0}`}
+              >
+                {deckState.graveyard.permanents || 0}
+              </div>
               <div className="text-xs opacity-90">Permanents</div>
             </div>
 
@@ -207,12 +223,14 @@ export const MTGTool: React.FC = () => {
                 updateZone('graveyard', 'permanents', (deckState.graveyard.permanents || 0) - 1)
               }
               className="hover:bg-opacity-10 absolute top-0 left-0 h-full w-1/2 bg-transparent transition-all hover:bg-white"
+              aria-label="Decrease graveyard permanents"
             />
             <button
               onClick={() =>
                 updateZone('graveyard', 'permanents', (deckState.graveyard.permanents || 0) + 1)
               }
               className="hover:bg-opacity-10 absolute top-0 right-0 h-full w-1/2 bg-transparent transition-all hover:bg-white"
+              aria-label="Increase graveyard permanents"
             />
           </div>
         </div>
@@ -222,16 +240,18 @@ export const MTGTool: React.FC = () => {
           zone={deckState.exile}
           onUpdate={(field, value) => updateZone('exile', field, value)}
           className="flex-1 bg-blue-500 text-white"
+          ariaLabel="Exile zone"
         />
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3" role="group" aria-label="Quick actions">
         <button
           onClick={() => {
             updateZone('deck', 'total', deckState.deck.total - 1)
           }}
           className="bg-red-500 p-3 text-base font-bold text-white transition-all hover:bg-red-600 active:scale-95"
+          aria-label="Draw a card from deck to hand"
         >
           Draw Card
         </button>
@@ -240,12 +260,15 @@ export const MTGTool: React.FC = () => {
           className={`p-3 text-xs font-bold text-white transition-all active:scale-95 ${
             exileFromHand ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-600 hover:bg-gray-700'
           }`}
+          aria-label={`Toggle exile mode. Currently: ${exileFromHand ? 'Exile from hand' : 'Exile from graveyard'}`}
+          aria-pressed={exileFromHand}
         >
           {exileFromHand ? 'Hand→Exile' : 'GY→Exile'}
         </button>
         <button
           onClick={resetGame}
           className="bg-gray-500 p-3 text-base font-bold text-white transition-all hover:bg-gray-600 active:scale-95"
+          aria-label="Reset game to initial state"
         >
           Reset Game
         </button>
@@ -259,14 +282,23 @@ interface ZoneCardProps {
   zone: CardZone
   onUpdate: (field: keyof CardZone, value: number) => void
   className?: string
+  ariaLabel: string
 }
 
-const ZoneCard: React.FC<ZoneCardProps> = ({ title, zone, onUpdate, className }) => {
+const ZoneCard: React.FC<ZoneCardProps> = ({ title, zone, onUpdate, className, ariaLabel }) => {
   return (
-    <div className={cn('relative flex flex-col p-3 text-white', className)}>
-      <h3 className="mb-2 text-center text-sm font-bold">{title}</h3>
+    <div
+      className={cn('relative flex flex-col p-3 text-white', className)}
+      role="group"
+      aria-labelledby={`${title.toLowerCase()}-title`}
+    >
+      <h3 id={`${title.toLowerCase()}-title`} className="mb-2 text-center text-sm font-bold">
+        {title}
+      </h3>
       <div className="flex flex-1 flex-col justify-center text-center">
-        <div className="text-2xl font-bold">{zone.total}</div>
+        <div className="text-2xl font-bold" aria-label={`${title} total: ${zone.total} cards`}>
+          {zone.total}
+        </div>
         <div className="text-xs opacity-90">Total Cards</div>
       </div>
 
@@ -274,10 +306,12 @@ const ZoneCard: React.FC<ZoneCardProps> = ({ title, zone, onUpdate, className })
       <button
         onClick={() => onUpdate('total', zone.total - 1)}
         className="hover:bg-opacity-10 absolute top-0 left-0 h-full w-1/2 bg-transparent transition-all hover:bg-white"
+        aria-label={`Decrease ${title.toLowerCase()} total`}
       />
       <button
         onClick={() => onUpdate('total', zone.total + 1)}
         className="hover:bg-opacity-10 absolute top-0 right-0 h-full w-1/2 bg-transparent transition-all hover:bg-white"
+        aria-label={`Increase ${title.toLowerCase()} total`}
       />
     </div>
   )
