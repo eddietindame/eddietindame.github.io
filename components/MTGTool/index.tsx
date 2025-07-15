@@ -15,6 +15,8 @@ export const MTGTool: React.FC = () => {
     getNegativeDifference,
     hasPositiveDifference,
     hasNegativeDifference,
+    isPositiveFading,
+    isNegativeFading,
   } = useDebouncedDifference()
 
   // Track previous state to detect actual changes
@@ -75,6 +77,8 @@ export const MTGTool: React.FC = () => {
           getNegativeDifference={getNegativeDifference}
           hasPositiveDifference={hasPositiveDifference}
           hasNegativeDifference={hasNegativeDifference}
+          isPositiveFading={isPositiveFading}
+          isNegativeFading={isNegativeFading}
           zoneKey="deck"
         />
 
@@ -89,6 +93,8 @@ export const MTGTool: React.FC = () => {
           getNegativeDifference={getNegativeDifference}
           hasPositiveDifference={hasPositiveDifference}
           hasNegativeDifference={hasNegativeDifference}
+          isPositiveFading={isPositiveFading}
+          isNegativeFading={isNegativeFading}
           zoneKey="graveyard"
         />
 
@@ -99,6 +105,8 @@ export const MTGTool: React.FC = () => {
           getNegativeDifference={getNegativeDifference}
           hasPositiveDifference={hasPositiveDifference}
           hasNegativeDifference={hasNegativeDifference}
+          isPositiveFading={isPositiveFading}
+          isNegativeFading={isNegativeFading}
         />
 
         <ZoneCard
@@ -110,6 +118,8 @@ export const MTGTool: React.FC = () => {
           getNegativeDifference={getNegativeDifference}
           hasPositiveDifference={hasPositiveDifference}
           hasNegativeDifference={hasNegativeDifference}
+          isPositiveFading={isPositiveFading}
+          isNegativeFading={isNegativeFading}
           zoneKey="exile"
         />
       </div>

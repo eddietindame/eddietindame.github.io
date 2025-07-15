@@ -4,22 +4,33 @@ interface DifferenceState {
   [key: string]: {
     positive: number
     negative: number
+    positiveFading: boolean
+    negativeFading: boolean
   }
 }
 
-export const useDebouncedDifference = (debounceMs: number = 2000) => {
+export const useDebouncedDifference = (debounceMs: number = 2000, fadeMs: number = 500) => {
   const [differences, setDifferences] = useState<DifferenceState>({})
   const timeoutRefs = useRef<{
-    [key: string]: { positive?: NodeJS.Timeout; negative?: NodeJS.Timeout }
+    [key: string]: {
+      positive?: NodeJS.Timeout
+      negative?: NodeJS.Timeout
+      positiveFade?: NodeJS.Timeout
+      negativeFade?: NodeJS.Timeout
+    }
   }>({})
 
   const addDifference = (key: string, amount: number) => {
     const type = amount > 0 ? 'positive' : 'negative'
+    const fadeType = amount > 0 ? 'positiveFade' : 'negativeFade'
     const value = Math.abs(amount)
 
-    // Clear existing timeout for this key and type
+    // Clear existing timeouts for this key and type
     if (timeoutRefs.current[key]?.[type]) {
       clearTimeout(timeoutRefs.current[key]![type]!)
+    }
+    if (timeoutRefs.current[key]?.[fadeType]) {
+      clearTimeout(timeoutRefs.current[key]![fadeType]!)
     }
 
     // Initialize if needed
@@ -27,7 +38,7 @@ export const useDebouncedDifference = (debounceMs: number = 2000) => {
       timeoutRefs.current[key] = {}
     }
 
-    // Update the difference
+    // Update the difference and reset fading state
     setDifferences(prev => ({
       ...prev,
       [key]: {
@@ -35,10 +46,30 @@ export const useDebouncedDifference = (debounceMs: number = 2000) => {
           type === 'positive' ? (prev[key]?.positive || 0) + value : prev[key]?.positive || 0,
         negative:
           type === 'negative' ? (prev[key]?.negative || 0) + value : prev[key]?.negative || 0,
+        positiveFading: type === 'positive' ? false : prev[key]?.positiveFading || false,
+        negativeFading: type === 'negative' ? false : prev[key]?.negativeFading || false,
       },
     }))
 
-    // Set new timeout to clear this difference type
+    // Set timeout to start fade-out
+    timeoutRefs.current[key]![fadeType] = setTimeout(() => {
+      setDifferences(prev => {
+        const current = prev[key]
+        if (!current) return prev
+
+        return {
+          ...prev,
+          [key]: {
+            ...current,
+            positiveFading: type === 'positive' ? true : current.positiveFading,
+            negativeFading: type === 'negative' ? true : current.negativeFading,
+          },
+        }
+      })
+      delete timeoutRefs.current[key]![fadeType]
+    }, debounceMs - fadeMs)
+
+    // Set timeout to clear this difference type completely
     timeoutRefs.current[key]![type] = setTimeout(() => {
       setDifferences(prev => {
         const current = prev[key]
@@ -46,9 +77,9 @@ export const useDebouncedDifference = (debounceMs: number = 2000) => {
 
         const newState = { ...prev }
         if (type === 'positive') {
-          newState[key] = { ...current, positive: 0 }
+          newState[key] = { ...current, positive: 0, positiveFading: false }
         } else {
-          newState[key] = { ...current, negative: 0 }
+          newState[key] = { ...current, negative: 0, negativeFading: false }
         }
 
         // Remove the key entirely if both are 0
@@ -78,12 +109,22 @@ export const useDebouncedDifference = (debounceMs: number = 2000) => {
     return (differences[key]?.negative || 0) > 0
   }
 
+  const isPositiveFading = (key: string): boolean => {
+    return differences[key]?.positiveFading || false
+  }
+
+  const isNegativeFading = (key: string): boolean => {
+    return differences[key]?.negativeFading || false
+  }
+
   // Cleanup timeouts on unmount
   useEffect(() => {
     return () => {
       Object.values(timeoutRefs.current).forEach(timeouts => {
         if (timeouts.positive) clearTimeout(timeouts.positive)
         if (timeouts.negative) clearTimeout(timeouts.negative)
+        if (timeouts.positiveFade) clearTimeout(timeouts.positiveFade)
+        if (timeouts.negativeFade) clearTimeout(timeouts.negativeFade)
       })
     }
   }, [])
@@ -94,5 +135,7 @@ export const useDebouncedDifference = (debounceMs: number = 2000) => {
     getNegativeDifference,
     hasPositiveDifference,
     hasNegativeDifference,
+    isPositiveFading,
+    isNegativeFading,
   }
 }

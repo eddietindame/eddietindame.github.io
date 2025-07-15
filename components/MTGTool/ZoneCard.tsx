@@ -13,6 +13,8 @@ interface ZoneCardProps {
   getNegativeDifference: (key: string) => number
   hasPositiveDifference: (key: string) => boolean
   hasNegativeDifference: (key: string) => boolean
+  isPositiveFading: (key: string) => boolean
+  isNegativeFading: (key: string) => boolean
   zoneKey: string
 }
 
@@ -25,6 +27,8 @@ export const ZoneCard: React.FC<ZoneCardProps> = ({
   getNegativeDifference,
   hasPositiveDifference,
   hasNegativeDifference,
+  isPositiveFading,
+  isNegativeFading,
   zoneKey,
 }) => (
   <div
@@ -47,6 +51,8 @@ export const ZoneCard: React.FC<ZoneCardProps> = ({
             negativeDifference={getNegativeDifference(`${zoneKey}-total`)}
             hasPositive={hasPositiveDifference(`${zoneKey}-total`)}
             hasNegative={hasNegativeDifference(`${zoneKey}-total`)}
+            isPositiveFading={isPositiveFading(`${zoneKey}-total`)}
+            isNegativeFading={isNegativeFading(`${zoneKey}-total`)}
           />
         </span>
       </div>
