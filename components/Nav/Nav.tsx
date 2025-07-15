@@ -18,6 +18,11 @@ type NavItem = {
 const Nav = () => {
   const router = useRouter()
 
+  // Create refs unconditionally
+  const homeRef = useRef(null)
+  const aboutRef = useRef(null)
+  const contactRef = useRef(null)
+
   // Hide nav on MTG tool page
   if (router.pathname === '/mtg-tool') {
     return null
@@ -28,13 +33,13 @@ const Nav = () => {
       label: 'Home',
       href: '/',
       hash: '#home',
-      ref: useRef(null),
+      ref: homeRef,
     },
     {
       label: 'About',
       href: '/',
       hash: '#about',
-      ref: useRef(null),
+      ref: aboutRef,
       isDesktopOnly: true,
     },
     {
@@ -49,7 +54,7 @@ const Nav = () => {
       label: 'Contact',
       href: '/',
       hash: '#contact',
-      ref: useRef(null),
+      ref: contactRef,
     },
   ]
 
