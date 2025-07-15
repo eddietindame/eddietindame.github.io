@@ -19,14 +19,14 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
   <div className="grid grid-cols-3" role="group" aria-label="Quick actions">
     <button
       onClick={() => onUpdateZone('deck', 'total', deckState.deck.total - 1)}
-      className="bg-red-500 p-3 text-base font-bold text-white transition-all hover:bg-red-600 active:scale-95"
+      className="bg-red-500 p-3 text-base font-bold text-white transition-all hover:bg-red-600"
       aria-label="Draw a card from deck to hand"
     >
       Draw Card
     </button>
     <button
       onClick={onToggleExileMode}
-      className={`p-3 text-xs font-bold text-white transition-all active:scale-95 ${
+      className={`p-3 text-xs font-bold text-white transition-all ${
         exileFromHand ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-600 hover:bg-gray-700'
       }`}
       aria-label={`Toggle exile mode. Currently: ${exileFromHand ? 'Exile from hand' : 'Exile from graveyard'}`}
@@ -36,7 +36,7 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
     </button>
     <button
       onClick={onReset}
-      className="bg-gray-500 p-3 text-base font-bold text-white transition-all hover:bg-gray-600 active:scale-95"
+      className="bg-gray-500 p-3 text-base font-bold text-white transition-all hover:bg-gray-600"
       aria-label="Reset game to initial state"
     >
       Reset Game

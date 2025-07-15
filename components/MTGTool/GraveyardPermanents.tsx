@@ -1,5 +1,6 @@
 import React from 'react'
 import { CardZone } from './types'
+import { ButtonOverlay } from './ButtonOverlay'
 
 interface GraveyardPermanentsProps {
   graveyard: CardZone
@@ -29,16 +30,11 @@ export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
         <div className="text-xs opacity-90">Permanents</div>
       </div>
 
-      {/* Invisible clickable areas covering the entire card */}
-      <button
-        onClick={() => onUpdate('permanents', (graveyard.permanents || 0) - 1)}
-        className="hover:bg-opacity-10 absolute top-0 left-0 h-full w-1/2 bg-transparent transition-all hover:bg-white"
-        aria-label="Decrease graveyard permanents"
-      />
-      <button
-        onClick={() => onUpdate('permanents', (graveyard.permanents || 0) + 1)}
-        className="hover:bg-opacity-10 absolute top-0 right-0 h-full w-1/2 bg-transparent transition-all hover:bg-white"
-        aria-label="Increase graveyard permanents"
+      <ButtonOverlay
+        onDecrease={() => onUpdate('permanents', (graveyard.permanents || 0) - 1)}
+        onIncrease={() => onUpdate('permanents', (graveyard.permanents || 0) + 1)}
+        decreaseLabel="Decrease graveyard permanents"
+        increaseLabel="Increase graveyard permanents"
       />
     </div>
   </div>
