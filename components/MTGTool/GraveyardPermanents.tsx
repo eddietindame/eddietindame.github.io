@@ -1,15 +1,24 @@
 import React from 'react'
 import { CardZone } from './types'
 import { ButtonOverlay } from './ButtonOverlay'
+import { DifferenceTooltip } from './DifferenceTooltip'
 
 interface GraveyardPermanentsProps {
   graveyard: CardZone
   onUpdate: (field: keyof CardZone, value: number) => void
+  getPositiveDifference: (key: string) => number
+  getNegativeDifference: (key: string) => number
+  hasPositiveDifference: (key: string) => boolean
+  hasNegativeDifference: (key: string) => boolean
 }
 
 export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
   graveyard,
   onUpdate,
+  getPositiveDifference,
+  getNegativeDifference,
+  hasPositiveDifference,
+  hasNegativeDifference,
 }) => (
   <div className="grid grid-cols-1">
     <div
@@ -22,10 +31,18 @@ export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
       </h3>
       <div className="flex flex-1 flex-col justify-center text-center">
         <div
-          className="text-2xl font-bold"
+          className="relative text-2xl font-bold"
           aria-label={`Graveyard permanents: ${graveyard.permanents || 0}`}
         >
-          {graveyard.permanents || 0}
+          <span className="relative">
+            {graveyard.permanents || 0}
+            <DifferenceTooltip
+              positiveDifference={getPositiveDifference('graveyard-permanents')}
+              negativeDifference={getNegativeDifference('graveyard-permanents')}
+              hasPositive={hasPositiveDifference('graveyard-permanents')}
+              hasNegative={hasNegativeDifference('graveyard-permanents')}
+            />
+          </span>
         </div>
         <div className="text-xs opacity-90">Permanents</div>
       </div>
