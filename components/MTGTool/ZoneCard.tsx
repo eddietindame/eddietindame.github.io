@@ -1,6 +1,7 @@
 import React from 'react'
 import { cn } from 'lib/utils'
 import { CardZone } from './types'
+import { ButtonOverlay } from './ButtonOverlay'
 
 interface ZoneCardProps {
   title: string
@@ -25,16 +26,11 @@ export const ZoneCard: React.FC<ZoneCardProps> = ({ title, zone, onUpdate, class
       <div className="text-xs opacity-90">Total Cards</div>
     </div>
 
-    {/* Invisible clickable areas covering the entire card */}
-    <button
-      onClick={() => onUpdate('total', zone.total - 1)}
-      className="hover:bg-opacity-10 absolute top-0 left-0 h-full w-1/2 bg-transparent transition-all hover:bg-white"
-      aria-label={`Decrease ${title.toLowerCase()} total`}
-    />
-    <button
-      onClick={() => onUpdate('total', zone.total + 1)}
-      className="hover:bg-opacity-10 absolute top-0 right-0 h-full w-1/2 bg-transparent transition-all hover:bg-white"
-      aria-label={`Increase ${title.toLowerCase()} total`}
+    <ButtonOverlay
+      onDecrease={() => onUpdate('total', zone.total - 1)}
+      onIncrease={() => onUpdate('total', zone.total + 1)}
+      decreaseLabel={`Decrease ${title.toLowerCase()} total`}
+      increaseLabel={`Increase ${title.toLowerCase()} total`}
     />
   </div>
 )
