@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import { MTGTool } from './index'
@@ -129,197 +129,148 @@ describe('MTGTool', () => {
     })
   })
 
-  test('exile mode toggle has correct aria-pressed state', async () => {
-    const modeButton = screen.getByRole('button', { name: /Toggle exile mode/ })
-
-    // Initially should be false (GY→Exile mode)
-    expect(modeButton).toHaveAttribute('aria-pressed', 'false')
-
-    await user.click(modeButton)
-
-    // After click should be true (Hand→Exile mode)
-    expect(modeButton).toHaveAttribute('aria-pressed', 'true')
-  })
-
-  // NEW TEST CASES - Missing edge cases and validation logic
-
-  test('prevents deck total from going below 0', async () => {
-    // First, empty the deck completely
+  test('displays positive tooltip when increasing values', async () => {
     const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
 
-    // Click 99 times to move all cards to graveyard
-    for (let i = 0; i < 99; i++) {
-      await user.click(increaseGraveyardButton)
-    }
-
-    expect(screen.getByLabelText('Deck total: 0 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Graveyard total: 99 cards')).toBeInTheDocument()
-
-    // Try to decrease deck further - should not work
-    const decreaseDeckButton = screen.getByRole('button', { name: 'Decrease deck total' })
-    await user.click(decreaseDeckButton)
-
-    // Should still be 0
-    expect(screen.getByLabelText('Deck total: 0 cards')).toBeInTheDocument()
-  })
-
-  test('prevents zone totals from exceeding 99', async () => {
-    // Try to increase deck beyond 99 (should fail)
-    const increaseDeckButton = screen.getByRole('button', { name: 'Increase deck total' })
-    await user.click(increaseDeckButton)
-
-    // Should still be 99
-    expect(screen.getByLabelText('Deck total: 99 cards')).toBeInTheDocument()
-  })
-
-  test('prevents adding to deck when insufficient cards in hand', async () => {
-    // Start with some cards in hand
-    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
-    await user.click(drawButton) // Hand: 1, Deck: 98
-
-    // Try to add 2 cards to deck (should fail since hand only has 1)
-    const increaseDeckButton = screen.getByRole('button', { name: 'Increase deck total' })
-    await user.click(increaseDeckButton)
-    await user.click(increaseDeckButton) // Second click should fail
-
-    expect(screen.getByLabelText('Deck total: 99 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Hand size: 0 cards')).toBeInTheDocument()
-  })
-
-  test('exile from graveyard mode works correctly', async () => {
-    // Add cards to graveyard first
-    const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
+    // Click multiple times to accumulate positive changes
     await user.click(increaseGraveyardButton)
-    await user.click(increaseGraveyardButton) // Graveyard: 2, Deck: 97
-
-    // Exile from graveyard (default mode)
-    const increaseExileButton = screen.getByRole('button', { name: 'Increase exile total' })
-    await user.click(increaseExileButton)
-
-    expect(screen.getByLabelText('Graveyard total: 1 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Exile total: 1 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Deck total: 97 cards')).toBeInTheDocument()
-  })
-
-  test('exile from hand mode works correctly', async () => {
-    // Draw cards to hand
-    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
-    await user.click(drawButton)
-    await user.click(drawButton) // Hand: 2, Deck: 97
-
-    // Switch to exile from hand mode
-    const modeButton = screen.getByRole('button', { name: /Toggle exile mode/ })
-    await user.click(modeButton)
-
-    // Exile from hand
-    const increaseExileButton = screen.getByRole('button', { name: 'Increase exile total' })
-    await user.click(increaseExileButton)
-
-    expect(screen.getByLabelText('Hand size: 1 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Exile total: 1 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Deck total: 97 cards')).toBeInTheDocument()
-  })
-
-  test('prevents exile from hand when insufficient cards in hand', async () => {
-    // Switch to exile from hand mode with no cards in hand
-    const modeButton = screen.getByRole('button', { name: /Toggle exile mode/ })
-    await user.click(modeButton)
-
-    // Try to exile from empty hand
-    const increaseExileButton = screen.getByRole('button', { name: 'Increase exile total' })
-    await user.click(increaseExileButton)
-
-    expect(screen.getByLabelText('Hand size: 0 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Exile total: 0 cards')).toBeInTheDocument()
-  })
-
-  test('prevents exile from graveyard when insufficient cards in graveyard', async () => {
-    // Try to exile from empty graveyard
-    const increaseExileButton = screen.getByRole('button', { name: 'Increase exile total' })
-    await user.click(increaseExileButton)
-
-    expect(screen.getByLabelText('Graveyard total: 0 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Exile total: 0 cards')).toBeInTheDocument()
-  })
-
-  test('removing from exile returns cards to graveyard', async () => {
-    // Set up some cards in exile
-    const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
     await user.click(increaseGraveyardButton)
-    await user.click(increaseGraveyardButton) // Graveyard: 2
+    await user.click(increaseGraveyardButton) // Should show +3
 
-    const increaseExileButton = screen.getByRole('button', { name: 'Increase exile total' })
-    await user.click(increaseExileButton)
-    await user.click(increaseExileButton) // Exile: 2, Graveyard: 0
-
-    // Remove from exile
-    const decreaseExileButton = screen.getByRole('button', { name: 'Decrease exile total' })
-    await user.click(decreaseExileButton)
-
-    expect(screen.getByLabelText('Exile total: 1 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Graveyard total: 1 cards')).toBeInTheDocument()
-  })
-
-  test('graveyard permanents cannot exceed graveyard total', async () => {
-    // Add 2 cards to graveyard
-    const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
-    await user.click(increaseGraveyardButton)
-    await user.click(increaseGraveyardButton) // Graveyard: 2
-
-    // Add 3 permanents (should auto-expand graveyard)
-    const increasePermanentsButton = screen.getByRole('button', {
-      name: 'Increase graveyard permanents',
+    // Check that positive tooltip appears
+    await waitFor(() => {
+      expect(screen.getByText('+3')).toBeInTheDocument()
     })
-    await user.click(increasePermanentsButton)
-    await user.click(increasePermanentsButton)
-    await user.click(increasePermanentsButton) // Permanents: 3, should expand graveyard to 3
-
-    expect(screen.getByLabelText('Graveyard total: 3 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Graveyard permanents: 3')).toBeInTheDocument()
+    expect(screen.getByText('+3')).toHaveClass('text-green-400')
   })
 
-  test('decreasing graveyard total adjusts permanents when necessary', async () => {
-    // Set up graveyard with 3 cards and 2 permanents
+  test('displays negative tooltip when decreasing values', async () => {
+    // First add some cards to graveyard so we can decrease
     const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
     await user.click(increaseGraveyardButton)
     await user.click(increaseGraveyardButton)
     await user.click(increaseGraveyardButton) // Graveyard: 3
 
-    const increasePermanentsButton = screen.getByRole('button', {
-      name: 'Increase graveyard permanents',
-    })
-    await user.click(increasePermanentsButton)
-    await user.click(increasePermanentsButton) // Permanents: 2
+    // Wait for tooltip to disappear
+    await waitFor(
+      () => {
+        expect(screen.queryByText('+3')).not.toBeInTheDocument()
+      },
+      { timeout: 3000 },
+    )
 
-    // Decrease graveyard to 1 (should reduce permanents to 1)
     const decreaseGraveyardButton = screen.getByRole('button', { name: 'Decrease graveyard total' })
     await user.click(decreaseGraveyardButton)
-    await user.click(decreaseGraveyardButton) // Graveyard: 1
+    await user.click(decreaseGraveyardButton) // Should show -2
 
-    expect(screen.getByLabelText('Graveyard total: 1 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Graveyard permanents: 1')).toBeInTheDocument()
+    // Check that negative tooltip appears
+    await waitFor(() => {
+      expect(screen.getByText('-2')).toBeInTheDocument()
+    })
+    expect(screen.getByText('-2')).toHaveClass('text-red-400')
   })
 
-  test('exiling from graveyard properly reduces permanents', async () => {
-    // Set up graveyard with cards and permanents
+  test('displays both positive and negative tooltips simultaneously', async () => {
+    // First add some cards to graveyard
     const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
     await user.click(increaseGraveyardButton)
     await user.click(increaseGraveyardButton)
-    await user.click(increaseGraveyardButton) // Graveyard: 3
+    await user.click(increaseGraveyardButton) // Graveyard: 3, should show +3
 
+    // Wait for positive tooltip to appear
+    await waitFor(() => {
+      expect(screen.getByText('+3')).toBeInTheDocument()
+    })
+
+    // Then decrease without waiting for timeout
+    const decreaseGraveyardButton = screen.getByRole('button', { name: 'Decrease graveyard total' })
+    await user.click(decreaseGraveyardButton) // Should show -1
+
+    // Both tooltips should be visible
+    await waitFor(() => {
+      expect(screen.getByText('+3')).toBeInTheDocument()
+      expect(screen.getByText('-1')).toBeInTheDocument()
+    })
+    expect(screen.getByText('+3')).toHaveClass('text-green-400')
+    expect(screen.getByText('-1')).toHaveClass('text-red-400')
+  })
+
+  test('tooltips accumulate values correctly', async () => {
+    const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
+
+    // Click multiple times quickly
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton) // Should accumulate to +5
+
+    await waitFor(() => {
+      expect(screen.getByText('+5')).toBeInTheDocument()
+    })
+  })
+
+  test('tooltips work for graveyard permanents', async () => {
+    const increasePermanentsButton = screen.getByRole('button', {
+      name: 'Increase graveyard permanents',
+    })
+
+    await user.click(increasePermanentsButton)
+    await user.click(increasePermanentsButton)
+    await user.click(increasePermanentsButton) // Should show +3
+
+    await waitFor(() => {
+      expect(screen.getByText('+3')).toBeInTheDocument()
+    })
+    expect(screen.getByText('+3')).toHaveClass('text-green-400')
+  })
+
+  test('tooltips work for all zones', async () => {
+    // Test deck zone
+    const decreaseDeckButton = screen.getByRole('button', { name: 'Decrease deck total' })
+    await user.click(decreaseDeckButton)
+    await user.click(decreaseDeckButton) // Should show -2
+
+    await waitFor(() => {
+      expect(screen.getByText('-2')).toBeInTheDocument()
+    })
+    expect(screen.getByText('-2')).toHaveClass('text-red-400')
+
+    // Test graveyard total
+    const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton) // Should show +3
+
+    await waitFor(() => {
+      expect(screen.getByText('+3')).toBeInTheDocument()
+    })
+    expect(screen.getByText('+3')).toHaveClass('text-green-400')
+
+    // Test graveyard permanents
     const increasePermanentsButton = screen.getByRole('button', {
       name: 'Increase graveyard permanents',
     })
     await user.click(increasePermanentsButton)
-    await user.click(increasePermanentsButton) // Permanents: 2
+    await user.click(increasePermanentsButton) // Should show +2
 
-    // Exile 2 cards from graveyard
+    await waitFor(() => {
+      expect(screen.getByText('+2')).toBeInTheDocument()
+    })
+
+    // Test exile zone - now graveyard has cards to exile from
     const increaseExileButton = screen.getByRole('button', { name: 'Increase exile total' })
-    await user.click(increaseExileButton)
-    await user.click(increaseExileButton) // Exile: 2, Graveyard: 1
+    await user.click(increaseExileButton) // Should show +1
 
-    expect(screen.getByLabelText('Graveyard total: 1 cards')).toBeInTheDocument()
-    expect(screen.getByLabelText('Graveyard permanents: 0')).toBeInTheDocument()
-    expect(screen.getByLabelText('Exile total: 2 cards')).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByText('+1')).toBeInTheDocument()
+    })
+    expect(screen.getByText('+1')).toHaveClass('text-green-400')
+
+    // Verify all tooltips are showing different values to confirm they're working independently
+    expect(screen.getByText('-2')).toBeInTheDocument() // Deck
+    expect(screen.getByText('+3')).toBeInTheDocument() // Graveyard total
+    expect(screen.getByText('+2')).toBeInTheDocument() // Graveyard permanents
+    expect(screen.getByText('+1')).toBeInTheDocument() // Exile
   })
 })

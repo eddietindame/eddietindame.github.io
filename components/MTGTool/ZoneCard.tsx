@@ -2,15 +2,31 @@ import React from 'react'
 import { cn } from 'lib/utils'
 import { CardZone } from './types'
 import { ButtonOverlay } from './ButtonOverlay'
+import { DifferenceTooltip } from './DifferenceTooltip'
 
 interface ZoneCardProps {
   title: string
   zone: CardZone
   onUpdate: (field: keyof CardZone, value: number) => void
   className?: string
+  getPositiveDifference: (key: string) => number
+  getNegativeDifference: (key: string) => number
+  hasPositiveDifference: (key: string) => boolean
+  hasNegativeDifference: (key: string) => boolean
+  zoneKey: string
 }
 
-export const ZoneCard: React.FC<ZoneCardProps> = ({ title, zone, onUpdate, className }) => (
+export const ZoneCard: React.FC<ZoneCardProps> = ({
+  title,
+  zone,
+  onUpdate,
+  className,
+  getPositiveDifference,
+  getNegativeDifference,
+  hasPositiveDifference,
+  hasNegativeDifference,
+  zoneKey,
+}) => (
   <div
     className={cn('relative flex flex-col p-3 text-white', className)}
     role="group"
@@ -20,8 +36,19 @@ export const ZoneCard: React.FC<ZoneCardProps> = ({ title, zone, onUpdate, class
       {title}
     </h3>
     <div className="flex flex-1 flex-col justify-center text-center">
-      <div className="text-2xl font-bold" aria-label={`${title} total: ${zone.total} cards`}>
-        {zone.total}
+      <div
+        className="relative text-2xl font-bold"
+        aria-label={`${title} total: ${zone.total} cards`}
+      >
+        <span className="relative">
+          {zone.total}
+          <DifferenceTooltip
+            positiveDifference={getPositiveDifference(`${zoneKey}-total`)}
+            negativeDifference={getNegativeDifference(`${zoneKey}-total`)}
+            hasPositive={hasPositiveDifference(`${zoneKey}-total`)}
+            hasNegative={hasNegativeDifference(`${zoneKey}-total`)}
+          />
+        </span>
       </div>
       <div className="text-xs opacity-90">Total Cards</div>
     </div>
