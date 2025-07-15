@@ -7,8 +7,15 @@ import { QuickActions } from './QuickActions'
 import { useDebouncedDifference } from 'components/MTGTool/useDebouncedDifference'
 
 export const MTGTool: React.FC = () => {
-  const { deckState, exileFromHand, handSize, updateZone, resetGame, toggleExileMode } =
-    useGameState()
+  const {
+    deckState,
+    exileFromHand,
+    handSize,
+    updateZone,
+    resetGame,
+    toggleExileMode,
+    discardToGraveyard,
+  } = useGameState()
   const {
     addDifference,
     getPositiveDifference,
@@ -82,8 +89,6 @@ export const MTGTool: React.FC = () => {
           zoneKey="deck"
         />
 
-        <HandDisplay handSize={handSize} />
-
         <ZoneCard
           title="Graveyard"
           zone={deckState.graveyard}
@@ -124,10 +129,15 @@ export const MTGTool: React.FC = () => {
         />
       </div>
 
-      <QuickActions
+      <HandDisplay
+        handSize={handSize}
         deckState={deckState}
-        exileFromHand={exileFromHand}
+        onDiscardToGraveyard={discardToGraveyard}
         onUpdateZone={handleZoneUpdate}
+      />
+
+      <QuickActions
+        exileFromHand={exileFromHand}
         onToggleExileMode={toggleExileMode}
         onReset={resetGame}
       />
