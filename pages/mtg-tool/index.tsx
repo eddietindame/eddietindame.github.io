@@ -1,5 +1,4 @@
 import React from 'react'
-import { Layout } from 'components/Layout'
 import { MTGTool } from 'components/MTGTool/index'
 
 export default function MTGToolPage() {
