@@ -80,10 +80,75 @@ describe('MTGTool', () => {
     const resetButton = screen.getByRole('button', { name: 'Reset game to initial state' })
     await user.click(resetButton)
 
+    // Modal should appear
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Reset Game' })).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        'Are you sure you want to reset the game? This will clear all card counts and return to the initial state.',
+      ),
+    ).toBeInTheDocument()
+
+    // Confirm reset
+    const confirmButton = screen.getByRole('button', { name: 'Reset' })
+    await user.click(confirmButton)
+
+    // Modal should disappear
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+
+    // Verify reset state
     expect(screen.getByLabelText('Deck total: 99 cards')).toBeInTheDocument()
     expect(screen.getByLabelText('Hand size: 0 cards')).toBeInTheDocument()
     expect(screen.getByLabelText('Graveyard total: 0 cards')).toBeInTheDocument()
     expect(screen.getByLabelText('Exile total: 0 cards')).toBeInTheDocument()
+  })
+
+  test('reset game can be cancelled', async () => {
+    // Make changes
+    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
+    await user.click(drawButton)
+
+    // Reset
+    const resetButton = screen.getByRole('button', { name: 'Reset game to initial state' })
+    await user.click(resetButton)
+
+    // Modal should appear
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+
+    // Cancel reset
+    const cancelButton = screen.getByRole('button', { name: 'Cancel' })
+    await user.click(cancelButton)
+
+    // Modal should disappear
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+
+    // Verify state unchanged (should still show the drawn card)
+    expect(screen.getByLabelText('Deck total: 98 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Hand size: 1 cards')).toBeInTheDocument()
+  })
+
+  test('reset modal can be dismissed by clicking backdrop', async () => {
+    // Make changes
+    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
+    await user.click(drawButton)
+
+    // Reset
+    const resetButton = screen.getByRole('button', { name: 'Reset game to initial state' })
+    await user.click(resetButton)
+
+    // Modal should appear
+    const modal = screen.getByRole('dialog')
+    expect(modal).toBeInTheDocument()
+
+    // Click backdrop (the modal backdrop div)
+    await user.click(modal)
+
+    // Modal should disappear
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+
+    // Verify state unchanged (should still show the drawn card)
+    expect(screen.getByLabelText('Deck total: 98 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Hand size: 1 cards')).toBeInTheDocument()
   })
 
   test('maintains total card count of 99', async () => {
