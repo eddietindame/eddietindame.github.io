@@ -69,6 +69,7 @@ export const HandDisplay: React.FC<HandDisplayProps> = ({
               hasNegative={hasNegativeDifference('hand-size')}
               isPositiveFading={isPositiveFading('hand-size')}
               isNegativeFading={isNegativeFading('hand-size')}
+              context="Hand size"
             />
           </span>
         </div>
