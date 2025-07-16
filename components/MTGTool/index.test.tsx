@@ -599,4 +599,51 @@ describe('MTGTool', () => {
       'text-green-400',
     )
   })
+
+  test('displays graveyard total tooltip when cards are removed from exile', async () => {
+    // First put some cards in exile by exiling from graveyard
+    // Add cards to graveyard first
+    const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton) // Graveyard: 3
+
+    // Wait for tooltip to disappear
+    await waitFor(
+      () => {
+        expect(screen.queryByLabelText('Graveyard total increased by 3')).not.toBeInTheDocument()
+      },
+      { timeout: 3000 },
+    )
+
+    // Make sure we're in "exile from graveyard" mode (default)
+    const modeButton = screen.getByRole('button', { name: /Toggle exile mode/ })
+    if (modeButton.textContent?.includes('Hand→Exile')) {
+      await user.click(modeButton) // Switch to GY→Exile mode
+    }
+
+    // Exile some cards from graveyard
+    const increaseExileButton = screen.getByRole('button', { name: 'Increase exile total' })
+    await user.click(increaseExileButton)
+    await user.click(increaseExileButton) // Exile: 2, Graveyard: 1
+
+    // Wait for tooltip to disappear
+    await waitFor(
+      () => {
+        expect(screen.queryByLabelText('Exile total increased by 2')).not.toBeInTheDocument()
+      },
+      { timeout: 3000 },
+    )
+
+    // Now remove cards from exile (they should go to graveyard)
+    const decreaseExileButton = screen.getByRole('button', { name: 'Decrease exile total' })
+    await user.click(decreaseExileButton)
+    await user.click(decreaseExileButton) // Should show +2 on graveyard total
+
+    // Check that positive tooltip appears on graveyard total (side effect)
+    await waitFor(() => {
+      expect(screen.getByLabelText('Graveyard total increased by 2')).toBeInTheDocument()
+    })
+    expect(screen.getByLabelText('Graveyard total increased by 2')).toHaveClass('text-green-400')
+  })
 })
