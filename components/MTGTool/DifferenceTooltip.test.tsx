@@ -127,7 +127,7 @@ describe('DifferenceTooltip', () => {
     )
 
     const tooltip = screen.getByText('+3')
-    expect(tooltip).toHaveClass('left-full', 'ml-1')
+    expect(tooltip).toHaveClass('left-full', 'ml-4')
   })
 
   test('negative tooltip has correct positioning classes', () => {
@@ -143,7 +143,7 @@ describe('DifferenceTooltip', () => {
     )
 
     const tooltip = screen.getByText('-2')
-    expect(tooltip).toHaveClass('right-full', 'mr-1')
+    expect(tooltip).toHaveClass('right-full', 'mr-4')
   })
 
   test('applies fade-out class when isPositiveFading is true', () => {

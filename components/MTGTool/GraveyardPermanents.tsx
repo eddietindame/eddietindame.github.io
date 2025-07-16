@@ -1,4 +1,5 @@
 import React from 'react'
+import SpinningNumber from 'react-spinning-number'
 import { CardZone } from './types'
 import { ButtonOverlay } from './ButtonOverlay'
 import { DifferenceTooltip } from './DifferenceTooltip'
@@ -35,11 +36,13 @@ export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
       </h3>
       <div className="flex flex-1 flex-col justify-center text-center">
         <div
-          className="relative text-2xl font-bold"
+          className="my-2 flex justify-center font-bold"
           aria-label={`Graveyard permanents: ${graveyard.permanents || 0}`}
         >
           <span className="relative">
-            {graveyard.permanents || 0}
+            <SpinningNumber fontSize={2} duration={300} style={{ fontWeight: 'bold' }}>
+              {graveyard.permanents || 0}
+            </SpinningNumber>
             <DifferenceTooltip
               positiveDifference={getPositiveDifference('graveyard-permanents')}
               negativeDifference={getNegativeDifference('graveyard-permanents')}

@@ -1,4 +1,5 @@
 import React from 'react'
+import SpinningNumber from 'react-spinning-number'
 import { cn } from 'lib/utils'
 import { CardZone } from './types'
 import { ButtonOverlay } from './ButtonOverlay'
@@ -41,11 +42,13 @@ export const ZoneCard: React.FC<ZoneCardProps> = ({
     </h3>
     <div className="flex flex-1 flex-col justify-center text-center">
       <div
-        className="relative text-2xl font-bold"
+        className="my-2 flex justify-center font-bold"
         aria-label={`${title} total: ${zone.total} cards`}
       >
         <span className="relative">
-          {zone.total}
+          <SpinningNumber fontSize={2} duration={300} style={{ fontWeight: 'bold' }}>
+            {zone.total}
+          </SpinningNumber>
           <DifferenceTooltip
             positiveDifference={getPositiveDifference(`${zoneKey}-total`)}
             negativeDifference={getNegativeDifference(`${zoneKey}-total`)}

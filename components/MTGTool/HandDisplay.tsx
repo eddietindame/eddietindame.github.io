@@ -1,3 +1,4 @@
+import SpinningNumber from 'react-spinning-number'
 import { CardZone } from 'components/MTGTool/types'
 import { DeckState } from 'components/MTGTool/types'
 import React from 'react'
@@ -31,8 +32,17 @@ export const HandDisplay: React.FC<HandDisplayProps> = ({
       aria-live="polite"
     >
       <div className="text-sm font-medium text-gray-700">Hand</div>
-      <div className="text-lg font-bold text-gray-900" aria-label={`Hand size: ${handSize} cards`}>
-        {handSize}
+      <div
+        className="flex justify-center text-lg font-bold text-gray-900"
+        aria-label={`Hand size: ${handSize} cards`}
+      >
+        <SpinningNumber
+          fontSize={1}
+          duration={300}
+          style={{ fontWeight: 'bold', color: '#111827' }}
+        >
+          {handSize}
+        </SpinningNumber>
       </div>
     </div>
 
