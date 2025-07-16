@@ -49,9 +49,22 @@ export const MTGTool: React.FC = () => {
         const currentValue = current[zone][field] || 0
         const actualDifference = currentValue - prevValue
 
-        if (actualDifference !== 0 && pendingUpdates.current.has(key)) {
-          addDifference(key, actualDifference)
-          pendingUpdates.current.delete(key)
+        if (actualDifference !== 0) {
+          // Check if this change was tracked as a pending update
+          if (pendingUpdates.current.has(key)) {
+            addDifference(key, actualDifference)
+            pendingUpdates.current.delete(key)
+          } else {
+            // This is a side effect change - check if it's graveyard changes from exile
+            if (zone === 'graveyard' && field === 'total' && actualDifference < 0) {
+              // Graveyard decreased - this could be from exile
+              const exileChange = current.exile.total - prev.exile.total
+              if (exileChange > 0) {
+                // Exile increased and graveyard decreased - show graveyard tooltip
+                addDifference(key, actualDifference)
+              }
+            }
+          }
         }
       })
     })
