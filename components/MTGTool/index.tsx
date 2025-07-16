@@ -55,12 +55,20 @@ export const MTGTool: React.FC = () => {
             addDifference(key, actualDifference)
             pendingUpdates.current.delete(key)
           } else {
-            // This is a side effect change - check if it's graveyard changes from exile
+            // This is a side effect change - check various scenarios
             if (zone === 'graveyard' && actualDifference < 0) {
               // Graveyard decreased - this could be from exile
               const exileChange = current.exile.total - prev.exile.total
               if (exileChange > 0) {
                 // Exile increased and graveyard decreased - show graveyard tooltip
+                addDifference(key, actualDifference)
+              }
+            } else if (zone === 'graveyard' && field === 'total' && actualDifference > 0) {
+              // Graveyard total increased - check if this was from permanents update
+              const permanentsChange =
+                (current.graveyard.permanents || 0) - (prev.graveyard.permanents || 0)
+              if (permanentsChange > 0 && pendingUpdates.current.has('graveyard-permanents')) {
+                // Graveyard permanents increased and caused graveyard total to increase
                 addDifference(key, actualDifference)
               }
             }
