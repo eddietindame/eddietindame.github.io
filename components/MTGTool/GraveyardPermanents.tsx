@@ -24,9 +24,9 @@ export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
   isPositiveFading,
   isNegativeFading,
 }) => (
-  <div className="grid grid-cols-1 text-neutral-200">
+  <div className="grid grid-cols-1">
     <div
-      className="relative flex flex-col p-3"
+      className="relative flex flex-col border-b border-amber-900 bg-gradient-to-br from-amber-800 to-stone-800 p-3 text-white"
       role="group"
       aria-labelledby="graveyard-permanents-title"
     >
