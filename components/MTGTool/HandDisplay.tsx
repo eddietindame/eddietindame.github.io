@@ -1,6 +1,7 @@
 import SpinningNumber from 'react-spinning-number'
 import { CardZone } from 'components/MTGTool/types'
 import { DeckState } from 'components/MTGTool/types'
+import { DifferenceTooltip } from './DifferenceTooltip'
 import React from 'react'
 
 interface HandDisplayProps {
@@ -8,6 +9,12 @@ interface HandDisplayProps {
   deckState: DeckState
   onDiscardToGraveyard: (count?: number) => void
   onUpdateZone: (zone: keyof DeckState, field: keyof CardZone, value: number) => void
+  getPositiveDifference: (key: string) => number
+  getNegativeDifference: (key: string) => number
+  hasPositiveDifference: (key: string) => boolean
+  hasNegativeDifference: (key: string) => boolean
+  isPositiveFading: (key: string) => boolean
+  isNegativeFading: (key: string) => boolean
 }
 
 export const HandDisplay: React.FC<HandDisplayProps> = ({
@@ -15,6 +22,12 @@ export const HandDisplay: React.FC<HandDisplayProps> = ({
   deckState,
   onDiscardToGraveyard,
   onUpdateZone,
+  getPositiveDifference,
+  getNegativeDifference,
+  hasPositiveDifference,
+  hasNegativeDifference,
+  isPositiveFading,
+  isNegativeFading,
 }) => (
   <div className="grid grid-cols-3">
     <button
@@ -36,13 +49,23 @@ export const HandDisplay: React.FC<HandDisplayProps> = ({
         className="flex justify-center text-lg font-bold text-gray-900"
         aria-label={`Hand size: ${handSize} cards`}
       >
-        <SpinningNumber
-          fontSize={1}
-          duration={300}
-          style={{ fontWeight: 'bold', color: '#111827' }}
-        >
-          {handSize}
-        </SpinningNumber>
+        <span className="relative">
+          <SpinningNumber
+            fontSize={1}
+            duration={300}
+            style={{ fontWeight: 'bold', color: '#111827' }}
+          >
+            {handSize}
+          </SpinningNumber>
+          <DifferenceTooltip
+            positiveDifference={getPositiveDifference('hand-size')}
+            negativeDifference={getNegativeDifference('hand-size')}
+            hasPositive={hasPositiveDifference('hand-size')}
+            hasNegative={hasNegativeDifference('hand-size')}
+            isPositiveFading={isPositiveFading('hand-size')}
+            isNegativeFading={isNegativeFading('hand-size')}
+          />
+        </span>
       </div>
     </div>
 

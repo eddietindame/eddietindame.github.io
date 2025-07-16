@@ -410,7 +410,8 @@ describe('MTGTool', () => {
     await user.click(increasePermanentsButton) // Should show +2
 
     await waitFor(() => {
-      expect(screen.getByText('+2')).toBeInTheDocument()
+      const tooltips = screen.getAllByText('+2')
+      expect(tooltips.length).toBeGreaterThan(0)
     })
 
     // Test exile zone - now graveyard has cards to exile from
@@ -422,10 +423,54 @@ describe('MTGTool', () => {
     })
     expect(screen.getByText('+1')).toHaveClass('text-green-400')
 
-    // Verify all tooltips are showing different values to confirm they're working independently
+    // Verify tooltips are showing different values to confirm they're working independently
     expect(screen.getByText('-2')).toBeInTheDocument() // Deck
     expect(screen.getByText('+3')).toBeInTheDocument() // Graveyard total
-    expect(screen.getByText('+2')).toBeInTheDocument() // Graveyard permanents
+    expect(screen.getAllByText('+2').length).toBeGreaterThan(0) // Graveyard permanents and hand
     expect(screen.getByText('+1')).toBeInTheDocument() // Exile
+  })
+
+  test('displays tooltip when drawing cards to hand', async () => {
+    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
+
+    // Draw multiple cards to accumulate positive changes
+    await user.click(drawButton)
+    await user.click(drawButton)
+    await user.click(drawButton) // Should show +3 on hand
+
+    // Check that positive tooltip appears on hand
+    await waitFor(() => {
+      expect(screen.getByText('+3')).toBeInTheDocument()
+    })
+    expect(screen.getByText('+3')).toHaveClass('text-green-400')
+  })
+
+  test('displays tooltip when discarding cards from hand', async () => {
+    // First draw some cards
+    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
+    await user.click(drawButton)
+    await user.click(drawButton)
+    await user.click(drawButton) // Hand: 3
+
+    // Wait for tooltip to disappear
+    await waitFor(
+      () => {
+        expect(screen.queryByText('+3')).not.toBeInTheDocument()
+      },
+      { timeout: 3000 },
+    )
+
+    // Now discard some cards
+    const discardButton = screen.getByRole('button', {
+      name: 'Discard a card from hand to graveyard',
+    })
+    await user.click(discardButton)
+    await user.click(discardButton) // Should show -2 on hand
+
+    // Check that negative tooltip appears on hand
+    await waitFor(() => {
+      expect(screen.getByText('-2')).toBeInTheDocument()
+    })
+    expect(screen.getByText('-2')).toHaveClass('text-red-400')
   })
 })
