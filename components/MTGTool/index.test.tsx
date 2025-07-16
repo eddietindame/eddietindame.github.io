@@ -294,9 +294,9 @@ describe('MTGTool', () => {
 
     // Check that positive tooltip appears
     await waitFor(() => {
-      expect(screen.getByText('+3')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard total increased by 3')).toBeInTheDocument()
     })
-    expect(screen.getByText('+3')).toHaveClass('text-green-400')
+    expect(screen.getByLabelText('Graveyard total increased by 3')).toHaveClass('text-green-400')
   })
 
   test('displays negative tooltip when decreasing values', async () => {
@@ -309,7 +309,7 @@ describe('MTGTool', () => {
     // Wait for tooltip to disappear
     await waitFor(
       () => {
-        expect(screen.queryByText('+3')).not.toBeInTheDocument()
+        expect(screen.queryByLabelText('Graveyard total increased by 3')).not.toBeInTheDocument()
       },
       { timeout: 3000 },
     )
@@ -320,9 +320,9 @@ describe('MTGTool', () => {
 
     // Check that negative tooltip appears
     await waitFor(() => {
-      expect(screen.getByText('-2')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard total decreased by 2')).toBeInTheDocument()
     })
-    expect(screen.getByText('-2')).toHaveClass('text-red-400')
+    expect(screen.getByLabelText('Graveyard total decreased by 2')).toHaveClass('text-red-400')
   })
 
   test('displays both positive and negative tooltips simultaneously', async () => {
@@ -334,7 +334,7 @@ describe('MTGTool', () => {
 
     // Wait for positive tooltip to appear
     await waitFor(() => {
-      expect(screen.getByText('+3')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard total increased by 3')).toBeInTheDocument()
     })
 
     // Then decrease without waiting for timeout
@@ -343,11 +343,11 @@ describe('MTGTool', () => {
 
     // Both tooltips should be visible
     await waitFor(() => {
-      expect(screen.getByText('+3')).toBeInTheDocument()
-      expect(screen.getByText('-1')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard total increased by 3')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard total decreased by 1')).toBeInTheDocument()
     })
-    expect(screen.getByText('+3')).toHaveClass('text-green-400')
-    expect(screen.getByText('-1')).toHaveClass('text-red-400')
+    expect(screen.getByLabelText('Graveyard total increased by 3')).toHaveClass('text-green-400')
+    expect(screen.getByLabelText('Graveyard total decreased by 1')).toHaveClass('text-red-400')
   })
 
   test('tooltips accumulate values correctly', async () => {
@@ -361,7 +361,7 @@ describe('MTGTool', () => {
     await user.click(increaseGraveyardButton) // Should accumulate to +5
 
     await waitFor(() => {
-      expect(screen.getByText('+5')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard total increased by 5')).toBeInTheDocument()
     })
   })
 
@@ -375,9 +375,11 @@ describe('MTGTool', () => {
     await user.click(increasePermanentsButton) // Should show +3
 
     await waitFor(() => {
-      expect(screen.getByText('+3')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard permanents increased by 3')).toBeInTheDocument()
     })
-    expect(screen.getByText('+3')).toHaveClass('text-green-400')
+    expect(screen.getByLabelText('Graveyard permanents increased by 3')).toHaveClass(
+      'text-green-400',
+    )
   })
 
   test('tooltips work for all zones', async () => {
@@ -387,10 +389,9 @@ describe('MTGTool', () => {
     await user.click(decreaseDeckButton) // Should show -2
 
     await waitFor(() => {
-      const negativeTooltips = screen.getAllByText('-2')
-      expect(negativeTooltips.length).toBeGreaterThan(0)
+      expect(screen.getByLabelText('Deck total decreased by 2')).toBeInTheDocument()
     })
-    expect(screen.getAllByText('-2')[0]).toHaveClass('text-red-400')
+    expect(screen.getByLabelText('Deck total decreased by 2')).toHaveClass('text-red-400')
 
     // Test graveyard total
     const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
@@ -399,9 +400,9 @@ describe('MTGTool', () => {
     await user.click(increaseGraveyardButton) // Should show +3
 
     await waitFor(() => {
-      expect(screen.getByText('+3')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard total increased by 3')).toBeInTheDocument()
     })
-    expect(screen.getByText('+3')).toHaveClass('text-green-400')
+    expect(screen.getByLabelText('Graveyard total increased by 3')).toHaveClass('text-green-400')
 
     // Test graveyard permanents
     const increasePermanentsButton = screen.getByRole('button', {
@@ -411,8 +412,7 @@ describe('MTGTool', () => {
     await user.click(increasePermanentsButton) // Should show +2
 
     await waitFor(() => {
-      const tooltips = screen.getAllByText('+2')
-      expect(tooltips.length).toBeGreaterThan(0)
+      expect(screen.getByLabelText('Graveyard permanents increased by 2')).toBeInTheDocument()
     })
 
     // Test exile zone - now graveyard has cards to exile from
@@ -420,15 +420,15 @@ describe('MTGTool', () => {
     await user.click(increaseExileButton) // Should show +1
 
     await waitFor(() => {
-      expect(screen.getByText('+1')).toBeInTheDocument()
+      expect(screen.getByLabelText('Exile total increased by 1')).toBeInTheDocument()
     })
-    expect(screen.getByText('+1')).toHaveClass('text-green-400')
+    expect(screen.getByLabelText('Exile total increased by 1')).toHaveClass('text-green-400')
 
-    // Verify tooltips are showing different values to confirm they're working independently
-    expect(screen.getAllByText('-2').length).toBeGreaterThan(0) // Deck
-    expect(screen.getByText('+3')).toBeInTheDocument() // Graveyard total
-    expect(screen.getAllByText('+2').length).toBeGreaterThan(0) // Graveyard permanents and hand
-    expect(screen.getByText('+1')).toBeInTheDocument() // Exile
+    // Verify all tooltips are present and have correct context
+    expect(screen.getByLabelText('Deck total decreased by 2')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total increased by 3')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard permanents increased by 2')).toBeInTheDocument()
+    expect(screen.getByLabelText('Exile total increased by 1')).toBeInTheDocument()
   })
 
   test('displays tooltip when drawing cards to hand', async () => {
@@ -441,9 +441,9 @@ describe('MTGTool', () => {
 
     // Check that positive tooltip appears on hand
     await waitFor(() => {
-      expect(screen.getByText('+3')).toBeInTheDocument()
+      expect(screen.getByLabelText('Hand size increased by 3')).toBeInTheDocument()
     })
-    expect(screen.getByText('+3')).toHaveClass('text-green-400')
+    expect(screen.getByLabelText('Hand size increased by 3')).toHaveClass('text-green-400')
   })
 
   test('displays tooltip when discarding cards from hand', async () => {
@@ -456,7 +456,7 @@ describe('MTGTool', () => {
     // Wait for tooltip to disappear
     await waitFor(
       () => {
-        expect(screen.queryByText('+3')).not.toBeInTheDocument()
+        expect(screen.queryByLabelText('Hand size increased by 3')).not.toBeInTheDocument()
       },
       { timeout: 3000 },
     )
@@ -470,9 +470,9 @@ describe('MTGTool', () => {
 
     // Check that negative tooltip appears on hand
     await waitFor(() => {
-      expect(screen.getByText('-2')).toBeInTheDocument()
+      expect(screen.getByLabelText('Hand size decreased by 2')).toBeInTheDocument()
     })
-    expect(screen.getByText('-2')).toHaveClass('text-red-400')
+    expect(screen.getByLabelText('Hand size decreased by 2')).toHaveClass('text-red-400')
   })
 
   test('displays graveyard tooltip when discarding cards from hand', async () => {
@@ -485,7 +485,7 @@ describe('MTGTool', () => {
     // Wait for tooltip to disappear
     await waitFor(
       () => {
-        expect(screen.queryByText('+3')).not.toBeInTheDocument()
+        expect(screen.queryByLabelText('Hand size increased by 3')).not.toBeInTheDocument()
       },
       { timeout: 3000 },
     )
@@ -499,8 +499,8 @@ describe('MTGTool', () => {
 
     // Check that positive tooltip appears on graveyard
     await waitFor(() => {
-      expect(screen.getByText('+2')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard total increased by 2')).toBeInTheDocument()
     })
-    expect(screen.getByText('+2')).toHaveClass('text-green-400')
+    expect(screen.getByLabelText('Graveyard total increased by 2')).toHaveClass('text-green-400')
   })
 })

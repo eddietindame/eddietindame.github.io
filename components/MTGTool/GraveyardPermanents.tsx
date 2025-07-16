@@ -50,6 +50,7 @@ export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
               hasNegative={hasNegativeDifference('graveyard-permanents')}
               isPositiveFading={isPositiveFading('graveyard-permanents')}
               isNegativeFading={isNegativeFading('graveyard-permanents')}
+              context="Graveyard permanents"
             />
           </span>
         </div>

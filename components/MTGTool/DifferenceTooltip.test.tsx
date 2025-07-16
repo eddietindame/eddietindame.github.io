@@ -13,6 +13,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={false}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Deck total"
       />,
     )
 
@@ -29,6 +30,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={true}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Hand size"
       />,
     )
 
@@ -45,6 +47,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={true}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Graveyard total"
       />,
     )
 
@@ -63,6 +66,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={false}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Exile total"
       />,
     )
 
@@ -78,6 +82,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={false}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Deck total"
       />,
     )
 
@@ -93,6 +98,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={false}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Hand size"
       />,
     )
 
@@ -108,6 +114,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={true}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Graveyard permanents"
       />,
     )
 
@@ -123,6 +130,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={false}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Deck total"
       />,
     )
 
@@ -139,6 +147,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={true}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Hand size"
       />,
     )
 
@@ -155,6 +164,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={false}
         isPositiveFading={true}
         isNegativeFading={false}
+        context="Graveyard total"
       />,
     )
 
@@ -171,6 +181,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={true}
         isPositiveFading={false}
         isNegativeFading={true}
+        context="Exile total"
       />,
     )
 
@@ -187,6 +198,7 @@ describe('DifferenceTooltip', () => {
         hasNegative={true}
         isPositiveFading={false}
         isNegativeFading={false}
+        context="Graveyard permanents"
       />,
     )
 
@@ -194,5 +206,67 @@ describe('DifferenceTooltip', () => {
     const negativeTooltip = screen.getByText('-3')
     expect(positiveTooltip).toHaveClass('opacity-100')
     expect(negativeTooltip).toHaveClass('opacity-100')
+  })
+
+  test('positive tooltip has correct aria label', () => {
+    render(
+      <DifferenceTooltip
+        positiveDifference={7}
+        negativeDifference={0}
+        hasPositive={true}
+        hasNegative={false}
+        isPositiveFading={false}
+        isNegativeFading={false}
+        context="Deck total"
+      />,
+    )
+
+    const tooltip = screen.getByLabelText('Deck total increased by 7')
+    expect(tooltip).toBeInTheDocument()
+    expect(tooltip).toHaveAttribute('role', 'status')
+    expect(tooltip).toHaveAttribute('aria-live', 'polite')
+  })
+
+  test('negative tooltip has correct aria label', () => {
+    render(
+      <DifferenceTooltip
+        positiveDifference={0}
+        negativeDifference={4}
+        hasPositive={false}
+        hasNegative={true}
+        isPositiveFading={false}
+        isNegativeFading={false}
+        context="Hand size"
+      />,
+    )
+
+    const tooltip = screen.getByLabelText('Hand size decreased by 4')
+    expect(tooltip).toBeInTheDocument()
+    expect(tooltip).toHaveAttribute('role', 'status')
+    expect(tooltip).toHaveAttribute('aria-live', 'polite')
+  })
+
+  test('both tooltips have correct aria labels when both are present', () => {
+    render(
+      <DifferenceTooltip
+        positiveDifference={6}
+        negativeDifference={2}
+        hasPositive={true}
+        hasNegative={true}
+        isPositiveFading={false}
+        isNegativeFading={false}
+        context="Graveyard total"
+      />,
+    )
+
+    const positiveTooltip = screen.getByLabelText('Graveyard total increased by 6')
+    const negativeTooltip = screen.getByLabelText('Graveyard total decreased by 2')
+
+    expect(positiveTooltip).toBeInTheDocument()
+    expect(negativeTooltip).toBeInTheDocument()
+    expect(positiveTooltip).toHaveAttribute('role', 'status')
+    expect(negativeTooltip).toHaveAttribute('role', 'status')
+    expect(positiveTooltip).toHaveAttribute('aria-live', 'polite')
+    expect(negativeTooltip).toHaveAttribute('aria-live', 'polite')
   })
 })

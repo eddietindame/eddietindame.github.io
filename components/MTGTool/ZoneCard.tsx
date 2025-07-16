@@ -56,6 +56,7 @@ export const ZoneCard: React.FC<ZoneCardProps> = ({
             hasNegative={hasNegativeDifference(`${zoneKey}-total`)}
             isPositiveFading={isPositiveFading(`${zoneKey}-total`)}
             isNegativeFading={isNegativeFading(`${zoneKey}-total`)}
+            context={`${title} total`}
           />
         </span>
       </div>
