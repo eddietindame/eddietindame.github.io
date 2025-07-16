@@ -56,7 +56,7 @@ export const MTGTool: React.FC = () => {
             pendingUpdates.current.delete(key)
           } else {
             // This is a side effect change - check if it's graveyard changes from exile
-            if (zone === 'graveyard' && field === 'total' && actualDifference < 0) {
+            if (zone === 'graveyard' && actualDifference < 0) {
               // Graveyard decreased - this could be from exile
               const exileChange = current.exile.total - prev.exile.total
               if (exileChange > 0) {
