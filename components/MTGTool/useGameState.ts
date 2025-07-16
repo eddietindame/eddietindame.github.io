@@ -68,6 +68,25 @@ export const useGameState = () => {
   }
 
   const handleGraveyardTotalUpdate = (prev: DeckState, value: number, difference: number) => {
+    if (difference > 0) {
+      // Increasing graveyard - check if we can take from hand first
+      const currentHandSize =
+        initialDeckState.deck.total - prev.deck.total - prev.graveyard.total - prev.exile.total
+
+      if (currentHandSize >= difference) {
+        // Take from hand (no deck change needed since hand is calculated)
+        return {
+          ...prev,
+          graveyard: {
+            ...prev.graveyard,
+            total: value,
+            permanents: Math.min(prev.graveyard.permanents || 0, value),
+          },
+        }
+      }
+    }
+
+    // Default behavior - take from deck
     return {
       ...prev,
       deck: {
@@ -150,26 +169,6 @@ export const useGameState = () => {
     setExileFromHand(!exileFromHand)
   }
 
-  const discardToGraveyard = (count: number = 1) => {
-    const currentHandSize =
-      initialDeckState.deck.total -
-      deckState.deck.total -
-      deckState.graveyard.total -
-      deckState.exile.total
-
-    // Can't discard more cards than we have in hand
-    if (currentHandSize < count) return
-
-    // Increase graveyard by the discard count
-    setDeckState(prev => ({
-      ...prev,
-      graveyard: {
-        ...prev.graveyard,
-        total: prev.graveyard.total + count,
-      },
-    }))
-  }
-
   const handSize =
     initialDeckState.deck.total -
     deckState.deck.total -
@@ -183,6 +182,5 @@ export const useGameState = () => {
     updateZone,
     resetGame,
     toggleExileMode,
-    discardToGraveyard,
   }
 }
