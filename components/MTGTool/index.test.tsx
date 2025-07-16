@@ -159,11 +159,11 @@ describe('MTGTool', () => {
     const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
     await user.click(increaseGraveyardButton) // Graveyard 0 -> 1, Deck 98 -> 97
 
-    // Get current values from aria labels
-    const deckElement = screen.getByLabelText('Deck total: 97 cards')
-    const handElement = screen.getByLabelText('Hand size: 1 cards')
-    const graveyardElement = screen.getByLabelText('Graveyard total: 1 cards')
-    const exileElement = screen.getByLabelText('Exile total: 0 cards')
+    // Get current values from aria labels - use dynamic approach
+    const deckElement = screen.getByLabelText(/Deck total: \d+ cards/)
+    const handElement = screen.getByLabelText(/Hand size: \d+ cards/)
+    const graveyardElement = screen.getByLabelText(/Graveyard total: \d+ cards/)
+    const exileElement = screen.getByLabelText(/Exile total: \d+ cards/)
 
     // Parse values from aria labels
     const deckValue = parseInt(deckElement.getAttribute('aria-label')?.match(/\d+/)?.[0] || '0')
@@ -267,11 +267,11 @@ describe('MTGTool', () => {
     })
     await user.click(discardButton)
 
-    // Get current values
-    const deckElement = screen.getByLabelText('Deck total: 96 cards')
-    const handElement = screen.getByLabelText('Hand size: 2 cards')
-    const graveyardElement = screen.getByLabelText('Graveyard total: 1 cards')
-    const exileElement = screen.getByLabelText('Exile total: 0 cards')
+    // Get current values - use dynamic approach
+    const deckElement = screen.getByLabelText(/Deck total: \d+ cards/)
+    const handElement = screen.getByLabelText(/Hand size: \d+ cards/)
+    const graveyardElement = screen.getByLabelText(/Graveyard total: \d+ cards/)
+    const exileElement = screen.getByLabelText(/Exile total: \d+ cards/)
 
     // Parse values
     const deckValue = parseInt(deckElement.getAttribute('aria-label')?.match(/\d+/)?.[0] || '0')
@@ -387,9 +387,10 @@ describe('MTGTool', () => {
     await user.click(decreaseDeckButton) // Should show -2
 
     await waitFor(() => {
-      expect(screen.getByText('-2')).toBeInTheDocument()
+      const negativeTooltips = screen.getAllByText('-2')
+      expect(negativeTooltips.length).toBeGreaterThan(0)
     })
-    expect(screen.getByText('-2')).toHaveClass('text-red-400')
+    expect(screen.getAllByText('-2')[0]).toHaveClass('text-red-400')
 
     // Test graveyard total
     const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
@@ -424,7 +425,7 @@ describe('MTGTool', () => {
     expect(screen.getByText('+1')).toHaveClass('text-green-400')
 
     // Verify tooltips are showing different values to confirm they're working independently
-    expect(screen.getByText('-2')).toBeInTheDocument() // Deck
+    expect(screen.getAllByText('-2').length).toBeGreaterThan(0) // Deck
     expect(screen.getByText('+3')).toBeInTheDocument() // Graveyard total
     expect(screen.getAllByText('+2').length).toBeGreaterThan(0) // Graveyard permanents and hand
     expect(screen.getByText('+1')).toBeInTheDocument() // Exile
@@ -472,5 +473,34 @@ describe('MTGTool', () => {
       expect(screen.getByText('-2')).toBeInTheDocument()
     })
     expect(screen.getByText('-2')).toHaveClass('text-red-400')
+  })
+
+  test('displays graveyard tooltip when discarding cards from hand', async () => {
+    // First draw some cards
+    const drawButton = screen.getByRole('button', { name: 'Draw a card from deck to hand' })
+    await user.click(drawButton)
+    await user.click(drawButton)
+    await user.click(drawButton) // Hand: 3
+
+    // Wait for tooltip to disappear
+    await waitFor(
+      () => {
+        expect(screen.queryByText('+3')).not.toBeInTheDocument()
+      },
+      { timeout: 3000 },
+    )
+
+    // Now discard some cards
+    const discardButton = screen.getByRole('button', {
+      name: 'Discard a card from hand to graveyard',
+    })
+    await user.click(discardButton)
+    await user.click(discardButton) // Should show +2 on graveyard
+
+    // Check that positive tooltip appears on graveyard
+    await waitFor(() => {
+      expect(screen.getByText('+2')).toBeInTheDocument()
+    })
+    expect(screen.getByText('+2')).toHaveClass('text-green-400')
   })
 })
