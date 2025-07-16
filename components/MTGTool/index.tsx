@@ -28,12 +28,23 @@ export const MTGTool: React.FC = () => {
 
   // Track previous state to detect actual changes
   const prevDeckState = useRef(deckState)
+  const prevHandSize = useRef(handSize)
   const pendingUpdates = useRef<Map<string, number>>(new Map())
 
   // Detect actual state changes and show tooltips only when values actually change
   useEffect(() => {
     const prev = prevDeckState.current
     const current = deckState
+    const prevHand = prevHandSize.current
+    const currentHand = handSize
+
+    // Check for hand size changes
+    if (currentHand !== prevHand) {
+      const handDifference = currentHand - prevHand
+      if (handDifference !== 0) {
+        addDifference('hand-size', handDifference)
+      }
+    }
 
     // Check each zone and field for actual changes
     Object.keys(current).forEach(zoneKey => {
@@ -53,7 +64,8 @@ export const MTGTool: React.FC = () => {
     })
 
     prevDeckState.current = current
-  }, [deckState, addDifference])
+    prevHandSize.current = currentHand
+  }, [deckState, handSize, addDifference])
 
   const handleZoneUpdate = (
     zone: keyof typeof deckState,
@@ -138,6 +150,12 @@ export const MTGTool: React.FC = () => {
         deckState={deckState}
         onDiscardToGraveyard={discardToGraveyard}
         onUpdateZone={handleZoneUpdate}
+        getPositiveDifference={getPositiveDifference}
+        getNegativeDifference={getNegativeDifference}
+        hasPositiveDifference={hasPositiveDifference}
+        hasNegativeDifference={hasNegativeDifference}
+        isPositiveFading={isPositiveFading}
+        isNegativeFading={isNegativeFading}
       />
 
       <QuickActions
