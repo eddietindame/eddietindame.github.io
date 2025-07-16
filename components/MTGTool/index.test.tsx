@@ -573,4 +573,30 @@ describe('MTGTool', () => {
     })
     expect(screen.getByLabelText('Graveyard permanents decreased by 2')).toHaveClass('text-red-400')
   })
+
+  test('displays graveyard total tooltip when graveyard permanents cause it to increase', async () => {
+    // Initially graveyard total is 0, permanents is 0
+    expect(screen.getByLabelText('Graveyard total: 0 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard permanents: 0')).toBeInTheDocument()
+
+    // Increase graveyard permanents - this should also increase graveyard total
+    const increasePermanentsButton = screen.getByRole('button', {
+      name: 'Increase graveyard permanents',
+    })
+    await user.click(increasePermanentsButton)
+    await user.click(increasePermanentsButton)
+    await user.click(increasePermanentsButton) // Should show +3 on both permanents and total
+
+    // Check that positive tooltip appears on graveyard total (side effect)
+    await waitFor(() => {
+      expect(screen.getByLabelText('Graveyard total increased by 3')).toBeInTheDocument()
+    })
+    expect(screen.getByLabelText('Graveyard total increased by 3')).toHaveClass('text-green-400')
+
+    // And also on graveyard permanents (direct change)
+    expect(screen.getByLabelText('Graveyard permanents increased by 3')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard permanents increased by 3')).toHaveClass(
+      'text-green-400',
+    )
+  })
 })
