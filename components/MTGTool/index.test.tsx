@@ -536,4 +536,41 @@ describe('MTGTool', () => {
     })
     expect(screen.getByLabelText('Graveyard total decreased by 2')).toHaveClass('text-red-400')
   })
+
+  test('displays graveyard permanents tooltip when exiling cards from graveyard', async () => {
+    // First put some permanents in graveyard
+    const increasePermanentsButton = screen.getByRole('button', {
+      name: 'Increase graveyard permanents',
+    })
+    await user.click(increasePermanentsButton)
+    await user.click(increasePermanentsButton)
+    await user.click(increasePermanentsButton) // Graveyard permanents: 3
+
+    // Wait for tooltip to disappear
+    await waitFor(
+      () => {
+        expect(
+          screen.queryByLabelText('Graveyard permanents increased by 3'),
+        ).not.toBeInTheDocument()
+      },
+      { timeout: 3000 },
+    )
+
+    // Make sure we're in "exile from graveyard" mode (default)
+    const modeButton = screen.getByRole('button', { name: /Toggle exile mode/ })
+    if (modeButton.textContent?.includes('Hand→Exile')) {
+      await user.click(modeButton) // Switch to GY→Exile mode
+    }
+
+    // Now exile some cards from graveyard (this should decrease both total and permanents)
+    const increaseExileButton = screen.getByRole('button', { name: 'Increase exile total' })
+    await user.click(increaseExileButton)
+    await user.click(increaseExileButton) // Should show -2 on graveyard permanents
+
+    // Check that negative tooltip appears on graveyard permanents
+    await waitFor(() => {
+      expect(screen.getByLabelText('Graveyard permanents decreased by 2')).toBeInTheDocument()
+    })
+    expect(screen.getByLabelText('Graveyard permanents decreased by 2')).toHaveClass('text-red-400')
+  })
 })
