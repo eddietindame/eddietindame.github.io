@@ -21,14 +21,14 @@ export const DifferenceTooltip: React.FC<DifferenceTooltipProps> = ({
     <>
       {hasNegative && negativeDifference > 0 && (
         <span
-          className={`bg-opacity-75 absolute top-0 right-full mr-1 rounded bg-black px-1 py-0.5 text-xs font-bold whitespace-nowrap text-red-400 transition-opacity duration-500 ease-out ${isNegativeFading ? 'opacity-0' : 'opacity-100'}`}
+          className={`bg-opacity-75 absolute top-0 right-full mr-4 rounded bg-black/40 px-2 py-1 text-xs font-bold whitespace-nowrap text-red-400 transition-opacity duration-500 ease-out ${isNegativeFading ? 'opacity-0' : 'opacity-100'}`}
         >
           -{negativeDifference}
         </span>
       )}
       {hasPositive && positiveDifference > 0 && (
         <span
-          className={`bg-opacity-75 absolute top-0 left-full ml-1 rounded bg-black px-1 py-0.5 text-xs font-bold whitespace-nowrap text-green-400 transition-opacity duration-500 ease-out ${isPositiveFading ? 'opacity-0' : 'opacity-100'}`}
+          className={`bg-opacity-75 absolute top-0 left-full ml-4 rounded bg-black/40 px-2 py-1 text-xs font-bold whitespace-nowrap text-green-400 transition-opacity duration-500 ease-out ${isPositiveFading ? 'opacity-0' : 'opacity-100'}`}
         >
           +{positiveDifference}
         </span>
