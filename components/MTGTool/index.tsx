@@ -73,13 +73,17 @@ export const MTGTool: React.FC = () => {
   }
 
   return (
-    <div className="flex h-full flex-col" role="application" aria-label="MTG Card Counter Tool">
+    <div
+      className="flex h-full flex-col bg-slate-900"
+      role="application"
+      aria-label="MTG Card Counter Tool"
+    >
       <div className="flex flex-1 flex-col">
         <ZoneCard
           title="Deck"
           zone={deckState.deck}
           onUpdate={(field, value) => handleZoneUpdate('deck', field, value)}
-          className="flex-1 bg-slate-50"
+          className="flex-1 border-b border-slate-600 bg-gradient-to-br from-slate-700 to-slate-800 text-white"
           getPositiveDifference={getPositiveDifference}
           getNegativeDifference={getNegativeDifference}
           hasPositiveDifference={hasPositiveDifference}
@@ -93,7 +97,7 @@ export const MTGTool: React.FC = () => {
           title="Graveyard"
           zone={deckState.graveyard}
           onUpdate={(field, value) => handleZoneUpdate('graveyard', field, value)}
-          className="flex-1 bg-green-500"
+          className="flex-1 border-b border-emerald-600 bg-gradient-to-br from-emerald-700 to-emerald-800 text-white"
           getPositiveDifference={getPositiveDifference}
           getNegativeDifference={getNegativeDifference}
           hasPositiveDifference={hasPositiveDifference}
@@ -118,7 +122,7 @@ export const MTGTool: React.FC = () => {
           title="Exile"
           zone={deckState.exile}
           onUpdate={(field, value) => handleZoneUpdate('exile', field, value)}
-          className="flex-1 bg-blue-500"
+          className="flex-1 border-b border-purple-600 bg-gradient-to-br from-purple-700 to-purple-800 text-white"
           getPositiveDifference={getPositiveDifference}
           getNegativeDifference={getNegativeDifference}
           hasPositiveDifference={hasPositiveDifference}

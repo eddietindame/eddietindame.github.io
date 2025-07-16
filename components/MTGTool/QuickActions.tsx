@@ -32,8 +32,10 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
       <div className="grid grid-cols-2" role="group" aria-label="Quick actions">
         <button
           onClick={onToggleExileMode}
-          className={`font-bol p-3 text-xs transition-all ${
-            exileFromHand ? 'bg-purple-600 hover:bg-purple-700' : 'bg-gray-600 hover:bg-gray-700'
+          className={`p-3 text-xs font-bold text-white transition-all ${
+            exileFromHand
+              ? 'bg-gradient-to-br from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600'
+              : 'bg-gradient-to-br from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600'
           }`}
           aria-label={`Toggle exile mode. Currently: ${exileFromHand ? 'Exile from hand' : 'Exile from graveyard'}`}
           aria-pressed={exileFromHand}
@@ -42,7 +44,7 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
         </button>
         <button
           onClick={handleResetClick}
-          className="font-bol bg-gray-500 p-3 text-base transition-all hover:bg-gray-600"
+          className="bg-gradient-to-br from-rose-600 to-rose-700 p-3 text-base font-bold text-white transition-all hover:from-rose-500 hover:to-rose-600"
           aria-label="Reset game to initial state"
         >
           Reset Game
