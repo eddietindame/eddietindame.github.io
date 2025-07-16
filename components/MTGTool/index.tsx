@@ -118,7 +118,7 @@ export const MTGTool: React.FC = () => {
           title="Exile"
           zone={deckState.exile}
           onUpdate={(field, value) => handleZoneUpdate('exile', field, value)}
-          className="flex-1 bg-blue-500 text-white"
+          className="flex-1 bg-blue-500"
           getPositiveDifference={getPositiveDifference}
           getNegativeDifference={getNegativeDifference}
           hasPositiveDifference={hasPositiveDifference}

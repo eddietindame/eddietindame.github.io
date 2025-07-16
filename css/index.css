@@ -17,6 +17,11 @@
 :root {
   --bs-border-radius: 0.5rem;
 
+  /* Bootstrap color variables */
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-bg-opacity: 1;
+
   /* Safari-compatible viewport height */
   --vh: 1vh;
   --full-height: 100vh;
