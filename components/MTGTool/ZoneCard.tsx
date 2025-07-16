@@ -32,7 +32,7 @@ export const ZoneCard: React.FC<ZoneCardProps> = ({
   zoneKey,
 }) => (
   <div
-    className={cn('relative flex flex-col p-3 text-white', className)}
+    className={cn('relative flex flex-col p-3', className)}
     role="group"
     aria-labelledby={`${title.toLowerCase()}-title`}
   >

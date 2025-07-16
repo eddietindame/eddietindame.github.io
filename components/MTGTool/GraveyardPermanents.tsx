@@ -24,7 +24,7 @@ export const GraveyardPermanents: React.FC<GraveyardPermanentsProps> = ({
   isPositiveFading,
   isNegativeFading,
 }) => (
-  <div className="grid grid-cols-1">
+  <div className="grid grid-cols-1 text-neutral-200">
     <div
       className="relative flex flex-col p-3"
       role="group"
