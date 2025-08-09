@@ -1,14 +1,21 @@
 import React, { useEffect, useRef } from 'react'
 import { useGameState } from './useGameState'
 import { ZoneCard } from './ZoneCard'
-import { HandDisplay } from './HandDisplay'
+import { HandOrPlayDisplay } from './HandOrPlayDisplay'
 import { GraveyardPermanents } from './GraveyardPermanents'
 import { QuickActions } from './QuickActions'
 import { useDebouncedDifference } from 'components/MTGTool/useDebouncedDifference'
+import { DeckState, CardZone } from './types'
 
 export const MTGTool: React.FC = () => {
-  const { deckState, exileFromHand, handSize, updateZone, resetGame, toggleExileMode } =
-    useGameState()
+  const {
+    deckState,
+    exileFromHandOrPlay,
+    handOrPlayCount,
+    updateZone,
+    resetGame,
+    toggleExileMode,
+  } = useGameState()
   const {
     addDifference,
     getPositiveDifference,
@@ -21,92 +28,60 @@ export const MTGTool: React.FC = () => {
 
   // Track previous state to detect actual changes
   const prevDeckState = useRef(deckState)
-  const prevHandSize = useRef(handSize)
+  const prevHandOrPlayCount = useRef(handOrPlayCount)
   const pendingUpdates = useRef<Map<string, number>>(new Map())
 
   // Detect actual state changes and show tooltips only when values actually change
   useEffect(() => {
-    const prev = prevDeckState.current
-    const current = deckState
-    const prevHand = prevHandSize.current
-    const currentHand = handSize
+    const prevHandOrPlay = prevHandOrPlayCount.current
+    const currentHandOrPlay = handOrPlayCount
 
-    // Check for hand size changes
-    if (currentHand !== prevHand) {
-      const handDifference = currentHand - prevHand
-      if (handDifference !== 0) {
-        addDifference('hand-size', handDifference)
+    // Check for hand/play size changes
+    if (currentHandOrPlay !== prevHandOrPlay) {
+      const handOrPlayDifference = currentHandOrPlay - prevHandOrPlay
+      if (handOrPlayDifference !== 0) {
+        addDifference('hand-or-play-size', handOrPlayDifference)
       }
     }
 
-    // Check each zone and field for actual changes
-    Object.keys(current).forEach(zoneKey => {
-      const zone = zoneKey as keyof typeof current
-      Object.keys(current[zone]).forEach(fieldKey => {
-        const field = fieldKey as keyof (typeof current)[typeof zone]
-        const key = `${zone}-${field}`
-        const prevValue = prev[zone][field] || 0
-        const currentValue = current[zone][field] || 0
-        const actualDifference = currentValue - prevValue
+    // Check for zone changes
+    ;(Object.entries(deckState) as [keyof DeckState, CardZone][]).forEach(([zoneName, zone]) => {
+      const prevZone = prevDeckState.current[zoneName]
 
-        if (actualDifference !== 0) {
-          // Check if this change was tracked as a pending update
-          if (pendingUpdates.current.has(key)) {
-            addDifference(key, actualDifference)
-            pendingUpdates.current.delete(key)
-          } else {
-            // This is a side effect change - check various scenarios
-            if (zone === 'graveyard' && actualDifference < 0) {
-              // Graveyard decreased - this could be from exile
-              const exileChange = current.exile.total - prev.exile.total
-              if (exileChange > 0) {
-                // Exile increased and graveyard decreased - show graveyard tooltip
-                addDifference(key, actualDifference)
-              }
-            } else if (zone === 'graveyard' && field === 'total' && actualDifference > 0) {
-              // Graveyard total increased - check if this was from permanents update or exile removal
-              const permanentsChange =
-                (current.graveyard.permanents || 0) - (prev.graveyard.permanents || 0)
-              const exileChange = current.exile.total - prev.exile.total
+      // Check zone total changes
+      if (zone.total !== prevZone.total) {
+        const difference = zone.total - prevZone.total
+        if (difference !== 0) {
+          addDifference(`${zoneName}-total`, difference)
+        }
+      }
 
-              if (permanentsChange > 0 && pendingUpdates.current.has('graveyard-permanents')) {
-                // Graveyard permanents increased and caused graveyard total to increase
-                addDifference(key, actualDifference)
-              } else if (exileChange < 0 && pendingUpdates.current.has('exile-total')) {
-                // Exile decreased and caused graveyard total to increase
-                addDifference(key, actualDifference)
-              }
-            }
+      // Check permanents changes for graveyard
+      if (zoneName === 'graveyard' && 'permanents' in zone && 'permanents' in prevZone) {
+        const graveyardZone = zone as { total: number; permanents: number }
+        const prevGraveyardZone = prevZone as { total: number; permanents: number }
+
+        if (graveyardZone.permanents !== prevGraveyardZone.permanents) {
+          const difference = graveyardZone.permanents - prevGraveyardZone.permanents
+          if (difference !== 0) {
+            addDifference('graveyard-permanents', difference)
           }
         }
-      })
+      }
     })
 
-    prevDeckState.current = current
-    prevHandSize.current = currentHand
-  }, [deckState, handSize, addDifference])
+    // Update previous values for next comparison
+    prevDeckState.current = { ...deckState }
+    prevHandOrPlayCount.current = currentHandOrPlay
+  }, [deckState, handOrPlayCount, addDifference])
 
   const handleZoneUpdate = (
-    zone: keyof typeof deckState,
-    field: keyof (typeof deckState)[keyof typeof deckState],
+    zone: keyof DeckState,
+    field: keyof CardZone,
     value: number,
-    fromHand = false,
+    fromHandOrPlay = false,
   ) => {
-    const key = `${zone}-${field}`
-    const currentValue = deckState[zone][field] || 0
-    const intendedDifference = value - currentValue
-
-    // Only track this update if it would actually change something
-    if (intendedDifference !== 0) {
-      pendingUpdates.current.set(key, intendedDifference)
-
-      // If we're increasing graveyard total by milling from deck, also track the deck decrease
-      if (zone === 'graveyard' && field === 'total' && !fromHand && intendedDifference > 0) {
-        pendingUpdates.current.set('deck-total', -intendedDifference)
-      }
-    }
-
-    updateZone(zone, field, value, fromHand)
+    updateZone(zone, field, value, fromHandOrPlay)
   }
 
   return (
@@ -170,8 +145,8 @@ export const MTGTool: React.FC = () => {
         />
       </div>
 
-      <HandDisplay
-        handSize={handSize}
+      <HandOrPlayDisplay
+        handOrPlayCount={handOrPlayCount}
         deckState={deckState}
         onUpdateZone={handleZoneUpdate}
         getPositiveDifference={getPositiveDifference}
@@ -183,7 +158,7 @@ export const MTGTool: React.FC = () => {
       />
 
       <QuickActions
-        exileFromHand={exileFromHand}
+        exileFromHandOrPlay={exileFromHandOrPlay}
         onToggleExileMode={toggleExileMode}
         onReset={resetGame}
       />

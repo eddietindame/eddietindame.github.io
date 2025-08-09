@@ -1,21 +1,18 @@
 import { useState } from 'react'
-import { DeckState, CardZone, initialDeckState } from './types'
+import { DeckState, initialDeckState } from './types'
 
 export const useGameState = () => {
   const [deckState, setDeckState] = useState<DeckState>(initialDeckState)
-  const [exileFromHand, setExileFromHand] = useState(false)
+  const [exileFromHandOrPlay, setExileFromHandOrPlay] = useState(false)
 
   const updateZone = (
     zone: keyof DeckState,
-    field: keyof CardZone,
+    field: keyof DeckState[keyof DeckState],
     value: number,
-    fromHand = false,
+    fromHandOrPlay = false,
   ) => {
     setDeckState(prev => {
-      // Basic validation
-      if (value < 0) return prev
-      if (field === 'total' && value > initialDeckState.deck.total) return prev
-      if (field === 'permanents' && zone !== 'graveyard' && value > prev[zone].total) return prev
+      const difference = value - (prev[zone][field] || 0)
 
       // Handle graveyard permanents specially
       if (zone === 'graveyard' && field === 'permanents') {
@@ -24,10 +21,10 @@ export const useGameState = () => {
 
       // Handle zone total updates
       if (field === 'total') {
-        return handleZoneTotalUpdate(prev, zone, value, fromHand)
+        return handleZoneTotalUpdate(prev, zone, value, fromHandOrPlay)
       }
 
-      // Default case - simple field update
+      // Default case - direct update
       return {
         ...prev,
         [zone]: {
@@ -39,19 +36,29 @@ export const useGameState = () => {
   }
 
   const handleGraveyardPermanentsUpdate = (prev: DeckState, value: number) => {
-    const currentTotal = prev.graveyard.total
-    const newTotal = Math.max(currentTotal, value)
-    const totalDifference = newTotal - currentTotal
+    const difference = value - (prev.graveyard.permanents || 0)
 
+    // If increasing permanents, also increase graveyard total and decrease deck
+    if (difference > 0) {
+      return {
+        ...prev,
+        deck: {
+          ...prev.deck,
+          total: prev.deck.total - difference,
+        },
+        graveyard: {
+          ...prev.graveyard,
+          permanents: value,
+          total: prev.graveyard.total + difference,
+        },
+      }
+    }
+
+    // If decreasing permanents, don't change graveyard total (cards stay in graveyard)
     return {
       ...prev,
-      deck: {
-        ...prev.deck,
-        total: prev.deck.total - totalDifference,
-      },
       graveyard: {
         ...prev.graveyard,
-        total: newTotal,
         permanents: value,
       },
     }
@@ -61,13 +68,12 @@ export const useGameState = () => {
     prev: DeckState,
     zone: keyof DeckState,
     value: number,
-    fromHand = false,
+    fromHandOrPlay = false,
   ) => {
-    const currentValue = prev[zone].total
-    const difference = value - currentValue
+    const difference = value - prev[zone].total
 
     if (zone === 'graveyard') {
-      return handleGraveyardTotalUpdate(prev, value, difference, fromHand)
+      return handleGraveyardTotalUpdate(prev, value, difference, fromHandOrPlay)
     } else if (zone === 'deck') {
       return handleDeckTotalUpdate(prev, value, difference)
     } else if (zone === 'exile') {
@@ -81,43 +87,54 @@ export const useGameState = () => {
     prev: DeckState,
     value: number,
     difference: number,
-    fromHand = false,
+    fromHandOrPlay = false,
   ) => {
-    if (fromHand && difference > 0) {
-      // Discard from hand - no deck change needed since hand is calculated
+    if (fromHandOrPlay && difference > 0) {
+      // Discard from hand/play - no deck change needed since hand/play is calculated
+      return {
+        ...prev,
+        graveyard: { ...prev.graveyard, total: value },
+      }
+    }
+
+    if (difference < 0) {
+      // Removing from graveyard - goes to exile
       return {
         ...prev,
         graveyard: {
           ...prev.graveyard,
           total: value,
-          permanents: Math.min(prev.graveyard.permanents || 0, value),
+          permanents: Math.max(0, (prev.graveyard.permanents || 0) + difference),
+        },
+        exile: {
+          ...prev.exile,
+          total: prev.exile.total - difference,
         },
       }
     }
 
-    // Mill from deck (plus button or other cases)
+    // Adding to graveyard from deck (mill)
     return {
       ...prev,
-      deck: {
-        ...prev.deck,
-        total: prev.deck.total - difference,
-      },
-      graveyard: {
-        ...prev.graveyard,
-        total: value,
-        permanents: Math.min(prev.graveyard.permanents || 0, value),
-      },
+      deck: { ...prev.deck, total: prev.deck.total - difference },
+      graveyard: { ...prev.graveyard, total: value },
     }
   }
 
   const handleDeckTotalUpdate = (prev: DeckState, value: number, difference: number) => {
     if (difference > 0) {
-      // Adding to deck - take from hand only
-      const handSize =
+      // Adding to deck - take from hand/play only
+      const handOrPlayCount =
         initialDeckState.deck.total - prev.deck.total - prev.graveyard.total - prev.exile.total
-      if (handSize < difference) return prev
+      if (handOrPlayCount < difference) return prev
+
+      return {
+        ...prev,
+        deck: { ...prev.deck, total: value },
+      }
     }
 
+    // Removing from deck (draw) - goes to hand/play (calculated automatically)
     return {
       ...prev,
       deck: { ...prev.deck, total: value },
@@ -138,17 +155,17 @@ export const useGameState = () => {
     }
 
     // Adding to exile - check mode
-    if (exileFromHand) {
-      return handleExileFromHand(prev, value, difference)
+    if (exileFromHandOrPlay) {
+      return handleExileFromHandOrPlay(prev, value, difference)
     } else {
       return handleExileFromGraveyard(prev, value, difference)
     }
   }
 
-  const handleExileFromHand = (prev: DeckState, value: number, difference: number) => {
-    const handSize =
+  const handleExileFromHandOrPlay = (prev: DeckState, value: number, difference: number) => {
+    const handOrPlayCount =
       initialDeckState.deck.total - prev.deck.total - prev.graveyard.total - prev.exile.total
-    if (handSize < difference) return prev
+    if (handOrPlayCount < difference) return prev
 
     return {
       ...prev,
@@ -172,13 +189,14 @@ export const useGameState = () => {
 
   const resetGame = () => {
     setDeckState(initialDeckState)
+    setExileFromHandOrPlay(false)
   }
 
   const toggleExileMode = () => {
-    setExileFromHand(!exileFromHand)
+    setExileFromHandOrPlay(!exileFromHandOrPlay)
   }
 
-  const handSize =
+  const handOrPlayCount =
     initialDeckState.deck.total -
     deckState.deck.total -
     deckState.graveyard.total -
@@ -186,8 +204,8 @@ export const useGameState = () => {
 
   return {
     deckState,
-    exileFromHand,
-    handSize,
+    exileFromHandOrPlay,
+    handOrPlayCount,
     updateZone,
     resetGame,
     toggleExileMode,
