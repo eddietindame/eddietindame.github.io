@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { ConfirmationModal } from './ConfirmationModal'
 
 interface QuickActionsProps {
-  exileFromHand: boolean
+  exileFromHandOrPlay: boolean
   onToggleExileMode: () => void
   onReset: () => void
 }
 
 export const QuickActions: React.FC<QuickActionsProps> = ({
-  exileFromHand,
+  exileFromHandOrPlay,
   onToggleExileMode,
   onReset,
 }) => {
@@ -33,14 +33,14 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
         <button
           onClick={onToggleExileMode}
           className={`p-3 text-xs font-bold text-white transition-all ${
-            exileFromHand
+            exileFromHandOrPlay
               ? 'bg-gradient-to-br from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600'
               : 'bg-gradient-to-br from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600'
           }`}
-          aria-label={`Toggle exile mode. Currently: ${exileFromHand ? 'Exile from hand' : 'Exile from graveyard'}`}
-          aria-pressed={exileFromHand}
+          aria-label={`Toggle exile mode. Currently: ${exileFromHandOrPlay ? 'Exile from hand/play' : 'Exile from graveyard'}`}
+          aria-pressed={exileFromHandOrPlay}
         >
-          {exileFromHand ? 'Hand→Exile' : 'GY→Exile'}
+          {exileFromHandOrPlay ? 'Hand/Play→Exile' : 'GY→Exile'}
         </button>
         <button
           onClick={handleResetClick}
@@ -53,10 +53,10 @@ export const QuickActions: React.FC<QuickActionsProps> = ({
 
       <ConfirmationModal
         isOpen={showResetModal}
+        title="Reset Game"
+        message="Are you sure you want to reset the game? This will return all cards to the library and cannot be undone."
         onConfirm={handleConfirmReset}
         onCancel={handleCancelReset}
-        title="Reset Game"
-        message="Are you sure you want to reset the game? This will clear all card counts and return to the initial state."
         confirmText="Reset"
         cancelText="Cancel"
       />
