@@ -98,17 +98,31 @@ export const useGameState = () => {
     }
 
     if (difference < 0) {
-      // Removing from graveyard - goes to exile
+      // Removing from graveyard - goes back to deck (undo mill)
+      const cardsRequestedToMove = -difference // Convert negative difference to positive
+      const maxDeckSize = initialDeckState.deck.total
+      const availableDeckSpace = maxDeckSize - prev.deck.total
+
+      // Don't allow any operation if deck is at maximum
+      if (availableDeckSpace <= 0) {
+        return prev // No space in deck, don't allow the operation
+      }
+
+      // Only move as many cards as there's space for
+      const actualCardsToMove = Math.min(cardsRequestedToMove, availableDeckSpace)
+      // The new graveyard total is the current total minus what we actually moved
+      const newGraveyardTotal = prev.graveyard.total - actualCardsToMove
+
       return {
         ...prev,
+        deck: {
+          ...prev.deck,
+          total: prev.deck.total + actualCardsToMove,
+        },
         graveyard: {
           ...prev.graveyard,
-          total: value,
-          permanents: Math.max(0, (prev.graveyard.permanents || 0) + difference),
-        },
-        exile: {
-          ...prev.exile,
-          total: prev.exile.total - difference,
+          total: newGraveyardTotal,
+          permanents: Math.max(0, (prev.graveyard.permanents || 0) - actualCardsToMove),
         },
       }
     }
