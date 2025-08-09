@@ -435,4 +435,118 @@ describe('MTGTool', () => {
       expect(toggleButton).toHaveAttribute('aria-pressed', 'false')
     })
   })
+
+  test('undo mill: graveyard decrease sends cards back to deck', async () => {
+    // First mill some cards (graveyard +)
+    const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton)
+    await user.click(increaseGraveyardButton)
+
+    // Verify mill worked: deck decreased, graveyard increased
+    expect(screen.getByLabelText('Deck total: 96 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 3 cards')).toBeInTheDocument()
+
+    // Now undo mill (graveyard -)
+    const decreaseGraveyardButton = screen.getByRole('button', { name: 'Decrease graveyard total' })
+    await user.click(decreaseGraveyardButton)
+    await user.click(decreaseGraveyardButton)
+
+    // Verify undo mill worked: cards went back to deck
+    expect(screen.getByLabelText('Deck total: 98 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 1 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Exile total: 0 cards')).toBeInTheDocument()
+  })
+
+  test('undo mill reduces graveyard permanents correctly', async () => {
+    // First add some permanents to graveyard
+    const increasePermanentsButton = screen.getByRole('button', {
+      name: 'Increase graveyard permanents',
+    })
+    await user.click(increasePermanentsButton)
+    await user.click(increasePermanentsButton)
+    await user.click(increasePermanentsButton)
+
+    // Verify permanents were added
+    expect(screen.getByLabelText('Graveyard permanents: 3')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 3 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Deck total: 96 cards')).toBeInTheDocument()
+
+    // Now undo mill (graveyard -)
+    const decreaseGraveyardButton = screen.getByRole('button', { name: 'Decrease graveyard total' })
+    await user.click(decreaseGraveyardButton)
+
+    // Verify permanents were reduced and cards went back to deck
+    expect(screen.getByLabelText('Graveyard permanents: 2')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 2 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Deck total: 97 cards')).toBeInTheDocument()
+  })
+
+  test('undo mill respects maximum deck size limit', async () => {
+    // Mill all 99 cards to graveyard (deck will be 0)
+    const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
+    for (let i = 0; i < 99; i++) {
+      await user.click(increaseGraveyardButton)
+    }
+
+    expect(screen.getByLabelText('Deck total: 0 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 99 cards')).toBeInTheDocument()
+
+    // Now undo mill all cards back (should work and hit the limit)
+    const decreaseGraveyardButton = screen.getByRole('button', { name: 'Decrease graveyard total' })
+    for (let i = 0; i < 99; i++) {
+      await user.click(decreaseGraveyardButton)
+    }
+
+    // Should be back to initial state
+    expect(screen.getByLabelText('Deck total: 99 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 0 cards')).toBeInTheDocument()
+
+    // Now mill one card and try to undo mill when deck is already at max
+    await user.click(increaseGraveyardButton) // Deck: 98, Graveyard: 1
+
+    // Try to add one more card to deck beyond the limit (this should be blocked)
+    // We'll do this by trying to undo mill twice when there's only 1 card in graveyard
+    await user.click(decreaseGraveyardButton) // Should work: Deck: 99, Graveyard: 0
+
+    expect(screen.getByLabelText('Deck total: 99 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 0 cards')).toBeInTheDocument()
+
+    // Add one card to graveyard again
+    await user.click(increaseGraveyardButton) // Deck: 98, Graveyard: 1
+
+    // Try to undo mill when deck is at 98 (should work and reach 99)
+    await user.click(decreaseGraveyardButton) // Should work: Deck: 99, Graveyard: 0
+
+    expect(screen.getByLabelText('Deck total: 99 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 0 cards')).toBeInTheDocument()
+  })
+
+  test('undo mill moves partial cards when deck has limited space', async () => {
+    // Mill 98 cards to graveyard, leaving deck with 1 card
+    const increaseGraveyardButton = screen.getByRole('button', { name: 'Increase graveyard total' })
+    for (let i = 0; i < 98; i++) {
+      await user.click(increaseGraveyardButton)
+    }
+
+    expect(screen.getByLabelText('Deck total: 1 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 98 cards')).toBeInTheDocument()
+
+    // Now undo mill - should move cards back until deck reaches max (99)
+    const decreaseGraveyardButton = screen.getByRole('button', { name: 'Decrease graveyard total' })
+
+    // First undo should work (deck: 2, graveyard: 97)
+    await user.click(decreaseGraveyardButton)
+    expect(screen.getByLabelText('Deck total: 2 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 97 cards')).toBeInTheDocument()
+
+    // Continue undoing until we reach deck limit
+    for (let i = 0; i < 97; i++) {
+      await user.click(decreaseGraveyardButton)
+    }
+
+    // Should be back to initial state (deck: 99, graveyard: 0)
+    expect(screen.getByLabelText('Deck total: 99 cards')).toBeInTheDocument()
+    expect(screen.getByLabelText('Graveyard total: 0 cards')).toBeInTheDocument()
+  })
 })
