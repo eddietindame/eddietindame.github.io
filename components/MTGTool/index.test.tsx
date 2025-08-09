@@ -425,7 +425,8 @@ describe('MTGTool', () => {
     expect(screen.getByLabelText('Exile total increased by 1')).toHaveClass('text-green-400')
 
     // Verify all tooltips are present and have correct context
-    expect(screen.getByLabelText('Deck total decreased by 2')).toBeInTheDocument()
+    // Deck decreased by: 2 (direct clicks) + 3 (graveyard milling) = 5
+    expect(screen.getByLabelText('Deck total decreased by 5')).toBeInTheDocument()
     expect(screen.getByLabelText('Graveyard total increased by 3')).toBeInTheDocument()
     expect(screen.getByLabelText('Graveyard permanents increased by 2')).toBeInTheDocument()
     expect(screen.getByLabelText('Exile total increased by 1')).toBeInTheDocument()
