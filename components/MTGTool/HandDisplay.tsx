@@ -7,7 +7,12 @@ import React from 'react'
 interface HandDisplayProps {
   handSize: number
   deckState: DeckState
-  onUpdateZone: (zone: keyof DeckState, field: keyof CardZone, value: number) => void
+  onUpdateZone: (
+    zone: keyof DeckState,
+    field: keyof CardZone,
+    value: number,
+    fromHand?: boolean,
+  ) => void
   getPositiveDifference: (key: string) => number
   getNegativeDifference: (key: string) => number
   hasPositiveDifference: (key: string) => boolean
@@ -29,7 +34,7 @@ export const HandDisplay: React.FC<HandDisplayProps> = ({
 }) => {
   const handleDiscard = () => {
     if (handSize > 0) {
-      onUpdateZone('graveyard', 'total', deckState.graveyard.total + 1)
+      onUpdateZone('graveyard', 'total', deckState.graveyard.total + 1, true)
     }
   }
 

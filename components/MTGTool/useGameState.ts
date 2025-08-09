@@ -5,7 +5,12 @@ export const useGameState = () => {
   const [deckState, setDeckState] = useState<DeckState>(initialDeckState)
   const [exileFromHand, setExileFromHand] = useState(false)
 
-  const updateZone = (zone: keyof DeckState, field: keyof CardZone, value: number) => {
+  const updateZone = (
+    zone: keyof DeckState,
+    field: keyof CardZone,
+    value: number,
+    fromHand = false,
+  ) => {
     setDeckState(prev => {
       // Basic validation
       if (value < 0) return prev
@@ -19,7 +24,7 @@ export const useGameState = () => {
 
       // Handle zone total updates
       if (field === 'total') {
-        return handleZoneTotalUpdate(prev, zone, value)
+        return handleZoneTotalUpdate(prev, zone, value, fromHand)
       }
 
       // Default case - simple field update
@@ -52,12 +57,17 @@ export const useGameState = () => {
     }
   }
 
-  const handleZoneTotalUpdate = (prev: DeckState, zone: keyof DeckState, value: number) => {
+  const handleZoneTotalUpdate = (
+    prev: DeckState,
+    zone: keyof DeckState,
+    value: number,
+    fromHand = false,
+  ) => {
     const currentValue = prev[zone].total
     const difference = value - currentValue
 
     if (zone === 'graveyard') {
-      return handleGraveyardTotalUpdate(prev, value, difference)
+      return handleGraveyardTotalUpdate(prev, value, difference, fromHand)
     } else if (zone === 'deck') {
       return handleDeckTotalUpdate(prev, value, difference)
     } else if (zone === 'exile') {
@@ -67,26 +77,25 @@ export const useGameState = () => {
     return prev
   }
 
-  const handleGraveyardTotalUpdate = (prev: DeckState, value: number, difference: number) => {
-    if (difference > 0) {
-      // Increasing graveyard - check if we can take from hand first
-      const currentHandSize =
-        initialDeckState.deck.total - prev.deck.total - prev.graveyard.total - prev.exile.total
-
-      if (currentHandSize >= difference) {
-        // Take from hand (no deck change needed since hand is calculated)
-        return {
-          ...prev,
-          graveyard: {
-            ...prev.graveyard,
-            total: value,
-            permanents: Math.min(prev.graveyard.permanents || 0, value),
-          },
-        }
+  const handleGraveyardTotalUpdate = (
+    prev: DeckState,
+    value: number,
+    difference: number,
+    fromHand = false,
+  ) => {
+    if (fromHand && difference > 0) {
+      // Discard from hand - no deck change needed since hand is calculated
+      return {
+        ...prev,
+        graveyard: {
+          ...prev.graveyard,
+          total: value,
+          permanents: Math.min(prev.graveyard.permanents || 0, value),
+        },
       }
     }
 
-    // Default behavior - take from deck
+    // Mill from deck (plus button or other cases)
     return {
       ...prev,
       deck: {

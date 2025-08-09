@@ -90,6 +90,7 @@ export const MTGTool: React.FC = () => {
     zone: keyof typeof deckState,
     field: keyof (typeof deckState)[keyof typeof deckState],
     value: number,
+    fromHand = false,
   ) => {
     const key = `${zone}-${field}`
     const currentValue = deckState[zone][field] || 0
@@ -98,9 +99,14 @@ export const MTGTool: React.FC = () => {
     // Only track this update if it would actually change something
     if (intendedDifference !== 0) {
       pendingUpdates.current.set(key, intendedDifference)
+
+      // If we're increasing graveyard total by milling from deck, also track the deck decrease
+      if (zone === 'graveyard' && field === 'total' && !fromHand && intendedDifference > 0) {
+        pendingUpdates.current.set('deck-total', -intendedDifference)
+      }
     }
 
-    updateZone(zone, field, value)
+    updateZone(zone, field, value, fromHand)
   }
 
   return (
