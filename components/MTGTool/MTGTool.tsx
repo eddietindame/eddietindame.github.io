@@ -4,8 +4,9 @@ import { ZoneCard } from './ZoneCard'
 import { HandOrPlayDisplay } from './HandOrPlayDisplay'
 import { GraveyardPermanents } from './GraveyardPermanents'
 import { QuickActions } from './QuickActions'
+import { DeliriumTracker } from './DeliriumTracker'
 import { useDebouncedDifference } from 'components/MTGTool/useDebouncedDifference'
-import { DeckState, CardZone } from './types'
+import { CardZone, CardZones } from './types'
 
 export const MTGTool: React.FC = () => {
   const {
@@ -15,6 +16,7 @@ export const MTGTool: React.FC = () => {
     updateZone,
     resetGame,
     toggleExileMode,
+    toggleCardTypeInGraveyard,
   } = useGameState()
   const {
     addDifference,
@@ -29,7 +31,6 @@ export const MTGTool: React.FC = () => {
   // Track previous state to detect actual changes
   const prevDeckState = useRef(deckState)
   const prevHandOrPlayCount = useRef(handOrPlayCount)
-  const pendingUpdates = useRef<Map<string, number>>(new Map())
 
   // Detect actual state changes and show tooltips only when values actually change
   useEffect(() => {
@@ -44,8 +45,9 @@ export const MTGTool: React.FC = () => {
       }
     }
 
-    // Check for zone changes
-    ;(Object.entries(deckState) as [keyof DeckState, CardZone][]).forEach(([zoneName, zone]) => {
+    // Check for zone changes (only card zones, not delirium)
+    ;(['deck', 'graveyard', 'exile'] as const).forEach(zoneName => {
+      const zone = deckState[zoneName]
       const prevZone = prevDeckState.current[zoneName]
 
       // Check zone total changes
@@ -76,7 +78,7 @@ export const MTGTool: React.FC = () => {
   }, [deckState, handOrPlayCount, addDifference])
 
   const handleZoneUpdate = (
-    zone: keyof DeckState,
+    zone: keyof CardZones,
     field: keyof CardZone,
     value: number,
     fromHandOrPlay = false,
@@ -161,6 +163,11 @@ export const MTGTool: React.FC = () => {
         exileFromHandOrPlay={exileFromHandOrPlay}
         onToggleExileMode={toggleExileMode}
         onReset={resetGame}
+      />
+
+      <DeliriumTracker
+        deliriumState={deckState.delirium}
+        onToggleCardType={toggleCardTypeInGraveyard}
       />
     </div>
   )
