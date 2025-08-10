@@ -12,8 +12,6 @@ export const useGameState = () => {
     fromHandOrPlay = false,
   ) => {
     setDeckState(prev => {
-      const difference = value - (prev[zone][field] || 0)
-
       // Handle graveyard permanents specially
       if (zone === 'graveyard' && field === 'permanents') {
         return handleGraveyardPermanentsUpdate(prev, value)
@@ -100,7 +98,7 @@ export const useGameState = () => {
 
     if (difference < 0) {
       // Removing from graveyard - goes back to deck (undo mill)
-      const cardsRequestedToMove = -difference // Convert negative difference to positive
+      const cardsToMove = -difference // Convert negative difference to positive
       const maxDeckSize = initialDeckState.deck.total
       const availableDeckSpace = maxDeckSize - prev.deck.total
 
@@ -110,8 +108,9 @@ export const useGameState = () => {
       }
 
       // Only move as many cards as there's space for
-      const actualCardsToMove = Math.min(cardsRequestedToMove, availableDeckSpace)
-      // The new graveyard total is the current total minus what we actually moved
+      const actualCardsToMove = Math.min(cardsToMove, availableDeckSpace)
+
+      // Calculate the new graveyard total based on what we can actually move
       const newGraveyardTotal = prev.graveyard.total - actualCardsToMove
 
       return {

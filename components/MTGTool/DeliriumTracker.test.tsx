@@ -34,7 +34,7 @@ describe('DeliriumTracker', () => {
     const toggleButton = screen.getByRole('button', { name: /Toggle delirium tracker/ })
     expect(toggleButton).toHaveAttribute('aria-expanded', 'false')
 
-    // Card type buttons should not be focusable when collapsed
+    // Card type buttons should exist but not be focusable when collapsed
     const expectedCardTypes = [
       'Land',
       'Creature',
@@ -47,7 +47,8 @@ describe('DeliriumTracker', () => {
     ]
 
     expectedCardTypes.forEach(cardType => {
-      const button = screen.getByRole('button', { name: cardType })
+      const button = screen.getByText(cardType)
+      expect(button).toBeInTheDocument()
       expect(button).toHaveAttribute('tabIndex', '-1')
     })
   })

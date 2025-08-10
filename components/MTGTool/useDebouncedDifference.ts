@@ -120,7 +120,9 @@ export const useDebouncedDifference = (debounceMs: number = 2000, fadeMs: number
   // Cleanup timeouts on unmount
   useEffect(() => {
     return () => {
-      Object.values(timeoutRefs.current).forEach(timeouts => {
+      // Capture the current value of the ref to avoid the warning
+      const currentTimeouts = timeoutRefs.current
+      Object.values(currentTimeouts).forEach(timeouts => {
         if (timeouts.positive) clearTimeout(timeouts.positive)
         if (timeouts.negative) clearTimeout(timeouts.negative)
         if (timeouts.positiveFade) clearTimeout(timeouts.positiveFade)
