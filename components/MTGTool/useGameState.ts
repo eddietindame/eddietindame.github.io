@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { DeckState, initialDeckState } from './types'
+import { DeckState, initialDeckState, CardType, CardZone, CardZones } from './types'
 
 export const useGameState = () => {
   const [deckState, setDeckState] = useState<DeckState>(initialDeckState)
   const [exileFromHandOrPlay, setExileFromHandOrPlay] = useState(false)
 
   const updateZone = (
-    zone: keyof DeckState,
-    field: keyof DeckState[keyof DeckState],
+    zone: keyof CardZones,
+    field: keyof CardZone,
     value: number,
     fromHandOrPlay = false,
   ) => {
@@ -36,20 +36,20 @@ export const useGameState = () => {
   }
 
   const handleGraveyardPermanentsUpdate = (prev: DeckState, value: number) => {
-    const difference = value - (prev.graveyard.permanents || 0)
+    const graveyardDifference = value - (prev.graveyard.permanents || 0)
 
     // If increasing permanents, also increase graveyard total and decrease deck
-    if (difference > 0) {
+    if (graveyardDifference > 0) {
       return {
         ...prev,
         deck: {
           ...prev.deck,
-          total: prev.deck.total - difference,
+          total: prev.deck.total - graveyardDifference,
         },
         graveyard: {
           ...prev.graveyard,
           permanents: value,
-          total: prev.graveyard.total + difference,
+          total: prev.graveyard.total + graveyardDifference,
         },
       }
     }
@@ -66,11 +66,12 @@ export const useGameState = () => {
 
   const handleZoneTotalUpdate = (
     prev: DeckState,
-    zone: keyof DeckState,
+    zone: keyof CardZones,
     value: number,
     fromHandOrPlay = false,
   ) => {
-    const difference = value - prev[zone].total
+    const zoneData = prev[zone] as CardZone
+    const difference = value - zoneData.total
 
     if (zone === 'graveyard') {
       return handleGraveyardTotalUpdate(prev, value, difference, fromHandOrPlay)
@@ -210,6 +211,28 @@ export const useGameState = () => {
     setExileFromHandOrPlay(!exileFromHandOrPlay)
   }
 
+  const toggleCardTypeInGraveyard = (cardType: CardType) => {
+    setDeckState(prev => {
+      const newCardTypes = new Set(prev.delirium.cardTypesInGraveyard)
+
+      if (newCardTypes.has(cardType)) {
+        newCardTypes.delete(cardType)
+      } else {
+        newCardTypes.add(cardType)
+      }
+
+      const isActive = newCardTypes.size >= 4
+
+      return {
+        ...prev,
+        delirium: {
+          cardTypesInGraveyard: newCardTypes,
+          isActive,
+        },
+      }
+    })
+  }
+
   const handOrPlayCount =
     initialDeckState.deck.total -
     deckState.deck.total -
@@ -223,5 +246,6 @@ export const useGameState = () => {
     updateZone,
     resetGame,
     toggleExileMode,
+    toggleCardTypeInGraveyard,
   }
 }

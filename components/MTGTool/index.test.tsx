@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
-import { MTGTool } from './index'
+import { MTGTool } from './MTGTool'
 
 // Simple mock for utils
 jest.mock('lib/utils', () => ({
@@ -548,5 +548,184 @@ describe('MTGTool', () => {
     // Should be back to initial state (deck: 99, graveyard: 0)
     expect(screen.getByLabelText('Deck total: 99 cards')).toBeInTheDocument()
     expect(screen.getByLabelText('Graveyard total: 0 cards')).toBeInTheDocument()
+  })
+
+  describe('delirium integration', () => {
+    test('delirium tracker is present in the interface', () => {
+      expect(screen.getByRole('heading', { name: 'Delirium Tracker' })).toBeInTheDocument()
+      expect(screen.getByText('0/4 types')).toBeInTheDocument()
+
+      // Check all card type buttons are present
+      const cardTypes = [
+        'Land',
+        'Creature',
+        'Artifact',
+        'Enchantment',
+        'Instant',
+        'Sorcery',
+        'Planeswalker',
+        'Battle',
+      ]
+      cardTypes.forEach(cardType => {
+        expect(screen.getByRole('button', { name: cardType })).toBeInTheDocument()
+      })
+    })
+
+    test('delirium tracker works independently of zone updates', async () => {
+      // Add cards to graveyard
+      const increaseGraveyardButton = screen.getByRole('button', {
+        name: 'Increase graveyard total',
+      })
+      await user.click(increaseGraveyardButton)
+      await user.click(increaseGraveyardButton)
+
+      expect(screen.getByLabelText('Graveyard total: 2 cards')).toBeInTheDocument()
+
+      // Toggle some card types in delirium tracker
+      const landButton = screen.getByRole('button', { name: 'Land' })
+      const creatureButton = screen.getByRole('button', { name: 'Creature' })
+
+      await user.click(landButton)
+      await user.click(creatureButton)
+
+      // Delirium should show 2 types, graveyard should still be 2 cards
+      expect(screen.getByText('2/4 types')).toBeInTheDocument()
+      expect(screen.getByLabelText('Graveyard total: 2 cards')).toBeInTheDocument()
+      expect(landButton).toHaveAttribute('aria-pressed', 'true')
+      expect(creatureButton).toHaveAttribute('aria-pressed', 'true')
+    })
+
+    test('delirium activates with 4 card types', async () => {
+      const cardTypeButtons = [
+        screen.getByRole('button', { name: 'Land' }),
+        screen.getByRole('button', { name: 'Creature' }),
+        screen.getByRole('button', { name: 'Artifact' }),
+        screen.getByRole('button', { name: 'Instant' }),
+      ]
+
+      // Click 4 different card types
+      for (const button of cardTypeButtons) {
+        await user.click(button)
+      }
+
+      // Should show active status
+      expect(screen.getByText('4/4 types - ACTIVE')).toBeInTheDocument()
+      expect(
+        screen.getByText('🎯 Delirium is active! You have 4+ card types in your graveyard.'),
+      ).toBeInTheDocument()
+
+      // All clicked buttons should be pressed
+      cardTypeButtons.forEach(button => {
+        expect(button).toHaveAttribute('aria-pressed', 'true')
+      })
+    })
+
+    test('delirium deactivates when dropping below 4 types', async () => {
+      const cardTypeButtons = [
+        screen.getByRole('button', { name: 'Land' }),
+        screen.getByRole('button', { name: 'Creature' }),
+        screen.getByRole('button', { name: 'Artifact' }),
+        screen.getByRole('button', { name: 'Instant' }),
+      ]
+
+      // Activate delirium with 4 types
+      for (const button of cardTypeButtons) {
+        await user.click(button)
+      }
+
+      expect(screen.getByText('4/4 types - ACTIVE')).toBeInTheDocument()
+
+      // Remove one card type
+      await user.click(cardTypeButtons[0]) // Remove Land
+
+      // Should deactivate
+      expect(screen.getByText('3/4 types')).toBeInTheDocument()
+      expect(screen.queryByText('ACTIVE')).not.toBeInTheDocument()
+      expect(screen.queryByText('🎯 Delirium is active!')).not.toBeInTheDocument()
+    })
+
+    test('delirium state resets with game reset', async () => {
+      // Activate delirium
+      const cardTypeButtons = [
+        screen.getByRole('button', { name: 'Land' }),
+        screen.getByRole('button', { name: 'Creature' }),
+        screen.getByRole('button', { name: 'Artifact' }),
+        screen.getByRole('button', { name: 'Instant' }),
+      ]
+
+      for (const button of cardTypeButtons) {
+        await user.click(button)
+      }
+
+      expect(screen.getByText('4/4 types - ACTIVE')).toBeInTheDocument()
+
+      // Reset game
+      const resetButton = screen.getByRole('button', { name: 'Reset game to initial state' })
+      await user.click(resetButton)
+
+      const confirmButton = screen.getByRole('button', { name: 'Reset' })
+      await user.click(confirmButton)
+
+      // Wait for reset and verify delirium is cleared
+      await waitFor(() => {
+        expect(screen.getByText('0/4 types')).toBeInTheDocument()
+      })
+
+      expect(screen.queryByText('ACTIVE')).not.toBeInTheDocument()
+
+      // All buttons should be unpressed
+      cardTypeButtons.forEach(button => {
+        expect(button).toHaveAttribute('aria-pressed', 'false')
+      })
+    })
+
+    test('can toggle all 8 card types when expanded', async () => {
+      // First expand delirium tracker
+      const toggleButton = screen.getByRole('button', { name: /Toggle delirium tracker/ })
+      await user.click(toggleButton)
+
+      const allCardTypes = [
+        'Land',
+        'Creature',
+        'Artifact',
+        'Enchantment',
+        'Instant',
+        'Sorcery',
+        'Planeswalker',
+        'Battle',
+      ]
+
+      // Toggle all card types on
+      for (const cardTypeName of allCardTypes) {
+        const button = screen.getByRole('button', { name: cardTypeName })
+        await user.click(button)
+      }
+
+      expect(screen.getByText('8/4 types - ACTIVE')).toBeInTheDocument()
+      expect(
+        screen.getByText('🎯 Delirium is active! You have 4+ card types in your graveyard.'),
+      ).toBeInTheDocument()
+
+      // All buttons should be pressed
+      allCardTypes.forEach(cardTypeName => {
+        const button = screen.getByRole('button', { name: cardTypeName })
+        expect(button).toHaveAttribute('aria-pressed', 'true')
+      })
+
+      // Toggle all card types off
+      for (const cardTypeName of allCardTypes) {
+        const button = screen.getByRole('button', { name: cardTypeName })
+        await user.click(button)
+      }
+
+      expect(screen.getByText('0/4 types')).toBeInTheDocument()
+      expect(screen.queryByText('ACTIVE')).not.toBeInTheDocument()
+
+      // All buttons should be unpressed
+      allCardTypes.forEach(cardTypeName => {
+        const button = screen.getByRole('button', { name: cardTypeName })
+        expect(button).toHaveAttribute('aria-pressed', 'false')
+      })
+    })
   })
 })
