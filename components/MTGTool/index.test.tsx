@@ -551,9 +551,13 @@ describe('MTGTool', () => {
   })
 
   describe('delirium integration', () => {
-    test('delirium tracker is present in the interface', () => {
+    test('delirium tracker is present in the interface', async () => {
       expect(screen.getByRole('heading', { name: 'Delirium Tracker' })).toBeInTheDocument()
       expect(screen.getByText('0/4 types')).toBeInTheDocument()
+
+      // Expand the delirium tracker to access the buttons
+      const toggleButton = screen.getByRole('button', { name: /Toggle delirium tracker/ })
+      await user.click(toggleButton)
 
       // Check all card type buttons are present
       const cardTypes = [
@@ -581,6 +585,10 @@ describe('MTGTool', () => {
 
       expect(screen.getByLabelText('Graveyard total: 2 cards')).toBeInTheDocument()
 
+      // Expand the delirium tracker to access the buttons
+      const toggleButton = screen.getByRole('button', { name: /Toggle delirium tracker/ })
+      await user.click(toggleButton)
+
       // Toggle some card types in delirium tracker
       const landButton = screen.getByRole('button', { name: 'Land' })
       const creatureButton = screen.getByRole('button', { name: 'Creature' })
@@ -596,6 +604,10 @@ describe('MTGTool', () => {
     })
 
     test('delirium activates with 4 card types', async () => {
+      // Expand the delirium tracker to access the buttons
+      const toggleButton = screen.getByRole('button', { name: /Toggle delirium tracker/ })
+      await user.click(toggleButton)
+
       const cardTypeButtons = [
         screen.getByRole('button', { name: 'Land' }),
         screen.getByRole('button', { name: 'Creature' }),
@@ -621,6 +633,10 @@ describe('MTGTool', () => {
     })
 
     test('delirium deactivates when dropping below 4 types', async () => {
+      // Expand the delirium tracker to access the buttons
+      const toggleButton = screen.getByRole('button', { name: /Toggle delirium tracker/ })
+      await user.click(toggleButton)
+
       const cardTypeButtons = [
         screen.getByRole('button', { name: 'Land' }),
         screen.getByRole('button', { name: 'Creature' }),
@@ -645,6 +661,10 @@ describe('MTGTool', () => {
     })
 
     test('delirium state resets with game reset', async () => {
+      // Expand the delirium tracker to access the buttons
+      const toggleButton = screen.getByRole('button', { name: /Toggle delirium tracker/ })
+      await user.click(toggleButton)
+
       // Activate delirium
       const cardTypeButtons = [
         screen.getByRole('button', { name: 'Land' }),
