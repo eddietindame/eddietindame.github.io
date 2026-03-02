@@ -17,7 +17,7 @@ const About = () => (
       >
         Bertie
       </a>{' '}
-      where we are changing the landscape of insurtech for small-mid sized MGAs.
+      where we are disrupting the landscape of insurtech for small-mid sized MGAs.
     </p>
   </section>
 )
