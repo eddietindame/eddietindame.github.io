@@ -34,10 +34,10 @@ const Nav = () => {
       label: 'Resume',
       href: '/resume',
     },
-    {
-      label: 'Projects',
-      href: '/work',
-    },
+    // {
+    //   label: 'Projects',
+    //   href: '/work',
+    // },
     {
       label: 'Blog',
       href: '/blog',

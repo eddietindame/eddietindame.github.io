@@ -20,7 +20,7 @@ const Contact = () => {
     },
     {
       label: 'c.v.',
-      href: '/static/eddietindame_cv_2025.docx',
+      href: '/static/eddietindame_cv_2026.docx',
     },
   ]
 

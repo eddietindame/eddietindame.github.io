@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import { Project } from 'types/shared'
 import ProjectGallery from 'components/ProjectGallery'
+import S from './work.module.scss'
 import SlpThumb from 'assets/images/slp-thumbnail.jpg'
 import JbvThumb from 'assets/images/jb_v_thumbnail.jpg'
 import DbsoThumb from 'assets/images/db-so-2mm.jpg'
@@ -279,6 +280,7 @@ const Work = () => {
       </Head>
       <div id="work" className="work">
         <div className="container">
+          <h2 className={S['work__heading']}>Warner Music Group projects 🎵</h2>
           <ProjectGallery projects={projects} />
         </div>
       </div>

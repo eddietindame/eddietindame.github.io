@@ -2,15 +2,29 @@
 
 ## Summary
 
-I’m a software engineer with 8+ years of experience building and maintaining applications across the full stack at both large tech companies and fast-paced digital agencies. I specialize in writing type-safe, well-tested, and maintainable code, with a strong focus on user experience. I have led migrations to modern technologies, established best practices for testing and documentation, and helped streamline development processes to reduce tech debt and improve long-term scalability.
+I’m a software engineer with 10 years of experience building and maintaining applications across the full stack at startups, large tech companies, and fast-paced digital agencies. I’m proficient in full-stack development, cloud infrastructure, CI/CD pipelines, and infrastructure-as-code tooling. I design, build, and maintain front-end and back-end systems, manage deployments and DevOps processes, and architect infrastructure. I specialize in writing type-safe, well-tested, and maintainable code, with a strong focus on user experience.
 
 I thrive in collaborative environments, working closely with designers, product managers, and other engineers to turn ideas into polished, high-quality features. I’m experienced in real-time applications, functional user interfaces, and crafting engaging front-end experiences, always balancing technical excellence with great UI/UX.
 
-I’m always looking for ways to progress, whether by championing new tools, refining workflows, or sharing knowledge. I’m excited to take on a senior engineering role where I can combine my technical expertise and design sensibility to make a lasting impact.
+I’m always looking for ways to progress, whether by championing new tools, refining workflows, or sharing knowledge. I’m excited to combine my technical expertise and design sensibility to make a lasting impact.
 
 ---
 
 ## Experience
+
+### Full-Stack Software Engineer
+
+**Bertie Technology**
+_April 2025 – Present_
+
+- **Full-Stack Development:** Designs, builds, and maintains front-end and back-end systems across the business. Implemented the entire backend, enabling data synchronisation between ~~offline-first~~ clients.
+- **Infrastructure & DevOps:** Architects cloud infrastructure, manages deployments, and maintains ~~CI/CD~~ pipelines. Proactively established the company's entire ~~infrastructure-as-code~~ system, ensuring reproducible and scalable environments.
+- **Open Source:** Built a ~~Terraform~~ provider to facilitate our infrastructure automation needs.
+  [Terraform provider for Clerk](https://github.com/bertie-technology/terraform-provider-clerk)
+- **Mentorship:** Guides and mentors less senior team members, championing best practices across the engineering team.
+- **Quality of Life:** Proactively improves developer and end-user experience, such as implementing a database migration dashboard and refining ~~keyboard-driven~~ workflows for the product.
+
+---
 
 ### Software Engineer
 
@@ -99,4 +113,4 @@ _2005 – 2012_
 
 ---
 
-[Download ATS friendly version](/static/eddietindame_cv_2025.docx)
+[Download ATS friendly version](/static/eddietindame_cv_2026.docx)

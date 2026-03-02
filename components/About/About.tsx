@@ -5,19 +5,19 @@ import S from './About.module.scss'
 const About = () => (
   <section id="about" className={S['about']}>
     <p className={[S['about__content'], 'u-margin-bottom-em'].join(' ')}>
-      I&apos;m a software engineer based in London who is currently open to work.
+      I&apos;m a software engineer based in London.
     </p>
     <p className={[S['about__content'], S['about__content--smaller']].join(' ')}>
-      Most recently, I worked at{' '}
+      Currently, I work at{' '}
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.indeed.com/"
-        className="!text-blue-800"
+        href="https://www.bertie.com/"
+        style={{ color: '#ea580c' }}
       >
-        Indeed
+        Bertie
       </a>{' '}
-      where I helped people get jobs.
+      where we are changing the landscape of insurtech for small-mid sized MGAs.
     </p>
   </section>
 )
