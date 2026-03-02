@@ -2,7 +2,7 @@
 
 ## Summary
 
-I’m a software engineer with 10 years of experience building and maintaining applications across the full stack at startups, large tech companies, and fast-paced digital agencies. I’m proficient in full-stack development, cloud infrastructure, CI/CD pipelines, and infrastructure-as-code tooling. I design, build, and maintain front-end and back-end systems, manage deployments and DevOps processes, and architect infrastructure. I specialize in writing type-safe, well-tested, and maintainable code, with a strong focus on user experience.
+I’m a software engineer with 10 years of experience building and maintaining applications across the full stack at startups, large tech companies, and fast-paced digital agencies. I’m proficient in full-stack development, cloud infrastructure, CI/CD pipelines, and infrastructure-as-code tooling. I design, build, and maintain front-end and back-end systems, manage deployments and DevOps processes, and architect infrastructure. I specialise in writing type-safe, well-tested, and maintainable code, with a strong focus on user experience.
 
 I thrive in collaborative environments, working closely with designers, product managers, and other engineers to turn ideas into polished, high-quality features. I’m experienced in real-time applications, functional user interfaces, and crafting engaging front-end experiences, always balancing technical excellence with great UI/UX.
 
@@ -50,7 +50,7 @@ _May 2018 – May 2021_
 - **Real-Time Activations:** Built ~~websocket~~-powered fan engagement campaigns, map-based activations, and content approval panels.
 - **WebGL & AR:** Developed cutting-edge front-end experiences with ~~three.js~~ and built social media ~~AR~~ filters.
 - **Authentication & i18n:** Built reward systems with email confirmation, password recovery, and ~~internationalisation~~ support.
-- **Workflow optimization:** Moved our team away from using Google Docs for project management by introducing them to ~~Notion~~, vastly streamlining our workflows and increasing organisation and access to documentation.
+- **Workflow optimisation:** Moved our team away from using Google Docs for project management by introducing them to ~~Notion~~, vastly streamlining our workflows and increasing organisation and access to documentation.
 
 ---
 
