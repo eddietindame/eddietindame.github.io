@@ -107,7 +107,7 @@ _2005 – 2012_
 
 🏆 Hackathon track winner (AR challenge at Junction, Helsinki),
 💻 Code & technology,
-🎸 Music & guitar,
+🎸 Music & guitar (I play in a few bands),
 🎨 Art & design,
 🗿 Megaliths & ancient history 🌌
 
