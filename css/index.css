@@ -9,10 +9,37 @@
   --radius-sm: calc(var(--bs-border-radius) - 4px);
   --radius-md: calc(var(--bs-border-radius) - 2px);
   --radius-lg: var(--bs-border-radius);
+
+  /* Safari-compatible screen height */
+  --height-screen: var(--full-height);
 }
 
 :root {
   --bs-border-radius: 0.5rem;
+
+  /* Bootstrap color variables */
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-bg-opacity: 1;
+
+  /* Safari-compatible viewport height */
+  --vh: 1vh;
+  --full-height: 100vh;
+
+  /* Use dynamic viewport height if supported (Safari iOS 15.4+) */
+  --full-height: 100dvh;
+}
+
+/* Fallback for older browsers */
+@supports not (height: 100dvh) {
+  :root {
+    --full-height: 100vh;
+  }
+}
+
+/* Dynamic viewport height utility that adapts to browser UI */
+.dynamic-screen {
+  height: var(--full-height);
 }
 
 /* TODO: Migrate all component styles to tailwind */

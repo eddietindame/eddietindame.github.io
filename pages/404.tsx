@@ -8,7 +8,7 @@ export default function Custom404() {
       <Head>
         <title>Eddie Tindame | 404 | Page not found</title>
       </Head>
-      <Layout className="h-screen">
+      <Layout className="dynamic-screen">
         <div className="flex flex-1 items-center justify-center">
           <h1 className="text-3xl">404 - This is not the page you are looking for.</h1>
         </div>
