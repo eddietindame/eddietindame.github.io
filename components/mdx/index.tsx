@@ -35,6 +35,77 @@ const Code = ({ children }: MDXProps) => (
   <code className="hljs inline-block rounded px-2 py-1 text-sm">{children}</code>
 )
 
+export function extractText(node: React.ReactNode): string {
+  if (typeof node === 'string') return node
+  if (typeof node === 'number') return String(node)
+  if (!node) return ''
+  if (Array.isArray(node)) return node.map(extractText).join('')
+  if (React.isValidElement(node)) return extractText(node.props.children)
+  return ''
+}
+
+export function replaceText(
+  node: React.ReactNode,
+  replacer: (text: string) => React.ReactNode[]
+): React.ReactNode {
+  if (typeof node === 'string') return replacer(node)
+  if (!node || typeof node === 'number' || typeof node === 'boolean') return node
+  if (Array.isArray(node)) return node.map((child) => replaceText(child, replacer))
+  if (React.isValidElement(node)) {
+    return React.cloneElement(node, {
+      ...node.props,
+      children: replaceText(node.props.children, replacer),
+    })
+  }
+  return node
+}
+
+export const Pre = ({ children }: MDXProps) => {
+  const child = React.Children.only(children) as React.ReactElement
+  const className = (child?.props?.className as string) || ''
+  const isBash = className.includes('language-bash')
+
+  if (!isBash) return <pre>{children}</pre>
+
+  const fullText = extractText(child.props.children)
+  const lines = fullText.split('\n')
+  const promptLines = new Set<number>()
+  lines.forEach((line, i) => {
+    if (line.startsWith('> ')) promptLines.add(i)
+  })
+
+  let currentLine = 0
+  let keyCounter = 0
+  const transformed = replaceText(child.props.children, (text) => {
+    const parts: React.ReactNode[] = []
+    let buf = ''
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i]
+      if (ch === '\n') {
+        buf += '\n'
+        currentLine++
+      } else if (
+        buf.length === 0 ||
+        buf[buf.length - 1] === '\n'
+      ) {
+        if (promptLines.has(currentLine) && text.slice(i, i + 2) === '> ') {
+          if (buf) { parts.push(buf); buf = '' }
+          parts.push(<span key={`prompt-${keyCounter++}`} style={{ color: 'navy' }}>$ </span>)
+          i += 1
+        } else {
+          buf += ch
+        }
+      } else {
+        buf += ch
+      }
+    }
+    if (buf) parts.push(buf)
+    return parts
+  })
+
+  return <pre>{React.cloneElement(child, { children: transformed })}</pre>
+}
+
 const Hr = () => <hr className="my-4" />
 
 export const overrideComponents = {
@@ -46,5 +117,6 @@ export const overrideComponents = {
   strong: StrongSans,
   del: Strong,
   code: Code,
+  pre: Pre,
   hr: Hr,
 }
