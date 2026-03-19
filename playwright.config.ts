@@ -8,7 +8,7 @@ export default defineConfig({
     baseURL: `http://localhost:${PORT}`,
   },
   webServer: {
-    command: `pnpm build && pnpm dlx serve -p ${PORT} ./out`,
+    command: `pnpm build && pnpm exec serve -p ${PORT} ./out`,
     port: PORT,
     reuseExistingServer: true,
   },
