@@ -12,6 +12,7 @@
     "prod": "next build && next start -p 3001",
     "start": "next start",
     "test": "vitest run",
+    "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
     "prepare": "husky"
   },
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^16.2.0",
+    "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4.0.12",
     "@types/node": "^22.13.9",
     "@types/react": "^19.0.10",
