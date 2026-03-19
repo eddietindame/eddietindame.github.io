@@ -27,6 +27,7 @@ const Contact = () => {
   return (
     <section id="contact" className={S['contact']}>
       <div className={[S['contact__inner'], 'container'].join(' ')}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={Portrait.src} alt="Eddie Tindame" className={S['contact__portrait']} />
         <div className={S['contact__items']}>
           {contactItems.map(({ href, label, isEmail }, i) => (

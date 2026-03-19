@@ -34,10 +34,6 @@ const Nav = () => {
       label: 'Resume',
       href: '/resume',
     },
-    // {
-    //   label: 'Projects',
-    //   href: '/work',
-    // },
     {
       label: 'Blog',
       href: '/blog',
@@ -77,50 +73,48 @@ type NavLinkProps = {
 }
 
 const NavLink = ({ item, index }: NavLinkProps) => {
+  // Destructure to avoid the linter treating `item` as a ref container
+  // because NavItem has a `ref` field
+  const { href, hash: itemHash, label, ref: itemRef } = item
   const router = useRouter()
-  const hash = item.hash ?? ''
+  const hash = itemHash ?? ''
 
   const _onClickAnchor = e => {
     const { pathname } = e.target
-    const scrollchorRef = item.ref?.current
+    const ref = itemRef?.current
     e.preventDefault()
     router.push(pathname, null, { scroll: false }).then(() => {
       // timeout waits for page transition
       setTimeout(() => {
         if (pathname !== '/') window.scrollTo(0, 0)
-        if (scrollchorRef) scrollchorRef.simulateClick()
+        if (ref) ref.simulateClick()
       }, TRANSITION_DURATION + 5)
     })
   }
 
   const _onHoverAnchor = () => {
-    router.prefetch(item.href)
+    router.prefetch(href)
   }
 
-  if (router.pathname === item.href) {
+  if (router.pathname === href) {
     return (
       <Scrollchor to={hash} className={S['nav__items__link']} disableHistory={true}>
-        {item.label}
+        {label}
       </Scrollchor>
     )
   }
 
   return (
     <>
-      <Scrollchor
-        ref={item.ref}
-        to={hash}
-        className={S['nav__items__link']}
-        disableHistory={true}
-      />
+      <Scrollchor ref={itemRef} to={hash} className={S['nav__items__link']} disableHistory={true} />
       <a
-        href={item.href + hash}
+        href={href + hash}
         className={S['nav__items__link']}
         onClick={_onClickAnchor}
         onMouseEnter={_onHoverAnchor}
         data-index={index}
       >
-        {item.label}
+        {label}
       </a>
     </>
   )

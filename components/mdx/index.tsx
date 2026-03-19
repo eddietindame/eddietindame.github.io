@@ -40,21 +40,22 @@ export function extractText(node: React.ReactNode): string {
   if (typeof node === 'number') return String(node)
   if (!node) return ''
   if (Array.isArray(node)) return node.map(extractText).join('')
-  if (React.isValidElement(node)) return extractText(node.props.children)
+  if (React.isValidElement(node))
+    return extractText((node.props as { children?: React.ReactNode }).children)
   return ''
 }
 
 export function replaceText(
   node: React.ReactNode,
-  replacer: (text: string) => React.ReactNode[]
+  replacer: (text: string) => React.ReactNode[],
 ): React.ReactNode {
   if (typeof node === 'string') return replacer(node)
   if (!node || typeof node === 'number' || typeof node === 'boolean') return node
-  if (Array.isArray(node)) return node.map((child) => replaceText(child, replacer))
+  if (Array.isArray(node)) return node.map(child => replaceText(child, replacer))
   if (React.isValidElement(node)) {
-    return React.cloneElement(node, {
-      ...node.props,
-      children: replaceText(node.props.children, replacer),
+    const el = node as React.ReactElement<{ children?: React.ReactNode }>
+    return React.cloneElement(el, {
+      children: replaceText(el.props.children, replacer),
     })
   }
   return node
@@ -62,12 +63,13 @@ export function replaceText(
 
 export const Pre = ({ children }: MDXProps) => {
   const child = React.Children.only(children) as React.ReactElement
-  const className = (child?.props?.className as string) || ''
+  const childProps = child?.props as Record<string, unknown>
+  const className = (childProps?.className as string) || ''
   const isBash = className.includes('language-bash')
 
   if (!isBash) return <pre>{children}</pre>
 
-  const fullText = extractText(child.props.children)
+  const fullText = extractText(childProps.children as React.ReactNode)
   const lines = fullText.split('\n')
   const promptLines = new Set<number>()
   lines.forEach((line, i) => {
@@ -76,7 +78,7 @@ export const Pre = ({ children }: MDXProps) => {
 
   let currentLine = 0
   let keyCounter = 0
-  const transformed = replaceText(child.props.children, (text) => {
+  const transformed = replaceText(childProps.children as React.ReactNode, text => {
     const parts: React.ReactNode[] = []
     let buf = ''
     for (let i = 0; i < text.length; i++) {
@@ -84,13 +86,17 @@ export const Pre = ({ children }: MDXProps) => {
       if (ch === '\n') {
         buf += '\n'
         currentLine++
-      } else if (
-        buf.length === 0 ||
-        buf[buf.length - 1] === '\n'
-      ) {
+      } else if (buf.length === 0 || buf[buf.length - 1] === '\n') {
         if (promptLines.has(currentLine) && text.slice(i, i + 2) === '> ') {
-          if (buf) { parts.push(buf); buf = '' }
-          parts.push(<span key={`prompt-${keyCounter++}`} style={{ color: 'navy' }}>$ </span>)
+          if (buf) {
+            parts.push(buf)
+            buf = ''
+          }
+          parts.push(
+            <span key={`prompt-${keyCounter++}`} style={{ color: 'navy' }}>
+              ${' '}
+            </span>,
+          )
           i += 1
         } else {
           buf += ch
@@ -103,7 +109,13 @@ export const Pre = ({ children }: MDXProps) => {
     return parts
   })
 
-  return <pre>{React.cloneElement(child, { children: transformed })}</pre>
+  return (
+    <pre>
+      {React.cloneElement(child as React.ReactElement<{ children?: React.ReactNode }>, {
+        children: transformed,
+      })}
+    </pre>
+  )
 }
 
 const Hr = () => <hr className="my-4" />

@@ -12,6 +12,7 @@
     "prod": "next build && next start -p 3001",
     "start": "next start",
     "test": "vitest run",
+    "typecheck": "tsc --noEmit",
     "prepare": "husky"
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "bootstrap": "^5.3.3",
     "next": "15.2.1",
     "next-mdx-remote": "^5.0.0",
+    "prop-types": "^15.8.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-image": "^4.1.0",
@@ -37,20 +39,18 @@
     "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^16.2.0",
     "@tailwindcss/postcss": "^4.0.12",
     "@types/node": "^22.13.9",
     "@types/react": "^19.0.10",
     "@types/react-lazyload": "^3.2.3",
-    "@typescript-eslint/eslint-plugin": "8.26.0",
-    "@typescript-eslint/parser": "8.26.0",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
-    "eslint": "9.21.0",
-    "eslint-config-prettier": "^10.0.2",
-    "eslint-plugin-prettier": "5.2.3",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint": "^10.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "postcss": "^8.5.3",
@@ -60,6 +60,7 @@
     "sass": "^1.85.1",
     "tailwindcss": "^4.0.12",
     "typescript": "5.8.2",
+    "typescript-eslint": "^8.57.1",
     "vitest": "^4.1.0"
   },
   "lint-staged": {

@@ -17,16 +17,4 @@ const Projects = () => {
   )
 }
 
-Projects.getInitialProps = async ({ res }) => {
-  if (res) {
-    if (typeof res.writeHead === 'function') {
-      res.writeHead(302, {
-        Location: '/work',
-      })
-      res.end()
-    }
-  } else Router.push('/work')
-  return { props: null }
-}
-
 export default Projects
