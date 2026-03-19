@@ -4,6 +4,8 @@ description: 'Comparing SQLite and Postgres by hand was miserable, so I built a 
 date: '2026-03-19'
 ---
 
+![Screenshot](https://github.com/eddietindame/dbcompare/raw/master/dbc-screenshot.png)
+
 In an offline-first app, your data lives in two places: SQLite on the client, Postgres on the backend.
 
 At some point, you need to answer a simple question: _do they actually match?_
