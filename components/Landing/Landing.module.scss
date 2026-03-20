@@ -1,5 +1,5 @@
 .landing {
-  height: 100vh;
+  height: var(--full-height);
 
   &__inner {
     position: fixed;

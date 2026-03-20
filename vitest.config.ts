@@ -7,11 +7,12 @@ export default defineConfig({
   resolve: {
     alias: {
       components: path.resolve(__dirname, 'components'),
+      lib: path.resolve(__dirname, 'lib'),
     },
   },
   test: {
     globals: true,
-    environment: 'node',
+    environment: 'jsdom',
     exclude: ['e2e/**', 'node_modules/**'],
   },
 })
