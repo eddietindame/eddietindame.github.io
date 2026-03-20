@@ -2,16 +2,17 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
+import { vi } from 'vitest'
 import { ConfirmationModal } from './ConfirmationModal'
 
 describe('ConfirmationModal', () => {
   let user: ReturnType<typeof userEvent.setup>
-  const mockOnConfirm = jest.fn()
-  const mockOnCancel = jest.fn()
+  const mockOnConfirm = vi.fn()
+  const mockOnCancel = vi.fn()
 
   beforeEach(() => {
     user = userEvent.setup()
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   const defaultProps = {

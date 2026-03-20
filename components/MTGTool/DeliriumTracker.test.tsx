@@ -2,16 +2,17 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
+import { vi, type Mock } from 'vitest'
 import { DeliriumTracker } from './DeliriumTracker'
 import { DeliriumState, CardType } from './types'
 
 describe('DeliriumTracker', () => {
   let user: ReturnType<typeof userEvent.setup>
-  let mockOnToggleCardType: jest.Mock
+  let mockOnToggleCardType: Mock
 
   beforeEach(() => {
     user = userEvent.setup()
-    mockOnToggleCardType = jest.fn()
+    mockOnToggleCardType = vi.fn()
   })
 
   const createDeliriumState = (cardTypes: CardType[] = []): DeliriumState => ({
